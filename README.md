@@ -17,3 +17,4 @@ You can contribute in many ways:
 - Submit a issue or feature you would like to see
 - Update the README to describe what we want in the new website
 - Anything that's good
+- Fix an issue
