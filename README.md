@@ -22,3 +22,8 @@ You can contribute in many ways:
 ## The website
 
 See the latest version of the website [here](https://lokeshh.github.io/upgrade_glugnith/)
+
+## Pages we would like to see
+
+- Home
+- Contact
