@@ -1,2 +1,5 @@
 [project]
 name = GLUG-NITH
+
+[servers.ghpages]
+target = ghpages://lokeshh/upgrade_glugnith

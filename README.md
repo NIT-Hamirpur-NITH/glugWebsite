@@ -18,3 +18,7 @@ You can contribute in many ways:
 - Update the README to describe what we want in the new website
 - Anything that's good
 - Fix an issue
+
+## The website
+
+See the latest version of the website [here](https://lokeshh.github.io/upgrade_glugnith/)
