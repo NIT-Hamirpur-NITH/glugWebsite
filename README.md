@@ -19,6 +19,10 @@ You can contribute in many ways:
 - Anything that's good
 - Fix an issue
 
+## Website
+
+You can view the currently made website at http://glugnith.herokuapp.com/
+
 ## Pages we would like to see
 
 - Home
