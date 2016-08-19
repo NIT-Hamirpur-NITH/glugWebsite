@@ -1,8 +1,8 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledConfig',
-    'timestamp' => 1471216692,
-    'checksum' => 'fb66acd64bc96604ac7e56fd26e5b1d2',
+    'timestamp' => 1471613984,
+    'checksum' => '20e7219cb0374b500e690b0279dff7ad',
     'files' => [
         'user/config' => [
             'media' => [
@@ -15,7 +15,7 @@ return [
             ],
             'site' => [
                 'file' => 'user/config/site.yaml',
-                'modified' => 1471216450
+                'modified' => 1471613984
             ],
             'streams' => [
                 'file' => 'user/config/streams.yaml',
@@ -45,18 +45,6 @@ return [
             ]
         ],
         'user/plugins' => [
-            'plugins/admin' => [
-                'file' => 'user/plugins/admin/admin.yaml',
-                'modified' => 1471216450
-            ],
-            'plugins/problems' => [
-                'file' => 'user/plugins/problems/problems.yaml',
-                'modified' => 1471216450
-            ],
-            'plugins/form' => [
-                'file' => 'user/plugins/form/form.yaml',
-                'modified' => 1471216450
-            ],
             'plugins/markdown-notices' => [
                 'file' => 'user/plugins/markdown-notices/markdown-notices.yaml',
                 'modified' => 1471216450
@@ -65,18 +53,66 @@ return [
                 'file' => 'user/plugins/email/email.yaml',
                 'modified' => 1471216450
             ],
-            'plugins/error' => [
-                'file' => 'user/plugins/error/error.yaml',
+            'plugins/problems' => [
+                'file' => 'user/plugins/problems/problems.yaml',
+                'modified' => 1471216450
+            ],
+            'plugins/admin' => [
+                'file' => 'user/plugins/admin/admin.yaml',
+                'modified' => 1471216450
+            ],
+            'plugins/form' => [
+                'file' => 'user/plugins/form/form.yaml',
                 'modified' => 1471216450
             ],
             'plugins/login' => [
                 'file' => 'user/plugins/login/login.yaml',
+                'modified' => 1471216450
+            ],
+            'plugins/error' => [
+                'file' => 'user/plugins/error/error.yaml',
                 'modified' => 1471216450
             ]
         ]
     ],
     'data' => [
         'plugins' => [
+            'markdown-notices' => [
+                'enabled' => true,
+                'built_in_css' => true,
+                'level_classes' => [
+                    0 => 'yellow',
+                    1 => 'red',
+                    2 => 'blue',
+                    3 => 'green'
+                ]
+            ],
+            'email' => [
+                'enabled' => true,
+                'from' => NULL,
+                'from_name' => NULL,
+                'to' => NULL,
+                'to_name' => NULL,
+                'mailer' => [
+                    'engine' => 'mail',
+                    'smtp' => [
+                        'server' => 'localhost',
+                        'port' => 25,
+                        'encryption' => 'none',
+                        'user' => '',
+                        'password' => ''
+                    ],
+                    'sendmail' => [
+                        'bin' => '/usr/sbin/sendmail'
+                    ]
+                ],
+                'content_type' => 'text/html',
+                'debug' => false
+            ],
+            'problems' => [
+                'enabled' => true,
+                'built_in_css' => true
+            ],
             'admin' => [
                 'enabled' => true,
                 'route' => '/admin',
@@ -127,10 +163,6 @@ return [
                     ]
                 ]
             ],
-            'problems' => [
-                'enabled' => true,
-                'built_in_css' => true
-            ],
             'form' => [
                 'enabled' => true,
                 'files' => [
@@ -139,44 +171,6 @@ return [
                     'accept' => [
                         0 => 'image/*'
                     ]
-                ]
-            ],
-            'markdown-notices' => [
-                'enabled' => true,
-                'built_in_css' => true,
-                'level_classes' => [
-                    0 => 'yellow',
-                    1 => 'red',
-                    2 => 'blue',
-                    3 => 'green'
-                ]
-            ],
-            'email' => [
-                'enabled' => true,
-                'from' => NULL,
-                'from_name' => NULL,
-                'to' => NULL,
-                'to_name' => NULL,
-                'mailer' => [
-                    'engine' => 'mail',
-                    'smtp' => [
-                        'server' => 'localhost',
-                        'port' => 25,
-                        'encryption' => 'none',
-                        'user' => '',
-                        'password' => ''
-                    ],
-                    'sendmail' => [
-                        'bin' => '/usr/sbin/sendmail'
-                    ]
-                ],
-                'content_type' => 'text/html',
-                'debug' => false
-            ],
-            'error' => [
-                'enabled' => true,
-                'routes' => [
-                    404 => '/error'
                 ]
             ],
             'login' => [
@@ -217,6 +211,12 @@ return [
                     'enabled' => true,
                     'timeout' => 604800,
                     'name' => 'grav-rememberme'
+                ]
+            ],
+            'error' => [
+                'enabled' => true,
+                'routes' => [
+                    404 => '/error'
                 ]
             ]
         ],
@@ -475,10 +475,10 @@ return [
             ]
         ],
         'site' => [
-            'title' => 'Grav',
+            'title' => 'GLUG-NITH',
             'author' => [
-                'name' => 'Joe Bloggs',
-                'email' => 'joe@test.com'
+                'name' => 'lokeshh',
+                'email' => 'lokeshhsharma@gmai.com'
             ],
             'taxonomies' => [
                 0 => 'category',
