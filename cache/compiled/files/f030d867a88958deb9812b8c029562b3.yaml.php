@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/email/languages.yaml',
-    'modified' => 1471216450,
+    'modified' => 1471663493,
     'data' => [
         'en' => [
             'PLUGIN_EMAIL' => [
@@ -50,6 +50,12 @@ return [
             'PLUGIN_EMAIL' => [
                 'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Konfigurere venligst en \'til\' email adresse i Email Plugin indstillingerne eller her i formularen',
                 'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Konfigurere venligst en \'fra\' email adresse i Email Plugin indstillingerne eller her i formularen'
+            ]
+        ],
+        'ru' => [
+            'PLUGIN_EMAIL' => [
+                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Пожалуйста настройте адрес получателя (\'to\') в настройках плагина Email Plugin, или на форме',
+                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Пожалуйста настройте адрес отправителя (\'from\') в настройках плагина Email Plugin, или на форме'
             ]
         ]
     ]

@@ -1,13 +1,17 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledConfig',
-    'timestamp' => 1471613984,
-    'checksum' => '20e7219cb0374b500e690b0279dff7ad',
+    'timestamp' => 1471663494,
+    'checksum' => 'e787fd81b3d26e5f9806f4d11d47e8eb',
     'files' => [
         'user/config' => [
             'media' => [
                 'file' => 'user/config/media.yaml',
                 'modified' => 1471216509
+            ],
+            'plugins/bootstrapper' => [
+                'file' => 'user/config/plugins/bootstrapper.yaml',
+                'modified' => 1471663171
             ],
             'security' => [
                 'file' => 'user/config/security.yaml',
@@ -51,11 +55,15 @@ return [
             ],
             'plugins/email' => [
                 'file' => 'user/plugins/email/email.yaml',
-                'modified' => 1471216450
+                'modified' => 1471663493
             ],
             'plugins/problems' => [
                 'file' => 'user/plugins/problems/problems.yaml',
                 'modified' => 1471216450
+            ],
+            'plugins/bootstrapper' => [
+                'file' => 'user/plugins/bootstrapper/bootstrapper.yaml',
+                'modified' => 1471663115
             ],
             'plugins/admin' => [
                 'file' => 'user/plugins/admin/admin.yaml',
@@ -112,6 +120,15 @@ return [
             'problems' => [
                 'enabled' => true,
                 'built_in_css' => true
+            ],
+            'bootstrapper' => [
+                'enabled' => true,
+                'always_load' => false,
+                'use_cdn' => false,
+                'mode' => 'production',
+                'load_core_css' => true,
+                'load_theme_css' => true,
+                'load_core_js' => true
             ],
             'admin' => [
                 'enabled' => true,

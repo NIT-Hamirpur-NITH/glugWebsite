@@ -1,8 +1,8 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledLanguages',
-    'timestamp' => 1471613342,
-    'checksum' => '434cb96b6e3f240b6fc6c0d3ff7202d0',
+    'timestamp' => 1471663494,
+    'checksum' => '37a528c70c202d3a5575406b74a4f96a',
     'files' => [
         'system/languages' => [
             'ar' => [
@@ -121,7 +121,11 @@ return [
         'user/plugins' => [
             'plugins/email' => [
                 'file' => 'user/plugins/email/languages.yaml',
-                'modified' => 1471216450
+                'modified' => 1471663493
+            ],
+            'plugins/bootstrapper' => [
+                'file' => 'user/plugins/bootstrapper/languages.yaml',
+                'modified' => 1471663115
             ],
             'plugins/form' => [
                 'file' => 'user/plugins/form/languages.yaml',
@@ -4139,6 +4143,17 @@ Pfad: `%2$s`
                 'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Please configure a \'to\' address in the Email Plugin settings, or in the form',
                 'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Please configure a \'from\' address in the Email Plugin settings, or in the form'
             ],
+            'PLUGIN_BOOTSTRAPPER' => [
+                'STATUS' => 'Plugin status',
+                'ALWAYS_LOAD' => 'Always load',
+                'ALWAYS_LOAD_HELP' => 'If disabled, let the theme decide to load the bootstrap plugin',
+                'USE_CDN' => 'Use Bootstrap CDN',
+                'USE_CDN_HELP' => 'Load Bootstrap\'s CSS and JavaScript from CDN',
+                'MODE' => 'Mode',
+                'LOAD_CORE_CSS' => 'Load Core CSS',
+                'LOAD_THEME_CSS' => 'Load Theme CSS',
+                'LOAD_CORE_JS' => 'Load Core JS'
+            ],
             'PLUGIN_FORM' => [
                 'NOT_VALIDATED' => 'Form not validated. One or more required fields are missing.',
                 'NONCE_NOT_VALIDATED' => 'Oops there was a problem, please check your input and submit the form again.',
@@ -6222,6 +6237,17 @@ Ruta: `%2$s`
             'PLUGIN_EMAIL' => [
                 'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Veuillez configurer une adresse de \'destinataire\' dans les paramètres du Plugin ou dans le formulaire.',
                 'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Veuillez configurer une adresse \'d\'expéditeur\' dans les paramètres du Plugin ou dans le formulaire.'
+            ],
+            'PLUGIN_BOOTSTRAPPER' => [
+                'STATUS' => 'Statut du plugin',
+                'ALWAYS_LOAD' => 'Toujours charger',
+                'ALWAYS_LOAD_HELP' => 'Si désactivé, laisser le thème décider de charger le plugin bootstrap',
+                'USE_CDN' => 'Utiliser le CDN Bootstrap',
+                'USE_CDN_HELP' => 'Charger les CSS Bootstrap et les JavaScript depuis le CDN',
+                'MODE' => 'Mode',
+                'LOAD_CORE_CSS' => 'Charger les CSS du core',
+                'LOAD_THEME_CSS' => 'Charger les CSS du thème',
+                'LOAD_CORE_JS' => 'Charger les JS du core'
             ],
             'PLUGIN_FORM' => [
                 'NOT_VALIDATED' => 'Formulaire non validé. Un ou plusieurs champs obligatoires sont manquants.',
@@ -12712,6 +12738,21 @@ Calea: `%2$s`
                 'FROM' => 'от',
                 'TO' => 'к'
             ],
+            'PLUGIN_EMAIL' => [
+                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Пожалуйста настройте адрес получателя (\'to\') в настройках плагина Email Plugin, или на форме',
+                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Пожалуйста настройте адрес отправителя (\'from\') в настройках плагина Email Plugin, или на форме'
+            ],
+            'PLUGIN_BOOTSTRAPPER' => [
+                'STATUS' => 'Состояние плагина',
+                'ALWAYS_LOAD' => 'Загружать всегда',
+                'ALWAYS_LOAD_HELP' => 'Если отключено, загрузка плагина определяется темой оформления',
+                'USE_CDN' => 'Использовать Bootstrap CDN',
+                'USE_CDN_HELP' => 'Загружать Bootstrap CSS и JavaScript из CDN',
+                'MODE' => 'Режим',
+                'LOAD_CORE_CSS' => 'Загружать основной CSS',
+                'LOAD_THEME_CSS' => 'Загружать CSS темы оформления',
+                'LOAD_CORE_JS' => 'Загружать основной JS'
+            ],
             'PLUGIN_ERROR' => [
                 'ERROR' => 'Ошибка',
                 'ERROR_MESSAGE' => 'Упс. Похоже, эта страница не существует.'
@@ -15357,6 +15398,6 @@ Path: `%2$s`
                 6 => 'Chủ Nhật'
             ]
         ],
-        'checksum' => '434cb96b6e3f240b6fc6c0d3ff7202d0'
+        'checksum' => '37a528c70c202d3a5575406b74a4f96a'
     ]
 ];

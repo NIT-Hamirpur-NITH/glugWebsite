@@ -27,3 +27,7 @@ This greatly help people sitting at different places working on their systems to
 
 Read More about contributing here #TODO update this link
 
+<center>
+<a class="twitter-timeline" data-width="600" data-height="400" data-theme="light" href="https://twitter.com/glugnith">Tweets by glugnith</a> 
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
