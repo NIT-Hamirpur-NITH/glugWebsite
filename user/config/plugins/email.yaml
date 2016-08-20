@@ -1,0 +1,14 @@
+enabled: true
+from: lokeshhsharma@gmail.com
+from_name: 'Glug Nith'
+to: lokeshhsharma@gmail.com
+mailer:
+  engine: mail
+  smtp:
+    server: localhost
+    port: 25
+    encryption: none
+  sendmail:
+    bin: /usr/sbin/sendmail
+content_type: text/html
+debug: false

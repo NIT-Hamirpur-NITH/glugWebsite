@@ -1,8 +1,8 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledConfig',
-    'timestamp' => 1471663494,
-    'checksum' => 'e787fd81b3d26e5f9806f4d11d47e8eb',
+    'timestamp' => 1471689945,
+    'checksum' => 'd70e8b6f2afacff8458ed457106e315e',
     'files' => [
         'user/config' => [
             'media' => [
@@ -12,6 +12,14 @@ return [
             'plugins/bootstrapper' => [
                 'file' => 'user/config/plugins/bootstrapper.yaml',
                 'modified' => 1471663171
+            ],
+            'plugins/email' => [
+                'file' => 'user/config/plugins/email.yaml',
+                'modified' => 1471666759
+            ],
+            'plugins/gitter' => [
+                'file' => 'user/config/plugins/gitter.yaml',
+                'modified' => 1471689945
             ],
             'security' => [
                 'file' => 'user/config/security.yaml',
@@ -27,7 +35,7 @@ return [
             ],
             'system' => [
                 'file' => 'user/config/system.yaml',
-                'modified' => 1471216450
+                'modified' => 1471666555
             ]
         ],
         'system/config' => [
@@ -61,6 +69,10 @@ return [
                 'file' => 'user/plugins/problems/problems.yaml',
                 'modified' => 1471216450
             ],
+            'plugins/github' => [
+                'file' => 'user/plugins/github/github.yaml',
+                'modified' => 1471666214
+            ],
             'plugins/bootstrapper' => [
                 'file' => 'user/plugins/bootstrapper/bootstrapper.yaml',
                 'modified' => 1471663115
@@ -68,6 +80,10 @@ return [
             'plugins/admin' => [
                 'file' => 'user/plugins/admin/admin.yaml',
                 'modified' => 1471216450
+            ],
+            'plugins/gitter' => [
+                'file' => 'user/plugins/gitter/gitter.yaml',
+                'modified' => 1471666090
             ],
             'plugins/form' => [
                 'file' => 'user/plugins/form/form.yaml',
@@ -97,9 +113,9 @@ return [
             ],
             'email' => [
                 'enabled' => true,
-                'from' => NULL,
-                'from_name' => NULL,
-                'to' => NULL,
+                'from' => 'lokeshhsharma@gmail.com',
+                'from_name' => 'Glug Nith',
+                'to' => 'lokeshhsharma@gmail.com',
                 'to_name' => NULL,
                 'mailer' => [
                     'engine' => 'mail',
@@ -120,6 +136,14 @@ return [
             'problems' => [
                 'enabled' => true,
                 'built_in_css' => true
+            ],
+            'github' => [
+                'enabled' => true,
+                'auth' => [
+                    'method' => '',
+                    'token' => '',
+                    'password' => ''
+                ]
             ],
             'bootstrapper' => [
                 'enabled' => true,
@@ -179,6 +203,17 @@ return [
                         'visitors' => 20
                     ]
                 ]
+            ],
+            'gitter' => [
+                'enabled' => true,
+                'enable_on_routes' => [
+                    0 => '/'
+                ],
+                'disable_on_routes' => [
+                    0 => '/blog/blog-post-to-ignore',
+                    1 => '/ignore-this-route'
+                ],
+                'channel' => 'glugnith/glugnith'
             ],
             'form' => [
                 'enabled' => true,
@@ -541,7 +576,7 @@ return [
         ],
         'system' => [
             'absolute_urls' => false,
-            'timezone' => '',
+            'timezone' => 'Asia/Kolkata',
             'default_locale' => NULL,
             'param_sep' => ':',
             'wrapped_site' => false,
@@ -611,7 +646,7 @@ return [
                 'etag' => false,
                 'vary_accept_encoding' => false,
                 'redirect_default_route' => false,
-                'redirect_default_code' => 301,
+                'redirect_default_code' => '301',
                 'redirect_trailing_slash' => true,
                 'ignore_files' => [
                     0 => '.DS_Store'
