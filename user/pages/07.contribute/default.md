@@ -29,7 +29,8 @@ in Fedora or other RPM based distributions.
 ## The website source code 
 
 The website source code is hosted on github.com. Source code repository is at following URL :
-https://github.com/glugnith/glug.nith.ac.in
+
+!!! https://github.com/glugnith/glug.nith.ac.in
 
 ## How to contribute ?
 
@@ -52,18 +53,19 @@ The BootCamp mentioned above will help you in performing basic tasks that should
 If you want to learn more about git than there are plenty of books , websites, video tutorials online which you can read and watch both online and offline .The links to directly download them are provided below
 
 
-1.Pro Git- It's an official book of the Git and GitHub community written by Scott Chacon and published by Apress.
+1. [Pro Git](https://github.s3.amazonaws.com/media/progit.en.pdf)- It's an official book of the Git and GitHub community written by Scott Chacon and published by Apress.
 
-2.Version Control with Git-Version Control with Git takes you step-by-step through ways to track, merge, and manage software projects, using this highly flexible, open source version
+2. [Version Control with Git](http://it-ebooks.info/go.php?id=919-1371556924-6aefe9f2faf570c17fa3f92881d42669)- Version Control with Git takes you step-by-step through ways to track, merge, and manage software projects, using this highly flexible, open source version
 control system.
 
-3.Git: Version Control for Everyone-A complete beginner's workflow for version control of common documents and content. E xamples used are from non-techie, day to day computing activities we all engage in. Learn through multiple modes - readers learn theory to understand the concept and reinforce it by practical tutorials. Ideal for users on Windows, Linux, and Mac OS X.
+3. [Git](http://it-ebooks.info/go.php?id=1759-1371556930-ca26e1a6d8a0a8076267868a145b3726)- Version Control for Everyone-A complete beginner's workflow for version control of common documents and content. E xamples used are from non-techie, day to day computing activities we all engage in. Learn through multiple modes - readers learn theory to understand the concept and reinforce it by practical tutorials. Ideal for users on Windows, Linux, and Mac OS X.
 
-4.Pragmatic Guide to Git- Need to learn how to wrap your head around Git, but don't need a lot of hand holding? Grab this book if you're new to Git, not to the world of programming. Git tasks displayed on two-page spreads provide all the context you need, without the extra fluff.
+4. [Pragmatic Guide to Git](http://it-ebooks.info/go.php?id=45-1371556925-a36612fe99cabace47573a78fd96e557)- Need to learn how to wrap your head around Git, but don't need a lot of hand holding? Grab this book if you're new to Git, not to the world of programming. Git tasks displayed on two-page spreads provide all the context you need, without the extra fluff.
 
-Great articles-
+### Great articles
+
 Here are some of the great links to articles which provide you all the information t you need to know about git.
 
-1.How to learn git - A link roundup-This article consists of links to the entire material available on the web related to git.It consists of links to videos , blog , wikis , reference etc. Just click it and start learning.
+1. [How to learn git](http://answers.oreilly.com/topic/801-how-to-learn-git-a-link-roundup/) - A link roundup-This article consists of links to the entire material available on the web related to git.It consists of links to videos , blog , wikis , reference etc. Just click it and start learning.
 
-2.Git for beginners: The definitive practical guide- An article on stack overflow website consists of all the faq, installation , references to git. 
+2. [Git for beginners](http://stackoverflow.com/questions/315911/git-for-beginners-the-definitive-practical-guide): The definitive practical guide- An article on stack overflow website consists of all the faq, installation , references to git. 

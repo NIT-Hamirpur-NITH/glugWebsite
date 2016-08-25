@@ -25,7 +25,7 @@ By using this famous tool, you can make contribution to this website which will 
 This greatly help people sitting at different places working on their systems to build and discuss various changes that should or need to be included on the website.
 
 
-Read More about contributing [here](/contribute).
+[Read More about contributing here](/contribute).
 
 <center>
 <a class="twitter-timeline" data-width="600" data-height="400" data-theme="light" href="https://twitter.com/glugnith">Tweets by glugnith</a> 
