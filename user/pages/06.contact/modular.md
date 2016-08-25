@@ -3,7 +3,7 @@ title: Contact
 content:
     items: '@self.modular'
     order:
-        by: date
-        dir: desc
+        by: folder
+        dir: asc
 ---
 
