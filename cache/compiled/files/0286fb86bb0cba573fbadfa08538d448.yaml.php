@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/languages/sk.yaml',
-    'modified' => 1471216450,
+    'modified' => 1472214093,
     'data' => [
         'PLUGIN_ADMIN' => [
             'ADMIN_BETA_MSG' => 'Toto je Beta verzia! Používajte v ostrej prevádzke na vlastné riziko...',

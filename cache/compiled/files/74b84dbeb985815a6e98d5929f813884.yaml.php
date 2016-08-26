@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/blueprints.yaml',
-    'modified' => 1471216450,
+    'modified' => 1472214093,
     'data' => [
         'name' => 'Admin Panel',
         'version' => '1.1.4',

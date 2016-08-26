@@ -27,3 +27,5 @@ You can view the currently made website at http://glugnith.herokuapp.com/
 
 - Home
 - Contact
+
+#*Under Development*

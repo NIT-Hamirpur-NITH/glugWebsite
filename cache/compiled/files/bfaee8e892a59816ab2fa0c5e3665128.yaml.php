@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/system/languages/ru.yaml',
-    'modified' => 1471216450,
+    'modified' => 1472214093,
     'data' => [
         'FRONTMATTER_ERROR_PAGE' => '---
 title: %1$s

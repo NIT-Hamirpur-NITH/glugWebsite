@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/config/site.yaml',
-    'modified' => 1471613984,
+    'modified' => 1472214093,
     'data' => [
         'title' => 'GLUG-NITH',
         'author' => [
