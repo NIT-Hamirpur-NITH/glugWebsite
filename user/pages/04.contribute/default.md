@@ -1,6 +1,6 @@
 ---
 title: Contribute
-visible: false
+visible: true
 ---
 
 Now you can easily make changes and contribute to the website in whatever way you like. Your contribution will help in building the website, keep it updated and allows GLUG-NITH community to extend with mutual collaboration. Moreover you will be learning a very famous industry tool git which is covered in the below few paragraphs.
