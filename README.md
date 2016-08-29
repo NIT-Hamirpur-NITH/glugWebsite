@@ -1,5 +1,7 @@
 # Upgrade GLUG-NITH website
 
+[![Join the chat at https://gitter.im/lokeshh/upgrade_glugnith](https://badges.gitter.im/lokeshh/upgrade_glugnith.svg)](https://gitter.im/lokeshh/upgrade_glugnith?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 We aim at building a new website using Lector for GLUG-NITH.
 
 It should have the following features:
