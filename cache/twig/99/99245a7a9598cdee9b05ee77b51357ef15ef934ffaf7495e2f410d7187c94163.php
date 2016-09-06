@@ -63,20 +63,20 @@ class __TwigTemplate_cd4a09986c7c4a085bd74293ab2e92af40b249e510c61a08f4545bbfb96
         ";
         // line 69
         $this->displayBlock('footer', $context, $blocks);
-        // line 78
+        // line 82
         echo "    </div>
     <div class=\"sb-slidebar sb-left sb-width-thin\">
         <div id=\"panel\">
         ";
-        // line 81
-        $this->loadTemplate("partials/navigation.html.twig", "partials/base.html.twig", 81)->display($context);
-        // line 82
+        // line 85
+        $this->loadTemplate("partials/navigation.html.twig", "partials/base.html.twig", 85)->display($context);
+        // line 86
         echo "        </div>
     </div>
     ";
-        // line 84
+        // line 88
         $this->displayBlock('bottom', $context, $blocks);
-        // line 97
+        // line 101
         echo "</body>
 </html>
 ";
@@ -279,16 +279,20 @@ class __TwigTemplate_cd4a09986c7c4a085bd74293ab2e92af40b249e510c61a08f4545bbfb96
             <div class=\"totop\">
                 <span><a href=\"#\" id=\"toTop\"><i class=\"fa fa-arrow-up\"></i></a></span>
             </div>
-            <p>“Value your freedom or you will lose it, teaches history. 'Don't bother us with politics', respond those who don't want to learn.”
--Richard M. Stallman</p>
+            <p>
+                GLUG-NITH
+            </p>
+            <p>
+                Free as in freedom not free as in bear.
+            </p>
         </footer>
         ";
     }
 
-    // line 84
+    // line 88
     public function block_bottom($context, array $blocks = array())
     {
-        // line 85
+        // line 89
         echo "        ";
         echo $this->getAttribute((isset($context["assets"]) ? $context["assets"] : null), "js", array(0 => "bottom"), "method");
         echo "
@@ -317,7 +321,7 @@ class __TwigTemplate_cd4a09986c7c4a085bd74293ab2e92af40b249e510c61a08f4545bbfb96
 
     public function getDebugInfo()
     {
-        return array (  292 => 85,  289 => 84,  278 => 70,  275 => 69,  270 => 65,  265 => 66,  263 => 65,  258 => 64,  255 => 63,  250 => 61,  246 => 55,  243 => 54,  240 => 53,  235 => 49,  228 => 56,  225 => 53,  222 => 52,  219 => 51,  216 => 50,  214 => 49,  206 => 46,  202 => 44,  199 => 43,  195 => 36,  192 => 35,  189 => 34,  186 => 33,  183 => 32,  180 => 31,  176 => 28,  173 => 27,  170 => 26,  167 => 25,  164 => 24,  161 => 23,  158 => 22,  156 => 21,  153 => 20,  150 => 19,  147 => 18,  144 => 17,  141 => 16,  138 => 15,  135 => 14,  132 => 13,  124 => 37,  122 => 31,  116 => 29,  114 => 13,  109 => 11,  105 => 10,  102 => 9,  100 => 8,  92 => 7,  89 => 6,  86 => 5,  80 => 97,  78 => 84,  74 => 82,  72 => 81,  67 => 78,  65 => 69,  62 => 68,  60 => 63,  57 => 62,  55 => 61,  52 => 60,  50 => 43,  45 => 41,  42 => 40,  40 => 5,  35 => 3,  32 => 2,  30 => 1,);
+        return array (  296 => 89,  293 => 88,  278 => 70,  275 => 69,  270 => 65,  265 => 66,  263 => 65,  258 => 64,  255 => 63,  250 => 61,  246 => 55,  243 => 54,  240 => 53,  235 => 49,  228 => 56,  225 => 53,  222 => 52,  219 => 51,  216 => 50,  214 => 49,  206 => 46,  202 => 44,  199 => 43,  195 => 36,  192 => 35,  189 => 34,  186 => 33,  183 => 32,  180 => 31,  176 => 28,  173 => 27,  170 => 26,  167 => 25,  164 => 24,  161 => 23,  158 => 22,  156 => 21,  153 => 20,  150 => 19,  147 => 18,  144 => 17,  141 => 16,  138 => 15,  135 => 14,  132 => 13,  124 => 37,  122 => 31,  116 => 29,  114 => 13,  109 => 11,  105 => 10,  102 => 9,  100 => 8,  92 => 7,  89 => 6,  86 => 5,  80 => 101,  78 => 88,  74 => 86,  72 => 85,  67 => 82,  65 => 69,  62 => 68,  60 => 63,  57 => 62,  55 => 61,  52 => 60,  50 => 43,  45 => 41,  42 => 40,  40 => 5,  35 => 3,  32 => 2,  30 => 1,);
     }
 }
 /* {% set theme_config = attribute(config.themes, config.system.pages.theme) %}*/
@@ -393,8 +397,12 @@ class __TwigTemplate_cd4a09986c7c4a085bd74293ab2e92af40b249e510c61a08f4545bbfb96
 /*             <div class="totop">*/
 /*                 <span><a href="#" id="toTop"><i class="fa fa-arrow-up"></i></a></span>*/
 /*             </div>*/
-/*             <p>“Value your freedom or you will lose it, teaches history. 'Don't bother us with politics', respond those who don't want to learn.”*/
-/* -Richard M. Stallman</p>*/
+/*             <p>*/
+/*                 GLUG-NITH*/
+/*             </p>*/
+/*             <p>*/
+/*                 Free as in freedom not free as in bear.*/
+/*             </p>*/
 /*         </footer>*/
 /*         {% endblock %}*/
 /*     </div>*/

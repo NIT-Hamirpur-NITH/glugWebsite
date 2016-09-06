@@ -18,6 +18,10 @@ Our GLUG is mainly designed to cater to the GNU/Linux related needs of the stude
 
 > <cite> Richard M. Stallman </cite>
 
+### Getting Started
+
+[Click here](/getting-started) to learn about basic things to get started with GNU Linux.
+
 ### Contributing to website
 
 [Git](http://en.wikipedia.org/wiki/Git_%28software%29) is a famous tool to organise and colloborate among various code contributors.

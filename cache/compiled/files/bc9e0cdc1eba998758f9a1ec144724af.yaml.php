@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/config/system.yaml',
-    'modified' => 1472214093,
+    'modified' => 1473179275,
     'data' => [
         'absolute_urls' => false,
         'timezone' => 'Asia/Kolkata',
@@ -32,6 +32,7 @@ return [
                 'count' => 20
             ],
             'dateformat' => [
+                'default' => 'd-m-Y H:i',
                 'short' => 'jS M Y',
                 'long' => 'F jS \\a\\t g:ia'
             ],
@@ -124,7 +125,7 @@ return [
             ]
         ],
         'errors' => [
-            'display' => true,
+            'display' => false,
             'log' => true
         ],
         'debugger' => [
@@ -135,7 +136,7 @@ return [
             'twig' => true
         ],
         'images' => [
-            'default_image_quality' => 85,
+            'default_image_quality' => 100,
             'cache_all' => false,
             'cache_perms' => '0755',
             'debug' => false
