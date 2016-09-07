@@ -22,7 +22,7 @@ sudo apt-get install git
 in Ubuntu or other Debian distributions.
 or
 ```
-sudo yum install git
+yum install git
 ```
 in Fedora or other RPM based distributions. 
 
