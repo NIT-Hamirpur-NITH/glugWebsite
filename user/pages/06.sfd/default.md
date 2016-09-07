@@ -25,7 +25,11 @@ You might now be wondering what FOSS (Free and Open-Source Software) is and what
 #####Distro Dexter
 > A WhatsApp quiz on open-source (mainly on different Linux distros), exclusively for freshers.  
 > Duration of the event: 7 days  
+> You will be asked 2 questions per day
 > Individual participation (no teams allowed)  
 > Cool prizes to be won  
 
+#####Speed Typing
+> An online typing competition... lets see who 'types' the fastest
+> Hosted on [play.typeracer.com](http://play.typeracer.com)
 ####Gallery

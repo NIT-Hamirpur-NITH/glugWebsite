@@ -1,5 +1,6 @@
 ---
 title: 'Getting Started'
+visible: true
 ---
 
 <style>
