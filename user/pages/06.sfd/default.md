@@ -20,4 +20,12 @@ You might now be wondering what FOSS (Free and Open-Source Software) is and what
 * Free to access
 * Free to share
   
+####Events  
+
+#####Distro Dexter
+> A WhatsApp quiz on open-source (mainly on different Linux distros), exclusively for freshers.  
+> Duration of the event: 7 days  
+> Individual participation (no teams allowed)  
+> Cool prizes to be won  
+
 ####Gallery

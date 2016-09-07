@@ -2,38 +2,62 @@
 title: 'Getting Started'
 ---
 
+<style>
+.jumbotron{
+    position: relative;
+    padding:0 !important;
+    background: #eee;
+    margin-bottom: 0 !important;
+}
+</style>
+
 If you want to know what is free software and why its better<a href="http://www.fsf.org/about/what-is-free-software"> click here</a>.
 
 <p>The best way to get started with free software is to dive right in.</p>
 
 <p>Choose one of the Linux distros. There are a variety of Linux distros and based on your taste, you can choose any one of them. To mention a few which are popular:</p>
-
-<h3>Ubuntu</h3>
-
-It's the most popular and have a worldwide support. You need anything from "How to install" to "How to fix a particular problem" is all just a click away with Google.
-
+<div class="jumbotron"><br /></div>
+<h3>Ubuntu<sup><a href="https://ubuntugnome.org/"> Official website</a> </sup></h3>
 <image src="https://3.bp.blogspot.com/-VBUI753r4qk/VsG4UI0JGNI/AAAAAAAAVSc/f8zAzcoDgvk/s1600/Screenshot%2Bfrom%2B2016-02-15%2B02-50-49.png" width="100%" />
+<p>It's the most popular and have a worldwide support. You need anything from "How to install" to "How to fix a particular problem" is all just a click away with Google.</p>
+<p><a href="https://ubuntugnome.org/download/">Dowlnoad latest Ubuntu GNOME</a></p>
 
 
-<h3>Kali Linux</h3>
-
-Although its known for Penetration Testing, it comes with a lot of basic tools preinstalled like Java, Vim, Sreencast recorder, VLC, etc. Its motto is:
+<div class="jumbotron"><br /></div>
+<h3>Kali Linux<sup><a href="https://www.kali.org/"> Official website</a> </sup></h3>
+<image src="http://shop.logon2tech.com/wp-content/uploads/2016/04/kali-linux-2-0-penetration-testing-os-now-based-on-debian-jessie-and-linux-kernel-4-0-489090-2.jpg" width="100%" />
+<p>Although its known for Penetration Testing, it comes with a lot of basic tools preinstalled like Java, Vim, Sreencast recorder, VLC, etc. Its motto is:</p>
 
 > The quiter you become the more you are able to hear.
 
-<image src="http://shop.logon2tech.com/wp-content/uploads/2016/04/kali-linux-2-0-penetration-testing-os-now-based-on-debian-jessie-and-linux-kernel-4-0-489090-2.jpg" width="100%" />
+<p><a href="https://www.kali.org/downloads/">Dowlnoad latest Kali Linux</a></p>
 
-<h3> Fedora</h3>
-
+<div class="jumbotron"><br /></div>
+<h3>Fedora<sup><a href="https://getfedora.org/"> Official website</a> </sup></h3>
 <image src="http://eskipaper.com/images/fedora-os-1.jpg" width="100%" />
+<p>Choose Freedom. Choose Fedora.<br />
+Fedora is a polished, easy to use operating system for laptop and desktop computers, with a complete set of tools for developers and makers of all kinds.
+</p>
+<p><a href="https://getfedora.org/en/workstation/download/">Dowlnoad latest Fedora workstation</a></p>
 
-<h3>Mint </h3>
+<div class="jumbotron"><br /></div>
+<h3>Zorin<sup><a href="http://zorinos.com/"> Official website</a> </sup></h3>
+<image src="http://1.bp.blogspot.com/--1l2kE3erWk/UwFN4vnVp1I/AAAAAAAACcw/qtIfwWLCu3g/s1600/zorinmenu.png" width="100%" />
+<p>The gateway to Linux for windows users.<br />
+Zorin OS is a multi-functional operating system designed specifically for newcomers to Linux. It's based on Ubuntu Linux, so you can rely on it for rock-solid performance, dependability and support.</p>
+<p><a href="http://zorinos.com/download.html">Dowlnoad latest Zorin</a></p>
 
-TODO
+<div class="jumbotron"><br /></div>
+<h3>Mint<sup><a href="https://www.linuxmint.com/"> Official website</a> </sup></h3>
+<image src="http://www.linuxinsider.com/article_images/2015/82889_990x557.jpg" width="100%" />
+<p>It comes with updated software and brings refinements and many new features to make your desktop experience more comfortable to use.</p>
 
+<p><a href="https://www.linuxmint.com/download.php">Dowlnoad latest Mint</a></p>
+<div class="jumbotron"><br /></div>
 and there are many others to choose from.
 
-Also [this flowchart](http://www.linuxtrainingacademy.com/wp-content/uploads/2015/01/choosing-a-linux-distro.jpg) might help choose what's best for you.
+Also this flowchart can help choose what's best for you.
+<image src="http://www.linuxtrainingacademy.com/wp-content/uploads/2015/01/choosing-a-linux-distro.jpg" width="100%" />
 
 Install one of the distros and post the screenshot of your desktop :) on our Facebook group [here](https://www.facebook.com/groups/glugnith/).
 
