@@ -1,269 +1,277 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledLanguages',
-    'timestamp' => 1471801968,
-    'checksum' => '37a528c70c202d3a5575406b74a4f96a',
+    'timestamp' => 1473179362,
+    'checksum' => '431b519e27f420efcd9c07f3bfcc632b',
     'files' => [
         'system/languages' => [
             'ar' => [
                 'file' => 'system/languages/ar.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'ca' => [
                 'file' => 'system/languages/ca.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'cs' => [
                 'file' => 'system/languages/cs.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'da' => [
                 'file' => 'system/languages/da.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'de' => [
                 'file' => 'system/languages/de.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'el' => [
                 'file' => 'system/languages/el.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'en' => [
                 'file' => 'system/languages/en.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'es' => [
                 'file' => 'system/languages/es.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'fi' => [
                 'file' => 'system/languages/fi.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'fr' => [
                 'file' => 'system/languages/fr.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'hr' => [
                 'file' => 'system/languages/hr.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'hu' => [
                 'file' => 'system/languages/hu.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'it' => [
                 'file' => 'system/languages/it.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'ja' => [
                 'file' => 'system/languages/ja.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'lt' => [
                 'file' => 'system/languages/lt.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'nb' => [
                 'file' => 'system/languages/nb.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'nl' => [
                 'file' => 'system/languages/nl.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'no' => [
                 'file' => 'system/languages/no.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'pl' => [
                 'file' => 'system/languages/pl.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'pt' => [
                 'file' => 'system/languages/pt.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'ro' => [
                 'file' => 'system/languages/ro.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'ru' => [
                 'file' => 'system/languages/ru.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'sk' => [
                 'file' => 'system/languages/sk.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'sv' => [
                 'file' => 'system/languages/sv.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'th' => [
                 'file' => 'system/languages/th.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'tr' => [
                 'file' => 'system/languages/tr.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'uk' => [
                 'file' => 'system/languages/uk.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'vi' => [
                 'file' => 'system/languages/vi.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ]
         ],
         'user/plugins' => [
+            'plugins/error' => [
+                'file' => 'user/plugins/error/languages.yaml',
+                'modified' => 1473179275
+            ],
             'plugins/email' => [
                 'file' => 'user/plugins/email/languages.yaml',
-                'modified' => 1471663493
+                'modified' => 1473179275
+            ],
+            'plugins/smileys' => [
+                'file' => 'user/plugins/smileys/languages.yaml',
+                'modified' => 1473179275
             ],
             'plugins/bootstrapper' => [
                 'file' => 'user/plugins/bootstrapper/languages.yaml',
-                'modified' => 1471663115
+                'modified' => 1473179275
             ],
             'plugins/form' => [
                 'file' => 'user/plugins/form/languages.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'plugins/login' => [
                 'file' => 'user/plugins/login/languages.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
-            'plugins/error' => [
-                'file' => 'user/plugins/error/languages.yaml',
-                'modified' => 1471216450
+            'plugins/recaptchacontact' => [
+                'file' => 'user/plugins/recaptchacontact/languages.yaml',
+                'modified' => 1473179275
             ]
         ],
         'user/plugins/admin/languages' => [
             'ar' => [
                 'file' => 'user/plugins/admin/languages/ar.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'ca' => [
                 'file' => 'user/plugins/admin/languages/ca.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'cs' => [
                 'file' => 'user/plugins/admin/languages/cs.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'cy' => [
                 'file' => 'user/plugins/admin/languages/cy.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'da' => [
                 'file' => 'user/plugins/admin/languages/da.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'de' => [
                 'file' => 'user/plugins/admin/languages/de.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'el' => [
                 'file' => 'user/plugins/admin/languages/el.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'en' => [
                 'file' => 'user/plugins/admin/languages/en.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'es' => [
                 'file' => 'user/plugins/admin/languages/es.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'fa' => [
                 'file' => 'user/plugins/admin/languages/fa.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'fi' => [
                 'file' => 'user/plugins/admin/languages/fi.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'fr' => [
                 'file' => 'user/plugins/admin/languages/fr.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'hr' => [
                 'file' => 'user/plugins/admin/languages/hr.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'hu' => [
                 'file' => 'user/plugins/admin/languages/hu.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'it' => [
                 'file' => 'user/plugins/admin/languages/it.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'ja' => [
                 'file' => 'user/plugins/admin/languages/ja.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'ko' => [
                 'file' => 'user/plugins/admin/languages/ko.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'lt' => [
                 'file' => 'user/plugins/admin/languages/lt.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'nl' => [
                 'file' => 'user/plugins/admin/languages/nl.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'no' => [
                 'file' => 'user/plugins/admin/languages/no.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'pl' => [
                 'file' => 'user/plugins/admin/languages/pl.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'pt' => [
                 'file' => 'user/plugins/admin/languages/pt.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'ro' => [
                 'file' => 'user/plugins/admin/languages/ro.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'ru' => [
                 'file' => 'user/plugins/admin/languages/ru.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'sk' => [
                 'file' => 'user/plugins/admin/languages/sk.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'sv' => [
                 'file' => 'user/plugins/admin/languages/sv.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'th' => [
                 'file' => 'user/plugins/admin/languages/th.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'tlh' => [
                 'file' => 'user/plugins/admin/languages/tlh.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'tr' => [
                 'file' => 'user/plugins/admin/languages/tr.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'uk' => [
                 'file' => 'user/plugins/admin/languages/uk.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ],
             'zh' => [
                 'file' => 'user/plugins/admin/languages/zh.yaml',
-                'modified' => 1471216450
+                'modified' => 1473179275
             ]
         ]
     ],
@@ -2362,13 +2370,13 @@ Ruta: `%2$s`
                 'NON_ROUTABLE' => 'Ikke tilgængelig',
                 'NON_MODULAR' => 'Ikke modulær'
             ],
-            'PLUGIN_EMAIL' => [
-                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Konfigurere venligst en \'til\' email adresse i Email Plugin indstillingerne eller her i formularen',
-                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Konfigurere venligst en \'fra\' email adresse i Email Plugin indstillingerne eller her i formularen'
-            ],
             'PLUGIN_ERROR' => [
                 'ERROR' => 'Fejl',
                 'ERROR_MESSAGE' => 'Ups. Det ser ud til at siden ikke eksisterer.'
+            ],
+            'PLUGIN_EMAIL' => [
+                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Konfigurere venligst en \'til\' email adresse i Email Plugin indstillingerne eller her i formularen',
+                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Konfigurere venligst en \'fra\' email adresse i Email Plugin indstillingerne eller her i formularen'
             ],
             'FRONTMATTER_ERROR_PAGE' => '---
 Titel: %1$s
@@ -3014,9 +3022,34 @@ Sti: `%2$s`
                 'TYPE' => 'Typ',
                 'FILE_EXTENSION' => 'Dateiendung'
             ],
+            'PLUGIN_ERROR' => [
+                'ERROR' => 'Fehler',
+                'ERROR_MESSAGE' => 'Uuups. Sieht aus als ob diese Seite nicht existiert.'
+            ],
             'PLUGIN_EMAIL' => [
                 'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Bitte konfigurieren sie eine \'An\' (\'to\') Adresse in den Email-Plugin-Einstellungen oder im Formular.',
                 'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Bitte konfigurieren sie eine \'Von\' (\'from\') Adresse in den Email-Plugin-Einstellungen oder im Formular.'
+            ],
+            'PLUGINS' => [
+                'SMILEYS' => [
+                    'GLOBAL_CONFIG' => 'Globale Einstellungen',
+                    'DEFAULT_CONFIG' => 'Standardeinstellungen für Smileys',
+                    'SPECIFIC_CONFIG' => 'Globale und seitenspezifische Einstellungen',
+                    'PLUGIN_STATUS' => 'Plugin Status',
+                    'BUILTIN_CSS' => 'Verwende mitgeliefertes CSS',
+                    'WEIGHT' => 'Ausführungsreihenfolge',
+                    'WEIGHT_HELP' => 'Setze negative Werte um **Smileys** direkt nach *SmartyPants* ausführen zu lassen.',
+                    'PACK' => 'Smileys-Paket',
+                    'PACK_HELP' => 'Der Smileys-Paketname leitet sich direkt aus dem Ordnernamen aus `user/data/smileys/<package>` ab.',
+                    'PACK_DEFAULT' => '- Kein Smileys-Paket ausgewählt -',
+                    'EXCLUDE' => [
+                        'TAGS' => 'Ignoriere Inhalt mit Tags',
+                        'TAGS_HELP' => 'Komma getrennte Liste von Tags.',
+                        'CLASSES' => 'Ignoriere Inhalt mit Klassen',
+                        'CLASSES_HELP' => 'Komma getrennte Liste von Klassen.'
+                    ],
+                    'PROCESS' => 'Aktiviere <code>Smileys</code>-Filter auf Seite'
+                ]
             ],
             'PLUGIN_FORM' => [
                 'NOT_VALIDATED' => 'Formularwerte nicht gültig. Für ein oder mehrere erforderliche Felder fehlen Werte.',
@@ -3076,9 +3109,36 @@ Sti: `%2$s`
                 'OPTIONS' => 'Optionen',
                 'EMAIL_VALIDATION_MESSAGE' => 'Muss eine gültige E-Mail Adresse sein'
             ],
-            'PLUGIN_ERROR' => [
-                'ERROR' => 'Fehler',
-                'ERROR_MESSAGE' => 'Uuups. Sieht aus als ob diese Seite nicht existiert.'
+            'RECAPTCHACONTACT' => [
+                'FORM_LEGEND' => 'Kontaktiere mich',
+                'SUBJECT' => '[Grav] Kontaktanfrage',
+                'RECIPIENT' => 'name@provider.de',
+                'FIELDS' => [
+                    'NAME' => [
+                        'LABEL' => 'Name',
+                        'PLACEHOLDER' => 'Dein Name'
+                    ],
+                    'EMAIL' => [
+                        'LABEL' => 'E-Mail',
+                        'PLACEHOLDER' => 'Deine E-Mail'
+                    ],
+                    'MESSAGE' => [
+                        'LABEL' => 'Nachricht',
+                        'PLACEHOLDER' => 'Deine Nachricht'
+                    ],
+                    'ANTISPAM' => [
+                        'LABEL' => 'Antispam',
+                        'PLACEHOLDER' => 'Dieses Feld für Antispam-Bots frei lassen.'
+                    ],
+                    'SUBMIT' => [
+                        'LABEL' => 'Abschicken'
+                    ]
+                ],
+                'MESSAGES' => [
+                    'SUCCESS' => 'Vielen Dank! Deine Nachricht wurde erfolgreich versendet.',
+                    'ERROR' => 'Oops! Mit der Übertragung gab es ein Problem. Bitte versuche es erneut.',
+                    'FAIL' => 'Oops! Versenden der Nachricht fehlgeschlagen.'
+                ]
             ],
             'FRONTMATTER_ERROR_PAGE' => '---
 title: %1$s
@@ -4139,9 +4199,34 @@ Pfad: `%2$s`
                 'FORCE_SSL_HELP' => 'Globally force SSL, if enabled when the site is reached through HTTP, Grav sends a redirect to the HTTPS page',
                 'NEWS_FEED' => 'News Feed'
             ],
+            'PLUGIN_ERROR' => [
+                'ERROR' => 'Error',
+                'ERROR_MESSAGE' => 'Woops. Looks like this page doesn\'t exist.'
+            ],
             'PLUGIN_EMAIL' => [
                 'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Please configure a \'to\' address in the Email Plugin settings, or in the form',
                 'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Please configure a \'from\' address in the Email Plugin settings, or in the form'
+            ],
+            'PLUGINS' => [
+                'SMILEYS' => [
+                    'GLOBAL_CONFIG' => 'Global plugin configurations',
+                    'DEFAULT_CONFIG' => 'Default values for Smileys configuration',
+                    'SPECIFIC_CONFIG' => 'Global and page specific configurations',
+                    'PLUGIN_STATUS' => 'Plugin status',
+                    'BUILTIN_CSS' => 'Use built in CSS',
+                    'WEIGHT' => 'Order of execution',
+                    'WEIGHT_HELP' => 'To process the page contents right after *SmartyPants* use negative values.',
+                    'PACK' => 'Smileys package',
+                    'PACK_HELP' => 'The name of the smileys package equals the name of the folder in `user/data/smileys/<package>`.',
+                    'PACK_DEFAULT' => '- No Smileys package selected -',
+                    'EXCLUDE' => [
+                        'TAGS' => 'Ignore contents with this tags',
+                        'TAGS_HELP' => 'Comma separated list.',
+                        'CLASSES' => 'Ignore contents with this class',
+                        'CLASSES_HELP' => 'Comma separated list.'
+                    ],
+                    'PROCESS' => 'Activate <code>Smileys</code> filter on the page'
+                ]
             ],
             'PLUGIN_BOOTSTRAPPER' => [
                 'STATUS' => 'Plugin status',
@@ -4262,9 +4347,36 @@ Pfad: `%2$s`
                 'PROTECT_PROTECTED_PAGE_MEDIA_LABEL' => 'Protect a login-protected page media',
                 'PROTECT_PROTECTED_PAGE_MEDIA_HELP' => 'If enabled, media of a login protected page is login protected as well and cannot be seen unless logged in'
             ],
-            'PLUGIN_ERROR' => [
-                'ERROR' => 'Error',
-                'ERROR_MESSAGE' => 'Woops. Looks like this page doesn\'t exist.'
+            'RECAPTCHACONTACT' => [
+                'FORM_LEGEND' => 'Contact me',
+                'SUBJECT' => 'New contact from Grav site!',
+                'RECIPIENT' => 'hello@example.com',
+                'FIELDS' => [
+                    'NAME' => [
+                        'LABEL' => 'Name',
+                        'PLACEHOLDER' => 'Add your name'
+                    ],
+                    'EMAIL' => [
+                        'LABEL' => 'Email',
+                        'PLACEHOLDER' => 'Add your email'
+                    ],
+                    'MESSAGE' => [
+                        'LABEL' => 'Message',
+                        'PLACEHOLDER' => 'Add your message'
+                    ],
+                    'ANTISPAM' => [
+                        'LABEL' => 'Antispam',
+                        'PLACEHOLDER' => 'Please leave this field empty for Antispam'
+                    ],
+                    'SUBMIT' => [
+                        'LABEL' => 'Submit'
+                    ]
+                ],
+                'MESSAGES' => [
+                    'SUCCESS' => 'Thank You! Your message has been sent.',
+                    'ERROR' => 'Oops! There was a problem with your submission. Please complete the form and try again.',
+                    'FAIL' => 'Oops! Something went wrong and we couldn\'t send your message.'
+                ]
             ],
             'FRONTMATTER_ERROR_PAGE' => '---
 title: %1$s
@@ -4996,6 +5108,37 @@ Path: `%2$s`
                 'RECAPTCHA_SITE_KEY_HELP' => 'Para más información visita https://developers.google.com/recaptcha',
                 'RECAPTCHA_SECRET_KEY' => 'Secret key',
                 'RECAPTCHA_SECRET_KEY_HELP' => 'Para más información visita https://developers.google.com/recaptcha'
+            ],
+            'RECAPTCHACONTACT' => [
+                'FORM_LEGEND' => 'Contacta conmigo',
+                'SUBJECT' => '¡Nuevo contacto desde tu sitio GRAV!',
+                'RECIPIENT' => 'hello@example.com',
+                'FIELDS' => [
+                    'NAME' => [
+                        'LABEL' => 'Nombre',
+                        'PLACEHOLDER' => 'Añade tu nombre'
+                    ],
+                    'EMAIL' => [
+                        'LABEL' => 'Email',
+                        'PLACEHOLDER' => 'Añade tu email'
+                    ],
+                    'MESSAGE' => [
+                        'LABEL' => 'Mensaje',
+                        'PLACEHOLDER' => 'Añade tu mensaje'
+                    ],
+                    'ANTISPAM' => [
+                        'LABEL' => 'Antispam',
+                        'PLACEHOLDER' => 'Por favor, deja este campo libre para bloquear el Spam'
+                    ],
+                    'SUBMIT' => [
+                        'LABEL' => 'Enviar'
+                    ]
+                ],
+                'MESSAGES' => [
+                    'SUCCESS' => '¡Gracias! Tu mensaje ha sido enviado.',
+                    'ERROR' => '¡Uy! Hubo un problema con el envío. Por favor, rellena el formulario de nuevo.',
+                    'FAIL' => '¡Uy! Algo salió mal y no se pudo enviar el mensaje.'
+                ]
             ],
             'FRONTMATTER_ERROR_PAGE' => '---
 title: %1$s
@@ -6234,6 +6377,10 @@ Ruta: `%2$s`
                 'FROM' => 'de',
                 'TO' => 'à'
             ],
+            'PLUGIN_ERROR' => [
+                'ERROR' => 'Erreur',
+                'ERROR_MESSAGE' => 'Oups. Il semble que cette page n’existe pas.'
+            ],
             'PLUGIN_EMAIL' => [
                 'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Veuillez configurer une adresse de \'destinataire\' dans les paramètres du Plugin ou dans le formulaire.',
                 'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Veuillez configurer une adresse \'d\'expéditeur\' dans les paramètres du Plugin ou dans le formulaire.'
@@ -6356,10 +6503,6 @@ Ruta: `%2$s`
                 'USE_PARENT_ACL_HELP' => 'Utiliser les règles d’accès parentes si aucune règle n’a été définie',
                 'PROTECT_PROTECTED_PAGE_MEDIA_LABEL' => 'Protéger le média d\'une page par une protection par connexion',
                 'PROTECT_PROTECTED_PAGE_MEDIA_HELP' => 'Si activé, les médias d\'une page protégée par connexion sera également protégé par un système de connexion et ne pourra pas être visible à moins d\'être connecté.'
-            ],
-            'PLUGIN_ERROR' => [
-                'ERROR' => 'Erreur',
-                'ERROR_MESSAGE' => 'Oups. Il semble que cette page n’existe pas.'
             ],
             'FRONTMATTER_ERROR_PAGE' => '---
 title: %1$s
@@ -8523,6 +8666,10 @@ Elérési út: `%2$s`
                 'FROM' => 'da',
                 'TO' => 'a'
             ],
+            'PLUGIN_ERROR' => [
+                'ERROR' => 'Errore',
+                'ERROR_MESSAGE' => 'Ooops. A quanto pare, questa pagina non esiste.'
+            ],
             'PLUGIN_EMAIL' => [
                 'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Per favore, configura l\'indirizzo di destinazione (\'to\') nella configurazione del Plugin Email, oppure direttamente nella form.',
                 'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Per favore, configura l\'indirizzo di provenienza (\'from\') nella configurazione del Plugin Email, oppure direttamente nella form'
@@ -8539,9 +8686,36 @@ Elérési út: `%2$s`
                 'ACCEPT_HELP' => 'Una lista di tipi di MIME che sono permessi per l\'upload',
                 'ERROR_VALIDATING_CAPTCHA' => 'Errore durante la validazione del Captcha'
             ],
-            'PLUGIN_ERROR' => [
-                'ERROR' => 'Errore',
-                'ERROR_MESSAGE' => 'Ooops. A quanto pare, questa pagina non esiste.'
+            'RECAPTCHACONTACT' => [
+                'FORM_LEGEND' => 'Contattami',
+                'SUBJECT' => 'Nuovo contatto dal sito Grav!',
+                'RECIPIENT' => 'hello@example.com',
+                'FIELDS' => [
+                    'NAME' => [
+                        'LABEL' => 'Nome',
+                        'PLACEHOLDER' => 'Aggiungi il tuo nome'
+                    ],
+                    'EMAIL' => [
+                        'LABEL' => 'Email',
+                        'PLACEHOLDER' => 'Aggiungi la tua email'
+                    ],
+                    'MESSAGE' => [
+                        'LABEL' => 'Messaggio',
+                        'PLACEHOLDER' => 'Aggiungi il tuo messaggio'
+                    ],
+                    'ANTISPAM' => [
+                        'LABEL' => 'Antispam',
+                        'PLACEHOLDER' => 'Si prega di lasciare il campo vuoto per Antispam'
+                    ],
+                    'SUBMIT' => [
+                        'LABEL' => 'Invia'
+                    ]
+                ],
+                'MESSAGES' => [
+                    'SUCCESS' => 'Grazie! Il tuo messaggio è stato inviato.',
+                    'ERROR' => 'Oh! C\'è stato un problema durante l\'invio. Si prega di compilare il modulo e riprovare.',
+                    'FAIL' => 'Oh! Qualcosa non ha funzionato perciò il tuo messaggio non potrà essere inviato.'
+                ]
             ],
             'FRONTMATTER_ERROR_PAGE' => '---Titolo: %1$s---# Errore: Frontmatter non valido: \'%2$s\' * *%3$s * * \' \'%4$s \' \'',
             'NICETIME' => [
@@ -11935,6 +12109,10 @@ Caminho: `%2$s`
                 'FROM' => 'de la',
                 'TO' => 'către'
             ],
+            'PLUGIN_ERROR' => [
+                'ERROR' => 'Eroare',
+                'ERROR_MESSAGE' => 'Ooops. Se pare că pagina nu există.'
+            ],
             'PLUGIN_EMAIL' => [
                 'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Vă rugam setați o adresă \'către\' în setările modulului Email sau în formular',
                 'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Vă rugam setați o adresă \'de la\' în setările modulului Email sau în formular'
@@ -12046,10 +12224,6 @@ Caminho: `%2$s`
                 'USE_PARENT_ACL_HELP' => 'Verifică regulie de acces ale părintelui dacă nu sunt specificate alte reguli de acces',
                 'PROTECT_PROTECTED_PAGE_MEDIA_LABEL' => ' Protejează media ce aparține paginii de logare ',
                 'PROTECT_PROTECTED_PAGE_MEDIA_HELP' => 'Dacă este activată, media ce aparține unei pagini de logare este protejată și nu poate fi accesată decât după logare.'
-            ],
-            'PLUGIN_ERROR' => [
-                'ERROR' => 'Eroare',
-                'ERROR_MESSAGE' => 'Ooops. Se pare că pagina nu există.'
             ],
             'FRONTMATTER_ERROR_PAGE' => '---
 Titlu: %1$s
@@ -12738,6 +12912,10 @@ Calea: `%2$s`
                 'FROM' => 'от',
                 'TO' => 'к'
             ],
+            'PLUGIN_ERROR' => [
+                'ERROR' => 'Ошибка',
+                'ERROR_MESSAGE' => 'Упс. Похоже, эта страница не существует.'
+            ],
             'PLUGIN_EMAIL' => [
                 'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Пожалуйста настройте адрес получателя (\'to\') в настройках плагина Email Plugin, или на форме',
                 'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Пожалуйста настройте адрес отправителя (\'from\') в настройках плагина Email Plugin, или на форме'
@@ -12752,10 +12930,6 @@ Calea: `%2$s`
                 'LOAD_CORE_CSS' => 'Загружать основной CSS',
                 'LOAD_THEME_CSS' => 'Загружать CSS темы оформления',
                 'LOAD_CORE_JS' => 'Загружать основной JS'
-            ],
-            'PLUGIN_ERROR' => [
-                'ERROR' => 'Ошибка',
-                'ERROR_MESSAGE' => 'Упс. Похоже, эта страница не существует.'
             ],
             'FRONTMATTER_ERROR_PAGE' => '---
 title: %1$s
@@ -15398,6 +15572,6 @@ Path: `%2$s`
                 6 => 'Chủ Nhật'
             ]
         ],
-        'checksum' => '37a528c70c202d3a5575406b74a4f96a'
+        'checksum' => '431b519e27f420efcd9c07f3bfcc632b'
     ]
 ];

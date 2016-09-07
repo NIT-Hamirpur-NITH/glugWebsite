@@ -2,7 +2,11 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/config/system.yaml',
+<<<<<<< HEAD
     'modified' => 1473136400,
+=======
+    'modified' => 1473179275,
+>>>>>>> ba23ceba437240daf46c8bb561a03b31ee33daee
     'data' => [
         'absolute_urls' => false,
         'timezone' => 'Asia/Kolkata',
