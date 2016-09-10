@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit7e16e00ba7782de35cd06610491ed4a6
+class ComposerStaticInit1440df0a01425ed0b23742052ad04ca4
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -27,6 +27,7 @@ class ComposerStaticInit7e16e00ba7782de35cd06610491ed4a6
             'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\EventDispatcher\\' => 34,
             'Symfony\\Component\\Console\\' => 26,
+            'Seld\\CliPrompt\\' => 15,
         ),
         'R' => 
         array (
@@ -44,6 +45,10 @@ class ComposerStaticInit7e16e00ba7782de35cd06610491ed4a6
             'Monolog\\' => 8,
             'MatthiasMullie\\PathConverter\\' => 29,
             'MatthiasMullie\\Minify\\' => 22,
+        ),
+        'L' => 
+        array (
+            'League\\CLImate\\' => 15,
         ),
         'G' => 
         array (
@@ -84,6 +89,10 @@ class ComposerStaticInit7e16e00ba7782de35cd06610491ed4a6
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'Seld\\CliPrompt\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/seld/cli-prompt/src',
         ),
         'RocketTheme\\Toolbox\\StreamWrapper\\' => 
         array (
@@ -129,6 +138,10 @@ class ComposerStaticInit7e16e00ba7782de35cd06610491ed4a6
         array (
             0 => __DIR__ . '/..' . '/matthiasmullie/minify/src',
         ),
+        'League\\CLImate\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/climate/src',
+        ),
         'Grav\\' => 
         array (
             0 => __DIR__ . '/../..' . '/system/src/Grav',
@@ -141,6 +154,10 @@ class ComposerStaticInit7e16e00ba7782de35cd06610491ed4a6
         array (
             0 => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar',
         ),
+    );
+
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/..' . '/antoligy/dom-string-iterators/src',
     );
 
     public static $prefixesPsr0 = array (
@@ -184,6 +201,8 @@ class ComposerStaticInit7e16e00ba7782de35cd06610491ed4a6
     );
 
     public static $classMap = array (
+        'DOMLettersIterator' => __DIR__ . '/..' . '/antoligy/dom-string-iterators/src/DOMLettersIterator.php',
+        'DOMWordsIterator' => __DIR__ . '/..' . '/antoligy/dom-string-iterators/src/DOMWordsIterator.php',
         'DebugBar\\Bridge\\CacheCacheCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/CacheCacheCollector.php',
         'DebugBar\\Bridge\\DoctrineCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/DoctrineCollector.php',
         'DebugBar\\Bridge\\MonologCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/MonologCollector.php',
@@ -385,6 +404,7 @@ class ComposerStaticInit7e16e00ba7782de35cd06610491ed4a6
         'Grav\\Console\\Gpm\\UninstallCommand' => __DIR__ . '/../..' . '/system/src/Grav/Console/Gpm/UninstallCommand.php',
         'Grav\\Console\\Gpm\\UpdateCommand' => __DIR__ . '/../..' . '/system/src/Grav/Console/Gpm/UpdateCommand.php',
         'Grav\\Console\\Gpm\\VersionCommand' => __DIR__ . '/../..' . '/system/src/Grav/Console/Gpm/VersionCommand.php',
+        'Grav\\Console\\TerminalObjects\\Table' => __DIR__ . '/../..' . '/system/src/Grav/Console/TerminalObjects/Table.php',
         'Gregwar\\Cache\\Cache' => __DIR__ . '/..' . '/gregwar/cache/Gregwar/Cache/Cache.php',
         'Gregwar\\Cache\\GarbageCollect' => __DIR__ . '/..' . '/gregwar/cache/Gregwar/Cache/GarbageCollect.php',
         'Gregwar\\Image\\Adapter\\Adapter' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Adapter/Adapter.php',
@@ -401,6 +421,86 @@ class ComposerStaticInit7e16e00ba7782de35cd06610491ed4a6
         'Gregwar\\Image\\Source\\File' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Source/File.php',
         'Gregwar\\Image\\Source\\Resource' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Source/Resource.php',
         'Gregwar\\Image\\Source\\Source' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Source/Source.php',
+        'League\\CLImate\\Argument\\Argument' => __DIR__ . '/..' . '/league/climate/src/Argument/Argument.php',
+        'League\\CLImate\\Argument\\Filter' => __DIR__ . '/..' . '/league/climate/src/Argument/Filter.php',
+        'League\\CLImate\\Argument\\Manager' => __DIR__ . '/..' . '/league/climate/src/Argument/Manager.php',
+        'League\\CLImate\\Argument\\Parser' => __DIR__ . '/..' . '/league/climate/src/Argument/Parser.php',
+        'League\\CLImate\\Argument\\Summary' => __DIR__ . '/..' . '/league/climate/src/Argument/Summary.php',
+        'League\\CLImate\\CLImate' => __DIR__ . '/..' . '/league/climate/src/CLImate.php',
+        'League\\CLImate\\Decorator\\Component\\BackgroundColor' => __DIR__ . '/..' . '/league/climate/src/Decorator/Component/BackgroundColor.php',
+        'League\\CLImate\\Decorator\\Component\\BaseDecorator' => __DIR__ . '/..' . '/league/climate/src/Decorator/Component/BaseDecorator.php',
+        'League\\CLImate\\Decorator\\Component\\Color' => __DIR__ . '/..' . '/league/climate/src/Decorator/Component/Color.php',
+        'League\\CLImate\\Decorator\\Component\\Command' => __DIR__ . '/..' . '/league/climate/src/Decorator/Component/Command.php',
+        'League\\CLImate\\Decorator\\Component\\DecoratorInterface' => __DIR__ . '/..' . '/league/climate/src/Decorator/Component/DecoratorInterface.php',
+        'League\\CLImate\\Decorator\\Component\\Format' => __DIR__ . '/..' . '/league/climate/src/Decorator/Component/Format.php',
+        'League\\CLImate\\Decorator\\Parser\\Ansi' => __DIR__ . '/..' . '/league/climate/src/Decorator/Parser/Ansi.php',
+        'League\\CLImate\\Decorator\\Parser\\NonAnsi' => __DIR__ . '/..' . '/league/climate/src/Decorator/Parser/NonAnsi.php',
+        'League\\CLImate\\Decorator\\Parser\\Parser' => __DIR__ . '/..' . '/league/climate/src/Decorator/Parser/Parser.php',
+        'League\\CLImate\\Decorator\\Parser\\ParserFactory' => __DIR__ . '/..' . '/league/climate/src/Decorator/Parser/ParserFactory.php',
+        'League\\CLImate\\Decorator\\Parser\\ParserImporter' => __DIR__ . '/..' . '/league/climate/src/Decorator/Parser/ParserImporter.php',
+        'League\\CLImate\\Decorator\\Style' => __DIR__ . '/..' . '/league/climate/src/Decorator/Style.php',
+        'League\\CLImate\\Decorator\\Tags' => __DIR__ . '/..' . '/league/climate/src/Decorator/Tags.php',
+        'League\\CLImate\\Settings\\Art' => __DIR__ . '/..' . '/league/climate/src/Settings/Art.php',
+        'League\\CLImate\\Settings\\Manager' => __DIR__ . '/..' . '/league/climate/src/Settings/Manager.php',
+        'League\\CLImate\\Settings\\SettingsImporter' => __DIR__ . '/..' . '/league/climate/src/Settings/SettingsImporter.php',
+        'League\\CLImate\\Settings\\SettingsInterface' => __DIR__ . '/..' . '/league/climate/src/Settings/SettingsInterface.php',
+        'League\\CLImate\\TerminalObject\\Basic\\BasicTerminalObject' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Basic/BasicTerminalObject.php',
+        'League\\CLImate\\TerminalObject\\Basic\\BasicTerminalObjectInterface' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Basic/BasicTerminalObjectInterface.php',
+        'League\\CLImate\\TerminalObject\\Basic\\Border' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Basic/Border.php',
+        'League\\CLImate\\TerminalObject\\Basic\\Br' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Basic/Br.php',
+        'League\\CLImate\\TerminalObject\\Basic\\Clear' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Basic/Clear.php',
+        'League\\CLImate\\TerminalObject\\Basic\\Columns' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Basic/Columns.php',
+        'League\\CLImate\\TerminalObject\\Basic\\Draw' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Basic/Draw.php',
+        'League\\CLImate\\TerminalObject\\Basic\\Dump' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Basic/Dump.php',
+        'League\\CLImate\\TerminalObject\\Basic\\Flank' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Basic/Flank.php',
+        'League\\CLImate\\TerminalObject\\Basic\\Inline' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Basic/Inline.php',
+        'League\\CLImate\\TerminalObject\\Basic\\Json' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Basic/Json.php',
+        'League\\CLImate\\TerminalObject\\Basic\\Out' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Basic/Out.php',
+        'League\\CLImate\\TerminalObject\\Basic\\Repeatable' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Basic/Repeatable.php',
+        'League\\CLImate\\TerminalObject\\Basic\\Tab' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Basic/Tab.php',
+        'League\\CLImate\\TerminalObject\\Basic\\Table' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Basic/Table.php',
+        'League\\CLImate\\TerminalObject\\Dynamic\\Animation' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Dynamic/Animation.php',
+        'League\\CLImate\\TerminalObject\\Dynamic\\Animation\\Keyframe' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Dynamic/Animation/Keyframe.php',
+        'League\\CLImate\\TerminalObject\\Dynamic\\Checkbox\\Checkbox' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Dynamic/Checkbox/Checkbox.php',
+        'League\\CLImate\\TerminalObject\\Dynamic\\Checkbox\\CheckboxGroup' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Dynamic/Checkbox/CheckboxGroup.php',
+        'League\\CLImate\\TerminalObject\\Dynamic\\Checkbox\\RadioGroup' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Dynamic/Checkbox/RadioGroup.php',
+        'League\\CLImate\\TerminalObject\\Dynamic\\Checkboxes' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Dynamic/Checkboxes.php',
+        'League\\CLImate\\TerminalObject\\Dynamic\\Confirm' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Dynamic/Confirm.php',
+        'League\\CLImate\\TerminalObject\\Dynamic\\DynamicTerminalObject' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Dynamic/DynamicTerminalObject.php',
+        'League\\CLImate\\TerminalObject\\Dynamic\\DynamicTerminalObjectInterface' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Dynamic/DynamicTerminalObjectInterface.php',
+        'League\\CLImate\\TerminalObject\\Dynamic\\Input' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Dynamic/Input.php',
+        'League\\CLImate\\TerminalObject\\Dynamic\\InputAbstract' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Dynamic/InputAbstract.php',
+        'League\\CLImate\\TerminalObject\\Dynamic\\Padding' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Dynamic/Padding.php',
+        'League\\CLImate\\TerminalObject\\Dynamic\\Password' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Dynamic/Password.php',
+        'League\\CLImate\\TerminalObject\\Dynamic\\Progress' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Dynamic/Progress.php',
+        'League\\CLImate\\TerminalObject\\Dynamic\\Radio' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Dynamic/Radio.php',
+        'League\\CLImate\\TerminalObject\\Helper\\Art' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Helper/Art.php',
+        'League\\CLImate\\TerminalObject\\Helper\\Sleeper' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Helper/Sleeper.php',
+        'League\\CLImate\\TerminalObject\\Helper\\SleeperInterface' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Helper/SleeperInterface.php',
+        'League\\CLImate\\TerminalObject\\Helper\\StringLength' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Helper/StringLength.php',
+        'League\\CLImate\\TerminalObject\\Router\\BaseRouter' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Router/BaseRouter.php',
+        'League\\CLImate\\TerminalObject\\Router\\BasicRouter' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Router/BasicRouter.php',
+        'League\\CLImate\\TerminalObject\\Router\\DynamicRouter' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Router/DynamicRouter.php',
+        'League\\CLImate\\TerminalObject\\Router\\ExtensionCollection' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Router/ExtensionCollection.php',
+        'League\\CLImate\\TerminalObject\\Router\\Router' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Router/Router.php',
+        'League\\CLImate\\TerminalObject\\Router\\RouterInterface' => __DIR__ . '/..' . '/league/climate/src/TerminalObject/Router/RouterInterface.php',
+        'League\\CLImate\\Util\\Cursor' => __DIR__ . '/..' . '/league/climate/src/Util/Cursor.php',
+        'League\\CLImate\\Util\\Helper' => __DIR__ . '/..' . '/league/climate/src/Util/Helper.php',
+        'League\\CLImate\\Util\\Output' => __DIR__ . '/..' . '/league/climate/src/Util/Output.php',
+        'League\\CLImate\\Util\\OutputImporter' => __DIR__ . '/..' . '/league/climate/src/Util/OutputImporter.php',
+        'League\\CLImate\\Util\\Reader\\ReaderInterface' => __DIR__ . '/..' . '/league/climate/src/Util/Reader/ReaderInterface.php',
+        'League\\CLImate\\Util\\Reader\\Stdin' => __DIR__ . '/..' . '/league/climate/src/Util/Reader/Stdin.php',
+        'League\\CLImate\\Util\\System\\Linux' => __DIR__ . '/..' . '/league/climate/src/Util/System/Linux.php',
+        'League\\CLImate\\Util\\System\\System' => __DIR__ . '/..' . '/league/climate/src/Util/System/System.php',
+        'League\\CLImate\\Util\\System\\SystemFactory' => __DIR__ . '/..' . '/league/climate/src/Util/System/SystemFactory.php',
+        'League\\CLImate\\Util\\System\\Windows' => __DIR__ . '/..' . '/league/climate/src/Util/System/Windows.php',
+        'League\\CLImate\\Util\\UtilFactory' => __DIR__ . '/..' . '/league/climate/src/Util/UtilFactory.php',
+        'League\\CLImate\\Util\\UtilImporter' => __DIR__ . '/..' . '/league/climate/src/Util/UtilImporter.php',
+        'League\\CLImate\\Util\\Writer\\Buffer' => __DIR__ . '/..' . '/league/climate/src/Util/Writer/Buffer.php',
+        'League\\CLImate\\Util\\Writer\\File' => __DIR__ . '/..' . '/league/climate/src/Util/Writer/File.php',
+        'League\\CLImate\\Util\\Writer\\StdErr' => __DIR__ . '/..' . '/league/climate/src/Util/Writer/StdErr.php',
+        'League\\CLImate\\Util\\Writer\\StdOut' => __DIR__ . '/..' . '/league/climate/src/Util/Writer/StdOut.php',
+        'League\\CLImate\\Util\\Writer\\WriterInterface' => __DIR__ . '/..' . '/league/climate/src/Util/Writer/WriterInterface.php',
         'MatthiasMullie\\Minify\\CSS' => __DIR__ . '/..' . '/matthiasmullie/minify/src/CSS.php',
         'MatthiasMullie\\Minify\\Exception' => __DIR__ . '/..' . '/matthiasmullie/minify/src/Exception.php',
         'MatthiasMullie\\Minify\\Exceptions\\BasicException' => __DIR__ . '/..' . '/matthiasmullie/minify/src/Exceptions/BasicException.php',
@@ -552,6 +652,7 @@ class ComposerStaticInit7e16e00ba7782de35cd06610491ed4a6
         'RocketTheme\\Toolbox\\StreamWrapper\\Stream' => __DIR__ . '/..' . '/rockettheme/toolbox/StreamWrapper/src/Stream.php',
         'RocketTheme\\Toolbox\\StreamWrapper\\StreamBuilder' => __DIR__ . '/..' . '/rockettheme/toolbox/StreamWrapper/src/StreamBuilder.php',
         'RocketTheme\\Toolbox\\StreamWrapper\\StreamInterface' => __DIR__ . '/..' . '/rockettheme/toolbox/StreamWrapper/src/StreamInterface.php',
+        'Seld\\CliPrompt\\CliPrompt' => __DIR__ . '/..' . '/seld/cli-prompt/src/CliPrompt.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\Command\\Command' => __DIR__ . '/..' . '/symfony/console/Command/Command.php',
         'Symfony\\Component\\Console\\Command\\HelpCommand' => __DIR__ . '/..' . '/symfony/console/Command/HelpCommand.php',
@@ -890,10 +991,11 @@ class ComposerStaticInit7e16e00ba7782de35cd06610491ed4a6
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit7e16e00ba7782de35cd06610491ed4a6::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit7e16e00ba7782de35cd06610491ed4a6::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit7e16e00ba7782de35cd06610491ed4a6::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit7e16e00ba7782de35cd06610491ed4a6::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1440df0a01425ed0b23742052ad04ca4::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1440df0a01425ed0b23742052ad04ca4::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit1440df0a01425ed0b23742052ad04ca4::$fallbackDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit1440df0a01425ed0b23742052ad04ca4::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit1440df0a01425ed0b23742052ad04ca4::$classMap;
 
         }, null, ClassLoader::class);
     }

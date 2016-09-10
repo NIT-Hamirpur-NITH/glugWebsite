@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/form/languages.yaml',
-    'modified' => 1472214093,
+    'modified' => 1473500965,
     'data' => [
         'en' => [
             'PLUGIN_FORM' => [
@@ -22,7 +22,23 @@ return [
                 'RECAPTCHA_SITE_KEY' => 'Site key',
                 'RECAPTCHA_SITE_KEY_HELP' => 'For more info visit https://developers.google.com/recaptcha',
                 'RECAPTCHA_SECRET_KEY' => 'Secret key',
-                'RECAPTCHA_SECRET_KEY_HELP' => 'For more info visit https://developers.google.com/recaptcha'
+                'RECAPTCHA_SECRET_KEY_HELP' => 'For more info visit https://developers.google.com/recaptcha',
+                'GENERAL' => 'General',
+                'USE_BUILT_IN_CSS' => 'Use built-in CSS',
+                'FILEUPLOAD_PREVENT_SELF' => 'Cannot use "%s" outside of pages.',
+                'FILEUPLOAD_UNABLE_TO_UPLOAD' => 'Unable to upload file %s: %s',
+                'FILEUPLOAD_UNABLE_TO_MOVE' => 'Unable to move file %s to "%s"',
+                'DROPZONE_CANCEL_UPLOAD' => 'Cancel upload',
+                'DROPZONE_CANCEL_UPLOAD_CONFIRMATION' => 'Are you sure you want to cancel this upload?',
+                'DROPZONE_DEFAULT_MESSAGE' => 'Drop your files here or <strong>click in this area</strong>',
+                'DROPZONE_FALLBACK_MESSAGE' => 'Your browser does not support drag and drop file uploads.',
+                'DROPZONE_FALLBACK_TEXT' => 'Please use the fallback form below to upload your files like in the olden days.',
+                'DROPZONE_FILE_TOO_BIG' => 'File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.',
+                'DROPZONE_INVALID_FILE_TYPE' => 'You can\'t upload files of this type.',
+                'DROPZONE_MAX_FILES_EXCEEDED' => 'You can not upload any more files.',
+                'DROPZONE_REMOVE_FILE' => 'Remove file',
+                'DROPZONE_REMOVE_FILE_CONFIRMATION' => 'Are you sure you want to delete this file?',
+                'DROPZONE_RESPONSE_ERROR' => 'Server responded with {{statusCode}} code.'
             ]
         ],
         'de' => [
@@ -76,7 +92,23 @@ return [
                 'RECAPTCHA_SITE_KEY' => 'Clé du site',
                 'RECAPTCHA_SITE_KEY_HELP' => 'Pour plus d\'informations veuillez vous rendre sur https://developers.google.com/recaptcha',
                 'RECAPTCHA_SECRET_KEY' => 'Clé secrète',
-                'RECAPTCHA_SECRET_KEY_HELP' => 'Pour plus d\'informations veuillez vous rendre sur https://developers.google.com/recaptcha'
+                'RECAPTCHA_SECRET_KEY_HELP' => 'Pour plus d\'informations veuillez vous rendre sur https://developers.google.com/recaptcha',
+                'GENERAL' => 'Général',
+                'USE_BUILT_IN_CSS' => 'Utiliser les CSS natifs',
+                'FILEUPLOAD_PREVENT_SELF' => 'Impossible d\'utiliser \'%s\' en dehors des pages.',
+                'FILEUPLOAD_UNABLE_TO_UPLOAD' => 'Impossible de charger le fichier %s: %s',
+                'FILEUPLOAD_UNABLE_TO_MOVE' => 'Impossible de déplacer le fichier %s vers "%s"',
+                'DROPZONE_CANCEL_UPLOAD' => 'Annuler le chargement',
+                'DROPZONE_CANCEL_UPLOAD_CONFIRMATION' => 'Êtes-vous certain de vouloir annuler ce téléchargement ?',
+                'DROPZONE_DEFAULT_MESSAGE' => 'Glissez vos fichiers ici ou <strong>cliquez dans cette zone</strong>',
+                'DROPZONE_FALLBACK_MESSAGE' => 'Votre navigateur ne prend pas en charge les téléchargements par glissé-déposé.',
+                'DROPZONE_FALLBACK_TEXT' => 'Veuillez utiliser le formulaire de secours ci-dessous pour transférer vos fichiers.',
+                'DROPZONE_FILE_TOO_BIG' => 'Le fichier est trop volumineux ({{filesize}}MiB). Taille maximale de fichier : {{maxFilesize}}MiB.',
+                'DROPZONE_INVALID_FILE_TYPE' => 'Vous ne pouvez pas charger des fichiers de ce type.',
+                'DROPZONE_MAX_FILES_EXCEEDED' => 'Vous ne pouvez plus télécharger de fichiers.',
+                'DROPZONE_REMOVE_FILE' => 'Supprimer le fichier',
+                'DROPZONE_REMOVE_FILE_CONFIRMATION' => 'Êtes-vous sûr de vouloir supprimer ce fichier ?',
+                'DROPZONE_RESPONSE_ERROR' => 'Le serveur a répondu avec le code {{statusCode}}.'
             ]
         ],
         'hr' => [

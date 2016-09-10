@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/system/config/system.yaml',
-    'modified' => 1473499992,
+    'modified' => 1473500918,
     'data' => [
         'absolute_urls' => false,
         'timezone' => '',
@@ -11,6 +11,7 @@ return [
         'wrapped_site' => false,
         'reverse_proxy_setup' => false,
         'force_ssl' => false,
+        'custom_base_url' => '',
         'languages' => [
             'supported' => [
                 
@@ -89,7 +90,8 @@ return [
             'frontmatter' => [
                 'process_twig' => false,
                 'ignore_fields' => [
-                    0 => 'form'
+                    0 => 'form',
+                    1 => 'forms'
                 ]
             ]
         ],
@@ -159,7 +161,8 @@ return [
             'timeout' => 1800,
             'name' => 'grav-site',
             'secure' => false,
-            'httponly' => true
+            'httponly' => true,
+            'path' => NULL
         ],
         'gpm' => [
             'releases' => 'stable',

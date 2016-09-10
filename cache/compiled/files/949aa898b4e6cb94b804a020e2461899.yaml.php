@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/system/blueprints/config/system.yaml',
-    'modified' => 1473499992,
+    'modified' => 1473500918,
     'data' => [
         'title' => 'PLUGIN_ADMIN.SYSTEM',
         'form' => [
@@ -210,8 +210,9 @@ return [
                             'help' => 'PLUGIN_ADMIN.REDIRECT_DEFAULT_CODE_HELP',
                             'options' => [
                                 301 => '301 - Permanent',
+                                302 => '302 - Found',
                                 303 => '303 - Other',
-                                307 => '307 - Temporary'
+                                304 => '304 - Not Modified'
                             ]
                         ],
                         'pages.redirect_trailing_slash' => [
@@ -1102,6 +1103,12 @@ return [
                             'validate' => [
                                 'type' => 'bool'
                             ]
+                        ],
+                        'session.path' => [
+                            'type' => 'text',
+                            'size' => 'small',
+                            'label' => 'PLUGIN_ADMIN.SESSION_PATH',
+                            'help' => 'PLUGIN_ADMIN.SESSION_PATH_HELP'
                         ]
                     ]
                 ],
@@ -1190,6 +1197,13 @@ return [
                             'validate' => [
                                 'type' => 'bool'
                             ]
+                        ],
+                        'custom_base_url' => [
+                            'type' => 'text',
+                            'size' => 'medium',
+                            'placeholder' => 'e.g. http://localhost:8080',
+                            'label' => 'PLUGIN_ADMIN.CUSTOM_BASE_URL',
+                            'help' => 'PLUGIN_ADMIN.CUSTOM_BASE_URL_HELP'
                         ]
                     ]
                 ]

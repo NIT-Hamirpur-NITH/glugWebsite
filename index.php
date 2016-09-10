@@ -2,7 +2,8 @@
 /**
  * @package    Grav.Core
  *
- * @copyright  Copyright (C) 2016 GNU Linux Users Group, NIT Hamirpur. All rights reserved.
+ * @copyright  Copyright (C) 2014 - 2016 RocketTheme, LLC. All rights reserved.
+ * @license    MIT License; see LICENSE file for details.
  */
 
 namespace Grav;
