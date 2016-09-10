@@ -157,7 +157,7 @@ export default class CollectionsField {
 
             item.attr('data-collection-key', hasCustomKey ? observedValue : index);
 
-            ['name', 'data-grav-field-name', 'for', 'id', 'data-grav-file-settings'].forEach((prop) => {
+            ['name', 'data-grav-field-name', 'for', 'id'].forEach((prop) => {
                 item.find('[' + prop + '], [_' + prop + ']').each(function() {
                     let element = $(this);
                     let indexes = [];
@@ -180,15 +180,12 @@ export default class CollectionsField {
                     element.parents('[data-collection-key]').map((idx, parent) => indexes.push($(parent).attr('data-collection-key')));
                     indexes.reverse();
 
-                    let matchedKey = currentKey;
                     let replaced = element.attr(prop).replace(regexps[0], (/* str, p1, offset */) => {
-                        matchedKey = indexes.shift() || matchedKey;
-                        return `[${matchedKey}]`;
+                        return `[${indexes.shift() || currentKey}]`;
                     });
 
                     replaced = replaced.replace(regexps[1], (/* str, p1, offset */) => {
-                        matchedKey = indexes.shift() || matchedKey;
-                        return `.${matchedKey}.`;
+                        return `.${indexes.shift()}.`;
                     });
 
                     element.attr(prop, replaced);

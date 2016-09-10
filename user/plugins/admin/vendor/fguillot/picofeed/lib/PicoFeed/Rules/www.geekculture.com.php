@@ -4,7 +4,7 @@ return array(
         '%.*%' => array(
             'test_url' => 'http://www.geekculture.com/joyoftech/joyarchives/2180.html',
             'body' => array(
-                '//p[contains(@class,"Maintext")][2]/a/img[contains(@src,"joyimages")]',
+                '//p[contains(@class,"Maintext")][2]/img',
             ),
             'strip' => array(),
         ),

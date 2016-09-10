@@ -1,10 +1,13 @@
-.single-notification.alert {
-    position: relative;
-}
+$info_bg: #FEF2C0;
+$info_fg: #666;
+$info_link: #333;
+
+$warning_bg: #AB4859;
+$warning_fg: #eee;
+$warning_link: #e9e9e9;
 
 .hide-notification {
-	right: 1rem;
-    position: absolute;
+	float: right;
 }
 
 .alert.raw {
@@ -55,21 +58,6 @@
 
 #admin-main {
     .content-padding {
-
-        div[class*=notifications-container] .alert {
-            a:hover {
-                text-decoration: underline;
-            }
-
-            a.button, span.button, button.button {
-                float: right;
-                text-decoration: none;
-            }
-
-        }
-
-
-
         .top-notifications-container {
 
             .alert {

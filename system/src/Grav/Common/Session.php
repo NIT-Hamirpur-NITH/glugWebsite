@@ -38,10 +38,7 @@ class Session extends BaseSession
         $base_url = $uri->rootUrl(false);
 
         $session_timeout = $config->get('system.session.timeout', 1800);
-        $session_path = $config->get('system.session.path');
-        if (!$session_path) {
-            $session_path = '/' . ltrim($base_url, '/');
-        }
+        $session_path = $config->get('system.session.path', '/' . ltrim($base_url, '/'));
 
         // Activate admin if we're inside the admin path.
         if ($config->get('plugins.admin.enabled')) {
@@ -59,14 +56,13 @@ class Session extends BaseSession
         }
 
         if ($config->get('system.session.enabled') || $is_admin) {
+            // Define session service.
+            parent::__construct($session_timeout, $session_path);
+
             $domain = $uri->host();
             if ($domain === 'localhost') {
                 $domain = '';
             }
-
-            // Define session service.
-            parent::__construct($session_timeout, $session_path, $domain);
-
             $secure = $config->get('system.session.secure', false);
             $httponly = $config->get('system.session.httponly', true);
 

@@ -142,16 +142,12 @@ class TwigExtension extends \Twig_Extension
     public function safeEmailFilter($str)
     {
         $email   = '';
-        for ( $i = 0, $len = strlen( $str ); $i < $len; $i++ ) {
-            $j = rand( 0, 1);
-            if ( $j == 0 ) {
-                $email .= '&#' . ord( $str[$i] ) . ';';
-            } elseif ( $j == 1 ) {
-                $email .= $str[$i];
-            }
+        $str_len = strlen($str);
+        for ($i = 0; $i < $str_len; $i++) {
+            $email .= "&#" . ord($str[$i]) . ";";
         }
 
-        return str_replace( '@', '&#64;', $email );
+        return $email;
     }
 
     /**

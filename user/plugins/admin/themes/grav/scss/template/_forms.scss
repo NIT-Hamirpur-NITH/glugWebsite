@@ -158,7 +158,13 @@ form {
         }
 
         input {
-            display: none;
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            opacity: 0;
         }
     }
 
@@ -270,17 +276,7 @@ form {
         margin: 0;
     }
 
-    input[type=text],
-    input[type=password],
-    input[type=email],
-    input[type=date],
-    input[type=tel],
-    input[type=time],
-    input[type=week],
-    input[type=month],
-    input[type=number],
-    input[type=color],
-    input[type=url] {
+    input[type=text], input[type=password], input[type=email], input[type=date] {
         width: 100%;
     }
 
@@ -508,7 +504,7 @@ textarea.frontmatter {
             transform: translate(-50%, -50%);
         }
     }
-
+    
     [data-collection-nosort] .collection-sort {
         display: none;
     }
@@ -574,14 +570,4 @@ textarea.frontmatter {
 .form-fieldset--collapsible .close,
 .form-fieldset input:checked ~ .form-label .form-fieldset--collapsible .open {
     display: none;
-}
-
-.filepicker-field-image {
-    width: 30px;
-    vertical-align: middle;
-    margin-right: 5px;
-}
-
-.filepicker-field-name {
-    vertical-align: middle;
 }

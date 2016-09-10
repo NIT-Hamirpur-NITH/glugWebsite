@@ -47,10 +47,6 @@ class UpdateCommand extends ConsoleCommand
      */
     protected $gpm;
 
-    protected $all_yes;
-
-    protected $overwrite;
-
     /**
      *
      */
@@ -76,12 +72,6 @@ class UpdateCommand extends ConsoleCommand
                 'y',
                 InputOption::VALUE_NONE,
                 'Assumes yes (or best approach) instead of prompting'
-            )
-            ->addOption(
-                'overwrite',
-                'o',
-                InputOption::VALUE_NONE,
-                'Option to overwrite packages if they already exist'
             )
             ->addOption(
                 'plugins',
@@ -111,40 +101,31 @@ class UpdateCommand extends ConsoleCommand
     {
         $this->gpm = new GPM($this->input->getOption('force'));
 
-        $this->all_yes = $this->input->getOption('all-yes');
-        $this->overwrite = $this->input->getOption('overwrite');
-
         $this->displayGPMRelease();
 
         $this->destination = realpath($this->input->getOption('destination'));
+        $skip_prompt = $this->input->getOption('all-yes');
 
         if (!Installer::isGravInstance($this->destination)) {
             $this->output->writeln("<red>ERROR</red>: " . Installer::lastErrorMsg());
             exit;
         }
-        if ($this->input->getOption('plugins') === false && $this->input->getOption('themes') === false) {
-            $list_type = ['plugins' => true, 'themes' => true];
+        if ($this->input->getOption('plugins') === false and $this->input->getOption('themes') === false) {
+            $list_type_update = ['plugins' => true, 'themes' => true];
         } else {
-            $list_type['plugins'] = $this->input->getOption('plugins');
-            $list_type['themes'] = $this->input->getOption('themes');
+            $list_type_update['plugins'] = $this->input->getOption('plugins');
+            $list_type_update['themes'] = $this->input->getOption('themes');
         }
 
-        if ($this->overwrite) {
-            $this->data = $this->gpm->getInstallable($list_type);
-            $description = " can be overwritten";
-        } else {
-            $this->data = $this->gpm->getUpdatable($list_type);
-            $description = " need updating";
-        }
-
+        $this->data = $this->gpm->getUpdatable($list_type_update);
         $only_packages = array_map('strtolower', $this->input->getArgument('package'));
 
-        if (!$this->overwrite && !$this->data['total']) {
+        if (!$this->data['total']) {
             $this->output->writeln("Nothing to update.");
             exit;
         }
 
-        $this->output->write("Found <green>" . $this->gpm->countInstalled() . "</green> packages installed of which <magenta>" . $this->data['total'] . "</magenta>" . $description);
+        $this->output->write("Found <green>" . $this->gpm->countInstalled() . "</green> extensions installed of which <magenta>" . $this->data['total'] . "</magenta> need updating");
 
         $limit_to = $this->userInputPackages($only_packages);
 
@@ -164,23 +145,19 @@ class UpdateCommand extends ConsoleCommand
                     continue;
                 }
 
-                if (!$package->available) {
-                    $package->available = $package->version;
-                }
-
                 $this->output->writeln(
                 // index
                     str_pad($index++ + 1, 2, '0', STR_PAD_LEFT) . ". " .
                     // name
                     "<cyan>" . str_pad($package->name, 15) . "</cyan> " .
                     // version
-                    "[v<magenta>" . $package->version . "</magenta> -> v<green>" . $package->available . "</green>]"
+                    "[v<magenta>" . $package->version . "</magenta> ➜ v<green>" . $package->available . "</green>]"
                 );
                 $slugs[] = $slug;
             }
         }
 
-        if (!$this->all_yes) {
+        if (!$skip_prompt) {
             // prompt to continue
             $this->output->writeln("");
             $questionHelper = $this->getHelper('question');
@@ -188,7 +165,7 @@ class UpdateCommand extends ConsoleCommand
             $answer = $questionHelper->ask($this->input, $this->output, $question);
 
             if (!$answer) {
-                $this->output->writeln("<red>Update aborted. Exiting...</red>");
+                $this->output->writeln("Update aborted. Exiting...");
                 exit;
             }
         }
@@ -206,7 +183,7 @@ class UpdateCommand extends ConsoleCommand
         $command_exec = $install_command->run($args, $this->output);
 
         if ($command_exec != 0) {
-            $this->output->writeln("<red>Error:</red> An error occurred while trying to install the packages");
+            $this->output->writeln("<red>Error:</red> An error occurred while trying to install the extensions");
             exit;
         }
     }
@@ -227,7 +204,7 @@ class UpdateCommand extends ConsoleCommand
             foreach ($only_packages as $only_package) {
                 $find = $this->gpm->findPackage($only_package);
 
-                if (!$find || (!$this->overwrite && !$this->gpm->isUpdatable($find->slug))) {
+                if (!$find || !$this->gpm->isUpdatable($find->slug)) {
                     $name = isset($find->slug) ? $find->slug : $only_package;
                     $ignore[$name] = $name;
                 } else {

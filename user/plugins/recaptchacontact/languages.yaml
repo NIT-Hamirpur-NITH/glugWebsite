@@ -1,7 +1,33 @@
-# Don't try to set the legend, subject, and recipient here.
-# That's best done in header of the page to which you're adding the form.
-# All of these settings can be overriden on a page-by-page basis,
-# as described in the README file.
+de:
+  RECAPTCHACONTACT:
+    FORM_LEGEND: "Kontaktiere mich"
+    SUBJECT: "[Grav] Kontaktanfrage"
+    RECIPIENT: "name@provider.de"
+
+    FIELDS:
+      NAME:
+        LABEL: "Name"
+        PLACEHOLDER: "Dein Name"
+
+      EMAIL:
+        LABEL: "E-Mail"
+        PLACEHOLDER: "Deine E-Mail"
+
+      MESSAGE:
+        LABEL: "Nachricht"
+        PLACEHOLDER: "Deine Nachricht"
+
+      ANTISPAM:
+        LABEL: "Antispam"
+        PLACEHOLDER: "Dieses Feld für Antispam-Bots frei lassen."
+
+      SUBMIT:
+        LABEL: "Abschicken"
+
+    MESSAGES:
+      SUCCESS: "Vielen Dank! Deine Nachricht wurde erfolgreich versendet."
+      ERROR: "Oops! Mit der Übertragung gab es ein Problem. Bitte versuche es erneut."
+      FAIL: "Oops! Versenden der Nachricht fehlgeschlagen."
 
 en:
   RECAPTCHACONTACT:
@@ -34,37 +60,6 @@ en:
       ERROR: "Oops! There was a problem with your submission. Please complete the form and try again."
       FAIL: "Oops! Something went wrong and we couldn't send your message."
 
-de:
-  RECAPTCHACONTACT:
-    FORM_LEGEND: "Kontaktiere mich"
-    SUBJECT: "[Grav] Kontaktanfrage"
-    RECIPIENT: "name@provider.de"
-
-    FIELDS:
-      NAME:
-        LABEL: "Name"
-        PLACEHOLDER: "Dein Name"
-
-      EMAIL:
-        LABEL: "E-Mail"
-        PLACEHOLDER: "Deine E-Mail"
-
-      MESSAGE:
-        LABEL: "Nachricht"
-        PLACEHOLDER: "Deine Nachricht"
-
-      ANTISPAM:
-        LABEL: "Antispam"
-        PLACEHOLDER: "Dieses Feld für Antispam-Bots frei lassen."
-
-      SUBMIT:
-        LABEL: "Abschicken"
-
-    MESSAGES:
-      SUCCESS: "Vielen Dank! Deine Nachricht wurde erfolgreich versendet."
-      ERROR: "Oops! Mit der Übertragung gab es ein Problem. Bitte versuche es erneut."
-      FAIL: "Oops! Versenden der Nachricht fehlgeschlagen."
-
 es:
   RECAPTCHACONTACT:
     FORM_LEGEND: "Contacta conmigo"
@@ -95,37 +90,6 @@ es:
       SUCCESS: "¡Gracias! Tu mensaje ha sido enviado."
       ERROR: "¡Uy! Hubo un problema con el envío. Por favor, rellena el formulario de nuevo."
       FAIL: "¡Uy! Algo salió mal y no se pudo enviar el mensaje."
-      
-fr:
-  RECAPTCHACONTACT:
-    FORM_LEGEND: "Me contacter"
-    SUBJECT: "Nouveau contact du site de Grav !"
-    RECIPIENT: "hello@exemple.com"
-
-    FIELDS:
-      NAME:
-        LABEL: "Nom"
-        PLACEHOLDER: "Ajoutez votre nom"
-
-      EMAIL:
-        LABEL: "E-mail"
-        PLACEHOLDER: "Ajoutez votre e-mail"
-
-      MESSAGE:
-        LABEL: "Message"
-        PLACEHOLDER: "Ajoutez votre message"
-
-      ANTISPAM:
-        LABEL: "Antispam"
-        PLACEHOLDER: "Veuillez laisser ce champ vide pour l'antispam"
-
-      SUBMIT:
-        LABEL: "Envoyer"
-
-    MESSAGES:
-      SUCCESS: "Merci ! Votre message a bien été envoyé."
-      ERROR: "Oups ! Une erreur s'est produite lors de l'envoi. Veuillez renseigner à nouveau le formulaire et réessayer."
-      FAIL: "Oups ! Une erreur s'est produite et il a été impossible d'envoyer votre message."
 
 it:
   RECAPTCHACONTACT:
@@ -158,33 +122,3 @@ it:
       ERROR: "Oh! C'è stato un problema durante l'invio. Si prega di compilare il modulo e riprovare."
       FAIL: "Oh! Qualcosa non ha funzionato perciò il tuo messaggio non potrà essere inviato."
 
-ru:
-  RECAPTCHACONTACT:
-    FORM_LEGEND: "Контакты"
-    SUBJECT: "Новый контакт от Grav!"
-    RECIPIENT: "hello@example.com"
-
-    FIELDS:
-      NAME:
-        LABEL: "Имя"
-        PLACEHOLDER: "Укажите имя"
-
-      EMAIL:
-        LABEL: "Email"
-        PLACEHOLDER: "Укажите email"
-
-      MESSAGE:
-        LABEL: "Сообщение"
-        PLACEHOLDER: "Укажите сообщение"
-
-      ANTISPAM:
-        LABEL: "Антиспам"
-        PLACEHOLDER: "Пожалуйста, оставьте данное поле пустым для Антиспама"
-
-      SUBMIT:
-        LABEL: "Отправить"
-
-    MESSAGES:
-      SUCCESS: "Спасибо! Ваше сообщение было отправлено."
-      ERROR: "Упс! Произошла ошибка при отправке вашего сообщения. Пожалуйста заполните форму и попробуйте снова."
-      FAIL: "Упс! Что-то пошло не так и мы не можем отправить ваше сообщение."

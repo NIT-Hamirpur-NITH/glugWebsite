@@ -147,9 +147,8 @@ abstract class AbstractDumper implements DataDumperInterface, DumperInterface
     /**
      * Generic line dumper callback.
      *
-     * @param string $line      The line to write
-     * @param int    $depth     The recursive depth in the dumped structure
-     * @param string $indentPad The line indent pad
+     * @param string $line  The line to write
+     * @param int    $depth The recursive depth in the dumped structure
      */
     protected function echoLine($line, $depth, $indentPad)
     {

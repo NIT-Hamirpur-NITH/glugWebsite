@@ -14,10 +14,9 @@ Better Markdown Parser in PHP
 
 ### Features
 
-* One File
 * Super Fast
-* Extensible
 * [GitHub flavored](https://help.github.com/articles/github-flavored-markdown)
+* Extensible
 * Tested in 5.3 to 7.0 and in HHVM
 * [Markdown Extra extension](https://github.com/erusev/parsedown-extra)
 
@@ -49,7 +48,7 @@ It passes most of the CommonMark tests. Most of the tests that don't pass deal w
 
 **Who uses it?**
 
-[phpDocumentor](http://www.phpdoc.org/), [October CMS](http://octobercms.com/), [Bolt CMS](http://bolt.cm/), [Kirby CMS](http://getkirby.com/), [Grav CMS](http://getgrav.org/), [Statamic CMS](http://www.statamic.com/), [Herbie CMS](http://www.getherbie.org/), [RaspberryPi.org](http://www.raspberrypi.org/) and [more](https://packagist.org/packages/erusev/parsedown/dependents).
+[phpDocumentor](http://www.phpdoc.org/), [October CMS](http://octobercms.com/), [Bolt CMS](http://bolt.cm/), [Kirby CMS](http://getkirby.com/), [Grav CMS](http://getgrav.org/), [Statamic CMS](http://www.statamic.com/), [Herbie CMS](http://www.getherbie.org/), [RaspberryPi.org](http://www.raspberrypi.org/) and [more](https://www.versioneye.com/php/erusev:parsedown/references).
 
 **How can I help?**
 

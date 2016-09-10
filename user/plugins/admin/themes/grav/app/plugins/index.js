@@ -82,6 +82,6 @@ $(document).on('input', '[data-gpm-filter]', debounce((event) => {
     items.hide().filter((index, item) => {
         item = $(item);
 
-        return contains(item.data('gpm-plugin'), value) || contains(item.data('gpm-theme'), value) || contains(item.data('gpm-name').toLowerCase(), value.toLowerCase());
+        return contains(item.data('gpm-plugin'), value) || contains(item.data('gpm-theme'), value) || contains(item.data('gpm-name'), value);
     }).show();
 }, 250));

@@ -8,7 +8,6 @@
 
 namespace Grav\Common\Service;
 
-use Grav\Common\Page\Page;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
@@ -38,7 +37,7 @@ class PageServiceProvider implements ServiceProviderInterface
                     if (!isset($_SERVER['HTTPS']) || $_SERVER["HTTPS"] != "on") {
                         $url = "https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
                         $c->redirect($url);
-                    }
+                    }                    
                 }
 
                 $url = $page->route();
@@ -78,13 +77,14 @@ class PageServiceProvider implements ServiceProviderInterface
                 // Try fallback URL stuff...
                 $c->fallbackUrl($path);
 
-                if (!$page) {
-                    $path = $c['locator']->findResource('system://pages/notfound.md');
-                    $page = new Page();
-                    $page->init(new \SplFileInfo($path));
-                    $page->routable(false);
-                }
+                // If no page found, fire event
+                $event = $c->fireEvent('onPageNotFound');
 
+                if (isset($event->page)) {
+                    $page = $event->page;
+                } else {
+                    throw new \RuntimeException('Page Not Found', 404);
+                }
             }
 
             return $page;

@@ -5,7 +5,6 @@ use DateTime;
 use Grav\Common\Data;
 use Grav\Common\File\CompiledYamlFile;
 use Grav\Common\GPM\GPM;
-use Grav\Common\GPM\Response;
 use Grav\Common\Grav;
 use Grav\Common\Language\LanguageCodes;
 use Grav\Common\Page\Page;
@@ -1012,36 +1011,44 @@ class Admin
     {
         static $guess;
 
-        $date_formats = [
-            'm/d/y',
-            'm/d/Y',
-            'n/d/y',
-            'n/d/Y',
-            'd-m-Y',
-            'd-m-y',
-        ];
-
-        $time_formats = [
-            'H:i',
-            'G:i',
-            'h:ia',
-            'g:ia'
-        ];
-
         if (!isset($guess[$date])) {
-            foreach ($date_formats as $date_format) {
-                foreach ($time_formats as $time_format) {
-                    if ($this->validateDate($date, "$date_format $time_format")) {
-                        $guess[$date] = "$date_format $time_format";
-                        break 2;
-                    } elseif ($this->validateDate($date, "$time_format $date_format")) {
-                        $guess[$date] = "$time_format $date_format";
-                        break 2;
-                    }
+            if (Utils::contains($date, '/')) {
+                if ($this->validateDate($date, 'm/d/Y H:i')) {
+                    $guess[$date] = 'm/d/Y H:i';
+                } elseif ($this->validateDate($date, 'm/d/y H:i')) {
+                    $guess[$date] = 'm/d/y H:i';
+                } elseif ($this->validateDate($date, 'm/d/Y G:i')) {
+                    $guess[$date] = 'm/d/Y G:i';
+                } elseif ($this->validateDate($date, 'm/d/y G:i')) {
+                    $guess[$date] = 'm/d/y G:i';
+                } elseif ($this->validateDate($date, 'm/d/Y h:ia')) {
+                    $guess[$date] = 'm/d/Y h:ia';
+                } elseif ($this->validateDate($date, 'm/d/y h:ia')) {
+                    $guess[$date] = 'm/d/y h:ia';
+                } elseif ($this->validateDate($date, 'm/d/Y g:ia')) {
+                    $guess[$date] = 'm/d/Y g:ia';
+                } elseif ($this->validateDate($date, 'm/d/y g:ia')) {
+                    $guess[$date] = 'm/d/y g:ia';
                 }
-            }
-
-            if (!isset($guess[$date])) {
+            } elseif (Utils::contains($date, '-')) {
+                if ($this->validateDate($date, 'd-m-Y H:i')) {
+                    $guess[$date] = 'd-m-Y H:i';
+                } elseif ($this->validateDate($date, 'd-m-y H:i')) {
+                    $guess[$date] = 'd-m-y H:i';
+                } elseif ($this->validateDate($date, 'd-m-Y G:i')) {
+                    $guess[$date] = 'd-m-Y G:i';
+                } elseif ($this->validateDate($date, 'd-m-y G:i')) {
+                    $guess[$date] = 'd-m-y G:i';
+                } elseif ($this->validateDate($date, 'd-m-Y h:ia')) {
+                    $guess[$date] = 'd-m-Y h:ia';
+                } elseif ($this->validateDate($date, 'd-m-y h:ia')) {
+                    $guess[$date] = 'd-m-y h:ia';
+                } elseif ($this->validateDate($date, 'd-m-Y g:ia')) {
+                    $guess[$date] = 'd-m-Y g:ia';
+                } elseif ($this->validateDate($date, 'd-m-y g:ia')) {
+                    $guess[$date] = 'd-m-y g:ia';
+                }
+            } else {
                 $guess[$date] = 'd-m-Y H:i';
             }
         }
@@ -1301,12 +1308,15 @@ class Admin
      */
     public function getFeed()
     {
-        $feed_url = 'https://getgrav.org/blog.atom';
 
-        $body = Response::get($feed_url);
+        $reader = new Reader;
+        $resource = $reader->download('https://getgrav.org/blog.atom');
 
-        $reader = new Reader();
-        $parser = $reader->getParser($feed_url, $body, 'utf-8');
+        $parser = $reader->getParser(
+            $resource->getUrl(),
+            $resource->getContent(),
+            $resource->getEncoding()
+        );
 
         $feed = $parser->execute();
 
@@ -1320,16 +1330,6 @@ class Admin
         $string = htmlspecialchars_decode($string, ENT_QUOTES);
         $string = str_replace("\n", ' ', $string);
         return trim($string);
-    }
-
-    public static function getTempDir()
-    {
-        try {
-            $tmp_dir = Grav::instance()['locator']->findResource('tmp://', true, true);
-        } catch (\Exception $e) {
-            $tmp_dir = Grav::instance()['locator']->findResource('cache://', true, true) . '/tmp';
-        }
-        return $tmp_dir;
     }
 
 }

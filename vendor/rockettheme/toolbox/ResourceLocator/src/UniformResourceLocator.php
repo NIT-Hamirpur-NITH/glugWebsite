@@ -176,12 +176,12 @@ class UniformResourceLocator implements ResourceLocatorInterface
     /**
      * Return all scheme lookup paths.
      *
-     * @param string $scheme
+     * @param $scheme
      * @return array
      */
-    public function getPaths($scheme = null)
+    public function getPaths($scheme)
     {
-        return !$scheme ? $this->schemes : (isset($this->schemes[$scheme]) ? $this->schemes[$scheme] : []);
+        return isset($this->schemes[$scheme]) ? $this->schemes[$scheme] : [];
     }
 
     /**

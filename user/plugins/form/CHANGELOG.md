@@ -1,31 +1,3 @@
-# v2.0.2
-## 09/08/2016
-
-1. [](#improved)
-    * Added support for Grav's autoescape twig setting
-    * Allow to add additional markup fields in form and field twig overrides
-    * Updated the french language translation
-
-# v2.0.1
-## 09/07/2016
-
-1. [](#bugfix)
-    * Fixed a backwards compatibility issue with Admin forms
-
-# v2.0.0
-## 09/07/2016
-
-1. [](#new)
-    * Forms now supports multiple forms per page!
-    * Access forms from any other page within the current page
-    * Instantiate forms directly in page content with Twig processing enabled
-    * New Twig function to get forms data from any other page
-    * Ability to use Twig in saved filename
-    * Reworked the `file` field. All files get uploaded via Ajax and are stored upon Submit. Fully backward compatible, `file` field now includes also a `limit` and `filesize` option. The former determines how many files are allowed to be uploaded when in combination with `multiple: true` (default: 10), the latter determines the file size limit (in MB) allowed for each file (default: 5MB)
-1. [](#improved)
-    * Added several missing HTML5 form input field types [#87](https://github.com/getgrav/grav-plugin-form/issues/87)
-    * Added Support for CSS id in form definition
-
 # v1.3.2
 ## 08/10/2016
 
@@ -41,7 +13,7 @@
     * Added support for multiple emails in `email` field (add `multiple: true` to enable)
 1. [](#bugfix)
     * Fixed backward incompatibility with forms submission and data retrieval [getgrav/grav#933](https://github.com/getgrav/grav/issues/933)
-
+    
 # v1.3.0
 ## 07/14/2016
 

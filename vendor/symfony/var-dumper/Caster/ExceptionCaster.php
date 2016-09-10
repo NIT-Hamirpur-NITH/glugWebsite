@@ -234,7 +234,7 @@ class ExceptionCaster
                 'file' => $a[Caster::PREFIX_PROTECTED.'file'],
                 'line' => $a[Caster::PREFIX_PROTECTED.'line'],
             ));
-            $a[$xPrefix.'trace'] = new TraceStub($trace, self::$traceArgs);
+            $a[$xPrefix.'trace'] = new TraceStub($trace);
         }
         if (empty($a[$xPrefix.'previous'])) {
             unset($a[$xPrefix.'previous']);
@@ -253,24 +253,19 @@ class ExceptionCaster
         }
 
         $ltrim = 0;
-        do {
-            $pad = null;
-            for ($i = $srcContext << 1; $i >= 0; --$i) {
-                if (isset($src[$i][$ltrim]) && "\r" !== ($c = $src[$i][$ltrim]) && "\n" !== $c) {
-                    if (null === $pad) {
-                        $pad = $c;
-                    }
-                    if ((' ' !== $c && "\t" !== $c) || $pad !== $c) {
-                        break;
-                    }
-                }
+        while (' ' === $src[0][$ltrim] || "\t" === $src[0][$ltrim]) {
+            $i = $srcContext << 1;
+            while ($i > 0 && $src[0][$ltrim] === $src[$i][$ltrim]) {
+                --$i;
+            }
+            if ($i) {
+                break;
             }
             ++$ltrim;
-        } while (0 > $i && null !== $pad);
-
-        if (--$ltrim) {
+        }
+        if ($ltrim) {
             foreach ($src as $i => $line) {
-                $src[$i] = isset($line[$ltrim]) && "\r" !== $line[$ltrim] ? substr($line, $ltrim) : ltrim($line, " \t");
+                $src[$i] = substr($line, $ltrim);
             }
         }
 

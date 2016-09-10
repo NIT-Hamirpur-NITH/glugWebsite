@@ -1,51 +1,5 @@
 [
     {
-        "name": "antoligy/dom-string-iterators",
-        "version": "v1.0.0",
-        "version_normalized": "1.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/antoligy/dom-string-iterators.git",
-            "reference": "9a624b082493fee9b972840dbd677494edb94cf7"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/antoligy/dom-string-iterators/zipball/9a624b082493fee9b972840dbd677494edb94cf7",
-            "reference": "9a624b082493fee9b972840dbd677494edb94cf7",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "time": "2015-11-04 17:33:14",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Public Domain"
-        ],
-        "authors": [
-            {
-                "name": "Alex Wilson",
-                "email": "a@ax.gy"
-            },
-            {
-                "name": "Kornel Lesinski",
-                "email": "pornel@pornel.net"
-            },
-            {
-                "name": "Patrick Galbraith",
-                "email": "patrick.j.galbraith@gmail.com"
-            }
-        ],
-        "description": "Composer package for DOMWordsIterator and DOMLettersIterator"
-    },
-    {
         "name": "doctrine/cache",
         "version": "v1.6.0",
         "version_normalized": "1.6.0.0",
@@ -119,17 +73,17 @@
     },
     {
         "name": "donatj/phpuseragentparser",
-        "version": "v0.5.2",
-        "version_normalized": "0.5.2.0",
+        "version": "v0.5.1",
+        "version_normalized": "0.5.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/donatj/PhpUserAgent.git",
-            "reference": "d8e7b6a0c83a6e4aa9098360a99c6eeb763c004a"
+            "reference": "b00392786281877db6a51d0e48dee7296c7ba4f8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/donatj/PhpUserAgent/zipball/d8e7b6a0c83a6e4aa9098360a99c6eeb763c004a",
-            "reference": "d8e7b6a0c83a6e4aa9098360a99c6eeb763c004a",
+            "url": "https://api.github.com/repos/donatj/PhpUserAgent/zipball/b00392786281877db6a51d0e48dee7296c7ba4f8",
+            "reference": "b00392786281877db6a51d0e48dee7296c7ba4f8",
             "shasum": ""
         },
         "require": {
@@ -140,7 +94,7 @@
             "donatj/drop": "*",
             "phpunit/phpunit": ">=4.8"
         },
-        "time": "2016-09-01 22:33:01",
+        "time": "2016-03-07 17:14:32",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -177,18 +131,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/erusev/parsedown.git",
-            "reference": "a2ed1592bd064cf90661c266f7e89ea88c06b1db"
+            "reference": "490a8f35a4163f59230f53c34f1fbb22a864c01e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/erusev/parsedown/zipball/a2ed1592bd064cf90661c266f7e89ea88c06b1db",
-            "reference": "a2ed1592bd064cf90661c266f7e89ea88c06b1db",
+            "url": "https://api.github.com/repos/erusev/parsedown/zipball/490a8f35a4163f59230f53c34f1fbb22a864c01e",
+            "reference": "490a8f35a4163f59230f53c34f1fbb22a864c01e",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2016-09-05 13:55:29",
+        "time": "2016-03-09 17:02:39",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -262,17 +216,17 @@
     },
     {
         "name": "filp/whoops",
-        "version": "2.1.3",
-        "version_normalized": "2.1.3.0",
+        "version": "2.1.2",
+        "version_normalized": "2.1.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/filp/whoops.git",
-            "reference": "8828aaa2178e0a19325522e2a45282ff0a14649b"
+            "reference": "d13505b240a6f580bc75ba591da30299d6cb0eec"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/filp/whoops/zipball/8828aaa2178e0a19325522e2a45282ff0a14649b",
-            "reference": "8828aaa2178e0a19325522e2a45282ff0a14649b",
+            "url": "https://api.github.com/repos/filp/whoops/zipball/d13505b240a6f580bc75ba591da30299d6cb0eec",
+            "reference": "d13505b240a6f580bc75ba591da30299d6cb0eec",
             "shasum": ""
         },
         "require": {
@@ -287,7 +241,7 @@
             "symfony/var-dumper": "Pretty print complex values better with var-dumper available",
             "whoops/soap": "Formats errors as SOAP responses"
         },
-        "time": "2016-05-06 18:25:35",
+        "time": "2016-04-07 06:16:25",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -415,109 +369,6 @@
         "keywords": [
             "gd",
             "image"
-        ]
-    },
-    {
-        "name": "seld/cli-prompt",
-        "version": "1.0.2",
-        "version_normalized": "1.0.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Seldaek/cli-prompt.git",
-            "reference": "8cbe10923cae5bcd7c5a713f6703fc4727c8c1b4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/cli-prompt/zipball/8cbe10923cae5bcd7c5a713f6703fc4727c8c1b4",
-            "reference": "8cbe10923cae5bcd7c5a713f6703fc4727c8c1b4",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3"
-        },
-        "time": "2016-04-18 09:31:41",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Seld\\CliPrompt\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jordi Boggiano",
-                "email": "j.boggiano@seld.be"
-            }
-        ],
-        "description": "Allows you to prompt for user input on the command line, and optionally hide the characters they type",
-        "keywords": [
-            "cli",
-            "console",
-            "hidden",
-            "input",
-            "prompt"
-        ]
-    },
-    {
-        "name": "league/climate",
-        "version": "3.2.1",
-        "version_normalized": "3.2.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/thephpleague/climate.git",
-            "reference": "b103fc8faa3780c802cc507d5f0ff534ecc94fb5"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/climate/zipball/b103fc8faa3780c802cc507d5f0ff534ecc94fb5",
-            "reference": "b103fc8faa3780c802cc507d5f0ff534ecc94fb5",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.4.0",
-            "seld/cli-prompt": "~1.0"
-        },
-        "require-dev": {
-            "mikey179/vfsstream": "~1.4",
-            "mockery/mockery": "~0.9",
-            "phpunit/phpunit": "~4.6"
-        },
-        "time": "2016-04-04 20:24:59",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "League\\CLImate\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Joe Tannenbaum",
-                "email": "hey@joe.codes",
-                "homepage": "http://joe.codes/",
-                "role": "Developer"
-            }
-        ],
-        "description": "PHP's best friend for the terminal. CLImate allows you to easily output colored text, special formats, and more.",
-        "keywords": [
-            "cli",
-            "colors",
-            "command",
-            "php",
-            "terminal"
         ]
     },
     {
@@ -692,17 +543,17 @@
     },
     {
         "name": "symfony/var-dumper",
-        "version": "v2.8.11",
-        "version_normalized": "2.8.11.0",
+        "version": "v2.8.8",
+        "version_normalized": "2.8.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/var-dumper.git",
-            "reference": "84d9a8e4605552704672e67065ec397d816a2ad2"
+            "reference": "eb21798f1cd2d3a1c1e1e4d0632b6d04a798f210"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/84d9a8e4605552704672e67065ec397d816a2ad2",
-            "reference": "84d9a8e4605552704672e67065ec397d816a2ad2",
+            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/eb21798f1cd2d3a1c1e1e4d0632b6d04a798f210",
+            "reference": "eb21798f1cd2d3a1c1e1e4d0632b6d04a798f210",
             "shasum": ""
         },
         "require": {
@@ -715,7 +566,7 @@
         "suggest": {
             "ext-symfony_debug": ""
         },
-        "time": "2016-09-06 10:55:00",
+        "time": "2016-06-29 05:29:29",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -860,17 +711,17 @@
     },
     {
         "name": "monolog/monolog",
-        "version": "1.21.0",
-        "version_normalized": "1.21.0.0",
+        "version": "1.20.0",
+        "version_normalized": "1.20.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "f42fbdfd53e306bda545845e4dbfd3e72edb4952"
+            "reference": "55841909e2bcde01b5318c35f2b74f8ecc86e037"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f42fbdfd53e306bda545845e4dbfd3e72edb4952",
-            "reference": "f42fbdfd53e306bda545845e4dbfd3e72edb4952",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/55841909e2bcde01b5318c35f2b74f8ecc86e037",
+            "reference": "55841909e2bcde01b5318c35f2b74f8ecc86e037",
             "shasum": ""
         },
         "require": {
@@ -906,7 +757,7 @@
             "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
             "sentry/sentry": "Allow sending log messages to a Sentry server"
         },
-        "time": "2016-07-29 03:23:52",
+        "time": "2016-07-02 14:02:10",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -940,23 +791,23 @@
     },
     {
         "name": "symfony/yaml",
-        "version": "v2.8.11",
-        "version_normalized": "2.8.11.0",
+        "version": "v2.8.8",
+        "version_normalized": "2.8.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/yaml.git",
-            "reference": "e7540734bad981fe59f8ef14b6fc194ae9df8d9c"
+            "reference": "dba4bb5846798cd12f32e2d8f3f35d77045773c8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/yaml/zipball/e7540734bad981fe59f8ef14b6fc194ae9df8d9c",
-            "reference": "e7540734bad981fe59f8ef14b6fc194ae9df8d9c",
+            "url": "https://api.github.com/repos/symfony/yaml/zipball/dba4bb5846798cd12f32e2d8f3f35d77045773c8",
+            "reference": "dba4bb5846798cd12f32e2d8f3f35d77045773c8",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.9"
         },
-        "time": "2016-09-02 01:57:56",
+        "time": "2016-06-29 05:29:29",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -991,17 +842,17 @@
     },
     {
         "name": "symfony/event-dispatcher",
-        "version": "v2.8.11",
-        "version_normalized": "2.8.11.0",
+        "version": "v2.8.8",
+        "version_normalized": "2.8.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/event-dispatcher.git",
-            "reference": "889983a79a043dfda68f38c38b6dba092dd49cd8"
+            "reference": "b180b70439dca70049b6b9b7e21d75e6e5d7aca9"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/889983a79a043dfda68f38c38b6dba092dd49cd8",
-            "reference": "889983a79a043dfda68f38c38b6dba092dd49cd8",
+            "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/b180b70439dca70049b6b9b7e21d75e6e5d7aca9",
+            "reference": "b180b70439dca70049b6b9b7e21d75e6e5d7aca9",
             "shasum": ""
         },
         "require": {
@@ -1018,7 +869,7 @@
             "symfony/dependency-injection": "",
             "symfony/http-kernel": ""
         },
-        "time": "2016-07-28 16:56:28",
+        "time": "2016-06-29 05:29:29",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1106,12 +957,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/rockettheme/toolbox.git",
-            "reference": "352ce81c373ccb9a9c4b1ea5de0c10b95e54d7f2"
+            "reference": "12d9007979c816038ed7deacf67811c8b864c679"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/rockettheme/toolbox/zipball/352ce81c373ccb9a9c4b1ea5de0c10b95e54d7f2",
-            "reference": "352ce81c373ccb9a9c4b1ea5de0c10b95e54d7f2",
+            "url": "https://api.github.com/repos/rockettheme/toolbox/zipball/12d9007979c816038ed7deacf67811c8b864c679",
+            "reference": "12d9007979c816038ed7deacf67811c8b864c679",
             "shasum": ""
         },
         "require": {
@@ -1123,7 +974,7 @@
         "require-dev": {
             "phpunit/phpunit": "~5.1.5"
         },
-        "time": "2016-09-09 07:27:11",
+        "time": "2016-05-24 18:58:03",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1151,17 +1002,17 @@
     },
     {
         "name": "symfony/console",
-        "version": "v2.8.11",
-        "version_normalized": "2.8.11.0",
+        "version": "v2.8.8",
+        "version_normalized": "2.8.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/console.git",
-            "reference": "3d3e4fa5f0614c8e45220e5de80332322e33bd90"
+            "reference": "c392a6ec72f2122748032c2ad6870420561ffcfa"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/console/zipball/3d3e4fa5f0614c8e45220e5de80332322e33bd90",
-            "reference": "3d3e4fa5f0614c8e45220e5de80332322e33bd90",
+            "url": "https://api.github.com/repos/symfony/console/zipball/c392a6ec72f2122748032c2ad6870420561ffcfa",
+            "reference": "c392a6ec72f2122748032c2ad6870420561ffcfa",
             "shasum": ""
         },
         "require": {
@@ -1178,7 +1029,7 @@
             "symfony/event-dispatcher": "",
             "symfony/process": ""
         },
-        "time": "2016-09-06 10:55:00",
+        "time": "2016-06-29 07:02:14",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1274,17 +1125,17 @@
     },
     {
         "name": "twig/twig",
-        "version": "v1.24.2",
-        "version_normalized": "1.24.2.0",
+        "version": "v1.24.1",
+        "version_normalized": "1.24.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/twigphp/Twig.git",
-            "reference": "33093f6e310e6976baeac7b14f3a6ec02f2d79b7"
+            "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twigphp/Twig/zipball/33093f6e310e6976baeac7b14f3a6ec02f2d79b7",
-            "reference": "33093f6e310e6976baeac7b14f3a6ec02f2d79b7",
+            "url": "https://api.github.com/repos/twigphp/Twig/zipball/3566d311a92aae4deec6e48682dc5a4528c4a512",
+            "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512",
             "shasum": ""
         },
         "require": {
@@ -1294,7 +1145,7 @@
             "symfony/debug": "~2.7",
             "symfony/phpunit-bridge": "~2.7"
         },
-        "time": "2016-09-01 17:50:53",
+        "time": "2016-05-30 09:11:59",
         "type": "library",
         "extra": {
             "branch-alias": {

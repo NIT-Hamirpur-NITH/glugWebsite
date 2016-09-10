@@ -2,14 +2,10 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/form/blueprints.yaml',
-<<<<<<< HEAD
-    'modified' => 1473500965,
-=======
-    'modified' => 1473179275,
->>>>>>> 5e074b83a820a8c83de32bc2bb5ae5ca0ed6d306
+    'modified' => 1472214093,
     'data' => [
         'name' => 'Form',
-        'version' => '2.0.2',
+        'version' => '1.3.2',
         'description' => 'Enables the forms handling',
         'icon' => 'check-square',
         'author' => [
@@ -24,7 +20,7 @@ return [
         'dependencies' => [
             0 => [
                 'name' => 'grav',
-                'version' => '>=1.1.4'
+                'version' => '~1.1'
             ]
         ],
         'form' => [
@@ -41,25 +37,6 @@ return [
                     ],
                     'validate' => [
                         'type' => 'bool'
-                    ]
-                ],
-                'general' => [
-                    'type' => 'section',
-                    'title' => 'PLUGIN_FORM.GENERAL',
-                    'fields' => [
-                        'built_in_css' => [
-                            'type' => 'toggle',
-                            'label' => 'PLUGIN_FORM.USE_BUILT_IN_CSS',
-                            'highlight' => 1,
-                            'default' => 1,
-                            'options' => [
-                                1 => 'Enabled',
-                                0 => 'Disabled'
-                            ],
-                            'validate' => [
-                                'type' => 'bool'
-                            ]
-                        ]
                     ]
                 ],
                 'files' => [

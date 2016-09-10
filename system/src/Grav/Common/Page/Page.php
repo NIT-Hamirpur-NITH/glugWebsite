@@ -54,7 +54,6 @@ class Page
     protected $routable;
     protected $modified;
     protected $redirect;
-    protected $external_url;
     protected $items;
     protected $header;
     protected $frontmatter;
@@ -365,9 +364,6 @@ class Page
             if (isset($this->header->redirect)) {
                 $this->redirect = trim($this->header->redirect);
             }
-            if (isset($this->header->external_url)) {
-                $this->external_url = trim($this->header->external_url);
-            }
             if (isset($this->header->order_dir)) {
                 $this->order_dir = trim($this->header->order_dir);
             }
@@ -502,8 +498,7 @@ class Page
             $size = 300;
         }
 
-        $summary = Utils::truncateHTML($content, $size);
-        return html_entity_decode($summary);
+        return html_entity_decode(Utils::truncateHTML($content, $size));
     }
 
     /**
@@ -1475,11 +1470,6 @@ class Page
         /** @var Uri $uri */
         $uri = $grav['uri'];
 
-        // Override any URL when external_url is set
-        if (isset($this->external_url)) {
-            return $this->external_url;
-        }
-
         // get pre-route
         if ($include_lang && $language->enabled()) {
             $pre_route = $language->getLanguageURLPrefix();
@@ -2154,9 +2144,7 @@ class Page
      */
     public function home()
     {
-        $home = Grav::instance()['config']->get('system.home.alias');
-        $is_home = ($this->route() == $home || $this->rawRoute() == $home);
-        return $is_home;
+        return $this->find('/') == $this;
     }
 
     /**
@@ -2238,7 +2226,7 @@ class Page
                             if (empty($page->taxonomy[$taxonomy]) || !in_array(htmlspecialchars_decode($item,
                                     ENT_QUOTES), $page->taxonomy[$taxonomy])
                             ) {
-                                $collection->remove($page->path());
+                                $collection->remove();
                             }
                         }
                     }
@@ -2312,6 +2300,11 @@ class Page
             return new Collection($result);
         }
 
+        // We only evaluate commands which start with @
+        if (empty($cmd) || $cmd[0] != '@') {
+            return $value;
+        }
+
         /** @var Pages $pages */
         $pages = Grav::instance()['pages'];
 
@@ -2322,7 +2315,6 @@ class Page
         $results = new Collection();
 
         switch ($current) {
-            case 'self@':
             case '@self':
                 if (!empty($parts)) {
                     switch ($parts[0]) {
@@ -2359,7 +2351,6 @@ class Page
                 $results = $results->published();
                 break;
 
-            case 'page@':
             case '@page':
                 $page = null;
 
@@ -2375,33 +2366,27 @@ class Page
                 // Handle a @page.descendants
                 if (!empty($parts)) {
                     switch ($parts[0]) {
-                        case 'modular':
-                            $results = new Collection();
-                            $results = $results->addPage($page)->Modular();
-                            break;
-                        case 'page':
                         case 'self':
                             $results = new Collection();
-                            $results = $results->addPage($page)->nonModular();
+                            $results = $results->addPage($page);
                             break;
 
                         case 'descendants':
-                            $results = $pages->all($page)->remove($page->path())->nonModular();
+                            $results = $pages->all($page)->remove($page->path());
                             break;
 
                         case 'children':
-                            $results = $page->children()->nonModular();
+                            $results = $page->children();
                             break;
                     }
                 } else {
-                    $results = $page->children()->nonModular();
+                    $results = $page->children();
                 }
 
-                $results = $results->published();
+                $results = $results->nonModular()->published();
 
                 break;
 
-            case 'root@':
             case '@root':
                 if (!empty($parts) && $parts[0] == 'descendants') {
                     $results = $pages->all($pages->root())->nonModular()->published();
@@ -2410,7 +2395,7 @@ class Page
                 }
                 break;
 
-            case 'taxonomy@':
+
             case '@taxonomy':
                 // Gets a collection of pages by using one of the following formats:
                 // @taxonomy.category: blog

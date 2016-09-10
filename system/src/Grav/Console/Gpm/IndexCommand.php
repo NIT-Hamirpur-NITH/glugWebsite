@@ -9,9 +9,7 @@
 namespace Grav\Console\Gpm;
 
 use Grav\Common\GPM\GPM;
-use Grav\Common\Utils;
 use Grav\Console\ConsoleCommand;
-use League\CLImate\CLImate;
 use Symfony\Component\Console\Input\InputOption;
 
 class IndexCommand extends ConsoleCommand
@@ -102,36 +100,31 @@ class IndexCommand extends ConsoleCommand
     protected function serve()
     {
         $this->options = $this->input->getOptions();
+
         $this->gpm = new GPM($this->options['force']);
+
         $this->displayGPMRelease();
+
         $this->data = $this->gpm->getRepository();
 
         $data = $this->filter($this->data);
 
-        $climate = new CLImate;
-        $climate->extend('Grav\Console\TerminalObjects\Table');
-
         foreach ($data as $type => $packages) {
-            $this->output->writeln("<green>" . strtoupper($type) . "</green> [ " . count($packages) . " ]");
+            $this->output->writeln("<green>" . ucfirst($type) . "</green> [ " . count($packages) . " ]");
+
+            $index    = 0;
             $packages = $this->sort($packages);
-
-            if (!empty($packages)) {
-
-                $table = [];
-                $index    = 0;
-
-                foreach ($packages as $slug => $package) {
-                    $row = [
-                        'Count' => $index++ + 1,
-                        'Name' => "<cyan>" . Utils::truncate($package->name, 20, false, ' ', '...') . "</cyan> ",
-                        'Slug' => $slug,
-                        'Version'=> $this->version($package),
-                        'Installed' => $this->installed($package)
-                    ];
-                    $table[] = $row;
-                }
-
-                $climate->table($table);
+            foreach ($packages as $slug => $package) {
+                $this->output->writeln(
+                // index
+                    str_pad($index++ + 1, 2, '0', STR_PAD_LEFT) . ". " .
+                    // package name
+                    "<cyan>" . str_pad($package->name, 20) . "</cyan> " .
+                    // slug
+                    "[" . str_pad($slug, 20, ' ', STR_PAD_BOTH) . "] " .
+                    // version details
+                    $this->versionDetails($package)
+                );
             }
 
             $this->output->writeln('');
@@ -150,7 +143,7 @@ class IndexCommand extends ConsoleCommand
      *
      * @return string
      */
-    private function version($package)
+    private function versionDetails($package)
     {
         $list      = $this->gpm->{'getUpdatable' . ucfirst($package->package_type)}();
         $package   = isset($list[$package->slug]) ? $list[$package->slug] : $package;
@@ -161,28 +154,19 @@ class IndexCommand extends ConsoleCommand
 
         if (!$installed || !$updatable) {
             $version   = $installed ? $local->version : $package->version;
-            return "v<green>" . $version . "</green>";
+            $installed = !$installed ? ' (<magenta>not installed</magenta>)' : ' (<cyan>installed</cyan>)';
+
+            return str_pad(" [v<green>" . $version . "</green>]", 35) . $installed;
         }
 
         if ($updatable) {
-            return "v<red>" . $package->version . "</red> <cyan>-></cyan> v<green>" . $package->available . "</green>";
+            $installed = !$installed ? ' (<magenta>not installed</magenta>)' : ' (<cyan>installed</cyan>)';
+
+            return str_pad(" [v<red>" . $package->version . "</red> <cyan>➜</cyan> v<green>" . $package->available . "</green>]",
+                61) . $installed;
         }
 
         return '';
-    }
-
-    /**
-     * @param $package
-     *
-     * @return string
-     */
-    private function installed($package)
-    {
-        $package   = isset($list[$package->slug]) ? $list[$package->slug] : $package;
-        $type      = ucfirst(preg_replace("/s$/", '', $package->package_type));
-        $installed = $this->gpm->{'is' . $type . 'Installed'}($package->slug);
-
-        return !$installed ? '<magenta>not installed</magenta>' : '<cyan>installed</cyan>';
     }
 
     /**

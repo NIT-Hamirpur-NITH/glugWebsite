@@ -240,7 +240,7 @@ abstract class Twig_Node_Expression_Call extends Twig_Node_Expression
                 array_pop($parameters);
             } else {
                 $callableName = $r->name;
-                if ($r instanceof ReflectionMethod) {
+                if ($r->getDeclaringClass()) {
                     $callableName = $r->getDeclaringClass()->name.'::'.$callableName;
                 }
 

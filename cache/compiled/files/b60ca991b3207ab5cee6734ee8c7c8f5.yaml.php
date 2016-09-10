@@ -2,15 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/languages/en.yaml',
-<<<<<<< HEAD
-    'modified' => 1473500958,
-=======
-<<<<<<< HEAD
-    'modified' => 1473498855,
-=======
-    'modified' => 1473179275,
->>>>>>> ab42d56c3d5b872be03a8ac3a14c8e4509c48177
->>>>>>> 5e074b83a820a8c83de32bc2bb5ae5ca0ed6d306
+    'modified' => 1472214093,
     'data' => [
         'PLUGIN_ADMIN' => [
             'ADMIN_BETA_MSG' => 'This is a Beta release! Use this in production at your own risk...',
@@ -91,7 +83,6 @@ return [
             'CLEAR_CACHE_ASSETS_ONLY' => 'Assets Only',
             'CLEAR_CACHE_IMAGES_ONLY' => 'Images Only',
             'CLEAR_CACHE_CACHE_ONLY' => 'Cache Only',
-            'CLEAR_CACHE_TMP_ONLY' => 'Tmp Only',
             'DASHBOARD' => 'Dashboard',
             'UPDATES_AVAILABLE' => 'Updates Available',
             'DAYS' => 'Days',
@@ -597,25 +588,7 @@ return [
             'RESOURCE_FILTER' => 'Filter...',
             'FORCE_SSL' => 'Force SSL',
             'FORCE_SSL_HELP' => 'Globally force SSL, if enabled when the site is reached through HTTP, Grav sends a redirect to the HTTPS page',
-            'NEWS_FEED' => 'News Feed',
-            'EXTERNAL_URL' => 'External URL',
-            'SESSION_PATH' => 'The session path',
-            'SESSION_PATH_HELP' => 'Use only if you choose a custom base URL (you rewrite the site domain / subfolder)',
-            'CUSTOM_BASE_URL' => 'Custom base URL',
-            'CUSTOM_BASE_URL_HELP' => 'Use if you want to rewrite the site domain or use a different subfolder than the one used by Grav. Example: http://localhost',
-            'FILEUPLOAD_PREVENT_SELF' => 'Cannot use "%s" outside of pages.',
-            'FILEUPLOAD_UNABLE_TO_UPLOAD' => 'Unable to upload file %s: %s',
-            'FILEUPLOAD_UNABLE_TO_MOVE' => 'Unable to move file %s to "%s"',
-            'DROPZONE_CANCEL_UPLOAD' => 'Cancel upload',
-            'DROPZONE_CANCEL_UPLOAD_CONFIRMATION' => 'Are you sure you want to cancel this upload?',
-            'DROPZONE_DEFAULT_MESSAGE' => 'Drop your files here or <strong>click in this area</strong>',
-            'DROPZONE_FALLBACK_MESSAGE' => 'Your browser does not support drag and drop file uploads.',
-            'DROPZONE_FALLBACK_TEXT' => 'Please use the fallback form below to upload your files like in the olden days.',
-            'DROPZONE_FILE_TOO_BIG' => 'File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.',
-            'DROPZONE_INVALID_FILE_TYPE' => 'You can\'t upload files of this type.',
-            'DROPZONE_MAX_FILES_EXCEEDED' => 'You can not upload any more files.',
-            'DROPZONE_REMOVE_FILE' => 'Remove file',
-            'DROPZONE_RESPONSE_ERROR' => 'Server responded with {{statusCode}} code.'
+            'NEWS_FEED' => 'News Feed'
         ]
     ]
 ];

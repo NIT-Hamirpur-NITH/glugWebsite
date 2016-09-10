@@ -65,8 +65,7 @@ class Cache extends Getters
     protected static $all_remove = [
         'cache://',
         'cache://images',
-        'asset://',
-        'tmp://'
+        'asset://'
     ];
 
     protected static $assets_remove = [
@@ -79,10 +78,6 @@ class Cache extends Getters
 
     protected static $cache_remove = [
         'cache://'
-    ];
-
-    protected static $tmp_remove = [
-        'tmp://'
     ];
 
     /**
@@ -188,7 +183,7 @@ class Cache extends Getters
 
             case 'memcached':
                 $memcached = new \Memcached();
-                $memcached->addServer($this->config->get('system.cache.memcached.server', 'localhost'),
+                $memcached->connect($this->config->get('system.cache.memcached.server', 'localhost'),
                     $this->config->get('system.cache.memcached.port', 11211));
                 $driver = new DoctrineCache\MemcachedCache();
                 $driver->setMemcached($memcached);
@@ -314,9 +309,6 @@ class Cache extends Getters
             case 'cache-only':
                 $remove_paths = self::$cache_remove;
                 break;
-            case 'tmp-only':
-                $remove_paths = self::$tmp_remove;
-                break;
             default:
                 $remove_paths = self::$standard_remove;
         }
@@ -325,11 +317,10 @@ class Cache extends Getters
         foreach ($remove_paths as $stream) {
 
             // Convert stream to a real path
-            try {
-                $path = $locator->findResource($stream, true, true);
-            } catch (\Exception $e) {
-                // stream not found..
-                continue;
+            $path = $locator->findResource($stream, true, true);
+            // Make sure path exists before proceeding, otherwise we would wipe ROOT_DIR
+            if (!$path) {
+                throw new \RuntimeException("Stream '{$stream}' not found", 500);
             }
 
             $anything = false;

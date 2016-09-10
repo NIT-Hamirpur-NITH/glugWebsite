@@ -1,4 +1,4 @@
-<div class="modular-row form {{ page.header.class }}">
-    {{ content|raw }}
+{% block content %}
+    {{ content }}
     {% include "forms/form.html.twig" %}
-</div>
+{% endblock %}

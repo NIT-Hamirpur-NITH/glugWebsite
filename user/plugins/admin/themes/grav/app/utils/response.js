@@ -1,6 +1,5 @@
 import toastr from './toastr';
 import { config } from 'grav-config';
-import trim from 'mout/string/trim';
 
 let error = function(response) {
     let error = new Error(response.statusText || response || '');
@@ -22,22 +21,7 @@ export function parseStatus(response) {
 }
 
 export function parseJSON(response) {
-    return response.text().then((text) => {
-        var parsed = text;
-        try {
-            parsed = JSON.parse(text);
-        } catch (error) {
-            let content = document.createElement('div');
-            content.innerHTML = text;
-
-            let error = new Error();
-            error.stack = trim(content.innerText);
-
-            throw error;
-        }
-
-        return parsed;
-    });
+    return response.json();
 }
 
 export function userFeedback(response) {
@@ -83,7 +67,6 @@ export function userFeedback(response) {
 }
 
 export function userFeedbackError(error) {
-    let stack = error.stack ? `<pre><code>${error.stack}</code></pre>` : '';
-    toastr.error(`Fetch Failed: <br /> ${error.message} ${stack}`);
+    toastr.error(`Fetch Failed: <br /> ${error.message} <pre><code>${error.stack}</code></pre>`);
     console.error(`${error.message} at ${error.stack}`);
 }

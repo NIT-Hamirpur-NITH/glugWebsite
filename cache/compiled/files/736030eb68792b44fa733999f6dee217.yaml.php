@@ -2,18 +2,10 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/email/blueprints.yaml',
-<<<<<<< HEAD
-    'modified' => 1473500968,
-=======
-<<<<<<< HEAD
-    'modified' => 1473498871,
-=======
-    'modified' => 1473179275,
->>>>>>> ab42d56c3d5b872be03a8ac3a14c8e4509c48177
->>>>>>> 5e074b83a820a8c83de32bc2bb5ae5ca0ed6d306
+    'modified' => 1472214093,
     'data' => [
         'name' => 'Email',
-        'version' => '2.5.0',
+        'version' => '2.4.3',
         'description' => 'Enables the emailing system for Grav',
         'icon' => 'envelope',
         'author' => [
@@ -25,12 +17,6 @@ return [
         'homepage' => 'https://github.com/getgrav/grav-plugin-email',
         'bugs' => 'https://github.com/getgrav/grav-plugin-email/issues',
         'license' => 'MIT',
-        'dependencies' => [
-            0 => [
-                'name' => 'grav',
-                'version' => '>=1.1.4'
-            ]
-        ],
         'form' => [
             'validation' => 'loose',
             'fields' => [

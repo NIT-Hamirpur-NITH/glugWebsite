@@ -1,6 +1,6 @@
 ---
 title: Backup
-template: default
+template: ajax
 
 access:
     admin.maintenance: true

@@ -2,15 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/system/blueprints/config/system.yaml',
-<<<<<<< HEAD
-    'modified' => 1473500918,
-=======
-<<<<<<< HEAD
-    'modified' => 1473498829,
-=======
-    'modified' => 1473179275,
->>>>>>> ab42d56c3d5b872be03a8ac3a14c8e4509c48177
->>>>>>> 5e074b83a820a8c83de32bc2bb5ae5ca0ed6d306
+    'modified' => 1472214093,
     'data' => [
         'title' => 'PLUGIN_ADMIN.SYSTEM',
         'form' => [
@@ -218,9 +210,8 @@ return [
                             'help' => 'PLUGIN_ADMIN.REDIRECT_DEFAULT_CODE_HELP',
                             'options' => [
                                 301 => '301 - Permanent',
-                                302 => '302 - Found',
                                 303 => '303 - Other',
-                                304 => '304 - Not Modified'
+                                307 => '307 - Temporary'
                             ]
                         ],
                         'pages.redirect_trailing_slash' => [
@@ -1111,12 +1102,6 @@ return [
                             'validate' => [
                                 'type' => 'bool'
                             ]
-                        ],
-                        'session.path' => [
-                            'type' => 'text',
-                            'size' => 'small',
-                            'label' => 'PLUGIN_ADMIN.SESSION_PATH',
-                            'help' => 'PLUGIN_ADMIN.SESSION_PATH_HELP'
                         ]
                     ]
                 ],
@@ -1205,13 +1190,6 @@ return [
                             'validate' => [
                                 'type' => 'bool'
                             ]
-                        ],
-                        'custom_base_url' => [
-                            'type' => 'text',
-                            'size' => 'medium',
-                            'placeholder' => 'e.g. http://localhost:8080',
-                            'label' => 'PLUGIN_ADMIN.CUSTOM_BASE_URL',
-                            'help' => 'PLUGIN_ADMIN.CUSTOM_BASE_URL_HELP'
                         ]
                     ]
                 ]

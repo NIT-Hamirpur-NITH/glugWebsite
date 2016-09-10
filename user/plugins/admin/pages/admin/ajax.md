@@ -1,7 +1,7 @@
 ---
 title: Generic Ajax
-template: default
 
 access:
-    admin.login: true
+    admin.configuration: true
+    admin.super: true
 ---

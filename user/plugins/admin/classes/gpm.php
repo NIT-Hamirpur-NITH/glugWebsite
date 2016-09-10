@@ -8,7 +8,6 @@ use Grav\Common\GPM\Response;
 use Grav\Common\GPM\Upgrader;
 use Grav\Common\Filesystem\Folder;
 use Grav\Common\GPM\Common\Package;
-use Grav\Plugin\Admin;
 
 /**
  * Class Gpm
@@ -198,14 +197,15 @@ class Gpm
     {
         $contents = Response::get($package->zipball_url, []);
 
-        $tmp_dir = Admin::getTempDir() . '/Grav-' . uniqid();
-        Folder::mkdir($tmp_dir);
+        $cache_dir = Grav::instance()['locator']->findResource('cache://', true);
+        $cache_dir = $cache_dir . DS . 'tmp/Grav-' . uniqid();
+        Folder::mkdir($cache_dir);
 
         $filename = $package->slug . basename($package->zipball_url);
 
-        file_put_contents($tmp_dir . DS . $filename . '.zip', $contents);
+        file_put_contents($cache_dir . DS . $filename . '.zip', $contents);
 
-        return $tmp_dir . DS . $filename . '.zip';
+        return $cache_dir . DS . $filename . '.zip';
     }
 
     /**
@@ -253,7 +253,8 @@ class Gpm
         }
 
         $update = $upgrader->getAssets()['grav-update'];
-        $tmp = Admin::getTempDir() . '/Grav-' . uniqid();
+        $cache_dir = Grav::instance()['locator']->findResource('cache://', true);
+        $tmp = $cache_dir . DS . 'tmp/Grav-' . uniqid();
         $file = self::_downloadSelfupgrade($update, $tmp);
 
         Installer::install($file, GRAV_ROOT,

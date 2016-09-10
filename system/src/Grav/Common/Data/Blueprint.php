@@ -111,18 +111,6 @@ class Blueprint extends BlueprintForm
     }
 
     /**
-     * Return blueprint data schema.
-     *
-     * @return BlueprintSchema
-     */
-    public function schema()
-    {
-        $this->initInternals();
-
-        return $this->blueprintSchema;
-    }
-
-    /**
      * Initialize validator.
      */
     protected function initInternals()

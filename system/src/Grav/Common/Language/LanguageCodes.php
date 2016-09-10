@@ -14,7 +14,7 @@ class LanguageCodes
         'af'         => [ 'name' => 'Afrikaans',                 'nativeName' => 'Afrikaans' ],
         'ak'         => [ 'name' => 'Akan',                      'nativeName' => 'Akan' ], // unverified native name
         'ast'        => [ 'name' => 'Asturian',                  'nativeName' => 'Asturianu' ],
-        'ar'         => [ 'name' => 'Arabic',                    'nativeName' => 'عربي', 'orientation' => 'rtl'],
+        'ar'         => [ 'name' => 'Arabic',                    'nativeName' => 'عربي' ],
         'as'         => [ 'name' => 'Assamese',                  'nativeName' => 'অসমীয়া' ],
         'be'         => [ 'name' => 'Belarusian',                'nativeName' => 'Беларуская' ],
         'bg'         => [ 'name' => 'Bulgarian',                 'nativeName' => 'Български' ],
@@ -48,7 +48,7 @@ class LanguageCodes
         'es-MX'      => [ 'name' => 'Spanish (Mexico)',          'nativeName' => 'Español (de México)' ],
         'et'         => [ 'name' => 'Estonian',                  'nativeName' => 'Eesti keel' ],
         'eu'         => [ 'name' => 'Basque',                    'nativeName' => 'Euskara' ],
-        'fa'         => [ 'name' => 'Persian',                   'nativeName' => 'فارسی' , 'orientation' => 'rtl' ],
+        'fa'         => [ 'name' => 'Persian',                   'nativeName' => 'فارسی' ],
         'fi'         => [ 'name' => 'Finnish',                   'nativeName' => 'Suomi' ],
         'fj-FJ'      => [ 'name' => 'Fijian',                    'nativeName' => 'Vosa vaka-Viti' ],
         'fr'         => [ 'name' => 'French',                    'nativeName' => 'Français' ],
@@ -62,7 +62,7 @@ class LanguageCodes
         'gl'         => [ 'name' => 'Galician',                  'nativeName' => 'Galego' ],
         'gu'         => [ 'name' => 'Gujarati',                  'nativeName' => 'ગુજરાતી' ],
         'gu-IN'      => [ 'name' => 'Gujarati',                  'nativeName' => 'ગુજરાતી' ],
-        'he'         => [ 'name' => 'Hebrew',                    'nativeName' => 'עברית', 'orientation' => 'rtl' ],
+        'he'         => [ 'name' => 'Hebrew',                    'nativeName' => 'עברית' ],
         'hi'         => [ 'name' => 'Hindi',                     'nativeName' => 'हिन्दी' ],
         'hi-IN'      => [ 'name' => 'Hindi (India)',             'nativeName' => 'हिन्दी (भारत)' ],
         'hr'         => [ 'name' => 'Croatian',                  'nativeName' => 'Hrvatski' ],
@@ -135,7 +135,7 @@ class LanguageCodes
         'tt'         => [ 'name' => 'Tatar',                     'nativeName' => 'Tatarça' ],
         'tt-RU'      => [ 'name' => 'Tatar',                     'nativeName' => 'Tatarça' ],
         'uk'         => [ 'name' => 'Ukrainian',                 'nativeName' => 'Українська' ],
-        'ur'         => [ 'name' => 'Urdu',                      'nativeName' => 'اُردو', 'orientation' => 'rtl'  ],
+        'ur'         => [ 'name' => 'Urdu',                      'nativeName' => 'اُردو' ],
         've'         => [ 'name' => 'Venda',                     'nativeName' => 'Tshivenḓa' ],
         'vi'         => [ 'name' => 'Vietnamese',                'nativeName' => 'Tiếng Việt' ],
         'wo'         => [ 'name' => 'Wolof',                     'nativeName' => 'Wolof' ],
@@ -163,24 +163,6 @@ class LanguageCodes
             }
 
         }
-    }
-
-    public static function getOrientation($code)
-    {
-        if (isset(static::$codes[$code])) {
-            if (isset(static::$codes[$code]['orientation'])) {
-                return static::get($code, 'orientation');
-            }
-        }
-        return 'ltr';
-    }
-
-    public static function isRtl($code)
-    {
-        if (static::getOrientation($code) == 'rtl') {
-            return true;
-        }
-        return false;
     }
 
     public static function getNames(array $keys)

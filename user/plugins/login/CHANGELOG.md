@@ -1,19 +1,3 @@
-# v2.1.1
-## 09/08/2016
-
-1. [](#improved)
-    * Use better detection for admin allowing multi-site setup with subfolders
-
-# v2.1.0
-## 09/07/2016
-
-1. [](#improved)
-    * Added support for Grav's autoescape twig setting
-    * Dropped unused variable reference
-    * Moved Email Utils to Email plugin
-    * Updated vendor libraries
-    * Allow explicitly showing the login page on pages that are not the Login form template [#11](https://github.com/getgrav/grav-plugin-maintenance/issues/11)
-
 # v2.0.1
 ## 08/10/2016
 

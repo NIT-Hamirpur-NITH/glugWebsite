@@ -17,8 +17,7 @@ class ZipBackup
         'backup',
         'cache',
         'images',
-        'logs',
-        'tmp'
+        'logs'
     ];
 
     protected static $ignoreFolders = [
