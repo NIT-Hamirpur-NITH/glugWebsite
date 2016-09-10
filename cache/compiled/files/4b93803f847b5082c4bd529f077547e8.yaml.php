@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/blueprints/admin/pages/move.yaml',
-    'modified' => 1472214093,
+    'modified' => 1473500958,
     'data' => [
         'rules' => [
             'slug' => [
