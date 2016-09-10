@@ -574,7 +574,7 @@ body.sidebar-quickopen #admin-main {
         }
     }
 
-    .admin-block .grav-update, .admin-block .alert {
+    .admin-block .alert {
         margin-top: -2rem;
         margin-bottom: 2rem;
     }
@@ -593,20 +593,28 @@ body.sidebar-quickopen #admin-main {
         &.note:before {
             content: "\f24a";
         }
+
+        &.grav:before {
+            font-family: rockettheme-apps;
+            content: "\62";
+            vertical-align: bottom;
+        }
+        &.grav {
+            #grav-update-button {
+                float: right;
+            }
+        }
     }
 
     .grav-update {
         @include clearfix;
         padding: 0 $padding-default;
-        margin-top: -$padding-default;
+        margin-top: -2rem;
+        margin-bottom: 1rem;
         display: none;
 
         @include breakpoint(mobile-only) {
             padding: 0 1rem;
-        }
-
-        &.plugins {
-            padding-right: 1rem;
         }
 
         .button {
@@ -634,11 +642,6 @@ body.sidebar-quickopen #admin-main {
             padding-right: 0.5rem;
         }
 
-        &.grav {
-            margin-top: 0;
-            @include transition (margin-top 0.15s ease-out);
-
-        }
     }
 
     .grav-update.grav + .content-wrapper {

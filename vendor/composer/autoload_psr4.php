@@ -13,6 +13,7 @@ return array(
     'Symfony\\Component\\VarDumper\\' => array($vendorDir . '/symfony/var-dumper'),
     'Symfony\\Component\\EventDispatcher\\' => array($vendorDir . '/symfony/event-dispatcher'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
+    'Seld\\CliPrompt\\' => array($vendorDir . '/seld/cli-prompt/src'),
     'RocketTheme\\Toolbox\\StreamWrapper\\' => array($vendorDir . '/rockettheme/toolbox/StreamWrapper/src'),
     'RocketTheme\\Toolbox\\Session\\' => array($vendorDir . '/rockettheme/toolbox/Session/src'),
     'RocketTheme\\Toolbox\\ResourceLocator\\' => array($vendorDir . '/rockettheme/toolbox/ResourceLocator/src'),
@@ -24,7 +25,9 @@ return array(
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'MatthiasMullie\\PathConverter\\' => array($vendorDir . '/matthiasmullie/path-converter/src'),
     'MatthiasMullie\\Minify\\' => array($vendorDir . '/matthiasmullie/minify/src'),
+    'League\\CLImate\\' => array($vendorDir . '/league/climate/src'),
     'Grav\\' => array($baseDir . '/system/src/Grav'),
     'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib/Doctrine/Common/Cache'),
     'DebugBar\\' => array($vendorDir . '/maximebf/debugbar/src/DebugBar'),
+    '' => array($vendorDir . '/antoligy/dom-string-iterators/src'),
 );
