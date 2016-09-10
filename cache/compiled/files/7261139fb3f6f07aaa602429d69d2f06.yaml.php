@@ -2,7 +2,11 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/languages/ko.yaml',
+<<<<<<< HEAD
     'modified' => 1473498855,
+=======
+    'modified' => 1473179275,
+>>>>>>> ab42d56c3d5b872be03a8ac3a14c8e4509c48177
     'data' => [
         'PLUGIN_ADMIN' => [
             'ADMIN_BETA_MSG' => '이것은 베타입니다! 개인적으로 사용할시 위험할수있습니다...',

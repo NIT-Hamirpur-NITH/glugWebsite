@@ -2,7 +2,11 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/languages/fa.yaml',
+<<<<<<< HEAD
     'modified' => 1473498855,
+=======
+    'modified' => 1473179275,
+>>>>>>> ab42d56c3d5b872be03a8ac3a14c8e4509c48177
     'data' => [
         'PLUGIN_ADMIN' => [
             'ADMIN_BETA_MSG' => 'این یک نسخه تکمیل نشده است! استفاده از آن در محصولتان شمارا با خطر مواجه میکند...',
