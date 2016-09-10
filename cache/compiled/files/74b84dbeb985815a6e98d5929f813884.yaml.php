@@ -2,10 +2,10 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/blueprints.yaml',
-    'modified' => 1472214093,
+    'modified' => 1473498855,
     'data' => [
         'name' => 'Admin Panel',
-        'version' => '1.1.4',
+        'version' => '1.2.2',
         'description' => 'Adds an advanced administration panel to manage your site',
         'icon' => 'empire',
         'author' => [
@@ -21,11 +21,11 @@ return [
         'dependencies' => [
             0 => [
                 'name' => 'grav',
-                'version' => '~1.1'
+                'version' => '>=1.1.4'
             ],
             1 => [
                 'name' => 'form',
-                'version' => '~1.3'
+                'version' => '~2.0'
             ],
             2 => [
                 'name' => 'email',

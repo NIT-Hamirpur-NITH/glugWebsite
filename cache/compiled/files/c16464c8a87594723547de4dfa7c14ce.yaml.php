@@ -2,10 +2,10 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/login/blueprints.yaml',
-    'modified' => 1472214094,
+    'modified' => 1473498868,
     'data' => [
         'name' => 'Login',
-        'version' => '2.0.1',
+        'version' => '2.1.1',
         'description' => 'Enables user authentication and login screen.',
         'icon' => 'sign-in',
         'author' => [
@@ -18,8 +18,18 @@ return [
         'bugs' => 'https://github.com/getgrav/grav-plugin-login/issues',
         'license' => 'MIT',
         'dependencies' => [
-            0 => 'form',
-            1 => 'email'
+            0 => [
+                'name' => 'grav',
+                'version' => '>=1.1.4'
+            ],
+            1 => [
+                'name' => 'form',
+                'version' => '~2.0'
+            ],
+            2 => [
+                'name' => 'email',
+                'version' => '~2.0'
+            ]
         ],
         'form' => [
             'validation' => 'loose',
