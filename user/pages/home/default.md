@@ -2,9 +2,10 @@
 title: Home
 ---
 
-<center><img src="1013643_828488670527520_6858547805805754630_n.png" width=200></center>
+<center><img src="1013643_828488670527520_6858547805805754630_n.png" width=200>    <img src="http://www.softwarefreedomday.org/countdown/banner1-UTC-5-en.png" border="0" width="200" alt="Celebrate SFD with us on September 17, 2016!" title="Celebrate SFD with us on September 17, 2016!" ></center>
 
 <h1>Welcome to GLUG-NITH</h1>
+
 <h2>GNU/Linux User Group NIT Hamirpur</h2>
 
 

@@ -33,7 +33,8 @@ opacity: 0.5;
 </style>
 
 
-<h2 id="heading">Software Freedom Day</h2>
+<h2 id="heading">Software Freedom Day<img src="http://www.softwarefreedomday.org/countdown/banner1-UTC-5-en.png" border="0" width="160" height="90" align="right" alt="Celebrate SFD with us on September 17, 2016!" title="Celebrate SFD with us on September 17, 2016!" ></h2>
+
 
 Software Freedom Day (SFD) is an annual worldwide celebration of Free Software. SFD is a public education effort with the aim of increasing awareness of Free Software and its virtues, and encouraging its use.  
   
