@@ -17,7 +17,7 @@ width: 520px;
 padding: 20px;
 float: left;
 margin-bottom: 30px;
-height: 400px;
+height: 300px;
 margin-right:40px;
 }
 #upbox{
@@ -64,7 +64,6 @@ You might now be wondering what FOSS (Free and Open-Source Software) is and what
 <li>Individual participation (no teams allowed)</li>  
 <li>Cool prizes to be won</li>  
 </ul>
-Contact: 
 </div>
 
 <div id="box">
@@ -75,7 +74,6 @@ Contact:
 <li>Winners will get cool prizes</li>   
 <li>GLUG-NITH membership</li>   
 </ul>
-Contact: 
 </div>
 
 <div id="box">
@@ -85,7 +83,6 @@ Contact:
 <li>Debug</li>  
 <li>whatever</li>  
 </ul>
-Contact: 
 </div>
 
 <div id="box">
@@ -96,30 +93,27 @@ Contact:
 <li>Students will learn about different distros and how to install them in multi-boot mode.   
 <li>Included distros : Ubuntu, Fedora, Mint, Arch Linux, Elementary OS, Zorin, Kali Linux, Kubuntu  
 </ul>
-Contact:  
 </div>
 
 
 <h4 id="heading">Workshops</h4>  
 
 <div id="box">
-<h5>Introduction to Open-source</h5>
+<h5>Introduction to GLUG-NITH & SFD</h5>
 <ul>
-<li>abcdef   
-<li>fvygbk  
-<li>vvui  
+<li>Get to know what is GLUG-NITH
+<li>Learn about SFD
+<li>Venue: Auditorium
 </ul>
-Contact:  
 </div>
 
 <div id="box">
 <h5>Introduction to Linux</h5>
 <ul>
-<li>abcdef   
-<li>fvygbk  
-<li>vvui
+<li>Learn what is Linux
+<li>Learn about basics of linux and much more..
+<li>Venue: Auditorium
 </ul>
-Contact:
 </div>
 
 <div id="box">
@@ -127,30 +121,58 @@ Contact:
 <ul>
 <li>Learn about how, why and when to use the command line  
 <li>Learn various Linux commands  
-<li>Time:    
-<li>Venue:   
+<li>Venue: Auditorium
 </ul>
-Contact:  
 </div>
 
 <div id="box">
-<h5>FOSS alternatives to proprietary software</h5>
+<h5>Common Linux softwares</h5>
 <ul>
-<li>Discussion
-<li>abcdef   
-<li>vygbk  
-<li>vvui  
+<li>Get to know about common Linux softwares
+<li>Learn how to use them
+<li>Venue: Auditorium
+</ul>
+</div>
+
+<div id="box">
+<h5>proprietary V/S free softwares</h5>
+<ul>
+<li>Get to know about free & proprietary softwares
+<li>Who to choose & why?
+<li>Venue: Auditorium
 </ul> 
-Contact:  
+</div>
+
+<div id="box">
+<h5>Installation fest</h5>
+<ul>
+<li>Install the Linux that best suits you
+<li>Learn how to use it
+<li>Venue: Auditorium
+</ul>
+</div>
+
+<div id="box">
+<h5>Linux OS exhibition</h5>
+<ul>
+<li>Get to know about some awesome Linux OS's
+<li>Build your intrest in them
+<li>Venue: Auditorium
+</ul>
 </div>
 
 <h4 id="heading">Gallery</h4>
+
 ![Pictures](1.jpeg)![Pictures](2.jpg)![Pictures](3.jpg)![Pictures](4.jpg)![](5.jpg)![](10.jpg)![](9.jpg)![](8.jpg)![](7.jpg)![](6.jpg)![](11.jpg)![](12034277_1212115595480564_6698029746767033348_o.jpg)
 
+
 <h4 id="heading">Contact</h4>
-* > abcdef: 1484956650  
-* > vktnvrt: 385797554545  
-* > ktvtrgv: 6596795668  
+* > Rohan Jaswal      8894482059
+* > Rahul Raturi      8894849158
+* > Rishabh Chaudhary 9805126955
+* > Manoj Kumar       9857237537
+* > Mayank Kashyap    7831030342
+* > Shivam Tripathi   8350929741
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
