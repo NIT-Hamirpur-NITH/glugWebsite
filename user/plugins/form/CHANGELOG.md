@@ -1,3 +1,15 @@
+# v2.0.5
+## 09/15/2016
+
+1. [](#bugfix)
+    * Fix passing updating the header through event, no need for return value
+
+# v2.0.4
+## 09/15/2016
+
+1. [](#improved)
+    * Allow filling the page header form dynamically (e.g. use case: Comments plugin)
+
 # v2.0.3
 ## 09/12/2016
 
