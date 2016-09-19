@@ -1,0 +1,12 @@
+enabled: false
+built_in_css: true
+weight: 1
+pack: simple_smileys
+process: true
+exclude:
+  tags:
+    - code
+    - pre
+  classes:
+    - mathjax
+    - latex
