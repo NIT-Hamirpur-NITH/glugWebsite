@@ -14,7 +14,6 @@ assets/*
 !assets/.*
 logs/*
 logs/popularity/*
-!logs/.*
 images/*
 !images/.*
 user/accounts/*
