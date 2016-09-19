@@ -1,5 +1,6 @@
 ---
 title: SFD
+visible: false
 ---
 
 <style>

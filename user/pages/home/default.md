@@ -2,7 +2,7 @@
 title: Home
 ---
 
-<center><img src="1013643_828488670527520_6858547805805754630_n.png" width=200></center>
+<center><img src="1013643_828488670527520_6858547805805754630_n.png" width=300 height=150></center>
 
 <h1>Welcome to GLUG-NITH</h1>
 
