@@ -13,6 +13,7 @@ cache/*
 assets/*
 !assets/.*
 logs/*
+!log/.*
 images/*
 !images/.*
 user/accounts/*
