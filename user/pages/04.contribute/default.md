@@ -3,6 +3,12 @@ title: Contribute
 visible: true
 ---
 
+<meta property="og:url"                content="http://glug.nith.ac.in/new/" />
+<meta property="og:type"               content="Website" />
+<meta property="og:title"              content="Contribute - GLUG NITH - GNU/Linux User Group" />
+<meta property="og:description"        content="GLUG NITH is a moniker for the GNU/Linux User Group of National Institute of Technology, Hamirpur. Our GLUG is mainly designed to cater to the GNU/Linux related needs of the students, faculty, staff, and anybody else belonging to NIT Hamirpur. We are a heterogeneous mixture of people ranging from the beta testers and kernel hackers to the fresh-faced newbies, held together together by a common love for GNU/Linux in particular and Free Software in general." />
+<meta property="og:image"              content="http://glug.nith.ac.in/new/user/pages/06.sfd/11.jpg" />
+
 Now you can easily make changes and contribute to the website in whatever way you like. Your contribution will help in building the website, keep it updated and allows GLUG-NITH community to extend with mutual collaboration. Moreover you will be learning a very famous industry tool git which is covered in the below few paragraphs.
 
 ## Brief Introduction to Git and its power
