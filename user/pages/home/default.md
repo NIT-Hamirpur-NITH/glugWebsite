@@ -8,7 +8,7 @@ title: Home
 <meta property="og:description"        content="GLUG NITH is a moniker for the GNU/Linux User Group of National Institute of Technology, Hamirpur. Our GLUG is mainly designed to cater to the GNU/Linux related needs of the students, faculty, staff, and anybody else belonging to NIT Hamirpur. We are a heterogeneous mixture of people ranging from the beta testers and kernel hackers to the fresh-faced newbies, held together together by a common love for GNU/Linux in particular and Free Software in general." />
 <meta property="og:image"              content="http://glug.nith.ac.in/new/user/pages/06.sfd/11.jpg" />
 
-<center><img src="1013643_828488670527520_6858547805805754630_n.png" width=300 ></center>
+<center><img src="1013643_828488670527520_6858547805805754630_n.png" width=250 height=150 ></center>
 
 <h1>Welcome to GLUG-NITH</h1>
 
