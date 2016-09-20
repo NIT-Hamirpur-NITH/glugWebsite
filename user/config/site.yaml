@@ -1,12 +1,14 @@
 title: GLUG-NITH
 author:
-  name: lokeshh
-  email: lokeshhsharma@gmai.com
+  name: 'GLUG - NITH Community'
+  email: lokeshhsharma@gmail.com
 taxonomies:
   - category
   - tag
 metadata:
-  description: 'Grav is an easy to use, yet powerful, open source flat-file CMS'
+  description: 'GLUG NITH is a moniker for the GNU/Linux User Group of National Institute of Technology, Hamirpur. Our GLUG is mainly designed to cater to the GNU/Linux related needs of the students, faculty, staff, and anybody else belonging to NIT Hamirpur. We are a heterogeneous mixture of people ranging from the beta testers and kernel hackers to the fresh-faced newbies, held together together by a common love for GNU/Linux in particular and Free Software in general.'
+  author: 'GLUG - NITH Community'
+  keywords: 'LUG, LUG India, GLUG, NITH, Linux User Groups, Ubuntu Mirrors, fedora mirrors, LDP mirror, Linux, Unix, Glug, Hamirpur, NIT, NIT Hamirpur, LUG Shimla, NIT club, Glug community, Open source'
 summary:
   enabled: true
   format: short
