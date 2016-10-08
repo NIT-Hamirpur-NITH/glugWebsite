@@ -4,4 +4,4 @@ enable_on_routes:
 disable_on_routes:
   - /blog/blog-post-to-ignore
   - /ignore-this-route
-channel: glugnith/glugnith
+channel: Nithmr/glugWebsite
