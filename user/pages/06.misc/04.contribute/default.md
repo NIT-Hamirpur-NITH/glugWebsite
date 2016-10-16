@@ -1,6 +1,8 @@
 ---
 title: Contribute
 visible: true
+recaptchacontact:
+    enabled: false
 ---
 
 <meta property="og:url"                content="http://glug.nith.ac.in/new/" />
