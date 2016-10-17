@@ -32,9 +32,9 @@ To learn about basic things to get started with GNU Linux <a href="/getting-star
 
 <h3>Contributing to website</h3>
 
-<p><a href="https://en.wikipedia.org/wiki/Git_%28software%29">Git </a>is a famous tool to organize and colloborate among various code contributors.
-By using this famous tool, you can make contribution to this website which will directly reflect here. Further this provides a powerful collaboration, review and code management for such a purpose and other development projects.
-This greatly help people sitting at different places working on their systems to build and discuss various changes that should or need to be included on the website.
+<p><a href="https://en.wikipedia.org/wiki/Git_%28software%29">Git </a>is a famous tool to organize and collaborate among various code contributors.
+By using this famous tool, you can make contributions to this website which will directly reflect here. Furthermore, this tool provides powerful collaboration, review and code management for development projects.
+Git greatly helps people sitting at different places, working on their systems, to build and discuss various changes that should or need to be included on the website.
 </p>
 
 [Read More about contributing here](/contribute).

@@ -121,7 +121,7 @@ $path = 'plugins://' . $name . '/cli';
 try {
     $commands = Folder::all($path, ['compare' => 'Filename', 'pattern' => '/' . $pattern . '$/usm', 'levels' => 1]);
 } catch (\RuntimeException $e) {
-    $output->writeln("<red>No Console Commands for <white>'{$name}'</white> where found in <white>'{$path}'</white></red>");
+    $output->writeln("<red>No Console Commands for <white>'{$name}'</white> were found in <white>'{$path}'</white></red>");
     exit;
 }
 
