@@ -18,15 +18,15 @@ visible: true
 }
 </style>
 
-If you want to know what is free software and why its better<a href="http://www.fsf.org/about/what-is-free-software"> click here</a>.
+If you want to know what free software is and why it's better,<a href="http://www.fsf.org/about/what-is-free-software"> click here</a>.
 
 <p>The best way to get started with free software is to dive right in.</p>
 
-<p>Choose one of the Linux distros. There are a variety of Linux distros and based on your taste, you can choose any one of them. To mention a few which are popular:</p>
+<p>Choose one of the Linux distros. There are multiple Linux distros and based on your taste, you can choose any one of them. To mention a few which are popular:</p>
 <div class="jumbotron"><br /></div>
 <h3>Ubuntu<sup><a href="https://ubuntugnome.org/"> Official website</a> </sup></h3>
 [<image src="https://3.bp.blogspot.com/-VBUI753r4qk/VsG4UI0JGNI/AAAAAAAAVSc/f8zAzcoDgvk/s1600/Screenshot%2Bfrom%2B2016-02-15%2B02-50-49.png" width="100%" />](https://3.bp.blogspot.com/-VBUI753r4qk/VsG4UI0JGNI/AAAAAAAAVSc/f8zAzcoDgvk/s1600/Screenshot%2Bfrom%2B2016-02-15%2B02-50-49.png)
-<p>It's the most popular and have a worldwide support. You need anything from "How to install" to "How to fix a particular problem" is all just a click away with Google.</p>
+<p>It's the most popular and has a worldwide support. You need anything from "How to install" to "How to fix a particular problem" is all just a click away with Google.</p>
 <p><a href="https://ubuntugnome.org/download/">Dowlnoad latest Ubuntu GNOME</a></p>
 
 
@@ -35,7 +35,7 @@ If you want to know what is free software and why its better<a href="http://www.
 [<image src="http://4.bp.blogspot.com/-Ga4rkkrUUWU/VqM4eVFZiPI/AAAAAAAAF6g/6LMMale_1Ag/s1600/kali.png" width="100%" />](http://4.bp.blogspot.com/-Ga4rkkrUUWU/VqM4eVFZiPI/AAAAAAAAF6g/6LMMale_1Ag/s1600/kali.png)
 <p>Although its known for Penetration Testing, it comes with a lot of basic tools preinstalled like Java, Vim, Sreencast recorder, VLC, etc. Its motto is:</p>
 
-> The quiter you become the more you are able to hear.
+> The quieter you become the more you are able to hear.
 
 <p><a href="https://www.kali.org/downloads/">Dowlnoad latest Kali Linux</a></p>
 
