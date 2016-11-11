@@ -38,7 +38,7 @@ in Fedora or other RPM based distributions.
 
 The website source code is hosted on github.com. Source code repository is at following URL :
 
-!!! https://github.com/glugnith/glug.nith.ac.in
+!!! https://github.com/Nithmr/glugWebsite
 
 ## How to contribute ?
 
