@@ -50,7 +50,7 @@ Apart from this, there are many other advantages of git. Git has all the history
 
 This way you can very elegantly contribute to glug website source code. 
 
-## Starting using it
+## Start using it
 
  By this time, you might be wondering how to accomplish this whole thing. For that you need to be aware of this tool git. There are several references on the internet that can help you in getting familiar with git and start hacking. Since the website source code is hosted on Github and they provide a very good guide to start learning and using git, the best place to start using git is their BootCamp. This will help you in learning git from scratch and at the same time getting familiar with Github interface.
 
