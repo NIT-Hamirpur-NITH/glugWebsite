@@ -1,3 +1,36 @@
+# v2.0.8
+## 12/13/2016
+
+1. [](#new)
+    * RC released as stable
+    * Added a new `honeypot` field for form anti-spam protection
+
+# v2.0.8-rc.1
+## 11/26/2016
+
+1. [](#bugfix)
+    * Fixed Forms 2.0 changes for registration form [#101](https://github.com/getgrav/grav-plugin-form/issues/101)
+    * Fixed errant reference to Grav DI container in Form#getPagePathFromToken [#105](https://github.com/getgrav/grav-plugin-form/issues/105)
+    * Fixed issue with spacer fields being displayed first, not in order [#104](https://github.com/getgrav/grav-plugin-form/issues/104)
+
+# v2.0.7
+## 11/17/2016
+
+1. [](#improved)
+    * Added method to set all data in a form
+    * Added params to form action URL
+    * Added ability to add ids to buttons and to set them disabled
+1. [](#bugfix)
+    * Moved Files Upload GC logic to function in front-end only
+
+# v2.0.6
+## 10/19/2016
+
+1. [](#bugfix)
+    * Fixed translations for `display` field
+    * Fixed [#95](https://github.com/getgrav/grav-plugin-form/issues/95) multilanguage forms submission
+    * Fixed duplicate textarea class tag [#98](https://github.com/getgrav/grav-plugin-form/issues/98)
+
 # v2.0.5
 ## 09/15/2016
 
