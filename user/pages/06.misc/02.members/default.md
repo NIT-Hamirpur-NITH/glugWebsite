@@ -6,4 +6,4 @@ recaptchacontact:
 
 This page is the members page of the site
 
-**Under Development**
+**A fully automated members page coming soon**
