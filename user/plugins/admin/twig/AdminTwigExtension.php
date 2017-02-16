@@ -1,5 +1,5 @@
 <?php
-namespace Grav\Plugin\Admin;
+namespace Grav\Plugin;
 
 use Grav\Common\Grav;
 use Grav\Common\Language\Language;

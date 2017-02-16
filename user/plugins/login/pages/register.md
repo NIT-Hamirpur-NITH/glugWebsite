@@ -1,8 +1,5 @@
 ---
-login_redirect_here: false
-
 form:
-
   fields:
     -
       name: username

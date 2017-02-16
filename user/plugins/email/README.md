@@ -101,7 +101,6 @@ form:
         to: recipient@example.com
         to_name: 'Custom recipient name'
         content_type: 'text/plain'
-        process_markdown: true
 ```
 
 ## Sending Attachments

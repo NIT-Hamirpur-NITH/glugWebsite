@@ -288,7 +288,8 @@ return function (root) {
 };
 
 })(document);
-</script><style>
+</script>
+<style>
 pre.sf-dump {
     display: block;
     white-space: pre;

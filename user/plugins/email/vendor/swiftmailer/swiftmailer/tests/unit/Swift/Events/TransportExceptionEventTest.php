@@ -33,7 +33,7 @@ class Swift_Events_TransportExceptionEventTest extends \PHPUnit_Framework_TestCa
 
     private function _createTransport()
     {
-        return $this->getMockBuilder('Swift_Transport')->getMock();
+        return $this->getMock('Swift_Transport');
     }
 
     private function _createException()

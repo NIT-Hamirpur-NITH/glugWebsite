@@ -29,9 +29,9 @@ final class Run implements RunInterface
     /**
      * @var HandlerInterface[]
      */
-    private $handlerStack = [];
+    private $handlerStack = array();
 
-    private $silencedPatterns = [];
+    private $silencedPatterns = array();
 
     private $system;
 
@@ -91,7 +91,7 @@ final class Run implements RunInterface
      */
     public function clearHandlers()
     {
-        $this->handlerStack = [];
+        $this->handlerStack = array();
         return $this;
     }
 
@@ -118,9 +118,9 @@ final class Run implements RunInterface
             class_exists("\\Whoops\\Exception\\Frame");
             class_exists("\\Whoops\\Exception\\Inspector");
 
-            $this->system->setErrorHandler([$this, self::ERROR_HANDLER]);
-            $this->system->setExceptionHandler([$this, self::EXCEPTION_HANDLER]);
-            $this->system->registerShutdownFunction([$this, self::SHUTDOWN_HANDLER]);
+            $this->system->setErrorHandler(array($this, self::ERROR_HANDLER));
+            $this->system->setExceptionHandler(array($this, self::EXCEPTION_HANDLER));
+            $this->system->registerShutdownFunction(array($this, self::SHUTDOWN_HANDLER));
 
             $this->isRegistered = true;
         }
@@ -170,26 +170,15 @@ final class Run implements RunInterface
             $this->silencedPatterns,
             array_map(
                 function ($pattern) use ($levels) {
-                    return [
+                    return array(
                         "pattern" => $pattern,
                         "levels" => $levels,
-                    ];
+                    );
                 },
                 (array) $patterns
             )
         );
         return $this;
-    }
-
-
-    /**
-     * Returns an array with silent errors in path configuration
-     *
-     * @return array
-     */
-    public function getSilenceErrorsInPaths()
-    {
-        return $this->silencedPatterns;
     }
 
     /*
@@ -270,7 +259,7 @@ final class Run implements RunInterface
             // and removing it would be possibly breaking for users.
             $handlerResponse = $handler->handle($exception);
 
-            if (in_array($handlerResponse, [Handler::LAST_HANDLER, Handler::QUIT])) {
+            if (in_array($handlerResponse, array(Handler::LAST_HANDLER, Handler::QUIT))) {
                 // The Handler has handled the exception in some way, and
                 // wishes to quit execution (Handler::QUIT), or skip any
                 // other handlers (Handler::LAST_HANDLER). If $this->allowQuit
@@ -331,7 +320,6 @@ final class Run implements RunInterface
                 $levelMatches = $level & $entry["levels"];
                 if ($pathMatches && $levelMatches) {
                     // Ignore the error, abort handling
-                    // See https://github.com/filp/whoops/issues/418
                     return true;
                 }
             }

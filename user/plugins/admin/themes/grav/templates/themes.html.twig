@@ -62,21 +62,20 @@
     {% endif %}
 {% endblock %}
 
+
 {% block messages %}
     {{ parent() }}
-    {% if config.plugins.admin.notifications.themes %}
-        <div class="themes-notifications-container hidden"></div>
+     {% if config.plugins.admin.notifications.themes %}
+    <div class="themes-notifications-container hidden"></div>
     {% endif %}
 {% endblock %}
 
 {% block content %}
+
     <div class="gpm gpm-themes">
         {% if not admin.route or installing %}
             {%  include 'partials/themes-list.html.twig' %}
         {% else %}
-            {% if theme is null %}
-                {{redirect_me(base_url_relative ~ '/404')}}
-            {% endif %}
             {% include 'partials/themes-details.html.twig' %}
         {% endif %}
     </div>

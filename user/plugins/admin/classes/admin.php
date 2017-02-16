@@ -1,11 +1,10 @@
 <?php
-namespace Grav\Plugin\Admin;
+namespace Grav\Plugin;
 
 use DateTime;
 use Grav\Common\Data;
 use Grav\Common\File\CompiledYamlFile;
 use Grav\Common\GPM\GPM;
-use Grav\Common\GPM\Licenses;
 use Grav\Common\GPM\Response;
 use Grav\Common\Grav;
 use Grav\Common\Language\LanguageCodes;
@@ -17,7 +16,6 @@ use Grav\Common\Uri;
 use Grav\Common\User\User;
 use Grav\Common\Utils;
 use Grav\Plugin\Admin\Utils as AdminUtils;
-use RocketTheme\Toolbox\Event\Event;
 use RocketTheme\Toolbox\File\File;
 use RocketTheme\Toolbox\File\JsonFile;
 use RocketTheme\Toolbox\ResourceLocator\UniformResourceIterator;
@@ -36,50 +34,47 @@ class Admin
      * @var Grav
      */
     public $grav;
-    /**
-     * @var string
-     */
-    public $base;
-    /**
-     * @var string
-     */
-    public $location;
-    /**
-     * @var string
-     */
-    public $route;
-    /**
-     * @var User
-     */
-    public $user;
-    /**
-     * @var array
-     */
-    public $forgot;
-    /**
-     * @var string
-     */
-    public $task;
-    /**
-     * @var array
-     */
-    public $json_response;
+
     /**
      * @var Uri $uri
      */
     protected $uri;
+
     /**
      * @var array
      */
     protected $pages = [];
+
     /**
      * @var Session
      */
     protected $session;
+
     /**
      * @var Data\Blueprints
      */
     protected $blueprints;
+
+    /**
+     * @var string
+     */
+    public $base;
+
+    /**
+     * @var string
+     */
+    public $location;
+
+    /**
+     * @var string
+     */
+    public $route;
+
+    /**
+     * @var User
+     */
+    public $user;
+
     /**
      * @var GPM
      */
@@ -91,7 +86,7 @@ class Admin
     protected $pages_count;
 
     /**
-     * @var array
+     * @var Array
      */
     protected $permissions;
 
@@ -105,19 +100,21 @@ class Admin
      */
     public function __construct(Grav $grav, $base, $location, $route)
     {
-        $this->grav        = $grav;
-        $this->base        = $base;
-        $this->location    = $location;
-        $this->route       = $route;
-        $this->uri         = $this->grav['uri'];
-        $this->session     = $this->grav['session'];
-        $this->user        = $this->grav['user'];
+        $this->grav = $grav;
+        $this->base = $base;
+        $this->location = $location;
+        $this->route = $route;
+        $this->uri = $this->grav['uri'];
+        $this->session = $this->grav['session'];
+        $this->user = $this->grav['user'];
         $this->permissions = [];
-        $language          = $this->grav['language'];
+        $language = $this->grav['language'];
 
         // Load utility class
+        require_once __DIR__ . '/utils.php';
+
         if ($language->enabled()) {
-            $this->multilang         = true;
+            $this->multilang = true;
             $this->languages_enabled = $this->grav['config']->get('system.languages.supported', []);
 
             //Set the currently active language for the admin
@@ -137,134 +134,6 @@ class Admin
     }
 
     /**
-     * Return the languages available in the admin
-     *
-     * @return array
-     */
-    public static function adminLanguages()
-    {
-        $languages = [];
-
-        $path = Grav::instance()['locator']->findResource('plugins://admin/languages');
-
-        /** @var \DirectoryIterator $directory */
-        foreach (new \DirectoryIterator($path) as $file) {
-            if ($file->isDir() || $file->isDot() || Utils::startsWith($file->getBasename(), '.')) {
-                continue;
-            }
-
-            $lang = basename($file->getBasename(), '.yaml');
-
-            $languages[$lang] = LanguageCodes::getNativeName($lang);
-
-        }
-
-        return $languages;
-    }
-
-    /**
-     * Return the found configuration blueprints
-     *
-     * @return array
-     */
-    public static function configurations()
-    {
-        $configurations = [];
-
-        /** @var UniformResourceIterator $iterator */
-        $iterator = Grav::instance()['locator']->getIterator('blueprints://config');
-
-        foreach ($iterator as $file) {
-            if ($file->isDir() || !preg_match('/^[^.].*.yaml$/', $file->getFilename())) {
-                continue;
-            }
-            $configurations[] = basename($file->getBasename(), '.yaml');
-        }
-
-        return $configurations;
-    }
-
-    /**
-     * Return the languages available in the site
-     *
-     * @return array
-     */
-    public static function siteLanguages()
-    {
-        $languages = [];
-        $lang_data = Grav::instance()['config']->get('system.languages.supported', []);
-
-        foreach ($lang_data as $index => $lang) {
-            $languages[$lang] = LanguageCodes::getNativeName($lang);
-        }
-
-        return $languages;
-    }
-
-    /**
-     * Static helper method to return the admin form nonce
-     *
-     * @return string
-     */
-    public static function getNonce()
-    {
-        $action = 'admin-form';
-
-        return Utils::getNonce($action);
-    }
-
-    /**
-     * Static helper method to return the last used page name
-     *
-     * @return string
-     */
-    public static function getLastPageName()
-    {
-        return Grav::instance()['session']->lastPageName ?: 'default';
-    }
-
-    /**
-     * Static helper method to return the last used page route
-     *
-     * @return string
-     */
-    public static function getLastPageRoute()
-    {
-        return Grav::instance()['session']->lastPageRoute ?: self::route();
-    }
-
-    /**
-     * Static helper method to return current route.
-     *
-     * @return string
-     */
-    public static function route()
-    {
-        $pages = Grav::instance()['pages'];
-        $route = '/' . ltrim(Grav::instance()['admin']->route, '/');
-
-        /** @var Page $page */
-        $page         = $pages->dispatch($route);
-        $parent_route = null;
-        if ($page) {
-            $parent       = $page->parent();
-            $parent_route = $parent->rawRoute();
-        }
-
-        return $parent_route;
-    }
-
-    public static function getTempDir()
-    {
-        try {
-            $tmp_dir = Grav::instance()['locator']->findResource('tmp://', true, true);
-        } catch (\Exception $e) {
-            $tmp_dir = Grav::instance()['locator']->findResource('cache://', true, true) . '/tmp';
-        }
-        return $tmp_dir;
-    }
-
-    /**
      * Get current session.
      *
      * @return Session
@@ -272,6 +141,19 @@ class Admin
     public function session()
     {
         return $this->session;
+    }
+
+    /**
+     * Add message into the session queue.
+     *
+     * @param string $msg
+     * @param string $type
+     */
+    public function setMessage($msg, $type = 'info')
+    {
+        /** @var Message $messages */
+        $messages = $this->grav['messages'];
+        $messages->add($msg, $type);
     }
 
     /**
@@ -318,102 +200,22 @@ class Admin
                 // Authenticate user.
                 $result = $user->authenticate($data['password']);
 
-                if (!$result) {
-                    return false;
+                if ($result) {
+                    $this->user = $this->session->user = $user;
+
+                    /** @var Grav $grav */
+                    $grav = $this->grav;
+
+                    unset($this->grav['user']);
+                    $this->grav['user'] = $user;
+
+                    $this->setMessage($this->translate('PLUGIN_ADMIN.LOGIN_LOGGED_IN'), 'info');
+                    $grav->redirect($post['redirect']);
                 }
             }
         }
 
-        $action = [];
-
-        if ($user->authorize('admin.login')) {
-            $this->user = $this->session->user = $user;
-
-            /** @var Grav $grav */
-            $grav = $this->grav;
-
-            unset($this->grav['user']);
-            $this->grav['user'] = $user;
-
-            $this->setMessage($this->translate('PLUGIN_ADMIN.LOGIN_LOGGED_IN'), 'info');
-            $grav->redirect($post['redirect']);
-            return true; //never reached
-        }
-
-        return false;
-    }
-
-    /**
-     * Add message into the session queue.
-     *
-     * @param string $msg
-     * @param string $type
-     */
-    public function setMessage($msg, $type = 'info')
-    {
-        /** @var Message $messages */
-        $messages = $this->grav['messages'];
-        $messages->add($msg, $type);
-    }
-
-    /**
-     * Translate a string to the user-defined language
-     *
-     * @param array|mixed $args
-     *
-     * @param mixed       $languages
-     *
-     * @return string
-     */
-    public function translate($args, $languages = null)
-    {
-        if (is_array($args)) {
-            $lookup = array_shift($args);
-        } else {
-            $lookup = $args;
-            $args   = [];
-        }
-
-        if (!$languages) {
-            $languages = [$this->grav['user']->authenticated ? $this->grav['user']->language : 'en'];
-        } else {
-            $languages = (array)$languages;
-        }
-
-
-        if ($lookup) {
-            if (empty($languages) || reset($languages) == null) {
-                if ($this->grav['config']->get('system.languages.translations_fallback', true)) {
-                    $languages = $this->grav['language']->getFallbackLanguages();
-                } else {
-                    $languages = (array)$this->grav['language']->getDefault();
-                }
-            }
-        }
-
-        foreach ((array)$languages as $lang) {
-            $translation = $this->grav['language']->getTranslation($lang, $lookup);
-
-            if (!$translation) {
-                $language    = $this->grav['language']->getDefault() ?: 'en';
-                $translation = $this->grav['language']->getTranslation($language, $lookup);
-            }
-
-            if (!$translation) {
-                $language    = 'en';
-                $translation = $this->grav['language']->getTranslation($language, $lookup);
-            }
-
-            if ($translation) {
-                if (count($args) >= 1) {
-                    return vsprintf($translation, $args);
-                } else {
-                    return $translation;
-                }
-            }
-        }
-
-        return $lookup;
+        return $this->authorize();
     }
 
     /**
@@ -437,12 +239,52 @@ class Admin
     }
 
     /**
+     * Returns edited page.
+     *
+     * @param bool $route
+     *
+     * @return Page
+     */
+    public function page($route = false, $path = null)
+    {
+        if (!$path) {
+            $path = $this->route;
+        }
+
+        if ($route && !$path) {
+            $path = '/';
+        }
+
+        if (!isset($this->pages[$path])) {
+            $this->pages[$path] = $this->getPage($path);
+        }
+
+        return $this->pages[$path];
+    }
+
+    /**
+     * Returns blueprints for the given type.
+     *
+     * @param string $type
+     *
+     * @return Data\Blueprint
+     */
+    public function blueprints($type)
+    {
+        if ($this->blueprints === null) {
+            $this->blueprints = new Data\Blueprints('blueprints://');
+        }
+
+        return $this->blueprints->get($type);
+    }
+
+    /**
      * Gets configuration data.
      *
      * @param string $type
      * @param array  $post
      *
-     * @return mixed
+     * @return Data\Data|null
      * @throws \RuntimeException
      */
     public function data($type, array $post = [])
@@ -457,21 +299,15 @@ class Admin
             $post = isset($_POST['data']) ? $_POST['data'] : [];
         }
 
-        // Check to see if a data type is plugin-provided, before looking into core ones
-        $event = $this->grav->fireEvent('onAdminData', new Event(['type' => &$type]));
-        if ($event && isset($event['data_type'])) {
-            return $event['data_type'];
-        }
-
         /** @var UniformResourceLocator $locator */
-        $locator  = $this->grav['locator'];
+        $locator = $this->grav['locator'];
         $filename = $locator->findResource("config://{$type}.yaml", true, true);
-        $file     = CompiledYamlFile::instance($filename);
+        $file = CompiledYamlFile::instance($filename);
 
         if (preg_match('|plugins/|', $type)) {
             /** @var Plugins $plugins */
             $plugins = $this->grav['plugins'];
-            $obj     = $plugins->get(preg_replace('|plugins/|', '', $type));
+            $obj = $plugins->get(preg_replace('|plugins/|', '', $type));
 
             if (!$obj) {
                 return [];
@@ -484,7 +320,7 @@ class Admin
         } elseif (preg_match('|themes/|', $type)) {
             /** @var Themes $themes */
             $themes = $this->grav['themes'];
-            $obj    = $themes->get(preg_replace('|themes/|', '', $type));
+            $obj = $themes->get(preg_replace('|themes/|', '', $type));
 
             if (!$obj) {
                 return [];
@@ -505,16 +341,16 @@ class Admin
 
             $data[$type] = $obj;
         } elseif (preg_match('|config/|', $type)) {
-            $type       = preg_replace('|config/|', '', $type);
+            $type = preg_replace('|config/|', '', $type);
             $blueprints = $this->blueprints("config/{$type}");
-            $config     = $this->grav['config'];
-            $obj        = new Data\Data($config->get($type, []), $blueprints);
+            $config = $this->grav['config'];
+            $obj = new Data\Data($config->get($type, []), $blueprints);
             $obj->merge($post);
 
             // FIXME: We shouldn't allow user to change configuration files in system folder!
             $filename = $this->grav['locator']->findResource("config://{$type}.yaml")
                 ?: $this->grav['locator']->findResource("config://{$type}.yaml", true, true);
-            $file     = CompiledYamlFile::instance($filename);
+            $file = CompiledYamlFile::instance($filename);
             $obj->file($file);
             $data[$type] = $obj;
         } else {
@@ -525,19 +361,20 @@ class Admin
     }
 
     /**
-     * Returns blueprints for the given type.
+     * Get the GPM instance
      *
-     * @param string $type
-     *
-     * @return Data\Blueprint
+     * @return GPM The GPM instance
      */
-    public function blueprints($type)
+    public function gpm()
     {
-        if ($this->blueprints === null) {
-            $this->blueprints = new Data\Blueprints('blueprints://');
+        if (!$this->gpm) {
+            try {
+                $this->gpm = new GPM();
+            } catch (\Exception $e) {
+            }
         }
 
-        return $this->blueprints->get($type);
+        return $this->gpm;
     }
 
     /**
@@ -623,9 +460,37 @@ class Admin
         }
     }
 
-    public function license($package_slug)
+    /**
+     * Get all plugins.
+     *
+     * @param bool $local
+     *
+     * @return array
+     */
+    public function plugins($local = true)
     {
-        return Licenses::get($package_slug);
+        $gpm = $this->gpm();
+
+        if (!$gpm) {
+            return false;
+        }
+
+        return $local ? $gpm->getInstalledPlugins() : $gpm->getRepositoryPlugins()->filter(function (
+            $package,
+            $slug
+        ) use ($gpm) {
+            return !$gpm->isPluginInstalled($slug);
+        });
+    }
+
+    public function getPackageFromGPM($package_slug)
+    {
+        $package = $this->plugins(true)[$package_slug];
+        if (!$package) {
+            $package = $this->themes(true)[$package_slug];
+        }
+
+        return $package;
     }
 
     /**
@@ -664,81 +529,6 @@ class Admin
         }
 
         return $dependencies;
-    }
-
-    /**
-     * Get the GPM instance
-     *
-     * @return GPM The GPM instance
-     */
-    public function gpm()
-    {
-        if (!$this->gpm) {
-            try {
-                $this->gpm = new GPM();
-            } catch (\Exception $e) {
-            }
-        }
-
-        return $this->gpm;
-    }
-
-    public function getPackageFromGPM($package_slug)
-    {
-        $package = $this->plugins(true)[$package_slug];
-        if (!$package) {
-            $package = $this->themes(true)[$package_slug];
-        }
-
-        return $package;
-    }
-
-    /**
-     * Get all plugins.
-     *
-     * @param bool $local
-     *
-     * @return mixed
-     */
-    public function plugins($local = true)
-    {
-        $gpm = $this->gpm();
-
-        if (!$gpm) {
-            return false;
-        }
-
-        return $local
-            ? $gpm->getInstalledPlugins()
-            : $gpm->getRepositoryPlugins()->filter(function (
-                $package,
-                $slug
-            ) use ($gpm) {
-                return !$gpm->isPluginInstalled($slug);
-            })
-            ;
-    }
-
-    /**
-     * Get all themes.
-     *
-     * @param bool $local
-     *
-     * @return mixed
-     */
-    public function themes($local = true)
-    {
-        $gpm = $this->gpm();
-
-        if (!$gpm) {
-            return false;
-        }
-
-        return $local
-            ? $gpm->getInstalledThemes()
-            : $gpm->getRepositoryThemes()->filter(function ($package, $slug) use ($gpm) {
-                return !$gpm->isThemeInstalled($slug);
-            });
     }
 
     /**
@@ -799,6 +589,29 @@ class Admin
     }
 
     /**
+     * Get all themes.
+     *
+     * @param bool $local
+     *
+     * @return array
+     */
+    public function themes($local = true)
+    {
+        $gpm = $this->gpm();
+
+        if (!$gpm) {
+            return false;
+        }
+
+        return $local ? $gpm->getInstalledThemes() : $gpm->getRepositoryThemes()->filter(function ($package, $slug) use
+        (
+            $gpm
+        ) {
+            return !$gpm->isThemeInstalled($slug);
+        });
+    }
+
+    /**
      * Used by the Dashboard in the admin to display the X latest pages
      * that have been modified
      *
@@ -849,7 +662,7 @@ class Admin
      */
     public function logEntry()
     {
-        $file    = File::instance($this->grav['locator']->findResource("log://{$this->route}.html"));
+        $file = File::instance($this->grav['locator']->findResource("log://{$this->route}.html"));
         $content = $file->content();
 
         return $content;
@@ -862,7 +675,7 @@ class Admin
      */
     public function lastBackup()
     {
-        $file    = JsonFile::instance($this->grav['locator']->findResource("log://backup.log"));
+        $file = JsonFile::instance($this->grav['locator']->findResource("log://backup.log"));
         $content = $file->content();
         if (empty($content)) {
             return [
@@ -876,7 +689,7 @@ class Admin
         $backup->setTimestamp($content['time']);
         $diff = $backup->diff(new \DateTime());
 
-        $days       = $diff->days;
+        $days = $diff->days;
         $chart_fill = $days > 30 ? 100 : round($days / 30 * 100);
 
         return [
@@ -884,6 +697,211 @@ class Admin
             'chart_fill'  => $chart_fill,
             'chart_empty' => 100 - $chart_fill
         ];
+    }
+
+    /**
+     * Returns the page creating it if it does not exist.
+     *
+     * @param $path
+     *
+     * @return Page
+     */
+    public function getPage($path)
+    {
+        /** @var Pages $pages */
+        $pages = $this->grav['pages'];
+
+        if ($path && $path[0] != '/') {
+            $path = "/{$path}";
+        }
+
+        $page = $path ? $pages->dispatch($path, true) : $pages->root();
+
+        if (!$page) {
+            $slug = basename($path);
+
+            if ($slug == '') {
+                return null;
+            }
+
+            $ppath = str_replace('\\', '/', dirname($path));
+
+            // Find or create parent(s).
+            $parent = $this->getPage($ppath != '/' ? $ppath : '');
+
+            // Create page.
+            $page = new Page;
+            $page->parent($parent);
+            $page->filePath($parent->path() . '/' . $slug . '/' . $page->name());
+
+            // Add routing information.
+            $pages->addPage($page, $path);
+
+            // Set if Modular
+            $page->modularTwig($slug[0] == '_');
+
+            // Determine page type.
+            if (isset($this->session->{$page->route()})) {
+                // Found the type and header from the session.
+                $data = $this->session->{$page->route()};
+
+                $header = ['title' => $data['title']];
+
+                if (isset($data['visible'])) {
+                    if ($data['visible'] == '' || $data['visible']) {
+                        // if auto (ie '')
+                        $children = $page->parent()->children();
+                        foreach ($children as $child) {
+                            if ($child->order()) {
+                                // set page order
+                                $page->order(1000);
+                                break;
+                            }
+                        }
+                    }
+                    if ($data['visible'] == 1 && !$page->order()) {
+                        $header['visible'] = $data['visible'];
+                    }
+
+                }
+
+                if ($data['name'] == 'modular') {
+                    $header['body_classes'] = 'modular';
+                }
+
+                $name = $page->modular() ? str_replace('modular/', '', $data['name']) : $data['name'];
+                $page->name($name . '.md');
+                $page->header($header);
+                $page->frontmatter(Yaml::dump((array)$page->header(), 10, 2, false));
+            } else {
+                // Find out the type by looking at the parent.
+                $type = $parent->childType() ? $parent->childType() : $parent->blueprints()->get('child_type',
+                    'default');
+                $page->name($type . CONTENT_EXT);
+                $page->header();
+            }
+            $page->modularTwig($slug[0] == '_');
+        }
+
+        return $page;
+    }
+
+    /**
+     * Return the languages available in the admin
+     *
+     * @return array
+     */
+    public static function adminLanguages()
+    {
+        $languages = [];
+
+        $path = Grav::instance()['locator']->findResource('plugins://admin/languages');
+
+        /** @var \DirectoryIterator $directory */
+        foreach (new \DirectoryIterator($path) as $file) {
+            if ($file->isDir() || $file->isDot() || Utils::startsWith($file->getBasename(), '.')) {
+                continue;
+            }
+
+            $lang = basename($file->getBasename(), '.yaml');
+
+            $languages[$lang] = LanguageCodes::getNativeName($lang);
+
+        }
+
+        return $languages;
+    }
+
+    /**
+     * Return the found configuration blueprints
+     *
+     * @return array
+     */
+    public static function configurations()
+    {
+        $configurations = [];
+
+        /** @var UniformResourceIterator $iterator */
+        $iterator = Grav::instance()['locator']->getIterator('blueprints://config');
+
+        foreach ($iterator as $file) {
+            if ($file->isDir() || !preg_match('/^[^.].*.yaml$/', $file->getFilename())) {
+                continue;
+            }
+            $configurations[] = basename($file->getBasename(), '.yaml');
+        }
+
+        return $configurations;
+    }
+
+    /**
+     * Return the languages available in the site
+     *
+     * @return array
+     */
+    public static function siteLanguages()
+    {
+        $languages = [];
+        $lang_data = Grav::instance()['config']->get('system.languages.supported', []);
+
+        foreach ($lang_data as $index => $lang) {
+            $languages[$lang] = LanguageCodes::getNativeName($lang);
+        }
+
+        return $languages;
+    }
+
+    /**
+     * Static helper method to return current route.
+     *
+     * @return string
+     */
+    public static function route()
+    {
+        $pages = Grav::instance()['pages'];
+        $route = '/' . ltrim(Grav::instance()['admin']->route, '/');
+
+        /** @var Page $page */
+        $page = $pages->dispatch($route);
+        $parent_route = null;
+        if ($page) {
+            $parent = $page->parent();
+            $parent_route = $parent->rawRoute();
+        }
+
+        return $parent_route;
+    }
+
+    /**
+     * Static helper method to return the admin form nonce
+     *
+     * @return string
+     */
+    public static function getNonce()
+    {
+        $action = 'admin-form';
+
+        return Utils::getNonce($action);
+    }
+
+    /**
+     * Static helper method to return the last used page name
+     *
+     * @return string
+     */
+    public static function getLastPageName()
+    {
+        return Grav::instance()['session']->lastPageName ?: 'default';
+    }
+
+    /**
+     * Static helper method to return the last used page route
+     *
+     * @return string
+     */
+    public static function getLastPageRoute()
+    {
+        return Grav::instance()['session']->lastPageRoute ?: self::route();
     }
 
     /**
@@ -896,22 +914,6 @@ class Admin
     public function isTeamGrav($info)
     {
         if (isset($info['author']['name']) && $info['author']['name'] == 'Team Grav') {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Determine if the plugin or theme info passed is premium
-     *
-     * @param object $info Plugin or Theme info object
-     *
-     * @return bool
-     */
-    public function isPremiumProduct($info)
-    {
-        if (isset($info['premium'])) {
             return true;
         } else {
             return false;
@@ -937,6 +939,66 @@ class Admin
         } else {
             return 'phpinfo() method is not available on this server.';
         }
+    }
+
+    /**
+     * Translate a string to the user-defined language
+     *
+     * @param array|mixed $args
+     *
+     * @param mixed       $languages
+     *
+     * @return string
+     */
+    public function translate($args, $languages = null)
+    {
+        if (is_array($args)) {
+            $lookup = array_shift($args);
+        } else {
+            $lookup = $args;
+            $args = [];
+        }
+
+        if (!$languages) {
+            $languages = [$this->grav['user']->authenticated ? $this->grav['user']->language : 'en'];
+        } else {
+            $languages = (array)$languages;
+        }
+
+
+        if ($lookup) {
+            if (empty($languages) || reset($languages) == null) {
+                if ($this->grav['config']->get('system.languages.translations_fallback', true)) {
+                    $languages = $this->grav['language']->getFallbackLanguages();
+                } else {
+                    $languages = (array)$this->grav['language']->getDefault();
+                }
+            }
+        }
+
+        foreach ((array)$languages as $lang) {
+            $translation = $this->grav['language']->getTranslation($lang, $lookup);
+
+            if (!$translation) {
+                $language = $this->grav['language']->getDefault() ?: 'en';
+                $translation = $this->grav['language']->getTranslation($language, $lookup);
+            }
+
+            if (!$translation) {
+                $language = 'en';
+                $translation = $this->grav['language']->getTranslation($language, $lookup);
+            }
+
+            if ($translation) {
+                if (count($args) >= 1) {
+                    return vsprintf($translation, $args);
+                } else {
+                    return $translation;
+                }
+            }
+        }
+
+        return $lookup;
     }
 
     /**
@@ -1047,8 +1109,8 @@ class Admin
             'r' => 'llll ZZ',
             'U' => 'X'
         ];
-        $js_format        = "";
-        $escaping         = false;
+        $js_format = "";
+        $escaping = false;
         for ($i = 0; $i < strlen($php_format); $i++) {
             $char = $php_format[$i];
             if ($char === '\\') // PHP date format escaping character
@@ -1077,16 +1139,6 @@ class Admin
     }
 
     /**
-     * Gets the entire permissions array
-     *
-     * @return array
-     */
-    public function getPermissions()
-    {
-        return $this->permissions;
-    }
-
-    /**
      * Sets the entire permissions array
      *
      * @param $permissions
@@ -1094,6 +1146,16 @@ class Admin
     public function setPermissions($permissions)
     {
         $this->permissions = $permissions;
+    }
+
+    /**
+     * Gets the entire permissions array
+     *
+     * @return Array
+     */
+    public function getPermissions()
+    {
+        return $this->permissions;
     }
 
     /**
@@ -1109,7 +1171,7 @@ class Admin
     public function processNotifications($notifications)
     {
         // Sort by date
-        usort($notifications, function ($a, $b) {
+        usort($notifications, function($a, $b) {
             return strcmp($a->date, $b->date);
         });
 
@@ -1119,7 +1181,7 @@ class Admin
         require_once(__DIR__ . '/../twig/AdminTwigExtension.php');
         $adminTwigExtension = new AdminTwigExtension();
 
-        $filename           = $this->grav['locator']->findResource('user://data/notifications/' . $this->grav['user']->username . YAML_EXT, true, true);
+        $filename = $this->grav['locator']->findResource('user://data/notifications/' . $this->grav['user']->username . YAML_EXT, true, true);
         $read_notifications = CompiledYamlFile::instance($filename)->content();
 
         $notifications_processed = [];
@@ -1164,7 +1226,7 @@ class Admin
         }
 
         // Process notifications
-        $notifications_processed = array_map(function ($notification) use ($adminTwigExtension) {
+        $notifications_processed = array_map(function($notification) use ($adminTwigExtension) {
             $notification->date = $adminTwigExtension->adminNicetimeFilter($notification->date);
             return $notification;
         }, $notifications_processed);
@@ -1192,12 +1254,11 @@ class Admin
     public function getPagePathFromToken($path)
     {
         $path_parts = pathinfo($path);
-        $page = null;
 
         $basename = '';
         if (isset($path_parts['extension'])) {
             $basename = '/' . $path_parts['basename'];
-            $path     = $path_parts['dirname'];
+            $path = $path_parts['dirname'];
         }
 
         $regex = '/(@self|self@)|((?:@page|page@):(?:.*))|((?:@theme|theme@):(?:.*))/';
@@ -1211,7 +1272,7 @@ class Admin
                 // page@
                 $parts = explode(':', $path);
                 $route = $parts[1];
-                $page  = $this->grav['page']->find($route);
+                $page = $this->grav['page']->find($route);
             } elseif ($matches[3]) {
                 // theme@
                 $parts = explode(':', $path);
@@ -1231,127 +1292,6 @@ class Admin
         $path = str_replace($matches[0], rtrim($page->relativePagePath(), '/'), $path);
 
         return $path . $basename;
-    }
-
-    /**
-     * Returns edited page.
-     *
-     * @param bool $route
-     *
-     * @param null $path
-     *
-     * @return Page
-     */
-    public function page($route = false, $path = null)
-    {
-        if (!$path) {
-            $path = $this->route;
-        }
-
-        if ($route && !$path) {
-            $path = '/';
-        }
-
-        if (!isset($this->pages[$path])) {
-            $this->pages[$path] = $this->getPage($path);
-        }
-
-        return $this->pages[$path];
-    }
-
-    /**
-     * Returns the page creating it if it does not exist.
-     *
-     * @param $path
-     *
-     * @return Page
-     */
-    public function getPage($path)
-    {
-        /** @var Pages $pages */
-        $pages = $this->grav['pages'];
-
-        if ($path && $path[0] != '/') {
-            $path = "/{$path}";
-        }
-
-        $page = $path ? $pages->dispatch($path, true) : $pages->root();
-
-        if (!$page) {
-            $slug = basename($path);
-
-            if ($slug == '') {
-                return null;
-            }
-
-            $ppath = str_replace('\\', '/', dirname($path));
-
-            // Find or create parent(s).
-            $parent = $this->getPage($ppath != '/' ? $ppath : '');
-
-            // Create page.
-            $page = new Page;
-            $page->parent($parent);
-            $page->filePath($parent->path() . '/' . $slug . '/' . $page->name());
-
-            // Add routing information.
-            $pages->addPage($page, $path);
-
-            // Set if Modular
-            $page->modularTwig($slug[0] == '_');
-
-            // Determine page type.
-            if (isset($this->session->{$page->route()})) {
-                // Found the type and header from the session.
-                $data = $this->session->{$page->route()};
-
-                // Set the key header value
-                $header = ['title' => $data['title']];
-
-                if (isset($data['visible'])) {
-                    if ($data['visible'] == '' || $data['visible']) {
-                        // if auto (ie '')
-                        $children = $page->parent()->children();
-                        foreach ($children as $child) {
-                            if ($child->order()) {
-                                // set page order
-                                $page->order(1000);
-                                break;
-                            }
-                        }
-                    }
-                    if ($data['visible'] == 1 && !$page->order()) {
-                        $header['visible'] = $data['visible'];
-                    }
-
-                }
-
-                if ($data['name'] == 'modular') {
-                    $header['body_classes'] = 'modular';
-                }
-
-                $name = $page->modular() ? str_replace('modular/', '', $data['name']) : $data['name'];
-                $page->name($name . '.md');
-
-                // Fire new event to allow plugins to manipulate page frontmatter
-                $this->grav->fireEvent('onAdminCreatePageFrontmatter', new Event(['header' => &$header]));
-
-                $page->header($header);
-                $page->frontmatter(Yaml::dump((array)$page->header(), 10, 2, false));
-            } else {
-                // Find out the type by looking at the parent.
-                $type = $parent->childType()
-                    ? $parent->childType()
-                    : $parent->blueprints()->get('child_type',
-                        'default')
-                ;
-                $page->name($type . CONTENT_EXT);
-                $page->header();
-            }
-            $page->modularTwig($slug[0] == '_');
-        }
-
-        return $page;
     }
 
     /**
@@ -1382,9 +1322,14 @@ class Admin
         return trim($string);
     }
 
-    public function getRouteDetails()
+    public static function getTempDir()
     {
-        return [$this->base, $this->location, $this->route];
+        try {
+            $tmp_dir = Grav::instance()['locator']->findResource('tmp://', true, true);
+        } catch (\Exception $e) {
+            $tmp_dir = Grav::instance()['locator']->findResource('cache://', true, true) . '/tmp';
+        }
+        return $tmp_dir;
     }
 
 }

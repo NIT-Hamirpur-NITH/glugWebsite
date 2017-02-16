@@ -1,10 +1,7 @@
 ---
 title: Reset password
 
-login_redirect_here: false
-
 form:
-
     fields:
         - name: username
           type: hidden

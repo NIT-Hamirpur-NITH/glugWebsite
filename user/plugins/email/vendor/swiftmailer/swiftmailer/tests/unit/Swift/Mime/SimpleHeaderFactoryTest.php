@@ -158,11 +158,11 @@ class Swift_Mime_SimpleHeaderFactoryTest extends \PHPUnit_Framework_TestCase
 
     private function _createHeaderEncoder()
     {
-        return $this->getMockBuilder('Swift_Mime_HeaderEncoder')->getMock();
+        return $this->getMock('Swift_Mime_HeaderEncoder');
     }
 
     private function _createParamEncoder()
     {
-        return $this->getMockBuilder('Swift_Encoder')->getMock();
+        return $this->getMock('Swift_Encoder');
     }
 }

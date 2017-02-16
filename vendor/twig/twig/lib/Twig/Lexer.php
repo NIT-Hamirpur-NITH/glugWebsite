@@ -26,7 +26,6 @@ class Twig_Lexer implements Twig_LexerInterface
     protected $states;
     protected $brackets;
     protected $env;
-    // to be renamed to $name in 2.0 (where it is private)
     protected $filename;
     protected $options;
     protected $regexes;
@@ -76,15 +75,8 @@ class Twig_Lexer implements Twig_LexerInterface
     /**
      * {@inheritdoc}
      */
-    public function tokenize($code, $name = null)
+    public function tokenize($code, $filename = null)
     {
-        if (!$code instanceof Twig_Source) {
-            @trigger_error(sprintf('Passing a string as the $code argument of %s() is deprecated since version 1.27 and will be removed in 2.0. Pass a Twig_Source instance instead.', __METHOD__), E_USER_DEPRECATED);
-            $source = new Twig_Source($code, $name);
-        } else {
-            $source = $code;
-        }
-
         if (function_exists('mb_internal_encoding') && ((int) ini_get('mbstring.func_overload')) & 2) {
             $mbEncoding = mb_internal_encoding();
             mb_internal_encoding('ASCII');
@@ -92,8 +84,8 @@ class Twig_Lexer implements Twig_LexerInterface
             $mbEncoding = null;
         }
 
-        $this->code = str_replace(array("\r\n", "\r"), "\n", $source->getCode());
-        $this->filename = $source->getName();
+        $this->code = str_replace(array("\r\n", "\r"), "\n", $code);
+        $this->filename = $filename;
         $this->cursor = 0;
         $this->lineno = 1;
         $this->end = strlen($this->code);
@@ -144,7 +136,7 @@ class Twig_Lexer implements Twig_LexerInterface
             mb_internal_encoding($mbEncoding);
         }
 
-        return new Twig_TokenStream($this->tokens, $source);
+        return new Twig_TokenStream($this->tokens, $this->filename);
     }
 
     protected function lexData()
@@ -411,7 +403,7 @@ class Twig_Lexer implements Twig_LexerInterface
     protected function popState()
     {
         if (0 === count($this->states)) {
-            throw new Exception('Cannot pop state without a previous state.');
+            throw new Exception('Cannot pop state without a previous state');
         }
 
         $this->state = array_pop($this->states);

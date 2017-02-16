@@ -304,10 +304,11 @@ class Uri
         $bits = parse_url($uri);
 
         // process query string
-        if (isset($bits['query'])) {
+        if (isset($bits['query']) && isset($bits['path'])) {
             if (!$this->query) {
                 $this->query = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
             }
+            $uri = $bits['path'];
         }
 
         //process fragment
@@ -315,11 +316,8 @@ class Uri
             $this->fragment = $bits['fragment'];
         }
 
-        // Get the path. If there's no path, make sure pathinfo() still returns dirname variable
-        $path = isset($bits['path']) ? $bits['path'] : '/';
-
         // remove the extension if there is one set
-        $parts = pathinfo($path);
+        $parts = pathinfo($uri);
 
         // set the original basename
         $this->basename = $parts['basename'];
@@ -333,12 +331,12 @@ class Uri
 
         // Strip the file extension for valid page types
         if (preg_match('/\.(' . $valid_page_types . ')$/', $parts['basename'])) {
-            $path = rtrim(str_replace(DIRECTORY_SEPARATOR, DS, $parts['dirname']), DS) . '/' . $parts['filename'];
+            $uri = rtrim(str_replace(DIRECTORY_SEPARATOR, DS, $parts['dirname']), DS) . '/' . $parts['filename'];
         }
 
         // set the new url
-        $this->url = $this->root . $path;
-        $this->path = $path;
+        $this->url = $this->root . $uri;
+        $this->path = $uri;
         $this->content_path = trim(str_replace($this->base, '', $this->path), '/');
         if ($this->content_path != '') {
             $this->paths = explode('/', $this->content_path);
@@ -768,14 +766,14 @@ class Uri
     /**
      * Converts links from absolute '/' or relative (../..) to a Grav friendly format
      *
-     * @param Page $page the current page to use as reference
+     * @param Page   $page         the current page to use as reference
      * @param string $url the URL as it was written in the markdown
-     * @param string $type the type of URL, image | link
-     * @param bool $absolute if null, will use system default, if true will use absolute links internally
-     * @param bool $route_only only return the route, not full URL path
+     * @param string $type         the type of URL, image | link
+     * @param bool   $absolute     if null, will use system default, if true will use absolute links internally
+     *
      * @return string the more friendly formatted url
      */
-    public static function convertUrl(Page $page, $url, $type = 'link', $absolute = false, $route_only = false)
+    public static function convertUrl(Page $page, $url, $type = 'link', $absolute = false)
     {
         $grav = Grav::instance();
 
@@ -922,10 +920,6 @@ class Uri
             $url['path'] = $url_path;
         } else {
             $url = $url_path;
-        }
-
-        if ($route_only) {
-            $url = str_replace($base_url, '', $url);
         }
 
         return $url;

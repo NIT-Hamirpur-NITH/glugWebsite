@@ -46,9 +46,7 @@ Dropzone.confirm = (question, accepted, rejected) => {
 };
 
 const DropzoneMediaConfig = {
-    createImageThumbnails: { },
-    thumbnailWidth: 150,
-    thumbnailHeight: 100,
+    createImageThumbnails: { thumbnailWidth: 150 },
     addRemoveLinks: false,
     dictDefaultMessage: translations.PLUGIN_ADMIN.DROP_FILES_HERE_TO_UPLOAD,
     dictRemoveFileConfirmation: '[placeholder]',
@@ -108,10 +106,7 @@ export default class FilesField {
 
             dropzone.files.push(mock);
             dropzone.options.addedfile.call(dropzone, mock);
-            if (mock.type.match(/^image\//)) {
-                dropzone.options.thumbnail.call(dropzone, mock, data.path);
-                dropzone.createThumbnailFromUrl(mock, data.path);
-            }
+            if (mock.type.match(/^image\//)) dropzone.options.thumbnail.call(dropzone, mock, data.path);
 
             file.remove();
         });
@@ -169,11 +164,6 @@ export default class FilesField {
         }
     }
 
-    b64_to_utf8(str) {
-        str = str.replace(/\s/g, '');
-        return decodeURIComponent(escape(window.atob(str)));
-    }
-
     onDropzoneRemovedFile(file, ...extra) {
         if (!file.accepted || file.rejected) { return; }
         let url = file.removeUrl || this.urls.delete;
@@ -188,7 +178,7 @@ export default class FilesField {
         request(url, { method: 'post', body }, () => {
             if (!path) { return; }
 
-            path = this.b64_to_utf8(path[1]);
+            path = global.atob(path[1]);
             let input = this.container.find('[name][type="hidden"]');
             let data = JSON.parse(input.val() || '{}');
             delete data[path];
@@ -274,7 +264,7 @@ const addNode = (container) => {
         paramName: settings.paramName || 'file',
         dotNotation: settings.name || 'file',
         acceptedFiles: settings.accept ? settings.accept.join(',') : input.attr('accept') || container.data('media-types'),
-        maxFilesize: typeof settings.filesize !== 'undefined' ? settings.filesize : 256,
+        maxFilesize: settings.filesize || 256,
         maxFiles: settings.limit || null
     };
 

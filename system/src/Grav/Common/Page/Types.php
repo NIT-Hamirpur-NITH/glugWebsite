@@ -82,10 +82,8 @@ class Types implements \ArrayAccess, \Iterator, \Countable
         }
 
         $modular_uri = rtrim($uri, '/') . '/modular';
-        if (is_dir($modular_uri)) {
-            foreach (Folder::all($modular_uri, $options) as $type) {
-                $this->register('modular/' . $type);
-            }
+        foreach (Folder::all($modular_uri, $options) as $type) {
+            $this->register('modular/' . $type);
         }
     }
 

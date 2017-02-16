@@ -13,6 +13,8 @@ class Twig_Extension_Escaper extends Twig_Extension
     protected $defaultStrategy;
 
     /**
+     * Constructor.
+     *
      * @param string|false|callable $defaultStrategy An escaping strategy
      *
      * @see setDefaultStrategy()
@@ -43,7 +45,7 @@ class Twig_Extension_Escaper extends Twig_Extension
      * Sets the default strategy to use when not defined by the user.
      *
      * The strategy can be a valid PHP callback that takes the template
-     * name as an argument and returns the strategy to use.
+     * "filename" as an argument and returns the strategy to use.
      *
      * @param string|false|callable $defaultStrategy An escaping strategy
      */
@@ -57,12 +59,6 @@ class Twig_Extension_Escaper extends Twig_Extension
         }
 
         if ('filename' === $defaultStrategy) {
-            @trigger_error('Using "filename" as the default strategy is deprecated since version 1.27. Use "name" instead.', E_USER_DEPRECATED);
-
-            $defaultStrategy = 'name';
-        }
-
-        if ('name' === $defaultStrategy) {
             $defaultStrategy = array('Twig_FileExtensionEscapingStrategy', 'guess');
         }
 
@@ -72,16 +68,16 @@ class Twig_Extension_Escaper extends Twig_Extension
     /**
      * Gets the default strategy to use when not defined by the user.
      *
-     * @param string $name The template name
+     * @param string $filename The template "filename"
      *
      * @return string|false The default strategy to use for the template
      */
-    public function getDefaultStrategy($name)
+    public function getDefaultStrategy($filename)
     {
         // disable string callables to avoid calling a function named html or js,
         // or any other upcoming escaping strategy
         if (!is_string($this->defaultStrategy) && false !== $this->defaultStrategy) {
-            return call_user_func($this->defaultStrategy, $name);
+            return call_user_func($this->defaultStrategy, $filename);
         }
 
         return $this->defaultStrategy;

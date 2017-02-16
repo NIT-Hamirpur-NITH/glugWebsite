@@ -11,7 +11,6 @@
 namespace DebugBar\DataCollector;
 
 use Exception;
-use Symfony\Component\Debug\Exception\FatalThrowableError;
 
 /**
  * Collects info about exceptions
@@ -25,23 +24,12 @@ class ExceptionsCollector extends DataCollector implements Renderable
      * Adds an exception to be profiled in the debug bar
      *
      * @param Exception $e
-     * @deprecated in favor on addThrowable
      */
     public function addException(Exception $e)
     {
-        $this->addThrowable($e);
-    }
-
-    /**
-     * Adds a Throwable to be profiled in the debug bar
-     *
-     * @param \Throwable $e
-     */
-    public function addThrowable($e)
-    {
         $this->exceptions[] = $e;
         if ($this->chainExceptions && $previous = $e->getPrevious()) {
-            $this->addThrowable($previous);
+            $this->addException($previous);
         }
     }
 
@@ -58,7 +46,7 @@ class ExceptionsCollector extends DataCollector implements Renderable
     /**
      * Returns the list of exceptions being profiled
      *
-     * @return array[\Throwable]
+     * @return array[Exception]
      */
     public function getExceptions()
     {
@@ -69,7 +57,7 @@ class ExceptionsCollector extends DataCollector implements Renderable
     {
         return array(
             'count' => count($this->exceptions),
-            'exceptions' => array_map(array($this, 'formatThrowableData'), $this->exceptions)
+            'exceptions' => array_map(array($this, 'formatExceptionData'), $this->exceptions)
         );
     }
 
@@ -78,20 +66,8 @@ class ExceptionsCollector extends DataCollector implements Renderable
      *
      * @param Exception $e
      * @return array
-     * @deprecated in favor on formatThrowableData
      */
     public function formatExceptionData(Exception $e)
-    {
-        return $this->formatThrowableData($e);
-    }
-
-    /**
-     * Returns Throwable data as an array
-     *
-     * @param \Throwable $e
-     * @return array
-     */
-    public function formatThrowableData($e)
     {
         $filePath = $e->getFile();
         if ($filePath && file_exists($filePath)) {

@@ -28,12 +28,10 @@ class FontAwesomeShortcode extends Shortcode
 
             $extras = explode(',',$sc->getParameter('extras', ''));
             foreach ($extras as $extra) {
-                if (!empty($extra)) {
-                    if (!Utils::startsWith($extra, 'fa-')) {
-                        $extra = 'fa-'.$extra;
-                    }
-                    $icon .= ' '.$extra;
+                if (!Utils::startsWith($extra, 'fa-')) {
+                    $extra = 'fa-'.$extra;
                 }
+                $icon .= ' '.$extra;
             }
 
             $output = '<i class="fa '.$icon.'">'.$str.'</i>';

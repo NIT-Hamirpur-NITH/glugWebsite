@@ -14,8 +14,6 @@ class Utils
     /**
      * Matches an email to a user
      *
-     * @param $email
-     *
      * @return User
      */
     public static function findUserByEmail($email)

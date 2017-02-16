@@ -119,27 +119,23 @@ class MediumFactory
         }
 
         $ratio = $to / $from;
-        $width = $medium->get('width') * $ratio;
-        $height = $medium->get('height') * $ratio;
+        $width = (int) ($medium->get('width') * $ratio);
+        $height = (int) ($medium->get('height') * $ratio);
 
-        $prev_basename = $medium->get('basename');
-        $basename = str_replace('@'.$from.'x', '@'.$to.'x', $prev_basename);
+        $basename = $medium->get('basename');
+        $basename = str_replace('@'.$from.'x', '@'.$to.'x', $basename);
 
         $debug = $medium->get('debug');
         $medium->set('debug', false);
-        $medium->setImagePrettyName($basename);
 
         $file = $medium->resize($width, $height)->path();
 
         $medium->set('debug', $debug);
-        $medium->setImagePrettyName($prev_basename);
 
         $size = filesize($file);
 
         $medium = self::fromFile($file);
-        if ($medium) {
-            $medium->set('size', $size);
-        }
+        $medium->set('size', $size);
 
         return ['file' => $medium, 'size' => $size];
     }

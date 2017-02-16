@@ -67,7 +67,6 @@ $app->addCommands(array(
     new \Grav\Console\Gpm\UninstallCommand(),
     new \Grav\Console\Gpm\UpdateCommand(),
     new \Grav\Console\Gpm\SelfupgradeCommand(),
-    new \Grav\Console\Gpm\DirectInstallCommand(),
 ));
 
 $app->run();

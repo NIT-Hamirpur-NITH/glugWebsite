@@ -3,17 +3,9 @@
 {% block input %}
     <div class="form-display-wrapper {{ field.size }}">
         {% if field.markdown %}
-            {% if grav.twig.twig.filters['tu'] is defined %}
-                {{ field.content|tu|markdown|raw }}
-            {% else %}
-                {{ field.content|t|markdown|raw }}
-            {% endif %}
+            {{ field.content|t|markdown|raw }}
         {% else %}
-            {% if grav.twig.twig.filters['tu'] is defined %}
-                {{ field.content|tu|raw }}
-            {% else %}
-                {{ field.content|t|raw }}
-            {% endif %}
+            {{ field.content|t|raw }}
         {% endif %}
     </div>
 {% endblock %}

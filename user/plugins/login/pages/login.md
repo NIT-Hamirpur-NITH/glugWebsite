@@ -1,8 +1,6 @@
 ---
 title: Login
 
-login_redirect_here: false
-
 form:
     name: login
     action:
@@ -13,7 +11,7 @@ form:
           type: text
           id: username
           placeholder: Username
-          label: PLUGIN_LOGIN.USERNAME_EMAIL
+          label: PLUGIN_LOGIN.USERNAME
           autofocus: true
 
         - name: password

@@ -7,8 +7,6 @@ namespace Thunder\Shortcode\Shortcode;
 final class ReplacedShortcode extends AbstractShortcode
 {
     private $replacement;
-    private $text;
-    private $offset;
 
     public function __construct(ParsedShortcodeInterface $shortcode, $replacement)
     {

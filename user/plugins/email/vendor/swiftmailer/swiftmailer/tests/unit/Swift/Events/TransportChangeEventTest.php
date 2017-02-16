@@ -27,6 +27,6 @@ class Swift_Events_TransportChangeEventTest extends \PHPUnit_Framework_TestCase
 
     private function _createTransport()
     {
-        return $this->getMockBuilder('Swift_Transport')->getMock();
+        return $this->getMock('Swift_Transport');
     }
 }

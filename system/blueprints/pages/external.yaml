@@ -1,16 +1,12 @@
-title: PLUGIN_ADMIN:EXTERNAL
-@extends:
-    type: default
-    context: blueprints://pages
-
 rules:
   slug:
-    pattern: '[a-zа-я][a-zа-я0-9_\-]+'
+    pattern: "[a-zа-я][a-zа-я0-9_\-]+"
     min: 2
     max: 80
 
 form:
   validation: loose
+
   fields:
 
     tabs:
@@ -18,21 +14,16 @@ form:
       active: 1
 
       fields:
-
         content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
           fields:
 
             header.title:
               type: text
               autofocus: true
-              style: horizontal
               label: PLUGIN_ADMIN.TITLE
-
-            content:
-              unset@: true
-
-            uploads:
-              unset@: true
 
             header.external_url:
                 type: text
@@ -41,18 +32,5 @@ form:
                 validate:
                     required: true
         options:
-          fields:
-
-            publishing:
-
-              fields:
-
-                header.date:
-                  unset@: true
-
-                header.metadata:
-                  unset@: true
-
-            taxonomies:
-              unset@: true
-
+          type: tab
+          title: PLUGIN_ADMIN.OPTIONS

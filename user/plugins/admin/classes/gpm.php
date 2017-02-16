@@ -3,13 +3,12 @@ namespace Grav\Plugin\Admin;
 
 use Grav\Common\Grav;
 use Grav\Common\GPM\GPM as GravGPM;
-use Grav\Common\GPM\Licenses;
 use Grav\Common\GPM\Installer;
 use Grav\Common\GPM\Response;
 use Grav\Common\GPM\Upgrader;
 use Grav\Common\Filesystem\Folder;
 use Grav\Common\GPM\Common\Package;
-use Grav\Plugin\Admin\Admin;
+use Grav\Plugin\Admin;
 
 /**
  * Class Gpm
@@ -93,8 +92,7 @@ class Gpm
                 return false;
             }
 
-            $license = Licenses::get($package->slug);
-            $local = static::download($package, $license);
+            $local = static::download($package);
 
             Installer::install($local, $options['destination'],
                 ['install_path' => $package->install_path, 'theme' => $options['theme']]);
@@ -196,28 +194,9 @@ class Gpm
      *
      * @return string
      */
-    private static function download(Package $package, $license = null)
+    private static function download(Package $package)
     {
-        $query = '';
-
-        if ($package->premium) {
-            $query = \json_encode(array_merge(
-                $package->premium,
-                [
-                    'slug' => $package->slug,
-                    'filename' => $package->premium['filename'],
-                    'license_key' => $license
-                ]
-            ));
-
-            $query = '?d=' . base64_encode($query);
-        }
-
-        try {
-            $contents = Response::get($package->zipball_url . $query, []);
-        } catch (\Exception $e) {
-            throw new \RuntimeException($e->getMessage());
-        }
+        $contents = Response::get($package->zipball_url, []);
 
         $tmp_dir = Admin::getTempDir() . '/Grav-' . uniqid();
         Folder::mkdir($tmp_dir);

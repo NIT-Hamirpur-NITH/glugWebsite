@@ -1,5 +1,5 @@
 <?php
-namespace Grav\Plugin\Admin;
+namespace Grav\Plugin;
 
 /**
  * Admin theme object

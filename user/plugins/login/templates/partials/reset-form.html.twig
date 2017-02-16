@@ -1,4 +1,3 @@
-{% if uri.param('token') and uri.param('task') %}
 <section id="grav-login">
     {{ content|raw }}
 
@@ -21,6 +20,5 @@
         {{ nonce_field('reset-form', 'reset-form-nonce')|raw }}
     </form>
 </section>
-{% endif %}
 
 
