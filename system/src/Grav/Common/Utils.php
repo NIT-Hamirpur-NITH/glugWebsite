@@ -9,8 +9,6 @@
 namespace Grav\Common;
 
 use DateTime;
-use DateTimeZone;
-use Grav\Common\Grav;
 use Grav\Common\Helpers\Truncator;
 use RocketTheme\Toolbox\Event\Event;
 
@@ -112,6 +110,26 @@ abstract class Utils
     }
 
     /**
+     * Recursive Merge with uniqueness
+     *
+     * @param $array1
+     * @param $array2
+     * @return mixed
+     */
+    public static function arrayMergeRecursiveUnique($array1, $array2)
+    {
+        if (empty($array1)) return $array2; //optimize the base case
+
+        foreach ($array2 as $key => $value) {
+            if (is_array($value) && is_array(@$array1[$key])) {
+                $value = static::arrayMergeRecursiveUnique($array1[$key], $value);
+            }
+            $array1[$key] = $value;
+        }
+        return $array1;
+    }
+
+    /**
      * Return the Grav date formats allowed
      *
      * @return array
@@ -190,7 +208,11 @@ abstract class Utils
      */
     public static function truncateHtml($text, $length = 100, $ellipsis = '...')
     {
-        return Truncator::truncateLetters($text, $length, $ellipsis);
+        if (mb_strlen($text) <= $length) {
+            return $text;
+        } else {
+        	return Truncator::truncateLetters($text, $length, $ellipsis);
+        }
     }
 
     /**
@@ -235,7 +257,7 @@ abstract class Utils
             Grav::instance()->fireEvent('onBeforeDownload', new Event(['file' => $file]));
 
             $file_parts = pathinfo($file);
-            $mimetype = Utils::getMimeType($file_parts['extension']);
+            $mimetype = Utils::getMimeByExtension($file_parts['extension']);
             $size   = filesize($file); // File size
 
             // clean all buffers
@@ -321,22 +343,84 @@ abstract class Utils
     }
 
     /**
-     * Return the mimetype based on filename
+     * Return the mimetype based on filename extension
      *
      * @param string $extension Extension of file (eg "txt")
+     * @param string $default
      *
      * @return string
      */
-    public static function getMimeType($extension)
+    public static function getMimeByExtension($extension, $default = 'application/octet-stream')
     {
         $extension = strtolower($extension);
-        $config = Grav::instance()['config']->get('media.types');
 
-        if (isset($config[$extension])) {
-            return $config[$extension]['mime'];
+        // look for some standard types
+        switch ($extension) {
+            case null:
+                return $default;
+            case 'json':
+                return 'application/json';
+            case 'html':
+                return 'text/html';
+            case 'atom':
+                return 'application/atom+xml';
+            case 'rss':
+                return 'application/rss+xml';
+            case 'xml':
+                return 'application/xml';
         }
 
-        return 'application/octet-stream';
+        $media_types = Grav::instance()['config']->get('media.types');
+
+        if (isset($media_types[$extension])) {
+            if (isset($media_types[$extension]['mime'])) {
+                return $media_types[$extension]['mime'];
+            }
+        }
+
+        return $default;
+    }
+
+    /**
+     * Return the mimetype based on filename extension
+     *
+     * @param string $mime mime type (eg "text/html")
+     * @param string $default default value
+     *
+     * @return string
+     */
+    public static function getExtensionByMime($mime, $default = 'html')
+    {
+        $mime = strtolower($mime);
+
+        // look for some standard mime types
+        switch ($mime) {
+            case '*/*':
+            case 'text/*':
+            case 'text/html':
+                return 'html';
+            case 'application/json':
+                return 'json';
+            case 'application/atom+xml':
+                return 'atom';
+            case 'application/rss+xml':
+                return 'rss';
+            case 'application/xml':
+                return 'xml';
+        }
+
+        $media_types = Grav::instance()['config']->get('media.types');
+
+        foreach ($media_types as $extension => $type) {
+            if ($extension == 'defaults') {
+                continue;
+            }
+            if (isset($type['mime']) && $type['mime'] == $mime) {
+                return $extension;
+            }
+        }
+
+        return $default;
     }
 
     /**
@@ -748,5 +832,23 @@ abstract class Utils
 
 
         return $array;
+    }
+
+    /**
+     * Utility method to determine if the current OS is Windows
+     *
+     * @return bool
+     */
+    public static function isWindows() {
+        return strncasecmp(PHP_OS, 'WIN', 3) == 0;
+    }
+
+    /**
+     * Utility to determine if the server running PHP is Apache
+     *
+     * @return bool
+     */
+    public static function isApache() {
+        return strpos($_SERVER["SERVER_SOFTWARE"], 'Apache') !== false;
     }
 }

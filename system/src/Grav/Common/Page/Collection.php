@@ -75,6 +75,21 @@ class Collection extends Iterator
     }
 
     /**
+     *
+     * Merge another collection with the current collection
+     *
+     * @param Collection $collection
+     * @return $this
+     */
+    public function merge(Collection $collection)
+    {
+        foreach($collection as $page) {
+            $this->addPage($page);
+        }
+        return $this;
+    }
+
+    /**
      * Set parameters to the Collection
      *
      * @param array $params
@@ -84,7 +99,6 @@ class Collection extends Iterator
     public function setParams(array $params)
     {
         $this->params = array_merge($this->params, $params);
-
         return $this;
     }
 
@@ -125,11 +139,29 @@ class Collection extends Iterator
     }
 
     /**
+     * Split collection into array of smaller collections.
+     *
+     * @param $size
+     * @return array|Collection[]
+     */
+    public function batch($size)
+    {
+        $chunks = array_chunk($this->items, $size, true);
+
+        $list = [];
+        foreach ($chunks as $chunk) {
+            $list[] = new static($chunk, $this->params, $this->pages);
+        }
+
+        return $list;
+    }
+
+    /**
      * Remove item from the list.
      *
      * @param Page|string|null $key
      *
-     * @return $this|void
+     * @return $this
      * @throws \InvalidArgumentException
      */
     public function remove($key = null)
@@ -154,12 +186,13 @@ class Collection extends Iterator
      * @param string $by
      * @param string $dir
      * @param array  $manual
+     * @param string $sort_flags
      *
      * @return $this
      */
-    public function order($by, $dir = 'asc', $manual = null)
+    public function order($by, $dir = 'asc', $manual = null, $sort_flags = null)
     {
-        $this->items = $this->pages->sortCollection($this, $by, $dir, $manual);
+        $this->items = $this->pages->sortCollection($this, $by, $dir, $manual, $sort_flags);
 
         return $this;
     }

@@ -13,10 +13,10 @@ use Pimple\ServiceProviderInterface;
 
 class OutputServiceProvider implements ServiceProviderInterface
 {
-    public function register(Container $container) {
+    public function register(Container $container)
+    {
         $container['output'] = function ($c) {
-            /** @var Grav $c */
-            return $c['twig']->processSite($c['uri']->extension());
+            return $c['twig']->processSite($c['page']->templateFormat());
         };
     }
 }
