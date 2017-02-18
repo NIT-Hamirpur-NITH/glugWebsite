@@ -1,9 +1,0 @@
-{% embed "forms/fields/select/select.html.twig" %}
-    {% block global_attributes %}
-        data-grav-filepicker
-        data-name="{{field.name}}"
-        {% if field.preview_images %}data-preview-images{% endif %}
-        data-value="{{value}}"
-        {{ parent() }}
-    {% endblock %}
-{% endembed %}
