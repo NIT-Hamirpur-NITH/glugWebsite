@@ -19,8 +19,8 @@ images/*
 user/accounts/*
 user/data/*
 !user/data/.*
-user/themes/*
-!user/themes/.*
+# user/themes/*
+# !user/themes/.*
 user/localhost/config/security.yaml
 
 # OS Generated
