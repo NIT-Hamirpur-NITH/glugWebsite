@@ -1,1 +1,5 @@
 enabled: true
+css_files:
+  -
+    path: /user/CSS/custom.css
+    priority: 0
