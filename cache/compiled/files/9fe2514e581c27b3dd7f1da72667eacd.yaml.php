@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/custom-css/blueprints.yaml',
-    'modified' => 1487250599,
+    'modified' => 1487457991,
     'data' => [
         'name' => 'Custom CSS',
         'version' => '0.2.1',

@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/ganalytics/blueprints.yaml',
-    'modified' => 1487250599,
+    'modified' => 1487457991,
     'data' => [
         'name' => 'Google Analytics',
         'version' => '1.2.0',
