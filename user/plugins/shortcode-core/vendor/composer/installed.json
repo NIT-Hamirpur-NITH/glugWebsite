@@ -1,0 +1,56 @@
+[
+    {
+        "name": "thunderer/shortcode",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/thunderer/Shortcode.git",
+            "reference": "8f915c0b5269b4235342e78ffa28daee96b3b2a4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/thunderer/Shortcode/zipball/8f915c0b5269b4235342e78ffa28daee96b3b2a4",
+            "reference": "8f915c0b5269b4235342e78ffa28daee96b3b2a4",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.1|^5.0"
+        },
+        "suggest": {
+            "ext-dom": "if you want to use XML serializer",
+            "ext-json": "if you want to use JSON serializer",
+            "symfony/yaml": "if you want to use YAML serializer"
+        },
+        "time": "2016-04-25 21:22:52",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Thunder\\Shortcode\\": "src/",
+                "Thunder\\Shortcode\\Tests\\": "tests/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Tomasz Kowalczyk",
+                "email": "tomasz@kowalczyk.cc"
+            }
+        ],
+        "description": "Advanced shortcode (BBCode) parser and engine for PHP",
+        "keywords": [
+            "bbcode",
+            "engine",
+            "library",
+            "parser",
+            "shortcode"
+        ]
+    }
+]
