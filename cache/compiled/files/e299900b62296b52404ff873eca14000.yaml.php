@@ -2,11 +2,11 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/bootstrapper/blueprints.yaml',
-    'modified' => 1487457991,
+    'modified' => 1487496355,
     'data' => [
         'name' => 'Bootstrapper',
-        'version' => '1.3.2',
-        'description' => 'Loads the Bootstrap Framework v3.3.6 assets for any plugin/theme that needs it',
+        'version' => '1.3.4',
+        'description' => 'Loads the Bootstrap Framework v3.3.7 assets for any plugin/theme that needs it',
         'icon' => 'bold',
         'author' => [
             'name' => 'Team Grav',

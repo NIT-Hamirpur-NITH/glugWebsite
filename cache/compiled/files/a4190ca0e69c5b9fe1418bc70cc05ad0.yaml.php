@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/system/languages/hr.yaml',
-    'modified' => 1487457991,
+    'modified' => 1487494962,
     'data' => [
         'INFLECTOR_UNCOUNTABLE' => [
             0 => 'oprema',

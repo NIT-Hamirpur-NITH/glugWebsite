@@ -1,0 +1,24 @@
+1488100646
+a:2:{s:7:"content";s:791:"<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title">gluPost</h3>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>        
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title">gluBlog</h3>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>";s:12:"content_meta";N;}

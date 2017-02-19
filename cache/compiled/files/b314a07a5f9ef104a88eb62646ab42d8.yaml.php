@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/languages/uk.yaml',
-    'modified' => 1487457991,
+    'modified' => 1487494962,
     'data' => [
         'PLUGIN_ADMIN' => [
             'LOGIN_BTN' => 'Увійти',

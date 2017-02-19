@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/bootstrapper/languages.yaml',
-    'modified' => 1487457991,
+    'modified' => 1487496355,
     'data' => [
         'en' => [
             'PLUGIN_BOOTSTRAPPER' => [
@@ -15,6 +15,19 @@ return [
                 'LOAD_CORE_CSS' => 'Load Core CSS',
                 'LOAD_THEME_CSS' => 'Load Theme CSS',
                 'LOAD_CORE_JS' => 'Load Core JS'
+            ]
+        ],
+        'de' => [
+            'PLUGIN_BOOTSTRAPPER' => [
+                'STATUS' => 'Plugin Status',
+                'ALWAYS_LOAD' => 'Immer laden',
+                'ALWAYS_LOAD_HELP' => 'Falls deaktivert, lass das Theme entscheiden ob das Bootstrap Plugin geladen wird',
+                'USE_CDN' => 'Bootstrap CDN verwenden',
+                'USE_CDN_HELP' => 'Bootstrap CSS und JavaScript vom CDN laden',
+                'MODE' => 'Modus',
+                'LOAD_CORE_CSS' => 'Core CSS laden',
+                'LOAD_THEME_CSS' => 'Theme CSS laden',
+                'LOAD_CORE_JS' => 'Core JS laden'
             ]
         ],
         'ru' => [
@@ -41,6 +54,19 @@ return [
                 'LOAD_CORE_CSS' => 'Charger les CSS du core',
                 'LOAD_THEME_CSS' => 'Charger les CSS du thème',
                 'LOAD_CORE_JS' => 'Charger les JS du core'
+            ]
+        ],
+        'ro' => [
+            'PLUGIN_BOOTSTRAPPER' => [
+                'STATUS' => 'Statut modul',
+                'ALWAYS_LOAD' => 'Încarcă mereu',
+                'ALWAYS_LOAD_HELP' => 'Dacă este dezactivat, lăsați tema să decidă încărcarea modulului.',
+                'USE_CDN' => 'Folosiți Bootstrap CDN',
+                'USE_CDN_HELP' => 'Încarcă Bootstrap\'s CSS și JavaScript din locația CDN',
+                'MODE' => 'Mod',
+                'LOAD_CORE_CSS' => 'Încarcă CSS de bază',
+                'LOAD_THEME_CSS' => 'Încarcă CSS-ul temei',
+                'LOAD_CORE_JS' => 'Încarcă JS de bază'
             ]
         ]
     ]

@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => 'plugins://recaptchacontact/recaptchacontact.yaml',
-    'modified' => 1487250599,
+    'modified' => 1487494963,
     'data' => [
         'enabled' => true,
         'default_lang' => 'en',

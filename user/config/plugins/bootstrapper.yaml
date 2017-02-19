@@ -1,5 +1,5 @@
 enabled: true
-always_load: false
+always_load: true
 use_cdn: false
 mode: production
 load_core_css: true
