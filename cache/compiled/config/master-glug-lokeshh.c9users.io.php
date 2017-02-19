@@ -1,8 +1,8 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledConfig',
-    'timestamp' => 1487496366,
-    'checksum' => 'b46e80bf16fe3d3c448e4c5a68ea5cbf',
+    'timestamp' => 1487516733,
+    'checksum' => '42e3648ec9d2c7c307123d64c7857a6a',
     'files' => [
         'user/config' => [
             'media' => [
@@ -11,11 +11,11 @@ return [
             ],
             'plugins/bootstrapper' => [
                 'file' => 'user/config/plugins/bootstrapper.yaml',
-                'modified' => 1487496366
+                'modified' => 1487516515
             ],
             'plugins/custom-css' => [
                 'file' => 'user/config/plugins/custom-css.yaml',
-                'modified' => 1487494962
+                'modified' => 1487516515
             ],
             'plugins/email' => [
                 'file' => 'user/config/plugins/email.yaml',
@@ -55,7 +55,7 @@ return [
             ],
             'system' => [
                 'file' => 'user/config/system.yaml',
-                'modified' => 1487494962
+                'modified' => 1487516515
             ],
             'themes/antimatter' => [
                 'file' => 'user/config/themes/antimatter.yaml',
@@ -63,25 +63,25 @@ return [
             ],
             'themes/bootstrap' => [
                 'file' => 'user/config/themes/bootstrap.yaml',
-                'modified' => 1487494962
+                'modified' => 1487516515
             ]
         ],
         'system/config' => [
             'media' => [
                 'file' => 'system/config/media.yaml',
-                'modified' => 1487494962
+                'modified' => 1487516515
             ],
             'site' => [
                 'file' => 'system/config/site.yaml',
-                'modified' => 1487494962
+                'modified' => 1487516515
             ],
             'streams' => [
                 'file' => 'system/config/streams.yaml',
-                'modified' => 1487494962
+                'modified' => 1487516515
             ],
             'system' => [
                 'file' => 'system/config/system.yaml',
-                'modified' => 1487494962
+                'modified' => 1487516515
             ]
         ],
         'user/plugins' => [
@@ -91,7 +91,7 @@ return [
             ],
             'plugins/bootstrapper' => [
                 'file' => 'user/plugins/bootstrapper/bootstrapper.yaml',
-                'modified' => 1487496355
+                'modified' => 1487516515
             ],
             'plugins/problems' => [
                 'file' => 'user/plugins/problems/problems.yaml',

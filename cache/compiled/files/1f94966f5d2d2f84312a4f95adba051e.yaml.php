@@ -2,11 +2,11 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/accounts/lokeshh.yaml',
-    'modified' => 1487306816,
+    'modified' => 1487512360,
     'data' => [
         'email' => 'lokeshhsharma@gmail.com',
-        'fullname' => 'lokeshh',
-        'title' => 'Admin',
+        'fullname' => 'lokesh',
+        'title' => 'admin',
         'state' => 'enabled',
         'access' => [
             'admin' => [
@@ -17,6 +17,6 @@ return [
                 'login' => true
             ]
         ],
-        'hashed_password' => '$2y$10$kvzC2IAIUOC7XKqk.ANKku6OkyP5a9e7pT15S2gaV1iyhgfnycyuK'
+        'hashed_password' => '$2y$10$GsneXdpaSl0BTL.evKKI3uc5Y3pQVZWPzede7NzQGYK.vrFD4fW4m'
     ]
 ];
