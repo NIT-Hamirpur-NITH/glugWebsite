@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/themes/antimatter/languages.yaml',
-    'modified' => 1487250599,
+    'modified' => 1487517669,
     'data' => [
         'en' => [
             'TRANSLATION_TEST' => 'Antimatter!',
@@ -15,7 +15,7 @@ return [
             ],
             'SIDEBAR' => [
                 'SIMPLE_SEARCH' => [
-                    'HEADLINE' => 'SimpleSearch'
+                    'HEADLINE' => 'Search'
                 ],
                 'RELATED_POSTS' => [
                     'HEADLINE' => 'Related Posts'
@@ -136,7 +136,7 @@ return [
                 ],
                 'RANDOM_ARTICLE' => [
                     'HEADLINE' => 'Article aléatoire',
-                    'FEELING_LUCKY' => 'J\'ai de la chance !'
+                    'FEELING_LUCKY' => 'J’ai de la chance !'
                 ],
                 'SOME_TEXT_WIDGET' => [
                     'HEADLINE' => 'Du texte gadget'
@@ -152,7 +152,7 @@ return [
                 ]
             ],
             'FORM_DATA' => [
-                'SUMMARY' => 'Voici le résumé de ce que vous avez écrit pour nous:'
+                'SUMMARY' => 'Voici le résumé de ce que vous avez écrit pour nous :'
             ],
             'ERROR' => 'Erreur'
         ],
@@ -306,6 +306,44 @@ return [
                 'SUMMARY' => 'Ви написали нам:'
             ],
             'ERROR' => 'Помилка'
+        ],
+        'hr' => [
+            'TRANSLATION_TEST' => 'Antimatter!',
+            'BLOG' => [
+                'ITEM' => [
+                    'CONTINUE_READING' => 'Nastavi s čitanjem...',
+                    'NEXT_POST' => 'Slijedeća objava',
+                    'PREV_POST' => 'Prethodna objava'
+                ]
+            ],
+            'SIDEBAR' => [
+                'SIMPLE_SEARCH' => [
+                    'HEADLINE' => 'Pretraživanje'
+                ],
+                'RELATED_POSTS' => [
+                    'HEADLINE' => 'Povezane objave'
+                ],
+                'RANDOM_ARTICLE' => [
+                    'HEADLINE' => 'Slučajni članak',
+                    'FEELING_LUCKY' => 'Osjećam se sretno!'
+                ],
+                'SOME_TEXT_WIDGET' => [
+                    'HEADLINE' => 'Neki tekst widget'
+                ],
+                'POPULAR_TAGS' => [
+                    'HEADLINE' => 'Popularni tagovi'
+                ],
+                'ARCHIVES' => [
+                    'HEADLINE' => 'Arhiva'
+                ],
+                'SYNDICATE' => [
+                    'HEADLINE' => 'Kanali'
+                ]
+            ],
+            'FORM_DATA' => [
+                'SUMMARY' => 'Ovo je sažetak onog što ste nam napisali:'
+            ],
+            'ERROR' => 'Greška'
         ]
     ]
 ];

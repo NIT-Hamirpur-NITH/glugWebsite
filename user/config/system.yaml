@@ -18,7 +18,7 @@ home:
   alias: /home
   hide_in_urls: false
 pages:
-  theme: bootstrap
+  theme: antimatter
   order:
     by: default
     dir: asc

@@ -1,8 +1,8 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledConfig',
-    'timestamp' => 1487516733,
-    'checksum' => '42e3648ec9d2c7c307123d64c7857a6a',
+    'timestamp' => 1487518094,
+    'checksum' => '36bf53ea607917c85f716e6096e0ec65',
     'files' => [
         'user/config' => [
             'media' => [
@@ -11,11 +11,11 @@ return [
             ],
             'plugins/bootstrapper' => [
                 'file' => 'user/config/plugins/bootstrapper.yaml',
-                'modified' => 1487516515
+                'modified' => 1487518094
             ],
             'plugins/custom-css' => [
                 'file' => 'user/config/plugins/custom-css.yaml',
-                'modified' => 1487516515
+                'modified' => 1487517885
             ],
             'plugins/email' => [
                 'file' => 'user/config/plugins/email.yaml',
@@ -55,7 +55,7 @@ return [
             ],
             'system' => [
                 'file' => 'user/config/system.yaml',
-                'modified' => 1487516515
+                'modified' => 1487517565
             ],
             'themes/antimatter' => [
                 'file' => 'user/config/themes/antimatter.yaml',
@@ -198,7 +198,7 @@ return [
                 ]
             ],
             'bootstrapper' => [
-                'enabled' => true,
+                'enabled' => false,
                 'always_load' => true,
                 'use_cdn' => false,
                 'mode' => 'production',
@@ -211,7 +211,7 @@ return [
                 'built_in_css' => true
             ],
             'custom-css' => [
-                'enabled' => true,
+                'enabled' => false,
                 'css_files' => [
                     0 => [
                         'path' => '/user/CSS/custom.css',
@@ -730,7 +730,7 @@ return [
                 'hide_in_urls' => false
             ],
             'pages' => [
-                'theme' => 'bootstrap',
+                'theme' => 'antimatter',
                 'order' => [
                     'by' => 'default',
                     'dir' => 'asc'

@@ -1,4 +1,4 @@
-enabled: true
+enabled: false
 css_files:
   -
     path: /user/CSS/custom.css

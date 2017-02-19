@@ -63,20 +63,20 @@ class __TwigTemplate_3fa59e16933d59d90b357db4d3d5354bf8c9ac82f6619da1cbe0c4fa59d
         ";
         // line 69
         $this->displayBlock('footer', $context, $blocks);
-        // line 82
+        // line 77
         echo "    </div>
     <div class=\"sb-slidebar sb-left sb-width-thin\">
         <div id=\"panel\">
         ";
-        // line 85
-        $this->loadTemplate("partials/navigation.html.twig", "partials/base.html.twig", 85)->display($context);
-        // line 86
+        // line 80
+        $this->loadTemplate("partials/navigation.html.twig", "partials/base.html.twig", 80)->display($context);
+        // line 81
         echo "        </div>
     </div>
     ";
-        // line 88
+        // line 83
         $this->displayBlock('bottom', $context, $blocks);
-        // line 101
+        // line 96
         echo "</body>
 </html>
 ";
@@ -279,20 +279,15 @@ class __TwigTemplate_3fa59e16933d59d90b357db4d3d5354bf8c9ac82f6619da1cbe0c4fa59d
             <div class=\"totop\">
                 <span><a href=\"#\" id=\"toTop\"><i class=\"fa fa-arrow-up\"></i></a></span>
             </div>
-            <p>
-                GLUG-NITH
-            </p>
-            <p>
-                Free as in freedom not free as in bear.
-            </p>
+            <p><a href=\"http://getgrav.org\">Grav</a> was <i class=\"fa fa-code\"></i> with <i class=\"fa fa-heart\"></i> by <a href=\"http://www.rockettheme.com\">RocketTheme</a>.</p>
         </footer>
         ";
     }
 
-    // line 88
+    // line 83
     public function block_bottom($context, array $blocks = array())
     {
-        // line 89
+        // line 84
         echo "        ";
         echo $this->getAttribute((isset($context["assets"]) ? $context["assets"] : null), "js", array(0 => "bottom"), "method");
         echo "
@@ -321,7 +316,7 @@ class __TwigTemplate_3fa59e16933d59d90b357db4d3d5354bf8c9ac82f6619da1cbe0c4fa59d
 
     public function getDebugInfo()
     {
-        return array (  296 => 89,  293 => 88,  278 => 70,  275 => 69,  270 => 65,  265 => 66,  263 => 65,  258 => 64,  255 => 63,  250 => 61,  246 => 55,  243 => 54,  240 => 53,  235 => 49,  228 => 56,  225 => 53,  222 => 52,  219 => 51,  216 => 50,  214 => 49,  206 => 46,  202 => 44,  199 => 43,  195 => 36,  192 => 35,  189 => 34,  186 => 33,  183 => 32,  180 => 31,  176 => 28,  173 => 27,  170 => 26,  167 => 25,  164 => 24,  161 => 23,  158 => 22,  156 => 21,  153 => 20,  150 => 19,  147 => 18,  144 => 17,  141 => 16,  138 => 15,  135 => 14,  132 => 13,  124 => 37,  122 => 31,  116 => 29,  114 => 13,  109 => 11,  105 => 10,  102 => 9,  100 => 8,  92 => 7,  89 => 6,  86 => 5,  80 => 101,  78 => 88,  74 => 86,  72 => 85,  67 => 82,  65 => 69,  62 => 68,  60 => 63,  57 => 62,  55 => 61,  52 => 60,  50 => 43,  45 => 41,  42 => 40,  40 => 5,  35 => 3,  32 => 2,  30 => 1,);
+        return array (  291 => 84,  288 => 83,  278 => 70,  275 => 69,  270 => 65,  265 => 66,  263 => 65,  258 => 64,  255 => 63,  250 => 61,  246 => 55,  243 => 54,  240 => 53,  235 => 49,  228 => 56,  225 => 53,  222 => 52,  219 => 51,  216 => 50,  214 => 49,  206 => 46,  202 => 44,  199 => 43,  195 => 36,  192 => 35,  189 => 34,  186 => 33,  183 => 32,  180 => 31,  176 => 28,  173 => 27,  170 => 26,  167 => 25,  164 => 24,  161 => 23,  158 => 22,  156 => 21,  153 => 20,  150 => 19,  147 => 18,  144 => 17,  141 => 16,  138 => 15,  135 => 14,  132 => 13,  124 => 37,  122 => 31,  116 => 29,  114 => 13,  109 => 11,  105 => 10,  102 => 9,  100 => 8,  92 => 7,  89 => 6,  86 => 5,  80 => 96,  78 => 83,  74 => 81,  72 => 80,  67 => 77,  65 => 69,  62 => 68,  60 => 63,  57 => 62,  55 => 61,  52 => 60,  50 => 43,  45 => 41,  42 => 40,  40 => 5,  35 => 3,  32 => 2,  30 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -407,12 +402,7 @@ class __TwigTemplate_3fa59e16933d59d90b357db4d3d5354bf8c9ac82f6619da1cbe0c4fa59d
             <div class=\"totop\">
                 <span><a href=\"#\" id=\"toTop\"><i class=\"fa fa-arrow-up\"></i></a></span>
             </div>
-            <p>
-                GLUG-NITH
-            </p>
-            <p>
-                Free as in freedom not free as in bear.
-            </p>
+            <p><a href=\"http://getgrav.org\">Grav</a> was <i class=\"fa fa-code\"></i> with <i class=\"fa fa-heart\"></i> by <a href=\"http://www.rockettheme.com\">RocketTheme</a>.</p>
         </footer>
         {% endblock %}
     </div>

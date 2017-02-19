@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/config/system.yaml',
-    'modified' => 1487516515,
+    'modified' => 1487517565,
     'data' => [
         'absolute_urls' => false,
         'timezone' => 'Asia/Kolkata',
@@ -28,7 +28,7 @@ return [
             'hide_in_urls' => false
         ],
         'pages' => [
-            'theme' => 'bootstrap',
+            'theme' => 'antimatter',
             'order' => [
                 'by' => 'default',
                 'dir' => 'asc'
