@@ -5,5 +5,8 @@ content:
     order:
         by: date
         dir: desc
+published: false
+recaptchacontact:
+    enabled: false
 ---
 
