@@ -20,6 +20,8 @@ content:
         <h3 class="card-title">gluPost</h3>
         <p class="card-text">Paste your code and share with a link.</p>
         <a href="https://glug-lokeshh.c9users.io/gluapps/glupaste" class="btn btn-primary">View Project</a>
+        <br>
+        <br>
         <div class="card-footer">
           <a href='#'>
             <small class="text-muted">View Source</small>
@@ -34,6 +36,8 @@ content:
         <h3 class="card-title">gluBlog</h3>
         <p class="card-text">Blogging app for GLUG</p>
         <a href="https://glug-lokeshh.c9users.io/gluapps/glublog" class="btn btn-primary">View Project</a>
+        <br>
+        <br>
         <div class="card-footer">
           <a href='#'>
             <small class="text-muted">View Source</small>
@@ -51,6 +55,8 @@ content:
         <h3 class="card-title">gluCloud</h3>
         <p class="card-text">Cloud storage for GLUG users</p>
         <a href="https://glug-lokeshh.c9users.io/gluapps/glupaste" class="btn btn-primary">View Project</a>
+        <br>
+        <br>
         <div class="card-footer">
           <a href='#'>
             <small class="text-muted">View Source</small>
@@ -65,6 +71,8 @@ content:
         <h3 class="card-title">Freshmen Guide</h3>
         <p class="card-text">A guide for NIT-H Freshmen</p>
         <a href="http://glug.nith.ac.in/freshman/" class="btn btn-primary">View Project</a>
+        <br>
+        <br>
         <div class="card-footer">
           <a href='#'>
             <small class="text-muted">View Source</small>

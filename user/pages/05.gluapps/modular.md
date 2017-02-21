@@ -5,7 +5,7 @@ content:
     order:
         by: date
         dir: desc
-published: false
+published: true
 recaptchacontact:
     enabled: false
 ---

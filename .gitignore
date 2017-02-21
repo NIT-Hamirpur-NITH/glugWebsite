@@ -1,4 +1,4 @@
 user/accounts/*
-cache/*
-logs/*
+cache
+logs
 
