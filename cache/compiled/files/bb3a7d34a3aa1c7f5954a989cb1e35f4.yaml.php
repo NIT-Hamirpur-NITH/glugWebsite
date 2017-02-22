@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/system/languages/nb.yaml',
-    'modified' => 1487516515,
+    'modified' => 1483539021,
     'data' => [
         'MONTHS_OF_THE_YEAR' => [
             0 => 'januar',

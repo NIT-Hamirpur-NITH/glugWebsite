@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/config/plugins/custom-css.yaml',
-    'modified' => 1487517885,
+    'modified' => 1487787352,
     'data' => [
         'enabled' => false,
         'css_files' => [

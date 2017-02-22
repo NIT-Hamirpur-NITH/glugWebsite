@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/smileys/blueprints.yaml',
-    'modified' => 1487494963,
+    'modified' => 1476642975,
     'data' => [
         'name' => 'Smileys',
         'version' => '1.2.1',

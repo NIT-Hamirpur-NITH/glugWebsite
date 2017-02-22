@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/config/plugins/smileys.yaml',
-    'modified' => 1487494962,
+    'modified' => 1476642974,
     'data' => [
         'enabled' => false,
         'built_in_css' => true,

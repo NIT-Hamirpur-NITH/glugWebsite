@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/system/blueprints/config/media.yaml',
-    'modified' => 1487516515,
+    'modified' => 1483539021,
     'data' => [
         'title' => 'PLUGIN_ADMIN.MEDIA',
         'form' => [

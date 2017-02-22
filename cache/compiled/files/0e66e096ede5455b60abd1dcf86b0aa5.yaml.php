@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/shortcode-core/blueprints.yaml',
-    'modified' => 1487494963,
+    'modified' => 1487787353,
     'data' => [
         'name' => 'Shortcode Core',
         'version' => '2.3.1',
