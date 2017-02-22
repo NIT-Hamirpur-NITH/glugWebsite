@@ -41,7 +41,7 @@ class __TwigTemplate_1efb4c12aa9aa2766b820eaf48b1fa858e83c6b2541ec0c63508d9fa059
         if (($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "yaml", array()) && twig_test_iterable((isset($context["value"]) ? $context["value"] : null)))) {
             // line 8
             echo "    ";
-            $context["value"] = $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->toYamlFilter((isset($context["value"]) ? $context["value"] : null));
+            $context["value"] = $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->toYamlFilter((isset($context["value"]) ? $context["value"] : null));
         }
         // line 10
         echo "
@@ -148,7 +148,7 @@ class __TwigTemplate_1efb4c12aa9aa2766b820eaf48b1fa858e83c6b2541ec0c63508d9fa059
             echo "\">
                         <span class=\"form-description\">";
             // line 75
-            echo $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "description", array()));
+            echo $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "description", array()));
             echo "</span>
                     </div>
                 ";
@@ -166,15 +166,15 @@ class __TwigTemplate_1efb4c12aa9aa2766b820eaf48b1fa858e83c6b2541ec0c63508d9fa059
         if ($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "help", array())) {
             // line 29
             echo "                    <span class=\"hint--bottom\" data-hint=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "help", array())), "html");
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "help", array())), "html");
             echo "\">";
-            echo $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "label", array()));
+            echo $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "label", array()));
             echo "</span>
                     ";
         } else {
             // line 31
             echo "                    ";
-            echo $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "label", array()));
+            echo $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "label", array()));
             echo "
                     ";
         }
@@ -288,7 +288,7 @@ class __TwigTemplate_1efb4c12aa9aa2766b820eaf48b1fa858e83c6b2541ec0c63508d9fa059
         echo "                                    ";
         if ($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder", array())) {
             echo "placeholder=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder", array())), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder", array())), "html", null, true);
             echo "\"";
         }
         // line 59
@@ -329,13 +329,13 @@ class __TwigTemplate_1efb4c12aa9aa2766b820eaf48b1fa858e83c6b2541ec0c63508d9fa059
         echo "                                    ";
         if ($this->getAttribute($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "validate", array()), "message", array())) {
             echo "title=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "validate", array()), "message", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "validate", array()), "message", array()))), "html", null, true);
             echo "\"
                                     ";
         } elseif ($this->getAttribute(        // line 66
 (isset($context["field"]) ? $context["field"] : null), "title", array(), "any", true, true)) {
             echo "title=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "title", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "title", array()))), "html", null, true);
             echo "\" ";
         }
         // line 67

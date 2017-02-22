@@ -279,7 +279,7 @@ class __TwigTemplate_3fa59e16933d59d90b357db4d3d5354bf8c9ac82f6619da1cbe0c4fa59d
             <div class=\"totop\">
                 <span><a href=\"#\" id=\"toTop\"><i class=\"fa fa-arrow-up\"></i></a></span>
             </div>
-            <p><a href=\"http://getgrav.org\">Grav</a> was <i class=\"fa fa-code\"></i> with <i class=\"fa fa-heart\"></i> by <a href=\"http://www.rockettheme.com\">RocketTheme</a>.</p>
+            <p><i class=\"fa fa-linux \"></i> The Linux philosophy is 'Laugh in the face of danger'. Oops. Wrong One. <a>'Do it yourself'</a>. Yes, that's it. - <b>Linus Torvalds</b></p>
         </footer>
         ";
     }
@@ -402,7 +402,7 @@ class __TwigTemplate_3fa59e16933d59d90b357db4d3d5354bf8c9ac82f6619da1cbe0c4fa59d
             <div class=\"totop\">
                 <span><a href=\"#\" id=\"toTop\"><i class=\"fa fa-arrow-up\"></i></a></span>
             </div>
-            <p><a href=\"http://getgrav.org\">Grav</a> was <i class=\"fa fa-code\"></i> with <i class=\"fa fa-heart\"></i> by <a href=\"http://www.rockettheme.com\">RocketTheme</a>.</p>
+            <p><i class=\"fa fa-linux \"></i> The Linux philosophy is 'Laugh in the face of danger'. Oops. Wrong One. <a>'Do it yourself'</a>. Yes, that's it. - <b>Linus Torvalds</b></p>
         </footer>
         {% endblock %}
     </div>
