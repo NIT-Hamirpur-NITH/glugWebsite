@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/languages/da.yaml',
-    'modified' => 1487787352,
+    'modified' => 1487788116,
     'data' => [
         'PLUGIN_ADMIN' => [
             'ADMIN_BETA_MSG' => 'Dette er en beta-udgivelse! Brug i produktionsmiljøer er på egen risiko...',
@@ -159,9 +159,7 @@ return [
             'NO_PAGE_FOUND' => 'Ingen side fundet',
             'INVALID_PARAMETERS' => 'Ugyldige parametre',
             'NO_FILES_SENT' => 'Ingen filer sendt',
-            'EXCEEDED_FILESIZE_LIMIT' => 'Grænsen for filstørrelse er overskredet',
             'UNKNOWN_ERRORS' => 'Ukendt fejl',
-            'EXCEEDED_GRAV_FILESIZSE_LIMIT' => 'Gravs grænse for filstørrelse er overskredet.',
             'UNSUPPORTED_FILE_TYPE' => 'Ikke-understøttet filtype',
             'FAILED_TO_MOVE_UPLOADED_FILE' => 'Kunne ikke flytte den uploadede fil.',
             'FILE_UPLOADED_SUCCESSFULLY' => 'Fil-upload lykkedes',

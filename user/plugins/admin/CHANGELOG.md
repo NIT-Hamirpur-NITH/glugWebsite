@@ -1,8 +1,176 @@
+# v1.2.14
+## 02/17/2017
+
+1. [](#bugfix)
+    * Fixed bad bug with `GPM::install()` from a change in Admin v1.2.13
+
+# v1.2.13
+## 02/17/2017
+
+1. [](#bugfix)
+    * Fix issue with validating page when switching language [#963](https://github.com/getgrav/grav-plugin-admin/issues/963)
+    * Fix issue with quotes in Admin strings used in JS [#965](https://github.com/getgrav/grav-plugin-admin/issues/965)
+    * Refactored `AdminController::taskGetUpdates` to use standard task/response [#980](https://github.com/getgrav/grav-plugin-admin/issues/980)
+    * Sync Admin pages blueprints with core [core#212d35221a9bbcc242508ba49a551b3f6e62af8e](https://github.com/getgrav/grav/commit/212d35221a9bbcc242508ba49a551b3f6e62af8e)
+
+# v1.2.12
+## 02/12/2017
+
+1. [](#bugfix)
+    * Rebuilt the JS bundle to address various JS-related issues that cropped up in `v1.2.11`
+    * Fixed Firefox Network Error issue when updating multiple plugins/themes at concurrently [#1301](https://github.com/getgrav/grav/issues/1301)
+
+# v1.2.11
+## 02/10/2017
+
+1. [](#new)
+    * Added lang strings for `CLI_COMPATIBILITY` which is new in Grav v1.1.16
+1. [](#improved)
+    * Allow plugin to set custom 'authorize' and 'location' in `onAdminMenu()` event
+    * Updated all language files with latest from [Crowdin](https://crowdin.com/project/grav-admin)
+1. [](#bugfix)
+    * Fixed issue `admin.super` or `admin.users` users changing the account when saving another user [#713](https://github.com/getgrav/grav-plugin-admin/issues/713)
+    * Fix issue where non `admin.super`/`admin.users` users could see other users profiles [#713](https://github.com/getgrav/grav-plugin-admin/issues/713)
+    * Fix removing responsive image from page media [#111](https://github.com/getgrav/grav-plugin-admin/issues/111) [#952](https://github.com/getgrav/grav-plugin-admin/issues/952)
+    * Use @2x & @3x fallback images in the filepicker. [#952](https://github.com/getgrav/grav-plugin-admin/issues/952)
+
+# v1.2.10
+## 1/30/2017
+
+1. [](#improved)
+    * It is now possible to manually specify a format for the `datetime` field [#1261](https://github.com/getgrav/grav/issues/1261)
+    * Allow to see plugins and themes list without internet connection. Also add a more helpful message in the "add" view [grav#1008](https://github.com/getgrav/grav/issues/1008)
+1. [](#bugfix)
+    * Fixed issue with downloaded package when installing a testing release
+    * Allow non admin.super users to change their account information. Allow `admin.super` and `admin.users` to change other users information. [#943](https://github.com/getgrav/grav/issues/943)
+    * Handle removing a media file also if it's not a json request. Was not working after https://github.com/getgrav/grav-plugin-admin/commit/6b343365996ce838759d80fa3917d4d994f1aeb4
+
+# v1.2.9
+## 01/18/2017
+
+1. [](#improved)
+    * Added lang strings for `ALLOW_WEBSERVER_GZIP` in System configuration
+
+# v1.2.8
+## 01/17/2017
+
+1. [](#improved)
+    * Allow the ability to clear the cache if `admin.maintenance`, as stated in the docs [#908](https://github.com/getgrav/grav-plugin-admin/issues/908)
+    * Added lang strings for `DEFAULT_LANG` in Site configuration
+    * Added lang strings for `NEVER_CACHE_TWIG` in System and Page configuration
+1. [](#bugfix)
+    * Fixed saving the configuration if not `admin.super`
+    * Show the clear cache buttons if the user has `admin.cache` permissions [#908](https://github.com/getgrav/grav-plugin-admin/issues/908#issuecomment-270748616)
+    * Fix colorpicker validation when transparency is set to 1.00 [#921](https://github.com/getgrav/grav-plugin-admin/issues/921)
+    * Fix html markup in section twig [#922](https://github.com/getgrav/grav-plugin-admin/pull/922)
+    * Fix bug in deleting a file uploaded with the `file` field [#920](github.com/getgrav/grav-plugin-admin/issues/920)
+    * Fix for plugin throwing event-based errors when plugin is removed and no longer available to process said event
+
+# v1.2.7
+## 12/22/2016
+
+1. [](#improved)
+    * Fixed an issue with non `.html` extensions not setting application type properly when fallback template not found.
+1. [](#bugfix)
+    * Fix plugins and themes json calls after the introduction of [HTML fallback for templates not found](https://github.com/getgrav/grav/commit/364209a27da0f5dfba5fde9c4b07b6d5844cda47)
+
+
+# v1.2.6
+## 12/21/2016
+
+1. [](#improved)
+    * Added a delay before reloading the page when a plugin or theme get installed
+    * Fix prompting to remove Grav itself when removing a package that requires a specific Grav version
+    * Remove cli-server exception since we now have compatibility with a custom router in Grav [#1219](https://github.com/getgrav/grav/pull/1219)
+1. [](#bugfix)
+    * Fix issue with array field and `value_only: true`
+
+# v1.2.5
+## 12/13/2016
+
+1. [](#new)
+    * RC released as stable
+1. [](#bugfix)
+    * YAML syntax fixes
+
+# v1.2.5-rc.4
+## 12/07/2016
+
+1. [](#new)
+    * Added a new `permissions` form field, used in the user profile to simplify editing permissions
+    * Added several new `onAdminAfter...()` events to allow for more 3rd party plugin interaction
+1. [](#bugfix)
+    * Updated admin-user-details to allow longer user names in the sidebar [#879](https://github.com/getgrav/grav-plugin-admin/issues/879)
+    * Redirect to a 404 page when accessing nonexistent plugins and themes [#880](https://github.com/getgrav/grav-plugin-admin/issues/880)
+
+# v1.2.5-rc.3
+## 11/26/2016
+
+1. [](#bugfix)
+    * Update class namespace for Admin class [#874](https://github.com/getgrav/grav-plugin-admin/issues/874)
+    * Fix updating/installing packages from admin
+
+# v1.2.5-rc.2
+## 11/19/2016
+
+1. [](#bugfix)
+    * Make default value work for filepicker [#859](https://github.com/getgrav/grav-plugin-admin/issues/859)
+
+# v1.2.5-rc.1
+## 11/09/2016
+
+1. [](#new)
+    * Updated to FontAwesome 4.7.0 with [Grav icon](http://fontawesome.io/icon/grav/)
+1. [](#improved)
+    * Always delete image alternatives in AdminController#taskDelmedia [#814](https://github.com/getgrav/grav-plugin-admin/issues/814)
+    * Use Media class to retrieve files in AdminController#taskGetFilesInFolder [#842](https://github.com/getgrav/grav-plugin-admin/issues/842)
+    * Increased specificity for Colorpicker field to prevent 3rd party conflicts
+1. [](#bugfix)
+    * Editor link button doesn't prefix links with `http://` anymore [#813](https://github.com/getgrav/grav-plugin-admin/issues/813)
+    * Dashboard Charts now always refresh no matter what [#753](https://github.com/getgrav/grav-plugin-admin/issues/753)
+    * Use rawRoute for parent too when saving [#843](https://github.com/getgrav/grav-plugin-admin/issues/843)
+    * Avoid different output when users exist or not in password recovery [#849](https://github.com/getgrav/grav/issues/849)
+    * Fix login to admin with permission inherited from group [#857](https://github.com/getgrav/grav-plugin-admin/issues/857)
+
+
+# v1.2.4
+## 10/22/2016
+
+1. [](#bugfix)
+    * Fix for accented media files [#833](https://github.com/getgrav/grav-plugin-admin/issues/833)
+    * Fix for `CTRL + s` not saving in editor [#832](https://github.com/getgrav/grav-plugin-admin/pull/832)
+    * Fix for missing REDIS translations in admin [#1123](https://github.com/getgrav/grav/issues/1123)
+
+# v1.2.3
+## 10/19/2016
+
+1. [](#new)
+    * Added new `onAdminCreatePageFrontmatter()` event to support plugins such as `auto-date` by allowing frontmatter to be modified by plugins.
+    * Added a new independent `cache_enabled` option for admin plugin (default is `false`). Should fix various sync issues.
+    * Add an `onAdminData` event to allow plugins to add additional blueprints data
+1. [](#improved)
+    * Handle errors when a resource fails to install
+    * Page media and File field images thumbnail are now properly proportionate and 150x100
+    * Added the Codeception testing suite with an initial test
+1. [](#bugfix)
+    * Fix [#1034](https://github.com/getgrav/grav/issues/1034) redirect of page creation procedure when system.home.hide_in_urls is enabled
+    * Media (Page): Do not extend parent metehod for sending files since Safari and IE API for FormData don’t implement `delete` ([#772](https://github.com/getgrav/grav-plugin-admin/issues/772))
+    * Clean up POST keys containing square brackets, allows for regex ranges in routes ([#776](https://github.com/getgrav/grav-plugin-admin/issues/776))
+    * Fix [#773](https://github.com/getgrav/grav-plugin-admin/issues/773) allow filepicker work inside lists, respond to mutation event
+    * Better error handling for Feed when unable to connect
+    * Fixed UI for Pagemedia note when files cannot yet be uploaded ([#798](https://github.com/getgrav/grav-plugin-admin/issues/798))
+    * Fixed Submit buttons getting disabled in case of form invalidity disallowing to submit again ([#802](https://github.com/getgrav/grav-plugin-admin/issues/802))
+    * Fixed issue when reading the file size setting if set to `0` (in Pagemedia and File fields)
+    * Fixed issue with `file` field in collections that caused unexpected duplication of items ([#775](https://github.com/getgrav/grav-plugin-admin/issues/775))
+    * Dramatically improved `filepicker` performance. Data is only ever loaded when the drop-down is on focus, as it was supposed to be. Image preview of a selected item won't be rendered unless the field gains focus to avoid wasting resources. ([#788](https://github.com/getgrav/grav-plugin-admin/issues/788))
+    * Allow `filepicker` field to peak at the pending uploaded files and optimistically select them ([#792](https://github.com/getgrav/grav-plugin-admin/issues/792))
+    * Fix [#821](https://github.com/getgrav/grav-plugin-admin/issues/821) issue in saving a page to a new language when the filename does not contain the filename yet.
+
 # v1.2.2
 ## 09/08/2016
 
 1. [](#bugfix)
-    * Fix [#767](https://github.com/getgrav/grav-plugin-admin/issues/739) Add styling for new HTML5 input field types
+    * Fix [#767](https://github.com/getgrav/grav-plugin-admin/issues/767) Add styling for new HTML5 input field types
     * Fix issue with checking the package dependencies when more than one package is being inspected
 
 # v1.2.1

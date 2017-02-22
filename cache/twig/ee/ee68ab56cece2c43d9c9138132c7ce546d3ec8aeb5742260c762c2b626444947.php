@@ -24,7 +24,7 @@ class __TwigTemplate_5533819525a6d00f212632676b54ca76f64229aa630360a3ee97c671f6e
             echo "    <tr>
         <td>";
             // line 4
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.AUTHOR"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.AUTHOR"), "html", null, true);
             echo ":</td>
         <td class=\"double\">
             ";
@@ -67,7 +67,7 @@ class __TwigTemplate_5533819525a6d00f212632676b54ca76f64229aa630360a3ee97c671f6e
             echo "        <tr>
             <td>";
             // line 19
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.HOMEPAGE"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.HOMEPAGE"), "html", null, true);
             echo ":</td>
             <td class=\"double\"><a href=\"";
             // line 20
@@ -85,7 +85,7 @@ class __TwigTemplate_5533819525a6d00f212632676b54ca76f64229aa630360a3ee97c671f6e
             echo "        <tr>
             <td>";
             // line 25
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DEMO"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DEMO"), "html", null, true);
             echo ":</td>
             <td class=\"double\"><a href=\"";
             // line 26
@@ -103,7 +103,7 @@ class __TwigTemplate_5533819525a6d00f212632676b54ca76f64229aa630360a3ee97c671f6e
             echo "        <tr>
             <td>";
             // line 31
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BUG_TRACKER"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BUG_TRACKER"), "html", null, true);
             echo ":</td>
             <td class=\"double\"><a href=\"";
             // line 32
@@ -121,7 +121,7 @@ class __TwigTemplate_5533819525a6d00f212632676b54ca76f64229aa630360a3ee97c671f6e
             echo "        <tr>
             <td>";
             // line 37
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.KEYWORDS"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.KEYWORDS"), "html", null, true);
             echo ":</td>
             <td class=\"double\">";
             // line 38
@@ -137,7 +137,7 @@ class __TwigTemplate_5533819525a6d00f212632676b54ca76f64229aa630360a3ee97c671f6e
             echo "        <tr>
             <td>";
             // line 43
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.LICENSE"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.LICENSE"), "html", null, true);
             echo ":</td>
             <td class=\"double\">";
             // line 44
@@ -155,7 +155,7 @@ class __TwigTemplate_5533819525a6d00f212632676b54ca76f64229aa630360a3ee97c671f6e
             echo "        <tr>
             <td>";
             // line 50
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DESCRIPTION"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DESCRIPTION"), "html", null, true);
             echo ":</td>
             <td class=\"double\">";
             // line 51
@@ -176,7 +176,7 @@ class __TwigTemplate_5533819525a6d00f212632676b54ca76f64229aa630360a3ee97c671f6e
             echo "        <tr>
             <td>";
             // line 58
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.README"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.README"), "html", null, true);
             echo ":</td>
             <td class=\"double\"><a href=\"";
             // line 59

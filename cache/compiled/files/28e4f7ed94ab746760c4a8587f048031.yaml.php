@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/languages/fi.yaml',
-    'modified' => 1487787352,
+    'modified' => 1487788116,
     'data' => [
         'PLUGIN_ADMIN' => [
             'ADMIN_BETA_MSG' => 'Tämä on beta-versio! Käyttö tuotannossa omalla vastuulla...',
@@ -154,7 +154,6 @@ return [
             'NO_PAGE_FOUND' => 'Sivua ei löydy',
             'INVALID_PARAMETERS' => 'Virheellisiä parametrejä',
             'NO_FILES_SENT' => 'Tiedostoja ei lähetetty',
-            'EXCEEDED_FILESIZE_LIMIT' => 'Tiedostokokoraja ylitetty',
             'UNKNOWN_ERRORS' => 'Tuntemattomia virheitä',
             'UNSUPPORTED_FILE_TYPE' => 'Tiedostotyyppiä ei tueta',
             'FAILED_TO_MOVE_UPLOADED_FILE' => 'Ladatun tiedoston siirtäminen epäonnistui.',

@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => 'plugins://bootstrapper/bootstrapper.yaml',
-    'modified' => 1487516515,
+    'modified' => 1483539056,
     'data' => [
         'enabled' => true,
         'always_load' => false,

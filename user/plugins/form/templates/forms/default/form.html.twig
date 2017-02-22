@@ -15,7 +15,7 @@
     {% endif %}
 {% endfor %}
 
-{% set action = form.action ? base_url ~ form.action : uri.url() %}
+{% set action = form.action ? base_url ~ form.action : base_url ~ page.route ~ uri.params %}
 
 {% if (action == base_url_relative) %}
     {% set action = base_url_relative ~ '/' ~ page.slug %}
@@ -49,14 +49,22 @@
   {% endblock %}
 
   {% for button in form.buttons %}
+      {% if button.url %}
+          <a href="{{ button.url starts with 'http' ? button.url : url(button.url) }}">
+      {% endif %}
       <button
+            {% if button.id %}id="{{ button.id }}"{% endif %}
             {% block button_classes %}
             class="{{ button.classes|default('button') }}"
             {% endblock %}
+            {% if button.disabled %}disabled="disabled"{% endif %}
             type="{{ button.type|default('submit') }}"
         >
             {{ button.value|t|default('Submit') }}
-        </button>
+      </button>
+      {% if button.url %}
+          </a>
+      {% endif %}
   {% endfor %}
 
   {% block inner_markup_buttons_end %}

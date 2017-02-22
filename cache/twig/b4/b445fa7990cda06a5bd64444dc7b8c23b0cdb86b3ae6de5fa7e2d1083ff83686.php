@@ -77,7 +77,7 @@ class __TwigTemplate_94d134fa5c0a0a5c16cde702a366194799456970cf6b54da64266bf9bd0
             // line 26
             echo twig_escape_filter($this->env, (isset($context["base_url_relative"]) ? $context["base_url_relative"] : null), "html", null, true);
             echo "\"><i class=\"fa fa-fw fa-th\"></i><em>";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DASHBOARD"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DASHBOARD"), "html", null, true);
             echo "</em></a>
                 </li>
                 ";
@@ -91,7 +91,7 @@ class __TwigTemplate_94d134fa5c0a0a5c16cde702a366194799456970cf6b54da64266bf9bd0
                 // line 30
                 echo twig_escape_filter($this->env, (isset($context["base_url_relative"]) ? $context["base_url_relative"] : null), "html", null, true);
                 echo "/config/system\"><i class=\"fa fa-fw fa-wrench\"></i><em>";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CONFIGURATION"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CONFIGURATION"), "html", null, true);
                 echo "</em></a>
                     </li>
                 ";
@@ -110,7 +110,7 @@ class __TwigTemplate_94d134fa5c0a0a5c16cde702a366194799456970cf6b54da64266bf9bd0
                             <i class=\"fa fa-fw fa-file-text-o\"></i>
                             <em>";
                 // line 37
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PAGES"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PAGES"), "html", null, true);
                 echo "</em>
                         <span class=\"badges\">
                             <span class=\"badge count\">";
@@ -132,16 +132,16 @@ class __TwigTemplate_94d134fa5c0a0a5c16cde702a366194799456970cf6b54da64266bf9bd0
                 foreach ($context['_seq'] as $context["label"] => $context["item"]) {
                     // line 46
                     echo "                        ";
-                    if ($this->env->getExtension('Grav\Common\Twig\TwigExtension')->authorize(array(0 => ("admin." . $this->getAttribute($context["item"], "route", array())), 1 => "admin.super"))) {
+                    if ($this->env->getExtension('Grav\Common\Twig\TwigExtension')->authorize(array(0 => (($this->getAttribute($context["item"], "authorize", array())) ? ($this->getAttribute($context["item"], "authorize", array())) : (("admin." . (($this->getAttribute($context["item"], "location", array())) ? ($this->getAttribute($context["item"], "location", array())) : ($this->getAttribute($context["item"], "route", array())))))), 1 => "admin.super"))) {
                         // line 47
                         echo "                            <li class=\"";
-                        echo ((((isset($context["location"]) ? $context["location"] : null) == $this->getAttribute($context["item"], "route", array()))) ? ("selected") : (""));
+                        echo ((((isset($context["location"]) ? $context["location"] : null) == (($this->getAttribute($context["item"], "location", array())) ? ($this->getAttribute($context["item"], "location", array())) : ($this->getAttribute($context["item"], "route", array()))))) ? ("selected") : (""));
                         echo "\">
                                 <a href=\"";
                         // line 48
                         echo twig_escape_filter($this->env, (isset($context["base_url_relative"]) ? $context["base_url_relative"] : null), "html", null, true);
                         echo "/";
-                        echo twig_escape_filter($this->env, $this->getAttribute($context["item"], "route", array()), "html", null, true);
+                        echo twig_escape_filter($this->env, (($this->getAttribute($context["item"], "route", array())) ? ($this->getAttribute($context["item"], "route", array())) : ($this->getAttribute($context["item"], "location", array()))), "html", null, true);
                         echo "\">
                                     <i class=\"fa fa-fw ";
                         // line 49
@@ -149,7 +149,7 @@ class __TwigTemplate_94d134fa5c0a0a5c16cde702a366194799456970cf6b54da64266bf9bd0
                         echo "\"></i>
                                     <em>";
                         // line 50
-                        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter($context["label"]), "html", null, true);
+                        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter($context["label"]), "html", null, true);
                         echo "</em>
                                 </a>
                             </li>
@@ -178,7 +178,7 @@ class __TwigTemplate_94d134fa5c0a0a5c16cde702a366194799456970cf6b54da64266bf9bd0
                             <i class=\"fa fa-fw fa-plug\"></i>
                             <em>";
                 // line 60
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PLUGINS"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PLUGINS"), "html", null, true);
                 echo "</em>
                         <span class=\"badges\">
                                 <span class=\"badge updates\"></span>
@@ -205,7 +205,7 @@ class __TwigTemplate_94d134fa5c0a0a5c16cde702a366194799456970cf6b54da64266bf9bd0
                             <i class=\"fa fa-fw fa-tint\"></i>
                             <em>";
                 // line 72
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.THEMES"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.THEMES"), "html", null, true);
                 echo "</em>
                         <span class=\"badges\">
                             <span class=\"badge updates\"></span>
@@ -235,7 +235,7 @@ class __TwigTemplate_94d134fa5c0a0a5c16cde702a366194799456970cf6b54da64266bf9bd0
             // line 84
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["uri"]) ? $context["uri"] : null), "addNonce", array(0 => ((((isset($context["base_url_relative"]) ? $context["base_url_relative"] : null) . "/task") . $this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "system", array()), "param_sep", array())) . "logout"), 1 => "logout-form", 2 => "logout-nonce"), "method"), "html", null, true);
             echo "\"><i class=\"fa fa-fw fa-sign-out\"></i><em>";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.LOGOUT"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.LOGOUT"), "html", null, true);
             echo "</em></a>
                 </li>
             </ul>
@@ -315,9 +315,9 @@ class __TwigTemplate_94d134fa5c0a0a5c16cde702a366194799456970cf6b54da64266bf9bd0
                 {% endif %}
                 {% if grav.twig.plugins_hooked_nav %}
                     {% for label, item in grav.twig.plugins_hooked_nav %}
-                        {% if authorize(['admin.' ~ item.route, 'admin.super']) %}
-                            <li class=\"{{ (location == item.route) ? 'selected' : '' }}\">
-                                <a href=\"{{ base_url_relative }}/{{ item.route }}\">
+                        {% if authorize([item.authorize ?: ('admin.' ~ (item.location ?: item.route)), 'admin.super']) %}
+                            <li class=\"{{ (location == (item.location ?: item.route)) ? 'selected' : '' }}\">
+                                <a href=\"{{ base_url_relative }}/{{ item.route ?: item.location }}\">
                                     <i class=\"fa fa-fw {{ item.icon }}\"></i>
                                     <em>{{ label|tu }}</em>
                                 </a>

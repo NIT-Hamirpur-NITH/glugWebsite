@@ -2,10 +2,10 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/blueprints.yaml',
-    'modified' => 1487787352,
+    'modified' => 1487788116,
     'data' => [
         'name' => 'Admin Panel',
-        'version' => '1.2.2',
+        'version' => '1.2.14',
         'description' => 'Adds an advanced administration panel to manage your site',
         'icon' => 'empire',
         'author' => [
@@ -16,12 +16,12 @@ return [
         'homepage' => 'https://github.com/getgrav/grav-plugin-admin',
         'keywords' => 'admin, plugin, manager, panel',
         'bugs' => 'https://github.com/getgrav/grav-plugin-admin/issues',
-        'readme' => 'https://github.com/getgrav/grav-plugin-admin/blob/develop/README.md',
+        'docs' => 'https://github.com/getgrav/grav-plugin-admin/blob/develop/README.md',
         'license' => 'MIT',
         'dependencies' => [
             0 => [
                 'name' => 'grav',
-                'version' => '>=1.1.4'
+                'version' => '>=1.1.9'
             ],
             1 => [
                 'name' => 'form',
@@ -52,6 +52,19 @@ return [
                     'options' => [
                         1 => 'PLUGIN_ADMIN.ENABLED',
                         0 => 'PLUGIN_ADMIN.DISABLED'
+                    ],
+                    'validate' => [
+                        'type' => 'bool'
+                    ]
+                ],
+                'cache_enabled' => [
+                    'type' => 'toggle',
+                    'label' => 'PLUGIN_ADMIN.ADMIN_CACHING',
+                    'help' => 'PLUGIN_ADMIN.ADMIN_CACHING_HELP',
+                    'highlight' => 0,
+                    'options' => [
+                        1 => 'PLUGIN_ADMIN.YES',
+                        0 => 'PLUGIN_ADMIN.NO'
                     ],
                     'validate' => [
                         'type' => 'bool'

@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/languages/th.yaml',
-    'modified' => 1487787352,
+    'modified' => 1487788116,
     'data' => [
         'PLUGIN_ADMIN' => [
             'ADMIN_BETA_MSG' => 'นี่เป็นรุ่นทดลอง หากคุณใช้บนเว็บจริงคุณต้องยอมรับในความเสี่ยงนั้นเอง',
@@ -159,9 +159,7 @@ return [
             'NO_PAGE_FOUND' => 'ไม่พบหน้าที่ต้องการ',
             'INVALID_PARAMETERS' => 'พารามิเตอร์ไม่ถูกต้อง',
             'NO_FILES_SENT' => 'ไม่มีแฟ้มที่ส่ง',
-            'EXCEEDED_FILESIZE_LIMIT' => 'เกินขีดจำกัดขนาดของไฟล์ข้อมูล',
             'UNKNOWN_ERRORS' => 'ไม่ทราบข้อผิด',
-            'EXCEEDED_GRAV_FILESIZSE_LIMIT' => 'เกินขีดจำกัดขนาดของไฟล์ข้อมูล Grav',
             'UNSUPPORTED_FILE_TYPE' => 'ชนิดแฟ้มที่ไม่สนับสนุน',
             'FAILED_TO_MOVE_UPLOADED_FILE' => 'ไม่สามารถย้ายแฟ้มอัปโหลด',
             'FILE_UPLOADED_SUCCESSFULLY' => 'ไฟล์อัพโหลดเรียบร้อยแล้ว',
@@ -580,7 +578,17 @@ return [
             'REDIS_PORT_HELP' => 'Redis เซิร์ฟเวอร์พอร์ต',
             'ALL' => 'ทั้งหมด',
             'FROM' => 'จาก',
-            'TO' => 'ถึง'
+            'TO' => 'ถึง',
+            'DROPZONE_REMOVE_FILE' => 'ลบไฟล์',
+            'DROPZONE_RESPONSE_ERROR' => 'เซิร์ฟเวอร์ตอบสนอง ด้วยรหัส {{statusCode}}.',
+            'ADMIN_CACHING' => 'เปิดใช้งานแคชด้าน Admin',
+            'ADMIN_CACHING_HELP' => 'แคชในด้าน admin สามารถควบคุมได้อย่างอิสระจากด้านหน้าเว็บไซต์',
+            'DESTINATION_NOT_SPECIFIED' => 'ยังไม่ได้ระบุปลายทาง',
+            'UPLOAD_ERR_NO_TMP_DIR' => 'ไม่พบโฟลเดอร์ชั่วคราว',
+            'SESSION_SPLIT' => 'แยกเซสชั่น',
+            'ERROR_FULL_BACKTRACE' => 'ข้อผิดพลาดย้อนหลังทั้งหมด',
+            'ERROR_SIMPLE' => 'ผิดพลาดเล็กน้อย',
+            'ERROR_SYSTEM' => 'ข้อผิดพลาดจากระบบ'
         ]
     ]
 ];

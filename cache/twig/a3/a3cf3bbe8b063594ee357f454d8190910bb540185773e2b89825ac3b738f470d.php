@@ -30,11 +30,11 @@ class __TwigTemplate_e65b6c5ae88ba7a04460fa5fdb85bc76da5c6c57c7c9d45e2cc19f62065
         // line 5
         if ((isset($context["plugin_slug"]) ? $context["plugin_slug"] : null)) {
             // line 6
-            $context["installing"] = (is_string($__internal_72cff55113e6e531604dc1532b1e7dc2ad06c9fd833d081d5ca52bdd0b25ec7b = (isset($context["plugin_slug"]) ? $context["plugin_slug"] : null)) && is_string($__internal_30bbc0d841c214bebb9779a1034f810a89af262a6248e574f081207ce364844f = "install") && ('' === $__internal_30bbc0d841c214bebb9779a1034f810a89af262a6248e574f081207ce364844f || 0 === strpos($__internal_72cff55113e6e531604dc1532b1e7dc2ad06c9fd833d081d5ca52bdd0b25ec7b, $__internal_30bbc0d841c214bebb9779a1034f810a89af262a6248e574f081207ce364844f)));
+            $context["installing"] = (is_string($__internal_7e537e01af0dbf5e0f08d208dd1416354d0c337a2b0556e7e72429caec2e0308 = (isset($context["plugin_slug"]) ? $context["plugin_slug"] : null)) && is_string($__internal_09843e279e02d8902a30b7c67e1e572511a6fb8eded4c818f819794ec84e1ef4 = "install") && ('' === $__internal_09843e279e02d8902a30b7c67e1e572511a6fb8eded4c818f819794ec84e1ef4 || 0 === strpos($__internal_7e537e01af0dbf5e0f08d208dd1416354d0c337a2b0556e7e72429caec2e0308, $__internal_09843e279e02d8902a30b7c67e1e572511a6fb8eded4c818f819794ec84e1ef4)));
             // line 8
             if ((isset($context["installing"]) ? $context["installing"] : null)) {
                 // line 9
-                $context["title"] = $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PLUGINS");
+                $context["title"] = $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PLUGINS");
             } else {
                 // line 11
                 $context["installed"] = true;
@@ -50,11 +50,11 @@ class __TwigTemplate_e65b6c5ae88ba7a04460fa5fdb85bc76da5c6c57c7c9d45e2cc19f62065
                 // line 20
                 $context["plugin"] = $this->getAttribute((isset($context["package"]) ? $context["package"] : null), "toArray", array(), "method");
                 // line 21
-                $context["title"] = (($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PLUGIN") . ": ") . twig_escape_filter($this->env, $this->getAttribute((isset($context["plugin"]) ? $context["plugin"] : null), "name", array())));
+                $context["title"] = (($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PLUGIN") . ": ") . twig_escape_filter($this->env, $this->getAttribute((isset($context["plugin"]) ? $context["plugin"] : null), "name", array())));
             }
         } else {
             // line 24
-            $context["title"] = $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PLUGINS");
+            $context["title"] = $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PLUGINS");
         }
         // line 27
         if (($this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "route", array()) || (isset($context["installing"]) ? $context["installing"] : null))) {
@@ -90,142 +90,150 @@ class __TwigTemplate_e65b6c5ae88ba7a04460fa5fdb85bc76da5c6c57c7c9d45e2cc19f62065
     public function block_titlebar($context, array $blocks = array())
     {
         // line 39
-        echo "
-    ";
-        // line 40
+        echo "    ";
         if (( !$this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "route", array()) || (isset($context["installing"]) ? $context["installing"] : null))) {
-            // line 41
+            // line 40
             echo "        <div class=\"button-bar\">
         ";
-            // line 42
+            // line 41
             if ((isset($context["installing"]) ? $context["installing"] : null)) {
-                // line 43
+                // line 42
                 echo "            <a class=\"button\" href=\"";
                 echo twig_escape_filter($this->env, (isset($context["base_url_relative"]) ? $context["base_url_relative"] : null), "html", null, true);
                 echo "/plugins\"><i class=\"fa fa-reply\"></i> ";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BACK"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BACK"), "html", null, true);
                 echo "</a>
         ";
             } else {
-                // line 45
+                // line 44
                 echo "            <a class=\"button\" href=\"";
                 echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
                 echo "\"><i class=\"fa fa-reply\"></i> ";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BACK"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BACK"), "html", null, true);
                 echo "</a>
             <a class=\"button\" href=\"";
-                // line 46
+                // line 45
                 echo twig_escape_filter($this->env, (isset($context["base_url_relative"]) ? $context["base_url_relative"] : null), "html", null, true);
                 echo "/plugins/install\"><i class=\"fa fa-plus\"></i> ";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ADD"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ADD"), "html", null, true);
                 echo "</a>
             ";
-                // line 47
+                // line 46
                 if ($this->env->getExtension('Grav\Common\Twig\TwigExtension')->authorize(array(0 => "admin.maintenance", 1 => "admin.super"))) {
-                    // line 48
+                    // line 47
                     echo "                <button data-gpm-checkupdates=\"\" class=\"button\"><i class=\"fa fa-refresh\"></i> ";
-                    echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CHECK_FOR_UPDATES"), "html", null, true);
+                    echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CHECK_FOR_UPDATES"), "html", null, true);
                     echo "</button>
             ";
                 }
-                // line 50
+                // line 49
                 echo "        ";
             }
-            // line 51
+            // line 50
             echo "        </div>
         <h1><i class=\"fa fa-fw fa-plug\"></i> ";
-            // line 52
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PLUGINS"), "html", null, true);
+            // line 51
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PLUGINS"), "html", null, true);
             echo "</h1>
     ";
         } else {
-            // line 54
+            // line 53
             echo "        ";
             if ((isset($context["installed"]) ? $context["installed"] : null)) {
-                // line 55
+                // line 54
                 echo "        <div class=\"button-bar\">
             <a class=\"button\" href=\"";
-                // line 56
+                // line 55
                 echo twig_escape_filter($this->env, (isset($context["base_url_relative"]) ? $context["base_url_relative"] : null), "html", null, true);
                 echo "/plugins\"><i class=\"fa fa-arrow-left\"></i> ";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BACK_TO_PLUGINS"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BACK_TO_PLUGINS"), "html", null, true);
                 echo "</a>
             ";
-                // line 57
+                // line 56
                 try {
-                    $this->loadTemplate((("plugins/" . $this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "route", array())) . "-buttons.html.twig"), "plugins.html.twig", 57)->display($context);
+                    $this->loadTemplate((("plugins/" . $this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "route", array())) . "-buttons.html.twig"), "plugins.html.twig", 56)->display($context);
                 } catch (Twig_Error_Loader $e) {
                     // ignore missing template
                 }
 
-                // line 58
+                // line 57
                 echo "            <button class=\"button\" type=\"submit\" name=\"task\" value=\"save\" form=\"blueprints\"><i class=\"fa fa-check\"></i> ";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SAVE"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SAVE"), "html", null, true);
                 echo "</button>
         </div>
         ";
             } else {
-                // line 61
+                // line 60
                 echo "        <div class=\"button-bar\">
             <a class=\"button\" href=\"";
-                // line 62
+                // line 61
                 echo twig_escape_filter($this->env, (isset($context["base_url_relative"]) ? $context["base_url_relative"] : null), "html", null, true);
                 echo "/plugins/install\"><i class=\"fa fa-arrow-left\"></i> ";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BACK_TO_PLUGINS"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BACK_TO_PLUGINS"), "html", null, true);
                 echo "</a>
         </div>
         ";
             }
-            // line 65
+            // line 64
             echo "
         <h1><i class=\"fa fa-fw fa-plug\"></i> ";
-            // line 66
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PLUGIN"), "html", null, true);
+            // line 65
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PLUGIN"), "html", null, true);
             echo ": ";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["plugin"]) ? $context["plugin"] : null), "name", array()));
             echo "</h1>
-
     ";
         }
     }
 
-    // line 71
+    // line 69
     public function block_messages($context, array $blocks = array())
     {
-        // line 72
+        // line 70
         echo "    ";
         $this->displayParentBlock("messages", $context, $blocks);
         echo "
-     ";
-        // line 73
+    ";
+        // line 71
         if ($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "plugins", array()), "admin", array()), "notifications", array()), "plugins", array())) {
-            // line 74
-            echo "    <div class=\"plugins-notifications-container hidden\"></div>
+            // line 72
+            echo "        <div class=\"plugins-notifications-container hidden\"></div>
     ";
         }
     }
 
-    // line 78
+    // line 76
     public function block_content($context, array $blocks = array())
     {
-        // line 79
+        // line 77
         echo "    <div class=\"gpm gpm-plugins\">
         ";
-        // line 80
+        // line 78
         if (( !$this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "route", array()) || (isset($context["installing"]) ? $context["installing"] : null))) {
-            // line 81
+            // line 79
             echo "            ";
-            $this->loadTemplate("partials/plugins-list.html.twig", "plugins.html.twig", 81)->display($context);
-            // line 82
+            $this->loadTemplate("partials/plugins-list.html.twig", "plugins.html.twig", 79)->display($context);
+            // line 80
             echo "        ";
         } else {
-            // line 83
+            // line 81
             echo "            ";
-            $this->loadTemplate("partials/plugins-details.html.twig", "plugins.html.twig", 83)->display($context);
+            if ((null === (isset($context["plugin"]) ? $context["plugin"] : null))) {
+                // line 82
+                echo "                ";
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Common\Twig\TwigExtension')->redirectFunc(((isset($context["base_url_relative"]) ? $context["base_url_relative"] : null) . "/404")), "html", null, true);
+                echo "
+            ";
+            }
             // line 84
+            echo "
+            ";
+            // line 85
+            $this->loadTemplate("partials/plugins-details.html.twig", "plugins.html.twig", 85)->display($context);
+            // line 86
             echo "        ";
         }
-        // line 85
+        // line 87
         echo "    </div>
 ";
     }
@@ -242,7 +250,7 @@ class __TwigTemplate_e65b6c5ae88ba7a04460fa5fdb85bc76da5c6c57c7c9d45e2cc19f62065
 
     public function getDebugInfo()
     {
-        return array (  229 => 85,  226 => 84,  223 => 83,  220 => 82,  217 => 81,  215 => 80,  212 => 79,  209 => 78,  203 => 74,  201 => 73,  196 => 72,  193 => 71,  183 => 66,  180 => 65,  172 => 62,  169 => 61,  162 => 58,  155 => 57,  149 => 56,  146 => 55,  143 => 54,  138 => 52,  135 => 51,  132 => 50,  126 => 48,  124 => 47,  118 => 46,  111 => 45,  103 => 43,  101 => 42,  98 => 41,  96 => 40,  93 => 39,  90 => 38,  83 => 34,  80 => 33,  73 => 30,  70 => 29,  67 => 28,  63 => 1,  60 => 27,  57 => 24,  53 => 21,  51 => 20,  48 => 17,  46 => 16,  44 => 15,  42 => 14,  40 => 11,  37 => 9,  35 => 8,  33 => 6,  31 => 5,  29 => 3,  11 => 1,);
+        return array (  237 => 87,  234 => 86,  232 => 85,  229 => 84,  223 => 82,  220 => 81,  217 => 80,  214 => 79,  212 => 78,  209 => 77,  206 => 76,  200 => 72,  198 => 71,  193 => 70,  190 => 69,  181 => 65,  178 => 64,  170 => 61,  167 => 60,  160 => 57,  153 => 56,  147 => 55,  144 => 54,  141 => 53,  136 => 51,  133 => 50,  130 => 49,  124 => 47,  122 => 46,  116 => 45,  109 => 44,  101 => 42,  99 => 41,  96 => 40,  93 => 39,  90 => 38,  83 => 34,  80 => 33,  73 => 30,  70 => 29,  67 => 28,  63 => 1,  60 => 27,  57 => 24,  53 => 21,  51 => 20,  48 => 17,  46 => 16,  44 => 15,  42 => 14,  40 => 11,  37 => 9,  35 => 8,  33 => 6,  31 => 5,  29 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -293,7 +301,6 @@ class __TwigTemplate_e65b6c5ae88ba7a04460fa5fdb85bc76da5c6c57c7c9d45e2cc19f62065
 {% endif %}
 
 {% block titlebar %}
-
     {% if not admin.route or installing %}
         <div class=\"button-bar\">
         {% if (installing) %}
@@ -321,14 +328,13 @@ class __TwigTemplate_e65b6c5ae88ba7a04460fa5fdb85bc76da5c6c57c7c9d45e2cc19f62065
         {% endif %}
 
         <h1><i class=\"fa fa-fw fa-plug\"></i> {{ \"PLUGIN_ADMIN.PLUGIN\"|tu }}: {{ plugin.name|e }}</h1>
-
     {% endif %}
 {% endblock %}
 
 {% block messages %}
     {{ parent() }}
-     {% if config.plugins.admin.notifications.plugins %}
-    <div class=\"plugins-notifications-container hidden\"></div>
+    {% if config.plugins.admin.notifications.plugins %}
+        <div class=\"plugins-notifications-container hidden\"></div>
     {% endif %}
 {% endblock %}
 
@@ -337,6 +343,10 @@ class __TwigTemplate_e65b6c5ae88ba7a04460fa5fdb85bc76da5c6c57c7c9d45e2cc19f62065
         {% if not admin.route or installing %}
             {% include 'partials/plugins-list.html.twig' %}
         {% else %}
+            {% if plugin is null %}
+                {{redirect_me(base_url_relative ~ '/404')}}
+            {% endif %}
+
             {% include 'partials/plugins-details.html.twig' %}
         {% endif %}
     </div>

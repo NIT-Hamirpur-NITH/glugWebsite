@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/languages/ja.yaml',
-    'modified' => 1487787352,
+    'modified' => 1487788116,
     'data' => [
         'PLUGIN_ADMIN' => [
             'ADMIN_BETA_MSG' => 'これはベータリリースです。稼働中サイトでは、自己責任においてご利用ください。',
@@ -158,9 +158,7 @@ return [
             'NO_PAGE_FOUND' => 'ページがありません。',
             'INVALID_PARAMETERS' => '無効なパラメータ',
             'NO_FILES_SENT' => 'ファイルが送信されませんでした。',
-            'EXCEEDED_FILESIZE_LIMIT' => 'ファイルサイズの上限を超えています。',
             'UNKNOWN_ERRORS' => '不明なエラー',
-            'EXCEEDED_GRAV_FILESIZSE_LIMIT' => 'Grav ファイルサイズの上限を超えています。',
             'UNSUPPORTED_FILE_TYPE' => '対応していないファイルタイプです。',
             'FAILED_TO_MOVE_UPLOADED_FILE' => 'アップロードされたファイルの移動に失敗しました。',
             'FILE_UPLOADED_SUCCESSFULLY' => 'ファイルが正常にアップロードされました。',

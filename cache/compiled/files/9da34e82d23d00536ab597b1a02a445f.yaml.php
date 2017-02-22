@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => 'plugins://gitter/gitter.yaml',
-    'modified' => 1487494963,
+    'modified' => 1476642974,
     'data' => [
         'enabled' => true,
         'enable_on_routes' => [

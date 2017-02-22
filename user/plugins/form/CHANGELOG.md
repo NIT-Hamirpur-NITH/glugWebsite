@@ -1,3 +1,67 @@
+# v2.1.1
+## 02/17/2017
+
+1. [](#improved)
+    * Better default output for select, checkbox and checkboxes fields in the form destination page and in the emails sent via form submit [#121](https://github.com/getgrav/grav-plugin-form/issues/121)
+
+# v2.1.0
+## 02/10/2017
+
+1. [](#improved)
+    * Reworked logic so form caching is based on `Pages::getPagesCacheId()`
+    * Added `url` option for button field
+1. [](#bugfix)
+    * Fixed issue with `honeypot` field not throwing exception properly
+
+# v2.0.10
+## 02/08/2017
+
+1. [](#improved)
+    * Optimistically set 'status' to `success` when requesting a form via Ajax. Form processing listeners should take care of setting status to something else
+1. [](#bugfix)
+    * File uploads are now adding a `__form-file-uploader__` POST field to better allow identifying them with Ajax
+    * Require jQuery when using the File field, as it's needed by the form.min.js file required in the file upload functionality
+
+# v2.0.9
+## 01/24/2017
+
+1. [](#bugfix)
+    * Translate the labels in data.html.twig [https://github.com/getgrav/grav-plugin-comments/issues/38](https://github.com/getgrav/grav-plugin-comments/issues/38)
+    * Fixed file input when `System` > `Twig` > `Autoescape` is set to `Yes`
+
+# v2.0.8
+## 12/13/2016
+
+1. [](#new)
+    * RC released as stable
+    * Added a new `honeypot` field for form anti-spam protection
+
+# v2.0.8-rc.1
+## 11/26/2016
+
+1. [](#bugfix)
+    * Fixed Forms 2.0 changes for registration form [#101](https://github.com/getgrav/grav-plugin-form/issues/101)
+    * Fixed errant reference to Grav DI container in Form#getPagePathFromToken [#105](https://github.com/getgrav/grav-plugin-form/issues/105)
+    * Fixed issue with spacer fields being displayed first, not in order [#104](https://github.com/getgrav/grav-plugin-form/issues/104)
+
+# v2.0.7
+## 11/17/2016
+
+1. [](#improved)
+    * Added method to set all data in a form
+    * Added params to form action URL
+    * Added ability to add ids to buttons and to set them disabled
+1. [](#bugfix)
+    * Moved Files Upload GC logic to function in front-end only
+
+# v2.0.6
+## 10/19/2016
+
+1. [](#bugfix)
+    * Fixed translations for `display` field
+    * Fixed [#95](https://github.com/getgrav/grav-plugin-form/issues/95) multilanguage forms submission
+    * Fixed duplicate textarea class tag [#98](https://github.com/getgrav/grav-plugin-form/issues/98)
+
 # v2.0.5
 ## 09/15/2016
 

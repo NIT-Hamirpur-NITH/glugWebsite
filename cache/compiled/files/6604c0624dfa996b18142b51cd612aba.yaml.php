@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/languages/hr.yaml',
-    'modified' => 1487787352,
+    'modified' => 1487788116,
     'data' => [
         'PLUGIN_ADMIN' => [
             'ADMIN_BETA_MSG' => 'Ovo je Beta izdanje! Koristite u produkciji na vlastiti rizik...',
@@ -28,7 +28,7 @@ return [
             'FORGOT_EMAIL_NOT_CONFIGURED' => 'Ne mogu resetirati lozinku. Ovaj sajt nije konfiguriran da šalje emailove',
             'FORGOT_EMAIL_SUBJECT' => '%s Zahtjev za Resetiranje Lozinke',
             'FORGOT_EMAIL_BODY' => '<h1>Resetiranje Lozinke</h1><p>Dragi %1$s,</p><p>Podnesen je zahtjev <b>%4$s</b> za resetiranjem tvoje lozinke.</p><p><br /><a href="%2$s" class="btn-primary">Klikni ovdje kako bi lozinka bila resetirana</a><br /><br /></p><p>Alternativno, kopiraj sljedeći link u svoj web preglednik:</p> <p>%2$s</p><p><br />Lijep pozdrav,<br /><br />%3$s</p>',
-            'MANAGE_PAGES' => 'Upravljaj Stranicama',
+            'MANAGE_PAGES' => 'Upravljanje stranicama',
             'CONFIGURATION' => 'Konfiguracija',
             'PAGES' => 'Stranice',
             'PLUGINS' => 'Dodaci',
@@ -74,7 +74,7 @@ return [
             'REMOVE_THEME' => 'Makni Temu',
             'INSTALL_THEME' => 'Instaliraj Temu',
             'THEME' => 'Tema',
-            'BACK_TO_THEMES' => 'Natrag na Teme',
+            'BACK_TO_THEMES' => 'Povratak na Teme',
             'BACK_TO_PLUGINS' => 'Natrag na Dodatke',
             'CHECK_FOR_UPDATES' => 'Provjeri postoje li obnove',
             'ADD' => 'Dodaj',
@@ -83,6 +83,7 @@ return [
             'CLEAR_CACHE_ASSETS_ONLY' => 'Samo Assets',
             'CLEAR_CACHE_IMAGES_ONLY' => 'Samo Slike',
             'CLEAR_CACHE_CACHE_ONLY' => 'Samo Cache',
+            'CLEAR_CACHE_TMP_ONLY' => 'Samo Tmp',
             'DASHBOARD' => 'Upravljačka ploča',
             'UPDATES_AVAILABLE' => 'Dostupne su ažuriranja',
             'DAYS' => 'Dana',
@@ -159,9 +160,7 @@ return [
             'NO_PAGE_FOUND' => 'Stranica nije nađena',
             'INVALID_PARAMETERS' => 'Nevaljani Parameteri',
             'NO_FILES_SENT' => 'Fajlovi nisu poslani',
-            'EXCEEDED_FILESIZE_LIMIT' => 'Prelazi granicu veličine fajla',
             'UNKNOWN_ERRORS' => 'Nepoznate greške',
-            'EXCEEDED_GRAV_FILESIZSE_LIMIT' => 'Prelazi Gravovu granicu veličine fajla.',
             'UNSUPPORTED_FILE_TYPE' => 'Nepodržan tip fajla',
             'FAILED_TO_MOVE_UPLOADED_FILE' => 'Pogreška u premještaju uplodane datoteke.',
             'FILE_UPLOADED_SUCCESSFULLY' => 'Fajl je uspješno uploadan',
@@ -178,6 +177,7 @@ return [
             'FULL_NAME' => 'Puno ime',
             'USERNAME' => 'Korisničko ime',
             'EMAIL' => 'e-pošta',
+            'USERNAME_EMAIL' => 'Korisničko ime ili E-mail',
             'PASSWORD' => 'Lozinka',
             'PASSWORD_CONFIRM' => 'Potvrdi Lozinku',
             'TITLE' => 'Naslov',
@@ -493,6 +493,7 @@ return [
             'LOADING' => 'Učitavanje..',
             'DEPENDENCIES_NOT_MET_MESSAGE' => 'Sljedeće zavisnosti trebaju prvo biti ispunjene:',
             'ERROR_INSTALLING_PACKAGES' => 'Greška prilikom instalacije paketa',
+            'INSTALLING_DEPENDENCIES' => 'Instalacija ovisnosti...',
             'INSTALLING_PACKAGES' => 'Instaliranje paketa..',
             'PACKAGES_SUCCESSFULLY_INSTALLED' => 'Paket(i) uspješno instalirani.',
             'READY_TO_INSTALL_PACKAGES' => 'Spreman za instalaciju paketa',
@@ -509,11 +510,14 @@ return [
             'PACKAGES_SUCCESSFULLY_UPDATED' => 'Paketi su uspješno ažurirani.',
             'UPDATING' => 'Ažuriranje',
             'GPM_RELEASES' => 'GPM izdanja',
+            'AUTO' => 'Auto',
             'STABLE' => 'Stabilna',
             'TESTING' => 'Testiranje',
             'FRONTMATTER_IGNORE_FIELDS' => 'Zanemari frontmatter polja',
             'PACKAGE_X_INSTALLED_SUCCESSFULLY' => 'Paket %s je uspješno instaliran',
             'ORDERING_DISABLED_BECAUSE_PAGE_NOT_VISIBLE' => 'Stranica nije vidljiva, ordering je onemogućen',
+            'CANNOT_ADD_FILES_PAGE_NOT_SAVED' => 'Napomena: Stranica mora biti spremljena prije no što izvršite prijenos datoteka na nju.',
+            'DROP_FILES_HERE_TO_UPLOAD' => 'Ispustite datoteke ovdje ili <strong>kliknite ovdje</strong>',
             'INSERT' => 'Umetni',
             'UNDO' => 'Poništi',
             'HEADERS' => 'Zaglavlja',
@@ -537,7 +541,9 @@ return [
             'IMAGE_OPTIONS' => 'Mogućnosti slike',
             'THUMB' => 'Sličica',
             'TYPE' => 'Vrsta',
-            'FILE_EXTENSION' => 'Nastavak datoteke'
+            'FILE_EXTENSION' => 'Nastavak datoteke',
+            'ALL' => 'Sve',
+            'FROM' => 'od'
         ]
     ]
 ];

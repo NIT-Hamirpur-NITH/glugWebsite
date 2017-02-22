@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { config, translations } from 'grav-config';
 import request from '../utils/request';
 import { Instance as gpm } from '../utils/gpm';
+import { Promise } from 'es6-promise';
 
 class Sorter {
     getElements(elements, container) {
@@ -74,7 +75,7 @@ class Packages {
     }
 
     static addDependencyToList(type, dependency, slug = '') {
-        if (['admin', 'form', 'login', 'email'].indexOf(dependency) !== -1) { return; }
+        if (['admin', 'form', 'login', 'email', 'grav'].indexOf(dependency) !== -1) { return; }
         let container = $('.package-dependencies-container');
         let text = `${dependency} <a href="#" class="button" data-dependency-slug="${dependency}" data-${type}-action="remove-dependency-package">Remove</a>`;
 
@@ -247,15 +248,15 @@ class Packages {
     installPackages(type, slugs, callbackSuccess) {
         let url = Packages.getInstallPackageUrl(type);
 
-        slugs.forEach((slug) => {
-            request(url, {
+        Promise.all(slugs.map((slug) => {
+            return request(url, {
                 method: 'post',
                 body: {
                     package: slug,
                     type: type
                 }
-            }, callbackSuccess);
-        });
+            });
+        })).then(callbackSuccess);
 
     }
 
@@ -339,18 +340,27 @@ class Packages {
         $('[data-packages-modal] .install-dependencies-package-container').addClass('hidden');
         $('[data-packages-modal] .installing-dependencies').removeClass('hidden');
 
-        this.installDependenciesOfPackages(type, slugs, () => {
+        this.installDependenciesOfPackages(type, slugs, (response) => {
             $('[data-packages-modal] .installing-dependencies').addClass('hidden');
             $('[data-packages-modal] .installing-package').removeClass('hidden');
             this.installPackages(type, slugs, () => {
                 $('[data-packages-modal] .installing-package').addClass('hidden');
                 $('[data-packages-modal] .installation-complete').removeClass('hidden');
 
-                if (slugs.length === 1) {
-                    global.location.href = `${config.base_url_relative}/${type}s/${slugs[0]}`;
-                } else {
-                    global.location.href = `${config.base_url_relative}/${type}s`;
+                if (response.status === 'error') {
+                    let remodal = $.remodal.lookup[$('[data-packages-modal]').data('remodal')];
+                    remodal.close();
+
+                    return;
                 }
+
+                setTimeout(() => {
+                    if (slugs.length === 1) {
+                        global.location.href = `${config.base_url_relative}/${type}s/${slugs[0]}`;
+                    } else {
+                        global.location.href = `${config.base_url_relative}/${type}s`;
+                    }
+                }, 1000);
 
             });
         });
@@ -364,9 +374,16 @@ class Packages {
         $('[data-packages-modal] .install-package-container').addClass('hidden');
         $('[data-packages-modal] .installing-package').removeClass('hidden');
 
-        this.installPackages(type, slugs, () => {
+        this.installPackages(type, slugs, (response) => {
             $('[data-packages-modal] .installing-package').addClass('hidden');
             $('[data-packages-modal] .installation-complete').removeClass('hidden');
+
+            if (response.status === 'error') {
+                let remodal = $.remodal.lookup[$('[data-packages-modal]').data('remodal')];
+                remodal.close();
+
+                return;
+            }
 
             if (slugs.length === 1) {
                 global.location.href = `${config.base_url_relative}/${type}s/${slugs[0]}`;

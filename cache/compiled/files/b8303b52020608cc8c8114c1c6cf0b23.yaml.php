@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/languages/tr.yaml',
-    'modified' => 1487787352,
+    'modified' => 1487788116,
     'data' => [
         'PLUGIN_ADMIN' => [
             'ADMIN_BETA_MSG' => 'Bu bir beta sürümüdür! Sunucunuzda kullanmak sizin sorumluluğunuzdadır...',
@@ -150,9 +150,7 @@ return [
             'NO_PAGE_FOUND' => 'Sayfa bulunamadı',
             'INVALID_PARAMETERS' => 'Hatalı Parametreler',
             'NO_FILES_SENT' => 'Dosya gönderilmedi',
-            'EXCEEDED_FILESIZE_LIMIT' => 'Dosya boyutu limiti aşıldı',
             'UNKNOWN_ERRORS' => 'Bilinmeyen hatalar',
-            'EXCEEDED_GRAV_FILESIZSE_LIMIT' => 'Grav dosya boyutu limiti aşıldı.',
             'UNSUPPORTED_FILE_TYPE' => 'Desteklenmeyen dosya formatı',
             'FAILED_TO_MOVE_UPLOADED_FILE' => 'Yüklenilen dosya taşınamadı.',
             'FILE_UPLOADED_SUCCESSFULLY' => 'Dosya başarıyla yüklendi',

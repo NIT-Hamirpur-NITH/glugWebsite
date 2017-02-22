@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/languages/sk.yaml',
-    'modified' => 1487787352,
+    'modified' => 1487788116,
     'data' => [
         'PLUGIN_ADMIN' => [
             'ADMIN_BETA_MSG' => 'Toto je Beta verzia! Používajte v ostrej prevádzke na vlastné riziko...',
@@ -155,9 +155,7 @@ return [
             'NO_PAGE_FOUND' => 'Žiadna stránka nenájdená',
             'INVALID_PARAMETERS' => 'Neplatné parametre',
             'NO_FILES_SENT' => 'Žiadne súbory neboli odoslané',
-            'EXCEEDED_FILESIZE_LIMIT' => 'Prekročený limit veľkosti súboru',
             'UNKNOWN_ERRORS' => 'Neznáme chyby',
-            'EXCEEDED_GRAV_FILESIZSE_LIMIT' => 'Prekročený limit veľkosti Grav.',
             'UNSUPPORTED_FILE_TYPE' => 'Nepodporovaný typ súboru',
             'FAILED_TO_MOVE_UPLOADED_FILE' => 'Nepodarilo sa presunúť nahraný súbor.',
             'FILE_UPLOADED_SUCCESSFULLY' => 'Súbor bol úspešne nahraný',

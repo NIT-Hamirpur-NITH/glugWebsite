@@ -24,14 +24,14 @@ class __TwigTemplate_1758a19b64100542ed6fe8f0537ccdcebabcaa51ef4277d1d563d3936b9
         <div class=\"add-package-installing\">
             <h1>";
         // line 7
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.INSTALLING"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.INSTALLING"), "html", null, true);
         echo "</h1>
 
             <div class=\"loading\">
                 <p>
                     ";
         // line 11
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.LOADING"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.LOADING"), "html", null, true);
         echo "
                     <span class=\"fa fa-spin fa-spinner\"></span>
                 </p>
@@ -40,27 +40,27 @@ class __TwigTemplate_1758a19b64100542ed6fe8f0537ccdcebabcaa51ef4277d1d563d3936b9
             <div class=\"install-dependencies-package-container hidden\">
                 <p><strong>";
         // line 17
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DEPENDENCIES_NOT_MET_MESSAGE"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DEPENDENCIES_NOT_MET_MESSAGE"), "html", null, true);
         echo "</strong></p>
 
                 <div class=\"type-install hidden\">
                     <p>";
         // line 20
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PACKAGES_NOT_INSTALLED"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PACKAGES_NOT_INSTALLED"), "html", null, true);
         echo ":</p>
                     <ul></ul>
                 </div>
                 <div class=\"type-update hidden\">
                     <p>";
         // line 24
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PACKAGES_NEED_UPDATE"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PACKAGES_NEED_UPDATE"), "html", null, true);
         echo ":</p>
                     <ul></ul>
                 </div>
                 <div class=\"type-ignore hidden\">
                     <p>";
         // line 28
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PACKAGES_SUGGESTED_UPDATE"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PACKAGES_SUGGESTED_UPDATE"), "html", null, true);
         echo ":</p>
                     <ul></ul>
                 </div>
@@ -68,13 +68,13 @@ class __TwigTemplate_1758a19b64100542ed6fe8f0537ccdcebabcaa51ef4277d1d563d3936b9
                 <div class=\"button-bar\">
                     <button data-remodal-action=\"cancel\" class=\"button secondary remodal-cancel\"><i class=\"fa fa-fw fa-close\"></i> ";
         // line 33
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CANCEL"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CANCEL"), "html", null, true);
         echo "</button>
                     <a data-";
         // line 34
         echo twig_escape_filter($this->env, (isset($context["type"]) ? $context["type"] : null), "html", null, true);
         echo "-action=\"install-dependencies-and-package\" class=\"button\"><i class=\"fa fa-fw fa-check\"></i> ";
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CONTINUE"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CONTINUE"), "html", null, true);
         echo "</a>
                 </div>
             </div>
@@ -83,7 +83,7 @@ class __TwigTemplate_1758a19b64100542ed6fe8f0537ccdcebabcaa51ef4277d1d563d3936b9
                 <p>
                     ";
         // line 40
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.READY_TO_INSTALL_PACKAGES"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.READY_TO_INSTALL_PACKAGES"), "html", null, true);
         echo "
                 </p>
 
@@ -92,13 +92,13 @@ class __TwigTemplate_1758a19b64100542ed6fe8f0537ccdcebabcaa51ef4277d1d563d3936b9
                 <div class=\"button-bar\">
                     <button data-remodal-action=\"cancel\" class=\"button secondary remodal-cancel\"><i class=\"fa fa-fw fa-close\"></i> ";
         // line 46
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CANCEL"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CANCEL"), "html", null, true);
         echo "</button>
                     <a data-";
         // line 47
         echo twig_escape_filter($this->env, (isset($context["type"]) ? $context["type"] : null), "html", null, true);
         echo "-action=\"install-package\" class=\"button\"><i class=\"fa fa-fw fa-check\"></i> ";
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CONTINUE"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CONTINUE"), "html", null, true);
         echo "</a>
                 </div>
             </div>
@@ -107,7 +107,7 @@ class __TwigTemplate_1758a19b64100542ed6fe8f0537ccdcebabcaa51ef4277d1d563d3936b9
                 <p>
                     ";
         // line 53
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ERROR_INSTALLING_PACKAGES"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ERROR_INSTALLING_PACKAGES"), "html", null, true);
         echo "
                 </p>
 
@@ -116,7 +116,7 @@ class __TwigTemplate_1758a19b64100542ed6fe8f0537ccdcebabcaa51ef4277d1d563d3936b9
                 <div class=\"button-bar\">
                     <button data-remodal-action=\"cancel\" class=\"button secondary remodal-cancel\"><i class=\"fa fa-fw fa-close\"></i> ";
         // line 59
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CLOSE"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CLOSE"), "html", null, true);
         echo "</button>
                 </div>
             </div>
@@ -125,7 +125,7 @@ class __TwigTemplate_1758a19b64100542ed6fe8f0537ccdcebabcaa51ef4277d1d563d3936b9
                 <p>
                     ";
         // line 65
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.INSTALLING_DEPENDENCIES"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.INSTALLING_DEPENDENCIES"), "html", null, true);
         echo "
                     <span class=\"fa fa-spin fa-spinner\"></span>
                 </p>
@@ -135,7 +135,7 @@ class __TwigTemplate_1758a19b64100542ed6fe8f0537ccdcebabcaa51ef4277d1d563d3936b9
                 <p>
                     ";
         // line 72
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.INSTALLING_PACKAGES"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.INSTALLING_PACKAGES"), "html", null, true);
         echo "
                     <span class=\"fa fa-spin fa-spinner\"></span>
                 </p>
@@ -147,7 +147,7 @@ class __TwigTemplate_1758a19b64100542ed6fe8f0537ccdcebabcaa51ef4277d1d563d3936b9
                 <p>
                     ";
         // line 81
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PACKAGES_SUCCESSFULLY_INSTALLED"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PACKAGES_SUCCESSFULLY_INSTALLED"), "html", null, true);
         echo "
                 </p>
 

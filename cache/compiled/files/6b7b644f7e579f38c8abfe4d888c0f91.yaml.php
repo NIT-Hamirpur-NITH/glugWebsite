@@ -2,10 +2,10 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/sitemap/blueprints.yaml',
-    'modified' => 1487787353,
+    'modified' => 1487788124,
     'data' => [
         'name' => 'Sitemap',
-        'version' => '1.6.2',
+        'version' => '1.7.0',
         'description' => 'Provide automatically generated **XML sitemaps** with this very useful, but simple to configure, Grav plugin.',
         'icon' => 'map-marker',
         'author' => [
@@ -17,6 +17,12 @@ return [
         'keywords' => 'sitemap, plugin, xml, map, index',
         'bugs' => 'https://github.com/getgrav/grav-plugin-sitemap/issues',
         'license' => 'MIT',
+        'dependencies' => [
+            0 => [
+                'name' => 'grav',
+                'version' => '>=1.1.6'
+            ]
+        ],
         'form' => [
             'validation' => 'strict',
             'fields' => [

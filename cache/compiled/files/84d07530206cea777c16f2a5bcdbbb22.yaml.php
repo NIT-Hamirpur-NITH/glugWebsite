@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/languages/el.yaml',
-    'modified' => 1487787352,
+    'modified' => 1487788116,
     'data' => [
         'PLUGIN_ADMIN' => [
             'ADMIN_BETA_MSG' => 'Αυτή είναι μία έκδοση Beta! Χρησιμοποιήστε την στην Παραγωγή με δικό σας ρίσκο...',
@@ -153,9 +153,7 @@ return [
             'NO_PAGE_FOUND' => 'Δεν βρέθηκαν σελίδες',
             'INVALID_PARAMETERS' => 'Μη έγκυρες παράμετροι',
             'NO_FILES_SENT' => 'Δεν απεστάλη κανένα αρχείο',
-            'EXCEEDED_FILESIZE_LIMIT' => 'Υπέρβαση ορίου μεγέθους αρχείου',
             'UNKNOWN_ERRORS' => 'Άγνωστο Σφάλμα',
-            'EXCEEDED_GRAV_FILESIZSE_LIMIT' => 'Υπέρβαση ορίου μεγέθους αρχείου του Grav.',
             'UNSUPPORTED_FILE_TYPE' => 'Μη υποστηριζόμενος τύπος αρχείου',
             'FAILED_TO_MOVE_UPLOADED_FILE' => 'Απέτυχε η μετακίνηση του μεταφορτωμένου αρχείου.',
             'FILE_UPLOADED_SUCCESSFULLY' => 'Το αρχείο μεταφορτώθηκε με επιτυχία',

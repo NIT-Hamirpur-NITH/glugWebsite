@@ -30,14 +30,14 @@ class __TwigTemplate_f23f17e9088fdba3621188e3c8a13babe688d3ec2ad1ff0feab7b653537
         echo "<h1>
     ";
         // line 7
-        echo twig_escape_filter($this->env, (((isset($context["installing"]) ? $context["installing"] : null)) ? ($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.AVAILABLE_THEMES")) : ($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.INSTALLED_THEMES"))), "html", null, true);
+        echo twig_escape_filter($this->env, (((isset($context["installing"]) ? $context["installing"] : null)) ? ($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.AVAILABLE_THEMES")) : ($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.INSTALLED_THEMES"))), "html", null, true);
         echo "
 </h1>
 <form>
     <div class=\"gpm-search\">
         <input type=\"text\" placeholder=\"";
         // line 11
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.RESOURCE_FILTER"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.RESOURCE_FILTER"), "html", null, true);
         echo "\" data-gpm-filter>
     </div>
 </form>
@@ -47,6 +47,7 @@ class __TwigTemplate_f23f17e9088fdba3621188e3c8a13babe688d3ec2ad1ff0feab7b653537
         // line 16
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->env->getExtension('Grav\Common\Twig\TwigExtension')->ksortFilter($this->getAttribute($this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "themes", array(0 =>  !(isset($context["installing"]) ? $context["installing"] : null)), "method"), "toArray", array())));
+        $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["slug"] => $context["theme"]) {
             // line 17
             echo "        ";
@@ -66,7 +67,7 @@ class __TwigTemplate_f23f17e9088fdba3621188e3c8a13babe688d3ec2ad1ff0feab7b653537
             $context["isTestingRelease"] = $this->getAttribute($this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "gpm", array()), "isTestingRelease", array(0 => $context["slug"]), "method");
             // line 21
             echo "        ";
-            $context["releaseDate"] = (($this->getAttribute($context["theme"], "date", array())) ? ($this->getAttribute($context["theme"], "date", array())) : ($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "gpm", array()), "findPackage", array(0 => $context["slug"]), "method"), "date", array())));
+            $context["releaseDate"] = (($this->getAttribute($context["theme"], "date", array())) ? ($this->getAttribute($context["theme"], "date", array())) : ($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "gpm", array()), "findPackage", array(0 => $context["slug"], 1 => true), "method"), "date", array())));
             // line 22
             echo "
         <div class=\"theme card-item pure-u-1-3 ";
@@ -107,37 +108,46 @@ class __TwigTemplate_f23f17e9088fdba3621188e3c8a13babe688d3ec2ad1ff0feab7b653537
             if ($this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "isTeamGrav", array(0 => $context["theme"]), "method")) {
                 // line 28
                 echo "                    <small><span class=\"info-reverse\"><i class=\"fa fa-check-circle\" title=\"";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.GRAV_OFFICIAL_THEME"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.GRAV_OFFICIAL_THEME"), "html", null, true);
                 echo "\"></i></span></small>
                 ";
             }
             // line 30
             echo "                ";
-            if ($this->getAttribute($context["theme"], "symlink", array())) {
+            if ($this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "isPremiumProduct", array(0 => $context["theme"]), "method")) {
                 // line 31
+                echo "                    <small><span class=\"badge warning premium\"><i class=\"fa fa-star-o\"></i> ";
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PREMIUM_PRODUCT"), "html", null, true);
+                echo "</span></small>
+                ";
+            }
+            // line 33
+            echo "                ";
+            if ($this->getAttribute($context["theme"], "symlink", array())) {
+                // line 34
                 echo "                    <span class=\"hint--bottom\"  data-hint=\"";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.THEME_SYMBOLICALLY_LINKED"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.THEME_SYMBOLICALLY_LINKED"), "html", null, true);
                 echo "\">
                     <i class=\"fa fa-fw fa-link\"></i>
                 </span>
                 ";
             }
-            // line 35
+            // line 38
             echo "                <span class=\"gpm-version\">v";
             echo twig_escape_filter($this->env, $this->getAttribute($context["theme"], "version", array()), "html", null, true);
             echo "</span>
                 ";
-            // line 36
+            // line 39
             if ((isset($context["isTestingRelease"]) ? $context["isTestingRelease"] : null)) {
                 echo "<span class=\"gpm-testing\">test release</span>";
             }
-            // line 37
+            // line 40
             echo "            </div>
             <div class=\"gpm-screenshot\">
                 ";
-            // line 39
+            // line 42
             $context["thumb"] = (((isset($context["installing"]) ? $context["installing"] : null)) ? (("//getgrav.org/images/" . $this->getAttribute($context["theme"], "screenshot", array()))) : ($this->getAttribute($context["theme"], "thumbnail", array())));
-            // line 40
+            // line 43
             echo "                <a href=\"";
             echo twig_escape_filter($this->env, (isset($context["base_url_relative"]) ? $context["base_url_relative"] : null), "html", null, true);
             echo "/themes/";
@@ -147,87 +157,95 @@ class __TwigTemplate_f23f17e9088fdba3621188e3c8a13babe688d3ec2ad1ff0feab7b653537
             echo "\" /></a>
             </div>
             ";
-            // line 42
+            // line 45
             if (((isset($context["state"]) ? $context["state"] : null) == "installing")) {
-                // line 43
+                // line 46
                 echo "                <div class=\"gpm-actions\">
                     <a class=\"button\" href=\"#\" data-remodal-target=\"add-package\" data-packages-slugs=\"";
-                // line 44
+                // line 47
                 echo twig_escape_filter($this->env, $context["slug"], "html", null, true);
                 echo "\" data-theme-action=\"start-package-installation\"><i class=\"fa fa-plus\"></i> ";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.INSTALL"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.INSTALL"), "html", null, true);
                 echo "</a>
                 </div>
             ";
-            } elseif ((            // line 46
+            } elseif ((            // line 49
 (isset($context["state"]) ? $context["state"] : null) == "active")) {
-                // line 47
+                // line 50
                 echo "                <div class=\"gpm-actions\">
                     <i class=\"fa fa-star\"></i> ";
-                // line 48
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ACTIVE_THEME"), "html", null, true);
+                // line 51
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ACTIVE_THEME"), "html", null, true);
                 echo "
                 </div>
             ";
             } else {
-                // line 51
+                // line 54
                 echo "                <a data-remodal-target=\"theme-switch-warn\" href=\"";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["uri"]) ? $context["uri"] : null), "addNonce", array(0 => ((((((isset($context["base_url_relative"]) ? $context["base_url_relative"] : null) . "/themes/") . $context["slug"]) . "/task") . $this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "system", array()), "param_sep", array())) . "activate"), 1 => "admin-form", 2 => "admin-nonce"), "method"), "html", null, true);
                 echo "\" class=\"gpm-actions\">
                     ";
-                // line 52
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ACTIVATE"), "html", null, true);
+                // line 55
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ACTIVATE"), "html", null, true);
                 echo "
                 </a>
             ";
             }
-            // line 55
+            // line 58
             echo "        </div>
+    ";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 60
+            echo "        <tr><td>";
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.OFFLINE_WARNING"), "html", null, true);
+            echo "</td></tr>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['slug'], $context['theme'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 57
+        // line 62
         echo "</div>
 
 <div class=\"remodal theme-switcher\" data-remodal-id=\"theme-switch-warn\" data-remodal-options=\"hashTracking: false\">
     <form>
         <h1>";
-        // line 61
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SWITCHING_TO"), "html", null, true);
+        // line 66
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SWITCHING_TO"), "html", null, true);
         echo " <strong>{theme_name}</strong></h1>
         <p class=\"bigger\">
             ";
-        // line 63
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SWITCHING_TO_DESCRIPTION"), "html", null, true);
+        // line 68
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SWITCHING_TO_DESCRIPTION"), "html", null, true);
         echo "
         </p>
         <p class=\"bigger\">
             ";
-        // line 66
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SWITCHING_TO_CONFIRMATION"), "html", null, true);
+        // line 71
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SWITCHING_TO_CONFIRMATION"), "html", null, true);
         echo " <strong>{theme_name}</strong>?
         </p>
         <br>
         <div class=\"button-bar\">
             <button data-remodal-action=\"cancel\" class=\"button secondary remodal-cancel\"><i class=\"fa fa-fw fa-close\"></i> ";
-        // line 70
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CANCEL"), "html", null, true);
+        // line 75
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CANCEL"), "html", null, true);
         echo "</button>
             <a class=\"button continue\" href=\"#\"><i class=\"fa fa-fw fa-check\"></i>";
-        // line 71
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CONTINUE"), "html", null, true);
+        // line 76
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CONTINUE"), "html", null, true);
         echo "</a>
         </div>
     </form>
 </div>
 
 ";
-        // line 76
-        $this->loadTemplate("partials/modal-add-package.html.twig", "partials/themes-list.html.twig", 76)->display(array_merge($context, array("type" => "theme")));
-        // line 77
-        $this->loadTemplate("partials/modal-update-packages.html.twig", "partials/themes-list.html.twig", 77)->display(array_merge($context, array("type" => "theme")));
+        // line 81
+        $this->loadTemplate("partials/modal-add-package.html.twig", "partials/themes-list.html.twig", 81)->display(array_merge($context, array("type" => "theme")));
+        // line 82
+        $this->loadTemplate("partials/modal-update-packages.html.twig", "partials/themes-list.html.twig", 82)->display(array_merge($context, array("type" => "theme")));
     }
 
     public function getTemplateName()
@@ -242,7 +260,7 @@ class __TwigTemplate_f23f17e9088fdba3621188e3c8a13babe688d3ec2ad1ff0feab7b653537
 
     public function getDebugInfo()
     {
-        return array (  230 => 77,  228 => 76,  220 => 71,  216 => 70,  209 => 66,  203 => 63,  198 => 61,  192 => 57,  185 => 55,  179 => 52,  174 => 51,  168 => 48,  165 => 47,  163 => 46,  156 => 44,  153 => 43,  151 => 42,  141 => 40,  139 => 39,  135 => 37,  131 => 36,  126 => 35,  118 => 31,  115 => 30,  109 => 28,  107 => 27,  99 => 26,  95 => 25,  74 => 23,  71 => 22,  68 => 21,  65 => 20,  60 => 19,  55 => 18,  52 => 17,  48 => 16,  40 => 11,  33 => 7,  30 => 6,  28 => 5,  24 => 3,  22 => 2,  19 => 1,);
+        return array (  248 => 82,  246 => 81,  238 => 76,  234 => 75,  227 => 71,  221 => 68,  216 => 66,  210 => 62,  201 => 60,  195 => 58,  189 => 55,  184 => 54,  178 => 51,  175 => 50,  173 => 49,  166 => 47,  163 => 46,  161 => 45,  151 => 43,  149 => 42,  145 => 40,  141 => 39,  136 => 38,  128 => 34,  125 => 33,  119 => 31,  116 => 30,  110 => 28,  108 => 27,  100 => 26,  96 => 25,  75 => 23,  72 => 22,  69 => 21,  66 => 20,  61 => 19,  56 => 18,  53 => 17,  48 => 16,  40 => 11,  33 => 7,  30 => 6,  28 => 5,  24 => 3,  22 => 2,  19 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -275,7 +293,7 @@ class __TwigTemplate_f23f17e9088fdba3621188e3c8a13babe688d3ec2ad1ff0feab7b653537
         {% if (installing) %}{% set state = 'installing' %}{% endif %}
         {% if (config.get('system.pages.theme') == slug) %}{% set state = 'active' %}{% endif %}
         {% set isTestingRelease = admin.gpm.isTestingRelease(slug) %}
-        {% set releaseDate = theme.date ?: admin.gpm.findPackage(slug).date %}
+        {% set releaseDate = theme.date ?: admin.gpm.findPackage(slug, true).date %}
 
         <div class=\"theme card-item pure-u-1-3 {{ state }}-theme\" data-gpm-theme=\"{{ slug|url_encode }}\" data-gpm-name=\"{{ theme.name }}\" data-gpm-release-date=\"{{ releaseDate }}\" data-gpm-author=\"{{ theme.author.name }}\" data-gpm-official=\"{{ admin.isTeamGrav(theme) ? '1' : '2' }}\" data-gpm-updatable=\"{{ admin.gpm.isUpdatable(slug) ? '1' : '2' }}\" data-gpm-enabled=\"{{ data.get('enabled') ? '1' : '2' }}\" data-gpm-testing=\"{{ isTestingRelease ? '1' : '2' }}\">
             <div class=\"gpm-name\">
@@ -283,6 +301,9 @@ class __TwigTemplate_f23f17e9088fdba3621188e3c8a13babe688d3ec2ad1ff0feab7b653537
                 <a href=\"{{ base_url_relative }}/themes/{{ slug|url_encode }}\">{{ theme.name }}</a>
                 {% if admin.isTeamGrav(theme) %}
                     <small><span class=\"info-reverse\"><i class=\"fa fa-check-circle\" title=\"{{ \"PLUGIN_ADMIN.GRAV_OFFICIAL_THEME\"|tu }}\"></i></span></small>
+                {% endif %}
+                {% if admin.isPremiumProduct(theme) %}
+                    <small><span class=\"badge warning premium\"><i class=\"fa fa-star-o\"></i> {{ \"PLUGIN_ADMIN.PREMIUM_PRODUCT\"|tu }}</span></small>
                 {% endif %}
                 {% if theme.symlink %}
                     <span class=\"hint--bottom\"  data-hint=\"{{ \"PLUGIN_ADMIN.THEME_SYMBOLICALLY_LINKED\"|tu }}\">
@@ -310,6 +331,8 @@ class __TwigTemplate_f23f17e9088fdba3621188e3c8a13babe688d3ec2ad1ff0feab7b653537
                 </a>
             {% endif %}
         </div>
+    {% else %}
+        <tr><td>{{ \"PLUGIN_ADMIN.OFFLINE_WARNING\"|tu }}</td></tr>
     {% endfor %}
 </div>
 
