@@ -27,7 +27,7 @@ class __TwigTemplate_a6a30a3ee532bfe089fbd483ac1030d51626a01e5de4605af72754fb217
     <div class=\"form-label\">
         <label>";
             // line 6
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "label", array())), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "label", array())), "html", null, true);
             echo "</label>
     </div>
     <div class=\"form-data form-uploads-wrapper\">
@@ -69,12 +69,10 @@ class __TwigTemplate_a6a30a3ee532bfe089fbd483ac1030d51626a01e5de4605af72754fb217
             echo "<div class=\"form-tab\">
     <div class=\"form-field\">
         <div class=\"form-label\">
-            <span class=\"note\">
-                ";
-            // line 24
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CANNOT_ADD_MEDIA_FILES_PAGE_NOT_SAVED"), "html", null, true);
+            ";
+            // line 23
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CANNOT_ADD_MEDIA_FILES_PAGE_NOT_SAVED"), "html", null, true);
             echo "
-            </span>
         </div>
     </div>
 </div>
@@ -94,7 +92,7 @@ class __TwigTemplate_a6a30a3ee532bfe089fbd483ac1030d51626a01e5de4605af72754fb217
 
     public function getDebugInfo()
     {
-        return array (  75 => 24,  69 => 20,  61 => 16,  57 => 15,  51 => 14,  45 => 13,  41 => 11,  38 => 10,  36 => 9,  30 => 6,  26 => 4,  24 => 3,  21 => 2,  19 => 1,);
+        return array (  74 => 23,  69 => 20,  61 => 16,  57 => 15,  51 => 14,  45 => 13,  41 => 11,  38 => 10,  36 => 9,  30 => 6,  26 => 4,  24 => 3,  21 => 2,  19 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -129,9 +127,7 @@ class __TwigTemplate_a6a30a3ee532bfe089fbd483ac1030d51626a01e5de4605af72754fb217
 <div class=\"form-tab\">
     <div class=\"form-field\">
         <div class=\"form-label\">
-            <span class=\"note\">
-                {{ \"PLUGIN_ADMIN.CANNOT_ADD_MEDIA_FILES_PAGE_NOT_SAVED\"|tu }}
-            </span>
+            {{ \"PLUGIN_ADMIN.CANNOT_ADD_MEDIA_FILES_PAGE_NOT_SAVED\"|tu }}
         </div>
     </div>
 </div>

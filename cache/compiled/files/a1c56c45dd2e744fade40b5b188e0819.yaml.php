@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/themes/bootstrap/blueprints.yaml',
-    'modified' => 1487787353,
+    'modified' => 1487963217,
     'data' => [
         'name' => 'Bootstrap',
         'version' => '1.6.0',

@@ -20,7 +20,7 @@ class __TwigTemplate_5e679e7739bf13a8ee5a15fd887f9eeb7ca2795f5fc7ce7d9d03720e3c0
     <h1>
         ";
         // line 3
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.NEWS_FEED"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.NEWS_FEED"), "html", null, true);
         echo "
         <span class=\"right\">
             <a href=\"#\" class=\"button button-small\" data-refresh=\"feed\"><i class=\"fa fa-refresh\"></i></a>

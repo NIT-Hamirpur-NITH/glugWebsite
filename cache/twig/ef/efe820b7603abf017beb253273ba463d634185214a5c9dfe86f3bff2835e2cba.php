@@ -25,7 +25,7 @@ class __TwigTemplate_f9781e1182f2fdd03888c98af99f2e4ca223e28d2252bc531ad97dbe195
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 3
-        $context["title"] = $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DASHBOARD");
+        $context["title"] = $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DASHBOARD");
         // line 5
         $context["clear_cache_url"] = ((((isset($context["base_url_relative"]) ? $context["base_url_relative"] : null) . "/cache.json/task") . $this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "system", array()), "param_sep", array())) . twig_escape_filter($this->env, "clearCache", "html_attr"));
         // line 1
@@ -39,14 +39,14 @@ class __TwigTemplate_f9781e1182f2fdd03888c98af99f2e4ca223e28d2252bc531ad97dbe195
         echo "    <div class=\"button-bar\">
         ";
         // line 9
-        if ($this->env->getExtension('Grav\Common\Twig\TwigExtension')->authorize(array(0 => "admin.maintenance", 1 => "admin.super"))) {
+        if ($this->env->getExtension('Grav\Common\Twig\TwigExtension')->authorize(array(0 => "admin.maintenance", 1 => "admin.super", 2 => "admin.cache"))) {
             // line 10
             echo "            <div class=\"button-group\">
                 <button data-clear-cache-type=\"\" data-clear-cache=\"";
             // line 11
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["uri"]) ? $context["uri"] : null), "addNonce", array(0 => (isset($context["clear_cache_url"]) ? $context["clear_cache_url"] : null), 1 => "admin-form", 2 => "admin-nonce"), "method"), "html", null, true);
             echo "\" class=\"button\"><i class=\"fa fa-trash\"></i> ";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CLEAR_CACHE"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CLEAR_CACHE"), "html", null, true);
             echo "</button>
                 <button type=\"button\" class=\"button dropdown-toggle\" data-toggle=\"dropdown\">
                     <i class=\"fa fa-caret-down\"></i>
@@ -56,67 +56,71 @@ class __TwigTemplate_f9781e1182f2fdd03888c98af99f2e4ca223e28d2252bc531ad97dbe195
             // line 16
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["uri"]) ? $context["uri"] : null), "addNonce", array(0 => ((((isset($context["clear_cache_url"]) ? $context["clear_cache_url"] : null) . "/cleartype") . $this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "system", array()), "param_sep", array())) . "all"), 1 => "admin-form", 2 => "admin-nonce"), "method"), "html", null, true);
             echo "\" href=\"#\">";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CLEAR_CACHE_ALL_CACHE"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CLEAR_CACHE_ALL_CACHE"), "html", null, true);
             echo "</a></li>
                     <li><a data-clear-cache-type=\"assets-only\" data-clear-cache=\"";
             // line 17
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["uri"]) ? $context["uri"] : null), "addNonce", array(0 => ((((isset($context["clear_cache_url"]) ? $context["clear_cache_url"] : null) . "/cleartype") . $this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "system", array()), "param_sep", array())) . "assets-only"), 1 => "admin-form", 2 => "admin-nonce"), "method"), "html", null, true);
             echo "\" href=\"#\">";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CLEAR_CACHE_ASSETS_ONLY"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CLEAR_CACHE_ASSETS_ONLY"), "html", null, true);
             echo "</a></li>
                     <li><a data-clear-cache-type=\"images-only\" data-clear-cache=\"";
             // line 18
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["uri"]) ? $context["uri"] : null), "addNonce", array(0 => ((((isset($context["clear_cache_url"]) ? $context["clear_cache_url"] : null) . "/cleartype") . $this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "system", array()), "param_sep", array())) . "images-only"), 1 => "admin-form", 2 => "admin-nonce"), "method"), "html", null, true);
             echo "\" href=\"#\">";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CLEAR_CACHE_IMAGES_ONLY"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CLEAR_CACHE_IMAGES_ONLY"), "html", null, true);
             echo "</a></li>
                     <li><a data-clear-cache-type=\"cache-only\" data-clear-cache=\"";
             // line 19
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["uri"]) ? $context["uri"] : null), "addNonce", array(0 => ((((isset($context["clear_cache_url"]) ? $context["clear_cache_url"] : null) . "/cleartype") . $this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "system", array()), "param_sep", array())) . "cache-only"), 1 => "admin-form", 2 => "admin-nonce"), "method"), "html", null, true);
             echo "\" href=\"#\">";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CLEAR_CACHE_CACHE_ONLY"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CLEAR_CACHE_CACHE_ONLY"), "html", null, true);
             echo "</a></li>
                     <li><a data-clear-cache-type=\"tmp-only\" data-clear-cache=\"";
             // line 20
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["uri"]) ? $context["uri"] : null), "addNonce", array(0 => ((((isset($context["clear_cache_url"]) ? $context["clear_cache_url"] : null) . "/cleartype") . $this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "system", array()), "param_sep", array())) . "tmp-only"), 1 => "admin-form", 2 => "admin-nonce"), "method"), "html", null, true);
             echo "\" href=\"#\">";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CLEAR_CACHE_TMP_ONLY"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CLEAR_CACHE_TMP_ONLY"), "html", null, true);
             echo "</a></li>
                 </ul>
             </div>
-
-            <button data-gpm-checkupdates=\"\" class=\"button\"><i class=\"fa fa-refresh\"></i> ";
-            // line 24
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CHECK_FOR_UPDATES"), "html", null, true);
+        ";
+        }
+        // line 24
+        echo "        ";
+        if ($this->env->getExtension('Grav\Common\Twig\TwigExtension')->authorize(array(0 => "admin.maintenance", 1 => "admin.super"))) {
+            // line 25
+            echo "            <button data-gpm-checkupdates=\"\" class=\"button\"><i class=\"fa fa-refresh\"></i> ";
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CHECK_FOR_UPDATES"), "html", null, true);
             echo "</button>
         ";
         }
-        // line 26
+        // line 27
         echo "    </div>
     <h1><i class=\"fa fa-fw fa-th\"></i> ";
-        // line 27
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DASHBOARD"), "html", null, true);
+        // line 28
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DASHBOARD"), "html", null, true);
         echo "</h1>
 ";
     }
 
-    // line 30
+    // line 31
     public function block_widgets($context, array $blocks = array())
     {
-        // line 31
+        // line 32
         echo "    ";
         if ($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "plugins", array()), "admin", array()), "notifications", array()), "dashboard", array())) {
-            // line 32
+            // line 33
             echo "    <div class=\"dashboard-notifications-container\"></div>
     ";
         }
-        // line 34
+        // line 35
         echo "
     <div id=\"admin-dashboard\">
         ";
-        // line 36
+        // line 37
         if ($this->getAttribute($this->getAttribute((isset($context["grav"]) ? $context["grav"] : null), "twig", array()), "plugins_hooked_dashboard_widgets_top", array())) {
-            // line 37
+            // line 38
             echo "            ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute((isset($context["grav"]) ? $context["grav"] : null), "twig", array()), "plugins_hooked_dashboard_widgets_top", array()));
@@ -134,19 +138,19 @@ class __TwigTemplate_f9781e1182f2fdd03888c98af99f2e4ca223e28d2252bc531ad97dbe195
                 $context['loop']['last'] = 1 === $length;
             }
             foreach ($context['_seq'] as $context["_key"] => $context["widget"]) {
-                // line 38
+                // line 39
                 echo "                ";
                 if (($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "plugins", array()), "admin", array()), "widgets", array()), $this->getAttribute($context["widget"], "template", array())) == true)) {
-                    // line 39
+                    // line 40
                     echo "                    <div class=\"dashboard-item-flex\">
                         ";
-                    // line 40
-                    $this->loadTemplate((("partials/" . $this->getAttribute($context["widget"], "template", array())) . ".html.twig"), "dashboard.html.twig", 40)->display($context);
                     // line 41
+                    $this->loadTemplate((("partials/" . $this->getAttribute($context["widget"], "template", array())) . ".html.twig"), "dashboard.html.twig", 41)->display($context);
+                    // line 42
                     echo "                    </div>
                 ";
                 }
-                // line 43
+                // line 44
                 echo "            ";
                 ++$context['loop']['index0'];
                 ++$context['loop']['index'];
@@ -160,20 +164,20 @@ class __TwigTemplate_f9781e1182f2fdd03888c98af99f2e4ca223e28d2252bc531ad97dbe195
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['widget'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 44
+            // line 45
             echo "        ";
         }
-        // line 45
+        // line 46
         echo "    </div>
 ";
     }
 
-    // line 48
+    // line 49
     public function block_content($context, array $blocks = array())
     {
-        // line 49
+        // line 50
         if ($this->getAttribute($this->getAttribute((isset($context["grav"]) ? $context["grav"] : null), "twig", array()), "plugins_hooked_dashboard_widgets_main", array())) {
-            // line 50
+            // line 51
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute((isset($context["grav"]) ? $context["grav"] : null), "twig", array()), "plugins_hooked_dashboard_widgets_main", array()));
             $context['loop'] = array(
@@ -190,12 +194,12 @@ class __TwigTemplate_f9781e1182f2fdd03888c98af99f2e4ca223e28d2252bc531ad97dbe195
                 $context['loop']['last'] = 1 === $length;
             }
             foreach ($context['_seq'] as $context["_key"] => $context["widget"]) {
-                // line 51
+                // line 52
                 if (($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "plugins", array()), "admin", array()), "widgets", array()), $this->getAttribute($context["widget"], "template", array())) == true)) {
-                    // line 52
-                    echo "                ";
-                    $this->loadTemplate((("partials/" . $this->getAttribute($context["widget"], "template", array())) . ".html.twig"), "dashboard.html.twig", 52)->display($context);
                     // line 53
+                    echo "                ";
+                    $this->loadTemplate((("partials/" . $this->getAttribute($context["widget"], "template", array())) . ".html.twig"), "dashboard.html.twig", 53)->display($context);
+                    // line 54
                     echo "            ";
                 }
                 ++$context['loop']['index0'];
@@ -213,14 +217,14 @@ class __TwigTemplate_f9781e1182f2fdd03888c98af99f2e4ca223e28d2252bc531ad97dbe195
         }
     }
 
-    // line 58
+    // line 59
     public function block_content_bottom($context, array $blocks = array())
     {
-        // line 59
-        echo "    <div id=\"admin-dashboard\">";
         // line 60
+        echo "    <div id=\"admin-dashboard\">";
+        // line 61
         if ($this->getAttribute($this->getAttribute((isset($context["grav"]) ? $context["grav"] : null), "twig", array()), "plugins_hooked_dashboard_widgets_bottom", array())) {
-            // line 61
+            // line 62
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute((isset($context["grav"]) ? $context["grav"] : null), "twig", array()), "plugins_hooked_dashboard_widgets_bottom", array()));
             $context['loop'] = array(
@@ -237,12 +241,12 @@ class __TwigTemplate_f9781e1182f2fdd03888c98af99f2e4ca223e28d2252bc531ad97dbe195
                 $context['loop']['last'] = 1 === $length;
             }
             foreach ($context['_seq'] as $context["_key"] => $context["widget"]) {
-                // line 62
+                // line 63
                 if (($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "plugins", array()), "admin", array()), "widgets", array()), $this->getAttribute($context["widget"], "template", array())) == true)) {
-                    // line 63
-                    echo "                    ";
-                    $this->loadTemplate((("partials/" . $this->getAttribute($context["widget"], "template", array())) . ".html.twig"), "dashboard.html.twig", 63)->display($context);
                     // line 64
+                    echo "                    ";
+                    $this->loadTemplate((("partials/" . $this->getAttribute($context["widget"], "template", array())) . ".html.twig"), "dashboard.html.twig", 64)->display($context);
+                    // line 65
                     echo "                ";
                 }
                 ++$context['loop']['index0'];
@@ -258,7 +262,7 @@ class __TwigTemplate_f9781e1182f2fdd03888c98af99f2e4ca223e28d2252bc531ad97dbe195
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['widget'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
         }
-        // line 67
+        // line 68
         echo "</div>
 ";
     }
@@ -275,7 +279,7 @@ class __TwigTemplate_f9781e1182f2fdd03888c98af99f2e4ca223e28d2252bc531ad97dbe195
 
     public function getDebugInfo()
     {
-        return array (  262 => 67,  246 => 64,  243 => 63,  241 => 62,  224 => 61,  222 => 60,  220 => 59,  217 => 58,  199 => 53,  196 => 52,  194 => 51,  177 => 50,  175 => 49,  172 => 48,  167 => 45,  164 => 44,  150 => 43,  146 => 41,  144 => 40,  141 => 39,  138 => 38,  120 => 37,  118 => 36,  114 => 34,  110 => 32,  107 => 31,  104 => 30,  98 => 27,  95 => 26,  90 => 24,  81 => 20,  75 => 19,  69 => 18,  63 => 17,  57 => 16,  47 => 11,  44 => 10,  42 => 9,  39 => 8,  36 => 7,  32 => 1,  30 => 5,  28 => 3,  11 => 1,);
+        return array (  266 => 68,  250 => 65,  247 => 64,  245 => 63,  228 => 62,  226 => 61,  224 => 60,  221 => 59,  203 => 54,  200 => 53,  198 => 52,  181 => 51,  179 => 50,  176 => 49,  171 => 46,  168 => 45,  154 => 44,  150 => 42,  148 => 41,  145 => 40,  142 => 39,  124 => 38,  122 => 37,  118 => 35,  114 => 33,  111 => 32,  108 => 31,  102 => 28,  99 => 27,  93 => 25,  90 => 24,  81 => 20,  75 => 19,  69 => 18,  63 => 17,  57 => 16,  47 => 11,  44 => 10,  42 => 9,  39 => 8,  36 => 7,  32 => 1,  30 => 5,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -296,7 +300,7 @@ class __TwigTemplate_f9781e1182f2fdd03888c98af99f2e4ca223e28d2252bc531ad97dbe195
 
 {% block titlebar %}
     <div class=\"button-bar\">
-        {% if authorize(['admin.maintenance', 'admin.super']) %}
+        {% if authorize(['admin.maintenance', 'admin.super', 'admin.cache']) %}
             <div class=\"button-group\">
                 <button data-clear-cache-type=\"\" data-clear-cache=\"{{ uri.addNonce(clear_cache_url, 'admin-form', 'admin-nonce') }}\" class=\"button\"><i class=\"fa fa-trash\"></i> {{ \"PLUGIN_ADMIN.CLEAR_CACHE\"|tu }}</button>
                 <button type=\"button\" class=\"button dropdown-toggle\" data-toggle=\"dropdown\">
@@ -310,7 +314,8 @@ class __TwigTemplate_f9781e1182f2fdd03888c98af99f2e4ca223e28d2252bc531ad97dbe195
                     <li><a data-clear-cache-type=\"tmp-only\" data-clear-cache=\"{{ uri.addNonce(clear_cache_url ~'/cleartype' ~ config.system.param_sep ~ 'tmp-only', 'admin-form', 'admin-nonce') }}\" href=\"#\">{{ \"PLUGIN_ADMIN.CLEAR_CACHE_TMP_ONLY\"|tu }}</a></li>
                 </ul>
             </div>
-
+        {% endif %}
+        {% if authorize(['admin.maintenance', 'admin.super']) %}
             <button data-gpm-checkupdates=\"\" class=\"button\"><i class=\"fa fa-refresh\"></i> {{ \"PLUGIN_ADMIN.CHECK_FOR_UPDATES\"|tu }}</button>
         {% endif %}
     </div>

@@ -34,11 +34,11 @@ class __TwigTemplate_1581f5e532f0e5b7dfb558c91e4030622d2e698a510aa7e0ce485839b44
         echo "\"
     data-grav-array-keyname=\"";
         // line 5
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder_key", array()))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder_key", array()))), "html", null, true);
         echo "\"
     data-grav-array-valuename=\"";
         // line 6
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder_value", array()))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder_value", array()))), "html", null, true);
         echo "\"
     ";
         // line 7
@@ -47,13 +47,13 @@ class __TwigTemplate_1581f5e532f0e5b7dfb558c91e4030622d2e698a510aa7e0ce485839b44
 ";
     }
 
-    // line 39
+    // line 40
     public function block_input($context, array $blocks = array())
     {
-        // line 40
+        // line 41
         echo "    ";
         $context["array_field"] = $this;
-        // line 41
+        // line 42
         echo "    <div data-grav-array-type=\"container\"";
         if ($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "value_only", array())) {
             echo " data-grav-array-mode=\"value_only\"";
@@ -61,29 +61,29 @@ class __TwigTemplate_1581f5e532f0e5b7dfb558c91e4030622d2e698a510aa7e0ce485839b44
         echo (((twig_length_filter($this->env, (isset($context["value"]) ? $context["value"] : null)) <= 1)) ? (" class=\"one-child\"") : (""));
         echo ">
         ";
-        // line 42
+        // line 43
         if (twig_length_filter($this->env, (isset($context["value"]) ? $context["value"] : null))) {
-            // line 43
+            // line 44
             echo "            ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["value"]) ? $context["value"] : null));
             foreach ($context['_seq'] as $context["key"] => $context["text"]) {
-                // line 44
+                // line 45
                 if ( !twig_test_iterable($context["text"])) {
-                    // line 45
+                    // line 46
                     echo "                    ";
                     echo $context["array_field"]->getrenderer($context["key"], $context["text"], (isset($context["field"]) ? $context["field"] : null), (isset($context["scope"]) ? $context["scope"] : null));
                     echo "
                 ";
                 } else {
-                    // line 47
-                    echo "                    ";
                     // line 48
+                    echo "                    ";
+                    // line 49
                     echo "                    ";
                     $context['_parent'] = $context;
                     $context['_seq'] = twig_ensure_traversable($context["text"]);
                     foreach ($context['_seq'] as $context["subkey"] => $context["subtext"]) {
-                        // line 49
+                        // line 50
                         echo $context["array_field"]->getrenderer((($context["key"] . ":") . $context["subkey"]), $context["subtext"], (isset($context["field"]) ? $context["field"] : null), (isset($context["scope"]) ? $context["scope"] : null));
                         echo "
                     ";
@@ -91,59 +91,59 @@ class __TwigTemplate_1581f5e532f0e5b7dfb558c91e4030622d2e698a510aa7e0ce485839b44
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['subkey'], $context['subtext'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 51
+                    // line 52
                     echo "                ";
                 }
-                // line 52
+                // line 53
                 echo "            ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['key'], $context['text'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
         } else {
-            // line 55
+            // line 56
             echo "            <div class=\"form-row\" data-grav-array-type=\"row\">
                 <span data-grav-array-action=\"sort\" class=\"fa fa-bars\"></span>
                 ";
-            // line 57
+            // line 58
             if (($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "value_only", array()) != true)) {
-                // line 58
+                // line 59
                 echo "                <input
                     data-grav-array-type=\"key\"
                     type=\"text\"
                     ";
-                // line 61
+                // line 62
                 if (($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "disabled", array()) || (isset($context["isDisabledToggleable"]) ? $context["isDisabledToggleable"] : null))) {
                     echo "disabled=\"disabled\"";
                 }
-                // line 62
+                // line 63
                 echo "                    placeholder=\"";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder_key", array()))), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder_key", array()))), "html", null, true);
                 echo "\" />
                 ";
             }
-            // line 64
+            // line 65
             echo "                <input
                     data-grav-array-type=\"value\"
                     type=\"text\"
                     name=\"";
-            // line 67
+            // line 68
             echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Common\Twig\TwigExtension')->fieldNameFilter(((isset($context["scope"]) ? $context["scope"] : null) . $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "name", array()))), "html", null, true);
             echo "\"
                     ";
-            // line 68
+            // line 69
             if (($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "disabled", array()) || (isset($context["isDisabledToggleable"]) ? $context["isDisabledToggleable"] : null))) {
                 echo "disabled=\"disabled\"";
             }
-            // line 69
+            // line 70
             echo "                    placeholder=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder_value", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder_value", array()))), "html", null, true);
             echo "\" />
                 <span data-grav-array-action=\"rem\" class=\"fa fa-minus\"></span>
                 <span data-grav-array-action=\"add\" class=\"fa fa-plus\"></span>
             </div>";
         }
-        // line 74
+        // line 75
         echo "    </div>
 ";
     }
@@ -184,43 +184,46 @@ class __TwigTemplate_1581f5e532f0e5b7dfb558c91e4030622d2e698a510aa7e0ce485839b44
                     echo "            ";
                 }
                 // line 18
+                echo "            ";
+                $context["key"] = twig_replace_filter((isset($context["key"]) ? $context["key"] : null), array("%5B" => "[", "%5D" => "]"));
+                // line 19
                 echo "
             <input
                 data-grav-array-type=\"key\"
                 type=\"text\" value=\"";
-                // line 21
+                // line 22
                 echo twig_escape_filter($this->env, (isset($context["key"]) ? $context["key"] : null), "html", null, true);
                 echo "\"
                 ";
-                // line 22
+                // line 23
                 if (($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "disabled", array()) || (isset($context["isDisabledToggleable"]) ? $context["isDisabledToggleable"] : null))) {
                     echo "disabled=\"disabled\"";
                 }
-                // line 23
+                // line 24
                 echo "                placeholder=\"";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder_key", array()))), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder_key", array()))), "html", null, true);
                 echo "\" />
         ";
             }
-            // line 25
+            // line 26
             echo "
         <input
             data-grav-array-type=\"value\"
             type=\"text\"
             name=\"";
-            // line 29
+            // line 30
             echo twig_escape_filter($this->env, ((($this->env->getExtension('Grav\Common\Twig\TwigExtension')->fieldNameFilter(((isset($context["scope"]) ? $context["scope"] : null) . $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "name", array()))) . "[") . (isset($context["key"]) ? $context["key"] : null)) . "]"), "html", null, true);
             echo "\"
             placeholder=\"";
-            // line 30
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder_value", array()))), "html", null, true);
+            // line 31
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder_value", array()))), "html", null, true);
             echo "\"
             ";
-            // line 31
+            // line 32
             if (($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "disabled", array()) || (isset($context["isDisabledToggleable"]) ? $context["isDisabledToggleable"] : null))) {
                 echo "disabled=\"disabled\"";
             }
-            // line 32
+            // line 33
             echo "            value=";
             if (((isset($context["text"]) ? $context["text"] : null) == "true")) {
                 echo "true";
@@ -262,7 +265,7 @@ class __TwigTemplate_1581f5e532f0e5b7dfb558c91e4030622d2e698a510aa7e0ce485839b44
 
     public function getDebugInfo()
     {
-        return array (  224 => 32,  220 => 31,  216 => 30,  212 => 29,  206 => 25,  200 => 23,  196 => 22,  192 => 21,  187 => 18,  184 => 17,  181 => 16,  178 => 15,  176 => 14,  167 => 11,  152 => 10,  147 => 74,  139 => 69,  135 => 68,  131 => 67,  126 => 64,  120 => 62,  116 => 61,  111 => 58,  109 => 57,  105 => 55,  98 => 52,  95 => 51,  87 => 49,  82 => 48,  80 => 47,  74 => 45,  72 => 44,  67 => 43,  65 => 42,  57 => 41,  54 => 40,  51 => 39,  45 => 7,  41 => 6,  37 => 5,  32 => 4,  29 => 3,  11 => 1,);
+        return array (  227 => 33,  223 => 32,  219 => 31,  215 => 30,  209 => 26,  203 => 24,  199 => 23,  195 => 22,  190 => 19,  187 => 18,  184 => 17,  181 => 16,  178 => 15,  176 => 14,  167 => 11,  152 => 10,  147 => 75,  139 => 70,  135 => 69,  131 => 68,  126 => 65,  120 => 63,  116 => 62,  111 => 59,  109 => 58,  105 => 56,  98 => 53,  95 => 52,  87 => 50,  82 => 49,  80 => 48,  74 => 46,  72 => 45,  67 => 44,  65 => 43,  57 => 42,  54 => 41,  51 => 40,  45 => 7,  41 => 6,  37 => 5,  32 => 4,  29 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -292,6 +295,7 @@ class __TwigTemplate_1581f5e532f0e5b7dfb558c91e4030622d2e698a510aa7e0ce485839b44
             {% if key == '0' and text == '' %}
                 {% set key = '' %}
             {% endif %}
+            {% set key = key|replace({'%5B': '[', '%5D': ']'}) %}
 
             <input
                 data-grav-array-type=\"key\"

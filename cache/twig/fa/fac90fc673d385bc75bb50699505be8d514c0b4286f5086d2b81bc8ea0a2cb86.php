@@ -44,16 +44,16 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
                 // line 17
                 $context["exists"] = true;
                 // line 18
-                $context["title"] = (((($this->getAttribute((isset($context["context"]) ? $context["context"] : null), "exists", array())) ? ($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.EDIT")) : ($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CREATE"))) . " ") . (($this->getAttribute($this->getAttribute((isset($context["context"]) ? $context["context"] : null), "header", array()), "title", array())) ? ($this->getAttribute($this->getAttribute((isset($context["context"]) ? $context["context"] : null), "header", array()), "title", array())) : ($this->getAttribute((isset($context["context"]) ? $context["context"] : null), "title", array()))));
+                $context["title"] = (((($this->getAttribute((isset($context["context"]) ? $context["context"] : null), "exists", array())) ? ($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.EDIT")) : ($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CREATE"))) . " ") . (($this->getAttribute($this->getAttribute((isset($context["context"]) ? $context["context"] : null), "header", array()), "title", array())) ? ($this->getAttribute($this->getAttribute((isset($context["context"]) ? $context["context"] : null), "header", array()), "title", array())) : ($this->getAttribute((isset($context["context"]) ? $context["context"] : null), "title", array()))));
             } else {
                 // line 20
-                $context["title"] = $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ADD_PAGE");
+                $context["title"] = $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ADD_PAGE");
             }
         } else {
             // line 23
             $context["mode"] = "list";
             // line 24
-            $context["title"] = $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PAGES");
+            $context["title"] = $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PAGES");
         }
         // line 27
         $context["modular"] = (($this->getAttribute((isset($context["context"]) ? $context["context"] : null), "modular", array())) ? ("modular_") : (""));
@@ -114,14 +114,14 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
             echo "            <a class=\"button\" href=\"";
             echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
             echo "\"><i class=\"fa fa-reply\"></i> ";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BACK"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BACK"), "html", null, true);
             echo "</a>
 
             <div class=\"button-group\">
                 <button type=\"button\" class=\"button disabled\" href=\"#modal\" data-remodal-target=\"modal\">
                     <i class=\"fa fa-plus\"></i> ";
             // line 117
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ADD_PAGE"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ADD_PAGE"), "html", null, true);
             echo "
                 </button>
                 <button type=\"button\" class=\"button dropdown-toggle\" data-toggle=\"dropdown\">
@@ -130,14 +130,14 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
                 <ul class=\"dropdown-menu\">
                     <li><a class=\"button\" href=\"#modal-folder\" data-remodal-target=\"modal-folder\">";
             // line 123
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ADD_FOLDER"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ADD_FOLDER"), "html", null, true);
             echo "</a></li>
                     ";
             // line 124
             if ( !twig_test_empty($this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "modularTypes", array()))) {
                 // line 125
                 echo "                        <li><a class=\"button\" href=\"#modular\" data-remodal-target=\"modular\">";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ADD_MODULAR"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ADD_MODULAR"), "html", null, true);
                 echo "</a></li>
                     ";
             }
@@ -215,7 +215,7 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
             // line 155
             echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
             echo "/pages\"><i class=\"fa fa-reply\"></i> ";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BACK"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BACK"), "html", null, true);
             echo "</a>
             ";
             // line 156
@@ -224,18 +224,18 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
                 echo "                <a class=\"button disable-after-click\" href=\"";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["uri"]) ? $context["uri"] : null), "addNonce", array(0 => ((((isset($context["page_url"]) ? $context["page_url"] : null) . "/task") . $this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "system", array()), "param_sep", array())) . "copy"), 1 => "admin-form", 2 => "admin-nonce"), "method"), "html", null, true);
                 echo "\" class=\"page-copy\" ><i class=\"fa fa-copy\"></i> ";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.COPY"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.COPY"), "html", null, true);
                 echo "</a>
                 <a class=\"button\" href=\"#\" data-remodal-target=\"move\"><i class=\"fa fa-arrows\"></i> ";
                 // line 158
-                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MOVE"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MOVE"), "html", null, true);
                 echo "</a>
                 ";
                 // line 159
                 if ($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "plugins", array()), "admin-pro", array(), "array"), "enabled", array())) {
                     // line 160
                     echo "                    <a class=\"button\" href=\"#\" data-remodal-target=\"revisions\"><i class=\"fa fa-history\"></i> ";
-                    echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN_PRO.REVISIONS"), "html", null, true);
+                    echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN_PRO.REVISIONS"), "html", null, true);
                     echo "</a>
                 ";
                 }
@@ -246,7 +246,7 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
                     echo "                    <a class=\"button\" href=\"#delete\" data-remodal-target=\"delete\" data-delete-url=\"";
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["uri"]) ? $context["uri"] : null), "addNonce", array(0 => ((((isset($context["page_url"]) ? $context["page_url"] : null) . "/task") . $this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "system", array()), "param_sep", array())) . "delete"), 1 => "admin-form", 2 => "admin-nonce"), "method"), "html", null, true);
                     echo "\"><i class=\"fa fa-close\"></i> ";
-                    echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DELETE"), "html", null, true);
+                    echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DELETE"), "html", null, true);
                     echo "</a>
                 ";
                 } else {
@@ -262,9 +262,9 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
             // line 168
             echo "
             <div class=\"button-group\">
-                <button class=\"button disable-after-click\" name=\"task\" value=\"save\" form=\"blueprints\" type=\"submit\"><i class=\"fa fa-check\"></i> ";
+                <button class=\"button\" name=\"task\" value=\"save\" form=\"blueprints\" type=\"submit\"><i class=\"fa fa-check\"></i> ";
             // line 170
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SAVE"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SAVE"), "html", null, true);
             echo "</button>
                 ";
             // line 171
@@ -289,10 +289,10 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
                         echo "                                ";
                         if (($context["langCode"] != (isset($context["page_lang"]) ? $context["page_lang"] : null))) {
                             // line 180
-                            echo "                                    <li><button class=\"button disable-after-click task\" name=\"task\" value=\"saveas\" lang=\"";
+                            echo "                                    <li><button class=\"button task\" name=\"task\" value=\"saveas\" lang=\"";
                             echo twig_escape_filter($this->env, $context["langCode"], "html", null, true);
                             echo "\" form=\"blueprints\" type=\"submit\">";
-                            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SAVE_AS"), "html", null, true);
+                            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SAVE_AS"), "html", null, true);
                             echo " ";
                             echo twig_escape_filter($this->env, (twig_upper_filter($this->env, twig_slice($this->env, (isset($context["langName"]) ? $context["langName"] : null), 0, 1)) . twig_slice($this->env, (isset($context["langName"]) ? $context["langName"] : null), 1, null)), "html", null, true);
                             echo "</button>
@@ -324,7 +324,7 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
         if (((isset($context["mode"]) ? $context["mode"] : null) == "new")) {
             // line 192
             echo "        <h1><i class=\"fa fa-fw fa-file-text-o\"></i> ";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ADD_PAGE"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ADD_PAGE"), "html", null, true);
             echo "</h1>
     ";
         } elseif ((        // line 193
@@ -333,7 +333,7 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
             echo "        <h1><i class=\"fa fa-fw fa-file-text-o\"></i>
             ";
             // line 195
-            echo twig_escape_filter($this->env, (($this->getAttribute((isset($context["context"]) ? $context["context"] : null), "exists", array())) ? ($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.EDIT")) : ($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CREATE"))), "html", null, true);
+            echo twig_escape_filter($this->env, (($this->getAttribute((isset($context["context"]) ? $context["context"] : null), "exists", array())) ? ($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.EDIT")) : ($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CREATE"))), "html", null, true);
             echo " <i>";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["context"]) ? $context["context"] : null), "menu", array()), "html", null, true);
             echo "</i>
@@ -342,7 +342,7 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
         } else {
             // line 198
             echo "        <h1><i class=\"fa fa-fw fa-file-text-o\"></i> ";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MANAGE_PAGES"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MANAGE_PAGES"), "html", null, true);
             echo "</h1>
     ";
         }
@@ -436,10 +436,10 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
             if ($this->getAttribute($this->getAttribute((isset($context["context"]) ? $context["context"] : null), "blueprints", array()), "fields", array())) {
                 // line 235
                 echo "                ";
-                $context["normalText"] = $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.NORMAL");
+                $context["normalText"] = $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.NORMAL");
                 // line 236
                 echo "                ";
-                $context["expertText"] = $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.EXPERT");
+                $context["expertText"] = $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.EXPERT");
                 // line 237
                 echo "                ";
                 $context["maxLen"] = max(array(0 => twig_length_filter($this->env, (isset($context["normalText"]) ? $context["normalText"] : null)), 1 => twig_length_filter($this->env, (isset($context["expertText"]) ? $context["expertText"] : null))));
@@ -517,29 +517,29 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
             <div class=\"page-filters\">
                 <input type=\"text\" data-filter-labels=\"";
             // line 262
-            echo twig_escape_filter($this->env, twig_jsonencode_filter(array(0 => array("id" => "mode", "name" => $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PAGE_MODES")), 1 => array("id" => "type", "name" => $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PAGE_TYPES")), 2 => array("id" => "access", "name" => $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ACCESS_LEVELS")))), "html_attr");
+            echo twig_escape_filter($this->env, twig_jsonencode_filter(array(0 => array("id" => "mode", "name" => $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PAGE_MODES")), 1 => array("id" => "type", "name" => $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PAGE_TYPES")), 2 => array("id" => "access", "name" => $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ACCESS_LEVELS")))), "html_attr");
             echo "\" data-filter-types=\"";
             echo twig_escape_filter($this->env, twig_jsonencode_filter(twig_array_merge($this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "types", array()), $this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "modularTypes", array()))), "html_attr");
             echo "\" data-filter-access-levels=\"";
             echo twig_escape_filter($this->env, twig_jsonencode_filter($this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "accessLevels", array())), "html_attr");
             echo "\" placeholder=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ADD_FILTERS"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ADD_FILTERS"), "html", null, true);
             echo "\" class=\"page-filter\" name=\"page-filter\" />
             </div>
             <div class=\"page-search\">
                 <input type=\"text\" placeholder=\"";
             // line 265
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SEARCH_PAGES"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SEARCH_PAGES"), "html", null, true);
             echo "\" name=\"page-search\" />
             </div>
             <div class=\"page-shortcuts\">
                 <span class=\"button button-x-small\" data-page-toggleall=\"expand\"><i class=\"fa fa-fw fa-plus-circle\"></i> ";
             // line 268
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.EXPAND_ALL"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.EXPAND_ALL"), "html", null, true);
             echo "</span>
                 <span class=\"button button-x-small\" data-page-toggleall=\"collapse\"><i class=\"fa fa-fw fa-minus-circle\"></i> ";
             // line 269
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.COLLAPSE_ALL"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.COLLAPSE_ALL"), "html", null, true);
             echo "</span>
             </div>
         </form>
@@ -620,7 +620,7 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
         <form>
             <h1>";
         // line 311
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MODAL_DELETE_PAGE_CONFIRMATION_REQUIRED_TITLE"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MODAL_DELETE_PAGE_CONFIRMATION_REQUIRED_TITLE"), "html", null, true);
         echo "</h1>
             <p class=\"bigger\">
                 ";
@@ -628,7 +628,7 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
         if ((isset($context["context"]) ? $context["context"] : null)) {
             // line 314
             echo "                    <strong>";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PAGE"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PAGE"), "html", null, true);
             echo ": ";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["context"]) ? $context["context"] : null), "title", array()), "html", null, true);
             echo "</strong>
@@ -639,22 +639,33 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
             <p class=\"bigger\">
               ";
         // line 318
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MODAL_DELETE_PAGE_CONFIRMATION_REQUIRED_DESC"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MODAL_DELETE_PAGE_CONFIRMATION_REQUIRED_DESC"), "html", null, true);
         echo "
             </p>
             <br>
             <div class=\"button-bar\">
             <button data-remodal-action=\"cancel\" class=\"button secondary remodal-cancel\"><i class=\"fa fa-fw fa-close\"></i> ";
         // line 322
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CANCEL"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CANCEL"), "html", null, true);
         echo "</button>
             <a class=\"button disable-after-click\" data-delete-action href=\"#\"><i class=\"fa fa-fw fa-check\"></i> ";
         // line 323
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CONTINUE"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CONTINUE"), "html", null, true);
         echo "</a>
             </div>
         </form>
     </div>
+
+    ";
+        // line 328
+        try {
+            $this->loadTemplate("partials/admin-pro-pages-addons.html.twig", "pages.html.twig", 328)->display($context);
+        } catch (Twig_Error_Loader $e) {
+            // ignore missing template
+        }
+
+        // line 329
+        echo "
 ";
     }
 
@@ -756,11 +767,11 @@ class __TwigTemplate_171f34ad9fde0866a8a9aee747ae8d2283e7525b8de3868c0b562af6efb
             foreach ($context['_seq'] as $context["_key"] => $context["p"]) {
                 // line 65
                 echo "        ";
-                $context["description"] = (((((( !$this->getAttribute($context["p"], "page", array())) ? (($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.FOLDER") . " &bull; ")) : (($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PAGE") . " &bull; "))) . (($this->getAttribute(                // line 66
-$context["p"], "modular", array())) ? (($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MODULAR") . " &bull; ")) : (""))) . (($this->getAttribute(                // line 67
-$context["p"], "routable", array())) ? (($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ROUTABLE") . " &bull; ")) : (($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.NON_ROUTABLE") . " &bull; ")))) . (($this->getAttribute(                // line 68
-$context["p"], "visible", array())) ? (($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.VISIBLE") . " &bull; ")) : (($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.NON_VISIBLE") . " &bull; ")))) . (($this->getAttribute(                // line 69
-$context["p"], "published", array())) ? (($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PUBLISHED") . " &bull; ")) : (($this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.NON_PUBLISHED") . " &bull; "))));
+                $context["description"] = (((((( !$this->getAttribute($context["p"], "page", array())) ? (($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.FOLDER") . " &bull; ")) : (($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PAGE") . " &bull; "))) . (($this->getAttribute(                // line 66
+$context["p"], "modular", array())) ? (($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MODULAR") . " &bull; ")) : (""))) . (($this->getAttribute(                // line 67
+$context["p"], "routable", array())) ? (($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ROUTABLE") . " &bull; ")) : (($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.NON_ROUTABLE") . " &bull; ")))) . (($this->getAttribute(                // line 68
+$context["p"], "visible", array())) ? (($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.VISIBLE") . " &bull; ")) : (($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.NON_VISIBLE") . " &bull; ")))) . (($this->getAttribute(                // line 69
+$context["p"], "published", array())) ? (($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.PUBLISHED") . " &bull; ")) : (($this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.NON_PUBLISHED") . " &bull; "))));
                 // line 70
                 echo "        ";
                 $context["page_route"] = trim($this->getAttribute($context["p"], "rawRoute", array()), "/");
@@ -899,7 +910,7 @@ $context["p"], "published", array())) ? (($this->env->getExtension('Grav\Plugin\
 
     public function getDebugInfo()
     {
-        return array (  871 => 105,  865 => 102,  861 => 101,  858 => 100,  856 => 99,  849 => 97,  846 => 96,  840 => 94,  834 => 92,  832 => 91,  825 => 88,  815 => 86,  813 => 85,  806 => 83,  802 => 82,  795 => 80,  791 => 79,  786 => 77,  783 => 76,  780 => 75,  777 => 74,  774 => 73,  771 => 72,  768 => 71,  765 => 70,  763 => 69,  762 => 68,  761 => 67,  760 => 66,  758 => 65,  754 => 64,  751 => 63,  748 => 62,  745 => 61,  742 => 60,  739 => 59,  736 => 58,  733 => 57,  731 => 56,  728 => 55,  725 => 54,  722 => 53,  719 => 52,  716 => 51,  713 => 50,  710 => 49,  707 => 48,  693 => 47,  675 => 4,  662 => 3,  653 => 323,  649 => 322,  642 => 318,  638 => 316,  630 => 314,  628 => 313,  623 => 311,  618 => 308,  616 => 307,  613 => 306,  609 => 304,  607 => 303,  603 => 301,  601 => 300,  597 => 298,  595 => 297,  592 => 296,  587 => 293,  585 => 292,  580 => 289,  578 => 288,  573 => 285,  571 => 284,  567 => 282,  565 => 281,  561 => 279,  557 => 277,  555 => 276,  550 => 274,  542 => 269,  538 => 268,  532 => 265,  520 => 262,  516 => 260,  512 => 258,  509 => 257,  506 => 256,  503 => 255,  500 => 254,  498 => 253,  493 => 250,  485 => 245,  473 => 244,  469 => 243,  457 => 242,  453 => 240,  450 => 239,  447 => 238,  444 => 237,  441 => 236,  438 => 235,  436 => 234,  433 => 233,  429 => 231,  425 => 229,  419 => 228,  409 => 226,  406 => 225,  402 => 224,  396 => 220,  394 => 219,  391 => 218,  385 => 216,  379 => 214,  377 => 213,  373 => 211,  371 => 210,  366 => 207,  363 => 206,  360 => 205,  358 => 204,  355 => 203,  352 => 202,  344 => 198,  336 => 195,  333 => 194,  331 => 193,  326 => 192,  324 => 191,  321 => 190,  315 => 186,  312 => 185,  308 => 183,  302 => 182,  292 => 180,  289 => 179,  286 => 178,  282 => 177,  276 => 173,  273 => 172,  271 => 171,  267 => 170,  263 => 168,  260 => 167,  254 => 165,  246 => 163,  243 => 162,  237 => 160,  235 => 159,  231 => 158,  224 => 157,  222 => 156,  216 => 155,  212 => 154,  209 => 153,  207 => 152,  204 => 151,  200 => 149,  196 => 147,  190 => 146,  182 => 144,  179 => 143,  176 => 142,  172 => 141,  166 => 137,  164 => 136,  158 => 134,  156 => 133,  151 => 130,  149 => 129,  145 => 127,  139 => 125,  137 => 124,  133 => 123,  124 => 117,  114 => 113,  112 => 112,  109 => 111,  106 => 110,  99 => 41,  96 => 40,  89 => 37,  86 => 36,  83 => 35,  80 => 34,  77 => 33,  73 => 1,  71 => 45,  69 => 44,  67 => 31,  65 => 30,  63 => 29,  61 => 28,  59 => 27,  56 => 24,  54 => 23,  50 => 20,  47 => 18,  45 => 17,  43 => 16,  41 => 15,  39 => 14,  37 => 13,  35 => 12,  33 => 11,  30 => 8,  28 => 7,  11 => 1,);
+        return array (  882 => 105,  876 => 102,  872 => 101,  869 => 100,  867 => 99,  860 => 97,  857 => 96,  851 => 94,  845 => 92,  843 => 91,  836 => 88,  826 => 86,  824 => 85,  817 => 83,  813 => 82,  806 => 80,  802 => 79,  797 => 77,  794 => 76,  791 => 75,  788 => 74,  785 => 73,  782 => 72,  779 => 71,  776 => 70,  774 => 69,  773 => 68,  772 => 67,  771 => 66,  769 => 65,  765 => 64,  762 => 63,  759 => 62,  756 => 61,  753 => 60,  750 => 59,  747 => 58,  744 => 57,  742 => 56,  739 => 55,  736 => 54,  733 => 53,  730 => 52,  727 => 51,  724 => 50,  721 => 49,  718 => 48,  704 => 47,  686 => 4,  673 => 3,  668 => 329,  661 => 328,  653 => 323,  649 => 322,  642 => 318,  638 => 316,  630 => 314,  628 => 313,  623 => 311,  618 => 308,  616 => 307,  613 => 306,  609 => 304,  607 => 303,  603 => 301,  601 => 300,  597 => 298,  595 => 297,  592 => 296,  587 => 293,  585 => 292,  580 => 289,  578 => 288,  573 => 285,  571 => 284,  567 => 282,  565 => 281,  561 => 279,  557 => 277,  555 => 276,  550 => 274,  542 => 269,  538 => 268,  532 => 265,  520 => 262,  516 => 260,  512 => 258,  509 => 257,  506 => 256,  503 => 255,  500 => 254,  498 => 253,  493 => 250,  485 => 245,  473 => 244,  469 => 243,  457 => 242,  453 => 240,  450 => 239,  447 => 238,  444 => 237,  441 => 236,  438 => 235,  436 => 234,  433 => 233,  429 => 231,  425 => 229,  419 => 228,  409 => 226,  406 => 225,  402 => 224,  396 => 220,  394 => 219,  391 => 218,  385 => 216,  379 => 214,  377 => 213,  373 => 211,  371 => 210,  366 => 207,  363 => 206,  360 => 205,  358 => 204,  355 => 203,  352 => 202,  344 => 198,  336 => 195,  333 => 194,  331 => 193,  326 => 192,  324 => 191,  321 => 190,  315 => 186,  312 => 185,  308 => 183,  302 => 182,  292 => 180,  289 => 179,  286 => 178,  282 => 177,  276 => 173,  273 => 172,  271 => 171,  267 => 170,  263 => 168,  260 => 167,  254 => 165,  246 => 163,  243 => 162,  237 => 160,  235 => 159,  231 => 158,  224 => 157,  222 => 156,  216 => 155,  212 => 154,  209 => 153,  207 => 152,  204 => 151,  200 => 149,  196 => 147,  190 => 146,  182 => 144,  179 => 143,  176 => 142,  172 => 141,  166 => 137,  164 => 136,  158 => 134,  156 => 133,  151 => 130,  149 => 129,  145 => 127,  139 => 125,  137 => 124,  133 => 123,  124 => 117,  114 => 113,  112 => 112,  109 => 111,  106 => 110,  99 => 41,  96 => 40,  89 => 37,  86 => 36,  83 => 35,  80 => 34,  77 => 33,  73 => 1,  71 => 45,  69 => 44,  67 => 31,  65 => 30,  63 => 29,  61 => 28,  59 => 27,  56 => 24,  54 => 23,  50 => 20,  47 => 18,  45 => 17,  43 => 16,  41 => 15,  39 => 14,  37 => 13,  35 => 12,  33 => 11,  30 => 8,  28 => 7,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -1081,7 +1092,7 @@ $context["p"], "published", array())) ? (($this->env->getExtension('Grav\Plugin\
             {% endif %}
 
             <div class=\"button-group\">
-                <button class=\"button disable-after-click\" name=\"task\" value=\"save\" form=\"blueprints\" type=\"submit\"><i class=\"fa fa-check\"></i> {{ \"PLUGIN_ADMIN.SAVE\"|tu }}</button>
+                <button class=\"button\" name=\"task\" value=\"save\" form=\"blueprints\" type=\"submit\"><i class=\"fa fa-check\"></i> {{ \"PLUGIN_ADMIN.SAVE\"|tu }}</button>
                 {% if exists and admin.multilang %}
                     {% if context.untranslatedLanguages %}
                         <button type=\"button\" class=\"button dropdown-toggle\" data-toggle=\"dropdown\">
@@ -1091,7 +1102,7 @@ $context["p"], "published", array())) ? (($this->env->getExtension('Grav\Plugin\
                             {% for langCode in context.untranslatedLanguages %}
                                 {% set langName = admin.siteLanguages[langCode] %}
                                 {% if langCode != page_lang %}
-                                    <li><button class=\"button disable-after-click task\" name=\"task\" value=\"saveas\" lang=\"{{langCode}}\" form=\"blueprints\" type=\"submit\">{{ \"PLUGIN_ADMIN.SAVE_AS\"|tu }} {{ langName[:1]|upper ~ langName[1:] }}</button>
+                                    <li><button class=\"button task\" name=\"task\" value=\"saveas\" lang=\"{{langCode}}\" form=\"blueprints\" type=\"submit\">{{ \"PLUGIN_ADMIN.SAVE_AS\"|tu }} {{ langName[:1]|upper ~ langName[1:] }}</button>
                                 {% endif %}
                             {% endfor %}
                         </ul>
@@ -1238,6 +1249,9 @@ $context["p"], "published", array())) ? (($this->env->getExtension('Grav\Plugin\
             </div>
         </form>
     </div>
+
+    {% include 'partials/admin-pro-pages-addons.html.twig' ignore missing %}
+
 {% endblock %}
 ", "pages.html.twig", "/home/ubuntu/workspace/user/plugins/admin/themes/grav/templates/pages.html.twig");
     }

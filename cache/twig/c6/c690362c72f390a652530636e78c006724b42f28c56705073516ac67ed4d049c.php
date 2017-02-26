@@ -57,12 +57,13 @@ class __TwigTemplate_e63b8d982c8a0f2c5e809bda3d9cabcc9b02d3e2d68500d9350955bca01
             $context["field"] = array("type" => "select", "classes" => "fancy create", "label" => twig_capitalize_string_filter($this->env,             // line 13
 $context["name"]), "name" => ((            // line 14
 (isset($context["parentname"]) ? $context["parentname"] : null) . ".") . $context["name"]), "multiple" => true, "options" =>             // line 16
-(isset($context["list"]) ? $context["list"] : null), "selectize" => array("create" => true));
-            // line 21
+(isset($context["list"]) ? $context["list"] : null), "style" => $this->getAttribute(            // line 17
+(isset($context["field"]) ? $context["field"] : null), "style", array()), "selectize" => array("create" => true));
+            // line 22
             echo "
     ";
-            // line 22
-            $this->loadTemplate(array(0 => "forms/fields/select/select.html.twig"), "forms/fields/taxonomy/taxonomy.html.twig", 22)->display($context);
+            // line 23
+            $this->loadTemplate(array(0 => "forms/fields/select/select.html.twig"), "forms/fields/taxonomy/taxonomy.html.twig", 23)->display($context);
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
             $context['loop']['first'] = false;
@@ -89,7 +90,7 @@ $context["name"]), "name" => ((            // line 14
 
     public function getDebugInfo()
     {
-        return array (  65 => 22,  62 => 21,  60 => 16,  59 => 14,  58 => 13,  57 => 10,  54 => 9,  51 => 8,  48 => 7,  46 => 6,  43 => 5,  26 => 4,  23 => 3,  21 => 2,  19 => 1,);
+        return array (  66 => 23,  63 => 22,  61 => 17,  60 => 16,  59 => 14,  58 => 13,  57 => 10,  54 => 9,  51 => 8,  48 => 7,  46 => 6,  43 => 5,  26 => 4,  23 => 3,  21 => 2,  19 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -118,6 +119,7 @@ $context["name"]), "name" => ((            // line 14
         name: parentname ~ '.' ~ name,
         multiple: true,
         options: list,
+        style: field.style,
         selectize: {
             create: true
         }

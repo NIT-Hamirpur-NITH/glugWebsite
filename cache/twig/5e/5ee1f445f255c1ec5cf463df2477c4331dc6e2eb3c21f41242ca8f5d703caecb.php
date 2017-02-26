@@ -115,7 +115,7 @@ class __TwigTemplate_498fb09ce8420b5044def67299162a8f466232cb3d79ca81203c608d324
         if ($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder", array())) {
             echo "<option value=\"\" disabled selected>";
             if ($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["grav"]) ? $context["grav"] : null), "twig", array(), "any", false, true), "twig", array(), "any", false, true), "filters", array(), "any", false, true), "tu", array(), "array", true, true)) {
-                echo $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder", array()));
+                echo $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder", array()));
             } else {
                 echo $this->env->getExtension('Grav\Common\Twig\TwigExtension')->translate($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "placeholder", array()));
             }
@@ -143,7 +143,7 @@ class __TwigTemplate_498fb09ce8420b5044def67299162a8f466232cb3d79ca81203c608d324
             echo twig_escape_filter($this->env, (isset($context["item_value"]) ? $context["item_value"] : null), "html", null, true);
             echo "\">";
             if ($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["grav"]) ? $context["grav"] : null), "twig", array(), "any", false, true), "twig", array(), "any", false, true), "filters", array(), "any", false, true), "tu", array(), "array", true, true)) {
-                echo $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter($context["text"]);
+                echo $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter($context["text"]);
             } else {
                 echo $this->env->getExtension('Grav\Common\Twig\TwigExtension')->translate($context["text"]);
             }

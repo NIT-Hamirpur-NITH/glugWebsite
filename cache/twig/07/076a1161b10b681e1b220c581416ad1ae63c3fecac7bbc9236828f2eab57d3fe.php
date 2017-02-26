@@ -85,7 +85,7 @@ class __TwigTemplate_95c9cb5079776030e3767d57011adc52eddea6f123d64d0e7ccb69e8f5b
             ";
                     // line 18
                     if ($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["grav"]) ? $context["grav"] : null), "twig", array(), "any", false, true), "twig", array(), "any", false, true), "filters", array(), "any", false, true), "tu", array(), "array", true, true)) {
-                        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter($this->getAttribute($context["tab"], "title", array())), "html", null, true);
+                        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter($this->getAttribute($context["tab"], "title", array())), "html", null, true);
                     } else {
                         echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Common\Twig\TwigExtension')->translate($this->getAttribute($context["tab"], "title", array())), "html", null, true);
                     }

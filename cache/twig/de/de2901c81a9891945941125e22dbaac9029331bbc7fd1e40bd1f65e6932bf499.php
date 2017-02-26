@@ -26,7 +26,7 @@ class __TwigTemplate_68938c11a25a749d8e5fbfb8ebceff66ee8cf64e1b737a1bf1991740988
         <div class=\"secondary-accent default-box-shadow\">
             <h1>";
             // line 6
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MAINTENANCE"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MAINTENANCE"), "html", null, true);
             echo "</h1>
             <div class=\"admin-update-charts\">
                 <div class=\"updates-chart\" data-chart-name=\"updates\" data-chart-type=\"pie\" data-chart-data=\"";
@@ -37,7 +37,7 @@ class __TwigTemplate_68938c11a25a749d8e5fbfb8ebceff66ee8cf64e1b737a1bf1991740988
                         <div class=\"ct-chart chart-loader\"><i class=\"fa fa-refresh fa-spin\"></i></div>
                         <span class=\"numeric hidden\"><span>-</span><em>";
             // line 11
-            echo twig_escape_filter($this->env, twig_lower_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.UPDATED")), "html", null, true);
+            echo twig_escape_filter($this->env, twig_lower_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.UPDATED")), "html", null, true);
             echo "</em></span>
                     </div>
                     <p class=\"js__updates-available-description\">&nbsp;</p>
@@ -52,12 +52,12 @@ class __TwigTemplate_68938c11a25a749d8e5fbfb8ebceff66ee8cf64e1b737a1bf1991740988
             // line 18
             echo $this->getAttribute((isset($context["backup"]) ? $context["backup"] : null), "days", array());
             echo "<em>";
-            echo twig_escape_filter($this->env, twig_lower_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DAYS")), "html", null, true);
+            echo twig_escape_filter($this->env, twig_lower_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.DAYS")), "html", null, true);
             echo "</em></span>
                     </div>
                     <p class=\"hidden\">";
             // line 20
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.LAST_BACKUP"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.LAST_BACKUP"), "html", null, true);
             echo "</p>
                 </div>
             </div>
@@ -65,13 +65,13 @@ class __TwigTemplate_68938c11a25a749d8e5fbfb8ebceff66ee8cf64e1b737a1bf1991740988
             <div class=\"flush-bottom button-bar\">
                 <a class=\"button hidden\" href=\"#\" data-update-packages data-remodal-target=\"update-packages\"  data-plugin-action=\"start-packages-update\"><i class=\"fa fa-cloud-download\"></i> ";
             // line 25
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.UPDATE"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.UPDATE"), "html", null, true);
             echo "</a>
                 <button data-ajax=\"";
             // line 26
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["uri"]) ? $context["uri"] : null), "addNonce", array(0 => ((((isset($context["base_url_relative"]) ? $context["base_url_relative"] : null) . "/backup.json/task") . $this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "system", array()), "param_sep", array())) . "backup"), 1 => "admin-form", 2 => "admin-nonce"), "method"), "html", null, true);
             echo "\" class=\"button\"><i class=\"fa fa-database\"></i> ";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BACKUP"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.BACKUP"), "html", null, true);
             echo "</button>
             </div>
         </div>

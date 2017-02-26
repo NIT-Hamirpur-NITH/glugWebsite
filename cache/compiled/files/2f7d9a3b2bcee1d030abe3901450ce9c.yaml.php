@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/recaptchacontact/blueprints.yaml',
-    'modified' => 1487788176,
+    'modified' => 1487963216,
     'data' => [
         'name' => 'reCAPTCHA Contact',
         'version' => '2.1.0',

@@ -2,13 +2,13 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/blueprints/admin/pages/modular_new.yaml',
-    'modified' => 1487494962,
+    'modified' => 1487963216,
     'data' => [
         'rules' => [
             'slug' => [
-                'pattern' => '[a-z][a-z0-9_\\-]+',
-                'min' => 2,
-                'max' => 80
+                'pattern' => '[a-zA-Zа-яA-Я0-9_\\-]+',
+                'min' => 1,
+                'max' => 200
             ]
         ],
         'form' => [
@@ -29,7 +29,7 @@ return [
                     'type' => 'text',
                     'label' => 'PLUGIN_ADMIN.FOLDER_NAME',
                     'validate' => [
-                        'type' => 'slug',
+                        'rule' => 'slug',
                         'required' => true
                     ]
                 ],
@@ -38,7 +38,7 @@ return [
                     'label' => 'PLUGIN_ADMIN.PAGE',
                     'classes' => 'fancy',
                     'data-options@' => '\\Grav\\Common\\Page\\Pages::parentsRawRoutes',
-                    'data-default@' => '\\Grav\\Plugin\\admin::rawRoute',
+                    'data-default@' => '\\Grav\\Plugin\\Admin\\Admin::rawRoute',
                     'validate' => [
                         'required' => true
                     ]

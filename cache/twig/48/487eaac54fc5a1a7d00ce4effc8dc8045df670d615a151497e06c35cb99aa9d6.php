@@ -27,7 +27,7 @@ class __TwigTemplate_141564bead54fd217151b4497234645ac4678828f55c409df2f015b2abc
         // line 4
         $context["default_php_dateformat"] = $this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "guessDateFormat", array(0 => (isset($context["value"]) ? $context["value"] : null)), "method");
         // line 5
-        $context["php_dateformat"] = (($this->getAttribute($this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "page", array()), "dateformat", array())) ? ($this->getAttribute($this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "page", array()), "dateformat", array())) : ((($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "system", array()), "pages", array()), "dateformat", array()), "default", array())) ? ($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "system", array()), "pages", array()), "dateformat", array()), "default", array())) : ((isset($context["default_php_dateformat"]) ? $context["default_php_dateformat"] : null)))));
+        $context["php_dateformat"] = (($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "format", array())) ? ($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "format", array())) : ((($this->getAttribute($this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "page", array()), "dateformat", array())) ? ($this->getAttribute($this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "page", array()), "dateformat", array())) : ((($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "system", array()), "pages", array()), "dateformat", array()), "default", array())) ? ($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "system", array()), "pages", array()), "dateformat", array()), "default", array())) : ((isset($context["default_php_dateformat"]) ? $context["default_php_dateformat"] : null)))))));
         // line 6
         $context["js_dateformat"] = $this->getAttribute((isset($context["admin"]) ? $context["admin"] : null), "dateformatToMomentJS", array(0 => (isset($context["php_dateformat"]) ? $context["php_dateformat"] : null)), "method");
         // line 7
@@ -123,7 +123,7 @@ class __TwigTemplate_141564bead54fd217151b4497234645ac4678828f55c409df2f015b2abc
 
 {% set value = (value is null ? field.default : value) %}
 {% set default_php_dateformat = admin.guessDateFormat(value) %}
-{% set php_dateformat = admin.page.dateformat ?: config.system.pages.dateformat.default ?: default_php_dateformat %}
+{% set php_dateformat = field.format ?: admin.page.dateformat ?: config.system.pages.dateformat.default ?: default_php_dateformat %}
 {% set js_dateformat = admin.dateformatToMomentJS(php_dateformat) %}
 {% set value = (value is null ? value : value|date(php_dateformat)) %}
 

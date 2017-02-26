@@ -24,12 +24,12 @@ class __TwigTemplate_8825d0c2f581f91c24331c90376ca960266304aa7311a70a6ad71ab82af
             // line 4
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["uri"]) ? $context["uri"] : null), "route", array(0 => true), "method"), "html", null, true);
             echo "/pages\"><i class=\"fa fa-fw fa-file-text-o\"></i>";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MANAGE_PAGES"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MANAGE_PAGES"), "html", null, true);
             echo "</a>
         </div>
         <h1>";
             // line 6
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.LATEST_PAGE_UPDATES"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.LATEST_PAGE_UPDATES"), "html", null, true);
             echo "</h1>
         <table>
         ";
@@ -53,7 +53,7 @@ class __TwigTemplate_8825d0c2f581f91c24331c90376ca960266304aa7311a70a6ad71ab82af
                     // line 12
                     echo twig_escape_filter($this->env, $this->getAttribute($context["latest"], "route", array()), "html", null, true);
                     echo "</td><td>";
-                    echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->adminNicetimeFilter($this->getAttribute($context["latest"], "modified", array())), "html", null, true);
+                    echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->adminNicetimeFilter($this->getAttribute($context["latest"], "modified", array())), "html", null, true);
                     echo "</td>
             </tr>
         ";

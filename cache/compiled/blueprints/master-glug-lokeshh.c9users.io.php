@@ -1,101 +1,101 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledBlueprints',
-    'timestamp' => 1487655288,
-    'checksum' => 'cc729d014646f3f744b38577b522325e',
+    'timestamp' => 1488115972,
+    'checksum' => 'e736304c78303f003cf3b38a718d5d98',
     'files' => [
         'user/plugins/admin/blueprints/config' => [
             'media' => [
                 'file' => 'user/plugins/admin/blueprints/config/media.yaml',
-                'modified' => 1487494962
+                'modified' => 1487963216
             ]
         ],
         'system/blueprints/config' => [
             'media' => [
                 'file' => 'system/blueprints/config/media.yaml',
-                'modified' => 1487516515
+                'modified' => 1487963216
             ],
             'site' => [
                 'file' => 'system/blueprints/config/site.yaml',
-                'modified' => 1487516515
+                'modified' => 1487963216
             ],
             'streams' => [
                 'file' => 'system/blueprints/config/streams.yaml',
-                'modified' => 1487516515
+                'modified' => 1487963216
             ],
             'system' => [
                 'file' => 'system/blueprints/config/system.yaml',
-                'modified' => 1487516515
+                'modified' => 1487963216
             ]
         ],
         'user/plugins' => [
             'plugins/login' => [
                 'file' => 'user/plugins/login/blueprints.yaml',
-                'modified' => 1487494963
+                'modified' => 1487963216
             ],
             'plugins/bootstrapper' => [
                 'file' => 'user/plugins/bootstrapper/blueprints.yaml',
-                'modified' => 1487516515
+                'modified' => 1487963216
             ],
             'plugins/problems' => [
                 'file' => 'user/plugins/problems/blueprints.yaml',
-                'modified' => 1487494963
+                'modified' => 1487963216
             ],
             'plugins/custom-css' => [
                 'file' => 'user/plugins/custom-css/blueprints.yaml',
-                'modified' => 1487494963
+                'modified' => 1487963216
             ],
             'plugins/gravstrap' => [
                 'file' => 'user/plugins/gravstrap/blueprints.yaml',
-                'modified' => 1487494963
+                'modified' => 1487963216
             ],
             'plugins/ganalytics' => [
                 'file' => 'user/plugins/ganalytics/blueprints.yaml',
-                'modified' => 1487494963
+                'modified' => 1487963216
             ],
             'plugins/form' => [
                 'file' => 'user/plugins/form/blueprints.yaml',
-                'modified' => 1487494963
+                'modified' => 1487963216
             ],
             'plugins/email' => [
                 'file' => 'user/plugins/email/blueprints.yaml',
-                'modified' => 1487494963
+                'modified' => 1487963216
             ],
             'plugins/admin' => [
                 'file' => 'user/plugins/admin/blueprints.yaml',
-                'modified' => 1487494962
+                'modified' => 1487963216
             ],
             'plugins/shortcode-core' => [
                 'file' => 'user/plugins/shortcode-core/blueprints.yaml',
-                'modified' => 1487494963
+                'modified' => 1487963216
             ],
             'plugins/markdown-notices' => [
                 'file' => 'user/plugins/markdown-notices/blueprints.yaml',
-                'modified' => 1487494963
+                'modified' => 1487963216
             ],
             'plugins/smileys' => [
                 'file' => 'user/plugins/smileys/blueprints.yaml',
-                'modified' => 1487494963
+                'modified' => 1487963216
             ],
             'plugins/recaptchacontact' => [
                 'file' => 'user/plugins/recaptchacontact/blueprints.yaml',
-                'modified' => 1487494963
+                'modified' => 1487963216
             ],
             'plugins/github' => [
                 'file' => 'user/plugins/github/blueprints.yaml',
-                'modified' => 1487494963
+                'modified' => 1487963216
             ],
             'plugins/gitter' => [
                 'file' => 'user/plugins/gitter/blueprints.yaml',
-                'modified' => 1487494963
+                'modified' => 1487963216
             ],
             'plugins/error' => [
                 'file' => 'user/plugins/error/blueprints.yaml',
-                'modified' => 1487494963
+                'modified' => 1487963216
             ],
             'plugins/sitemap' => [
                 'file' => 'user/plugins/sitemap/blueprints.yaml',
-                'modified' => 1487494963
+                'modified' => 1487963216
             ]
         ]
     ],
@@ -2227,12 +2227,12 @@ return [
             ],
             'plugins.ganalytics.enabled' => [
                 'type' => 'toggle',
-                'label' => 'Plugin Status',
+                'label' => 'PLUGIN_GANALYTICS.PLUGIN_STATUS',
                 'hightlight' => 1,
                 'default' => 0,
                 'options' => [
-                    1 => 'PLUGIN_ADMIN.ENABLED',
-                    0 => 'PLUGIN_ADMIN.DISABLED'
+                    1 => 'PLUGIN_GANALYTICS.ENABLED',
+                    0 => 'PLUGIN_GANALYTICS.DISABLED'
                 ],
                 'validate' => [
                     'type' => 'bool'
@@ -2243,18 +2243,74 @@ return [
             'plugins.ganalytics.trackingId' => [
                 'type' => 'text',
                 'size' => 'medium',
-                'label' => 'Tracking ID',
+                'label' => 'PLUGIN_GANALYTICS.TACKING_ID',
+                'validate' => [
+                    'required' => true
+                ],
                 'name' => 'plugins.ganalytics.trackingId',
+                'validation' => 'strict'
+            ],
+            'plugins.ganalytics.position' => [
+                'type' => 'toggle',
+                'label' => 'PLUGIN_GANALYTICS.POSITION',
+                'hightlight' => 1,
+                'default' => 'head',
+                'options' => [
+                    'head' => 'PLUGIN_GANALYTICS.POSITION_HEAD',
+                    'body' => 'PLUGIN_GANALYTICS.POSITION_BODY'
+                ],
+                'validate' => [
+                    'type' => 'string'
+                ],
+                'name' => 'plugins.ganalytics.position',
+                'validation' => 'strict'
+            ],
+            'plugins.ganalytics.objectName' => [
+                'type' => 'text',
+                'label' => 'PLUGIN_GANALYTICS.OBJECT_NAME',
+                'size' => 'small',
+                'default' => 'ga',
+                'name' => 'plugins.ganalytics.objectName',
+                'validation' => 'strict'
+            ],
+            'plugins.ganalytics.async' => [
+                'type' => 'toggle',
+                'label' => 'PLUGIN_GANALYTICS.ASYNC',
+                'hightlight' => 1,
+                'default' => 0,
+                'options' => [
+                    1 => 'PLUGIN_GANALYTICS._YES',
+                    0 => 'PLUGIN_GANALYTICS._NO'
+                ],
+                'validate' => [
+                    'type' => 'bool'
+                ],
+                'name' => 'plugins.ganalytics.async',
+                'validation' => 'strict'
+            ],
+            'plugins.ganalytics.forceSsl' => [
+                'type' => 'toggle',
+                'label' => 'PLUGIN_GANALYTICS.FORCE_SSL',
+                'hightlight' => 1,
+                'default' => 0,
+                'options' => [
+                    1 => 'PLUGIN_GANALYTICS._YES',
+                    0 => 'PLUGIN_GANALYTICS._NO'
+                ],
+                'validate' => [
+                    'type' => 'bool'
+                ],
+                'name' => 'plugins.ganalytics.forceSsl',
                 'validation' => 'strict'
             ],
             'plugins.ganalytics.anonymizeIp' => [
                 'type' => 'toggle',
-                'label' => 'IP Anonymization',
+                'label' => 'PLUGIN_GANALYTICS.ANONYMIZE_IP',
                 'hightlight' => 1,
                 'default' => 0,
                 'options' => [
-                    1 => 'PLUGIN_ADMIN.ENABLED',
-                    0 => 'PLUGIN_ADMIN.DISABLED'
+                    1 => 'PLUGIN_GANALYTICS._YES',
+                    0 => 'PLUGIN_GANALYTICS._NO'
                 ],
                 'validate' => [
                     'type' => 'bool'
@@ -2262,21 +2318,65 @@ return [
                 'name' => 'plugins.ganalytics.anonymizeIp',
                 'validation' => 'strict'
             ],
-            'plugins.ganalytics.renameGa' => [
+            'plugins.ganalytics.blockedIps' => [
+                'type' => 'array',
+                'size' => 'large',
+                'label' => 'PLUGIN_GANALYTICS.BLOCKED_IPS',
+                'value_only' => true,
+                'name' => 'plugins.ganalytics.blockedIps',
+                'validation' => 'strict'
+            ],
+            'plugins.ganalytics.cookieConfig' => [
+                'type' => 'toggle',
+                'label' => 'PLUGIN_GANALYTICS.COOKIE_CONFIG',
+                'hightlight' => 1,
+                'default' => 0,
+                'options' => [
+                    1 => 'PLUGIN_GANALYTICS._YES',
+                    0 => 'PLUGIN_GANALYTICS._NO'
+                ],
+                'validate' => [
+                    'type' => 'bool'
+                ],
+                'name' => 'plugins.ganalytics.cookieConfig',
+                'validation' => 'strict'
+            ],
+            'plugins.ganalytics.cookieName' => [
                 'type' => 'text',
-                'label' => 'Renaming the Global (ga) Object',
+                'label' => 'PLUGIN_GANALYTICS.COOKIE_NAME',
                 'size' => 'small',
-                'name' => 'plugins.ganalytics.renameGa',
+                'default' => '_ga',
+                'name' => 'plugins.ganalytics.cookieName',
+                'validation' => 'strict'
+            ],
+            'plugins.ganalytics.cookieDomain' => [
+                'type' => 'text',
+                'label' => 'PLUGIN_GANALYTICS.COOKIE_DOMAIN',
+                'size' => 'medium',
+                'name' => 'plugins.ganalytics.cookieDomain',
+                'validation' => 'strict'
+            ],
+            'plugins.ganalytics.cookieExpires' => [
+                'type' => 'text',
+                'size' => 'small',
+                'label' => 'PLUGIN_GANALYTICS.COOKIE_EXPIRES',
+                'append' => 'PLUGIN_GANALYTICS.SECONDS',
+                'default' => 63072000,
+                'validate' => [
+                    'type' => 'number',
+                    'min' => 0
+                ],
+                'name' => 'plugins.ganalytics.cookieExpires',
                 'validation' => 'strict'
             ],
             'plugins.ganalytics.debugStatus' => [
                 'type' => 'toggle',
-                'label' => 'Debug Status',
+                'label' => 'PLUGIN_GANALYTICS.DEBUG_STATUS',
                 'hightlight' => 1,
                 'default' => 0,
                 'options' => [
-                    1 => 'PLUGIN_ADMIN.ENABLED',
-                    0 => 'PLUGIN_ADMIN.DISABLED'
+                    1 => 'PLUGIN_GANALYTICS.ENABLED',
+                    0 => 'PLUGIN_GANALYTICS.DISABLED'
                 ],
                 'validate' => [
                     'type' => 'bool'
@@ -2286,12 +2386,12 @@ return [
             ],
             'plugins.ganalytics.debugTrace' => [
                 'type' => 'toggle',
-                'label' => 'Trace Debugging',
+                'label' => 'PLUGIN_GANALYTICS.DEBUG_TRACE',
                 'hightlight' => 1,
                 'default' => 0,
                 'options' => [
-                    1 => 'PLUGIN_ADMIN.ENABLED',
-                    0 => 'PLUGIN_ADMIN.DISABLED'
+                    1 => 'PLUGIN_GANALYTICS.ENABLED',
+                    0 => 'PLUGIN_GANALYTICS.DISABLED'
                 ],
                 'validate' => [
                     'type' => 'bool'
@@ -2582,6 +2682,20 @@ return [
                     'type' => 'bool'
                 ],
                 'name' => 'plugins.admin.enabled',
+                'validation' => 'loose'
+            ],
+            'plugins.admin.cache_enabled' => [
+                'type' => 'toggle',
+                'label' => 'PLUGIN_ADMIN.ADMIN_CACHING',
+                'highlight' => 0,
+                'options' => [
+                    1 => 'PLUGIN_ADMIN.YES',
+                    0 => 'PLUGIN_ADMIN.NO'
+                ],
+                'validate' => [
+                    'type' => 'bool'
+                ],
+                'name' => 'plugins.admin.cache_enabled',
                 'validation' => 'loose'
             ],
             'plugins.admin.route' => [
@@ -3661,8 +3775,16 @@ return [
                 'ganalytics' => [
                     'enabled' => 'plugins.ganalytics.enabled',
                     'trackingId' => 'plugins.ganalytics.trackingId',
+                    'position' => 'plugins.ganalytics.position',
+                    'objectName' => 'plugins.ganalytics.objectName',
+                    'async' => 'plugins.ganalytics.async',
+                    'forceSsl' => 'plugins.ganalytics.forceSsl',
                     'anonymizeIp' => 'plugins.ganalytics.anonymizeIp',
-                    'renameGa' => 'plugins.ganalytics.renameGa',
+                    'blockedIps' => 'plugins.ganalytics.blockedIps',
+                    'cookieConfig' => 'plugins.ganalytics.cookieConfig',
+                    'cookieName' => 'plugins.ganalytics.cookieName',
+                    'cookieDomain' => 'plugins.ganalytics.cookieDomain',
+                    'cookieExpires' => 'plugins.ganalytics.cookieExpires',
                     'debugStatus' => 'plugins.ganalytics.debugStatus',
                     'debugTrace' => 'plugins.ganalytics.debugTrace'
                 ],
@@ -3703,6 +3825,7 @@ return [
                 ],
                 'admin' => [
                     'enabled' => 'plugins.admin.enabled',
+                    'cache_enabled' => 'plugins.admin.cache_enabled',
                     'route' => 'plugins.admin.route',
                     'logo_text' => 'plugins.admin.logo_text',
                     'body_classes' => 'plugins.admin.body_classes',

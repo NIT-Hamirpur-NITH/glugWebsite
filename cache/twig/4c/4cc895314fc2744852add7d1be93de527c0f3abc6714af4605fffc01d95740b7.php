@@ -20,7 +20,7 @@ class __TwigTemplate_34e822f4a47e40e7e0898213b180510a76dbcb1f8d3af478106b9014999
     <h1>
         ";
         // line 3
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.NOTIFICATIONS"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.NOTIFICATIONS"), "html", null, true);
         echo "
         <span class=\"right\">
             <a href=\"#\" class=\"button button-small\" data-refresh=\"notifications\"><i class=\"fa fa-refresh\"></i></a>

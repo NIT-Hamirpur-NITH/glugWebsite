@@ -29,7 +29,7 @@ class __TwigTemplate_bc763d11113803d64c33d835ceafa410040f5aee960fdc4c7d1065b60e2
                 }
                 echo ">";
                 if ($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["grav"]) ? $context["grav"] : null), "twig", array(), "any", false, true), "twig", array(), "any", false, true), "filters", array(), "any", false, true), "tu", array(), "array", true, true)) {
-                    echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "title", array())), "html", null, true);
+                    echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "title", array())), "html", null, true);
                 } else {
                     echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Common\Twig\TwigExtension')->translate($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "title", array())), "html", null, true);
                 }
@@ -44,11 +44,11 @@ class __TwigTemplate_bc763d11113803d64c33d835ceafa410040f5aee960fdc4c7d1065b60e2
                 // line 8
                 echo "    <p>";
                 if ($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["grav"]) ? $context["grav"] : null), "twig", array(), "any", false, true), "twig", array(), "any", false, true), "filters", array(), "any", false, true), "tu", array(), "array", true, true)) {
-                    echo $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "text", array()));
+                    echo $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "text", array()));
                 } else {
                     echo $this->env->getExtension('Grav\Common\Twig\TwigExtension')->translate($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "text", array()));
                 }
-                echo "<p>
+                echo "</p>
     ";
             }
             // line 10
@@ -144,7 +144,7 @@ class __TwigTemplate_bc763d11113803d64c33d835ceafa410040f5aee960fdc4c7d1065b60e2
     {% endif %}
 
     {% if field.text %}
-    <p>{% if grav.twig.twig.filters['tu'] is defined %}{{ field.text|tu|raw }}{% else %}{{ field.text|t|raw }}{% endif %}<p>
+    <p>{% if grav.twig.twig.filters['tu'] is defined %}{{ field.text|tu|raw }}{% else %}{{ field.text|t|raw }}{% endif %}</p>
     {% endif %}
 
     {% if field.fields %}

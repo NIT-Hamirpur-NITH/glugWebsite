@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/recaptchacontact/blueprints/default.yaml',
-    'modified' => 1487494963,
+    'modified' => 1487963216,
     'data' => [
         'title' => 'Contact Form',
         'description' => 'These are page specific settings. Adjust site-wide changes on the [plugin page](http://grav.test/admin/plugins/recaptchacontact)',

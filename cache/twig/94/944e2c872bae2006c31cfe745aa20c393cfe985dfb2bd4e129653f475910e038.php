@@ -82,7 +82,7 @@ class __TwigTemplate_79c39496000d0567ea5b3af1edd81ec66492fe394dbb6e952108ede559a
     <div class=\"button-bar\">
         <button class=\"button primary\">";
         // line 16
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SAVE"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.SAVE"), "html", null, true);
         echo "</button>
     </div>
 

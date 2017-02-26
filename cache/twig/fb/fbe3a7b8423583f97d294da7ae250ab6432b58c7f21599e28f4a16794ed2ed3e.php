@@ -24,7 +24,7 @@ class __TwigTemplate_580f758e1c8e049c044fbc65868e37d07261fcbb422a9ce26adb3e25e59
         <div class=\"primary-accent default-box-shadow\">
             <h1>";
             // line 4
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.STATISTICS"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.STATISTICS"), "html", null, true);
             echo "</h1>
             <div class=\"admin-statistics-chart\">
                 <div class=\"ct-chart chart-loader\"><i class=\"fa fa-refresh fa-spin\"></i></div>
@@ -36,7 +36,7 @@ class __TwigTemplate_580f758e1c8e049c044fbc65868e37d07261fcbb422a9ce26adb3e25e59
             echo "</b>
                         <i>";
             // line 10
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.TODAY"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.TODAY"), "html", null, true);
             echo "</i>
                     </span>
                     <span class=\"stat\">
@@ -46,7 +46,7 @@ class __TwigTemplate_580f758e1c8e049c044fbc65868e37d07261fcbb422a9ce26adb3e25e59
             echo "</b>
                         <i>";
             // line 14
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.WEEK"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.WEEK"), "html", null, true);
             echo "</i>
                     </span>
                     <span class=\"stat\">
@@ -56,7 +56,7 @@ class __TwigTemplate_580f758e1c8e049c044fbc65868e37d07261fcbb422a9ce26adb3e25e59
             echo "</b>
                         <i>";
             // line 18
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MONTH"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.MONTH"), "html", null, true);
             echo "</i>
                     </span>
                 </div>

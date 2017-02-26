@@ -21,7 +21,7 @@ class __TwigTemplate_e5fa0256ffcc5a78f78147b69253d067390187d9ee451ff36afe7efbcbb
         echo "<div id=\"pages-legend\">
     <strong>";
         // line 3
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.LEGEND"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.LEGEND"), "html", null, true);
         echo ":</strong>
     <ul>
         ";
@@ -33,7 +33,7 @@ class __TwigTemplate_e5fa0256ffcc5a78f78147b69253d067390187d9ee451ff36afe7efbcbb
             echo "        <li><i class=\"page-icon fa fa-fw fa-circle-o ";
             echo twig_escape_filter($this->env, $context["class"], "html", null, true);
             echo "\"></i> ";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter(("PLUGIN_ADMIN." . $context["key"])), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter(("PLUGIN_ADMIN." . $context["key"])), "html", null, true);
             echo "</li>
         ";
         }

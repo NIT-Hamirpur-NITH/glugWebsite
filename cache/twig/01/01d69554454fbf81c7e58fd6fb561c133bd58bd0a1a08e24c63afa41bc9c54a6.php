@@ -29,15 +29,15 @@ class __TwigTemplate_7d22c815a1a5da4498b08253a83355509491bafcc4efa43258ba8d4a188
         if ($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "help", array())) {
             // line 8
             echo "            <span class=\"tooltip\" data-asTooltip-position=\"w\" title=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "help", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter(twig_escape_filter($this->env, $this->getAttribute((isset($context["field"]) ? $context["field"] : null), "help", array()))), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "label", array())), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "label", array())), "html", null, true);
             echo "</span>
             ";
         } else {
             // line 10
             echo "            ";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "label", array())), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter($this->getAttribute((isset($context["field"]) ? $context["field"] : null), "label", array())), "html", null, true);
             echo "
             ";
         }
@@ -77,14 +77,14 @@ class __TwigTemplate_7d22c815a1a5da4498b08253a83355509491bafcc4efa43258ba8d4a188
         if ($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["data"]) ? $context["data"] : null), "parent", array()), "header", array()), "content", array()), "items", array())) {
             // line 25
             echo "                <span class=\"note\">";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ORDERING_DISABLED_BECAUSE_PARENT_SETTING_ORDER"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ORDERING_DISABLED_BECAUSE_PARENT_SETTING_ORDER"), "html", null, true);
             echo "</span>
             ";
         } elseif ( !$this->getAttribute(        // line 26
 (isset($context["data"]) ? $context["data"] : null), "visible", array())) {
             // line 27
             echo "                <span class=\"note\">";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ORDERING_DISABLED_BECAUSE_PAGE_NOT_VISIBLE"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ORDERING_DISABLED_BECAUSE_PAGE_NOT_VISIBLE"), "html", null, true);
             echo "</span>
             ";
         }
@@ -125,7 +125,7 @@ class __TwigTemplate_7d22c815a1a5da4498b08253a83355509491bafcc4efa43258ba8d4a188
         } else {
             // line 37
             echo "                <span class=\"note\">";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ORDERING_DISABLED_BECAUSE_TOO_MANY_SIBLINGS"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.ORDERING_DISABLED_BECAUSE_TOO_MANY_SIBLINGS"), "html", null, true);
             echo "</span>
 \t\t\t";
         }

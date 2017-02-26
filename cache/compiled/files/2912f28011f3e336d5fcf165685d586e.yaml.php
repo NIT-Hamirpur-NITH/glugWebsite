@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/bootstrapper/languages.yaml',
-    'modified' => 1483539056,
+    'modified' => 1487963216,
     'data' => [
         'en' => [
             'PLUGIN_BOOTSTRAPPER' => [

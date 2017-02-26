@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/sitemap/blueprints.yaml',
-    'modified' => 1487788124,
+    'modified' => 1487963216,
     'data' => [
         'name' => 'Sitemap',
         'version' => '1.7.0',

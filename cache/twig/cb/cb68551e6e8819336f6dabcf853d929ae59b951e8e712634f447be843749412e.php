@@ -16,7 +16,7 @@ class __TwigTemplate_3510617efa9d4d970eb07fbca7ec70ec64f6b11d0e91cd2d2d1c1e23c18
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        $context["form_id"] = (((isset($context["form_id"]) ? $context["form_id"] : null)) ? ((isset($context["form_id"]) ? $context["form_id"] : null)) : ("blueprints"));
+        $context["form_id"] = (((isset($context["form_id"]) ? $context["form_id"] : null)) ? ((isset($context["form_id"]) ? $context["form_id"] : null)) : ("page-move"));
         // line 2
         $context["scope"] = (((isset($context["scope"]) ? $context["scope"] : null)) ? ((isset($context["scope"]) ? $context["scope"] : null)) : ("data."));
         // line 3
@@ -78,14 +78,19 @@ class __TwigTemplate_3510617efa9d4d970eb07fbca7ec70ec64f6b11d0e91cd2d2d1c1e23c18
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 13
         echo "
+    ";
+        // line 14
+        echo $this->env->getExtension('Grav\Common\Twig\TwigExtension')->nonceFieldFunc("admin-form", "admin-nonce");
+        echo "
+
     <div class=\"button-bar\">
         <button data-remodal-action=\"cancel\" class=\"button secondary remodal-cancel\"><i class=\"fa fa-fw fa-close\"></i> ";
-        // line 15
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CANCEL"), "html", null, true);
+        // line 17
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CANCEL"), "html", null, true);
         echo "</button>
-        <button class=\"button primary\" name=\"task\" value=\"save\" form=\"blueprints\">";
-        // line 16
-        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CONTINUE"), "html", null, true);
+        <button class=\"button primary\" name=\"task\" value=\"save\">";
+        // line 18
+        echo twig_escape_filter($this->env, $this->env->getExtension('Grav\Plugin\Admin\AdminTwigExtension')->tuFilter("PLUGIN_ADMIN.CONTINUE"), "html", null, true);
         echo "</button>
     </div>
 </form>
@@ -104,7 +109,7 @@ class __TwigTemplate_3510617efa9d4d970eb07fbca7ec70ec64f6b11d0e91cd2d2d1c1e23c18
 
     public function getDebugInfo()
     {
-        return array (  88 => 16,  84 => 15,  80 => 13,  66 => 12,  62 => 10,  60 => 9,  55 => 8,  52 => 7,  49 => 6,  32 => 5,  26 => 4,  23 => 3,  21 => 2,  19 => 1,);
+        return array (  93 => 18,  89 => 17,  83 => 14,  80 => 13,  66 => 12,  62 => 10,  60 => 9,  55 => 8,  52 => 7,  49 => 6,  32 => 5,  26 => 4,  23 => 3,  21 => 2,  19 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -117,7 +122,7 @@ class __TwigTemplate_3510617efa9d4d970eb07fbca7ec70ec64f6b11d0e91cd2d2d1c1e23c18
 
     public function getSourceContext()
     {
-        return new Twig_Source("{% set form_id = form_id ? form_id : 'blueprints' %}
+        return new Twig_Source("{% set form_id = form_id ? form_id : 'page-move' %}
 {% set scope = scope ?: 'data.' %}
 
 <form id=\"{{ form_id }}\" method=\"post\" data-grav-form=\"{{ form_id }}\" data-page-move>
@@ -130,9 +135,11 @@ class __TwigTemplate_3510617efa9d4d970eb07fbca7ec70ec64f6b11d0e91cd2d2d1c1e23c18
         {% endif %}
     {% endfor %}
 
+    {{ nonce_field('admin-form', 'admin-nonce')|raw }}
+
     <div class=\"button-bar\">
         <button data-remodal-action=\"cancel\" class=\"button secondary remodal-cancel\"><i class=\"fa fa-fw fa-close\"></i> {{ \"PLUGIN_ADMIN.CANCEL\"|tu }}</button>
-        <button class=\"button primary\" name=\"task\" value=\"save\" form=\"blueprints\">{{ \"PLUGIN_ADMIN.CONTINUE\"|tu }}</button>
+        <button class=\"button primary\" name=\"task\" value=\"save\">{{ \"PLUGIN_ADMIN.CONTINUE\"|tu }}</button>
     </div>
 </form>
 ", "partials/page-move.html.twig", "/home/ubuntu/workspace/user/plugins/admin/themes/grav/templates/partials/page-move.html.twig");
