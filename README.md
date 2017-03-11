@@ -1,5 +1,7 @@
 #GLUG-NITH website
 
+The website is live at https://glug.nith.ac.in
+
 This website is build using [Grav](https://getgrav.org/).
 
 ##Contributing
