@@ -1,8 +1,8 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledConfig',
-    'timestamp' => 1488115941,
-    'checksum' => 'bb83457c8bf514fc1e0502eebfdda51a',
+    'timestamp' => 1493555614,
+    'checksum' => '1670ed348618857fc6b1e1362140e5b2',
     'files' => [
         'user/config' => [
             'media' => [
@@ -85,197 +85,88 @@ return [
             ]
         ],
         'user/plugins' => [
-            'plugins/login' => [
-                'file' => 'user/plugins/login/login.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/bootstrapper' => [
-                'file' => 'user/plugins/bootstrapper/bootstrapper.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/problems' => [
-                'file' => 'user/plugins/problems/problems.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/custom-css' => [
-                'file' => 'user/plugins/custom-css/custom-css.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/gravstrap' => [
-                'file' => 'user/plugins/gravstrap/gravstrap.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/ganalytics' => [
-                'file' => 'user/plugins/ganalytics/ganalytics.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/form' => [
-                'file' => 'user/plugins/form/form.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/email' => [
-                'file' => 'user/plugins/email/email.yaml',
+            'plugins/gitter' => [
+                'file' => 'user/plugins/gitter/gitter.yaml',
                 'modified' => 1487963216
             ],
             'plugins/admin' => [
                 'file' => 'user/plugins/admin/admin.yaml',
                 'modified' => 1487963216
             ],
-            'plugins/shortcode-core' => [
-                'file' => 'user/plugins/shortcode-core/shortcode-core.yaml',
+            'plugins/bootstrapper' => [
+                'file' => 'user/plugins/bootstrapper/bootstrapper.yaml',
                 'modified' => 1487963216
             ],
-            'plugins/markdown-notices' => [
-                'file' => 'user/plugins/markdown-notices/markdown-notices.yaml',
+            'plugins/gravstrap' => [
+                'file' => 'user/plugins/gravstrap/gravstrap.yaml',
                 'modified' => 1487963216
             ],
-            'plugins/smileys' => [
-                'file' => 'user/plugins/smileys/smileys.yaml',
+            'plugins/email' => [
+                'file' => 'user/plugins/email/email.yaml',
                 'modified' => 1487963216
             ],
             'plugins/recaptchacontact' => [
                 'file' => 'user/plugins/recaptchacontact/recaptchacontact.yaml',
                 'modified' => 1487963216
             ],
-            'plugins/github' => [
-                'file' => 'user/plugins/github/github.yaml',
+            'plugins/login' => [
+                'file' => 'user/plugins/login/login.yaml',
                 'modified' => 1487963216
             ],
-            'plugins/gitter' => [
-                'file' => 'user/plugins/gitter/gitter.yaml',
+            'plugins/shortcode-core' => [
+                'file' => 'user/plugins/shortcode-core/shortcode-core.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/custom-css' => [
+                'file' => 'user/plugins/custom-css/custom-css.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/sitemap' => [
+                'file' => 'user/plugins/sitemap/sitemap.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/smileys' => [
+                'file' => 'user/plugins/smileys/smileys.yaml',
                 'modified' => 1487963216
             ],
             'plugins/error' => [
                 'file' => 'user/plugins/error/error.yaml',
                 'modified' => 1487963216
             ],
-            'plugins/sitemap' => [
-                'file' => 'user/plugins/sitemap/sitemap.yaml',
+            'plugins/ganalytics' => [
+                'file' => 'user/plugins/ganalytics/ganalytics.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/markdown-notices' => [
+                'file' => 'user/plugins/markdown-notices/markdown-notices.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/form' => [
+                'file' => 'user/plugins/form/form.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/problems' => [
+                'file' => 'user/plugins/problems/problems.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/github' => [
+                'file' => 'user/plugins/github/github.yaml',
                 'modified' => 1487963216
             ]
         ]
     ],
     'data' => [
         'plugins' => [
-            'login' => [
+            'gitter' => [
                 'enabled' => true,
-                'built_in_css' => true,
-                'route' => NULL,
-                'route_register' => false,
-                'route_activate' => '/activate_user',
-                'route_forgot' => '/forgot_password',
-                'route_reset' => '/reset_password',
-                'redirect_after_login' => NULL,
-                'parent_acl' => false,
-                'protect_protected_page_media' => false,
-                'user_registration' => [
-                    'enabled' => true,
-                    'fields' => [
-                        0 => 'username',
-                        1 => 'password',
-                        2 => 'email',
-                        3 => 'fullname',
-                        4 => 'title'
-                    ],
-                    'access' => [
-                        'site' => [
-                            'login' => 'true'
-                        ]
-                    ],
-                    'options' => [
-                        'validate_password1_and_password2' => true,
-                        'set_user_disabled' => false,
-                        'login_after_registration' => true,
-                        'send_activation_email' => false,
-                        'send_notification_email' => false,
-                        'send_welcome_email' => false
-                    ]
+                'enable_on_routes' => [
+                    0 => '/'
                 ],
-                'rememberme' => [
-                    'enabled' => true,
-                    'timeout' => 604800,
-                    'name' => 'grav-rememberme'
-                ]
-            ],
-            'bootstrapper' => [
-                'enabled' => false,
-                'always_load' => true,
-                'use_cdn' => false,
-                'mode' => 'production',
-                'load_core_css' => true,
-                'load_theme_css' => true,
-                'load_core_js' => true
-            ],
-            'problems' => [
-                'enabled' => true,
-                'built_in_css' => true
-            ],
-            'custom-css' => [
-                'enabled' => false,
-                'css_files' => [
-                    0 => [
-                        'path' => '/user/CSS/custom.css',
-                        'priority' => 0
-                    ]
-                ]
-            ],
-            'gravstrap' => [
-                'enabled' => true
-            ],
-            'ganalytics' => [
-                'enabled' => true,
-                'trackingId' => 'UA-83197456-1',
-                'position' => 'head',
-                'objectName' => 'ga',
-                'forceSsl' => false,
-                'async' => false,
-                'anonymizeIp' => false,
-                'blockedIps' => [
-                    
+                'disable_on_routes' => [
+                    0 => '/blog/blog-post-to-ignore',
+                    1 => '/ignore-this-route'
                 ],
-                'cookieConfig' => false,
-                'cookieName' => '_ga',
-                'cookieDomain' => '',
-                'cookieExpires' => 63072000,
-                'debugStatus' => false,
-                'debugTrace' => false
-            ],
-            'form' => [
-                'enabled' => true,
-                'built_in_css' => true,
-                'files' => [
-                    'multiple' => false,
-                    'limit' => 10,
-                    'filesize' => 5,
-                    'destination' => 'self@',
-                    'avoid_overwriting' => false,
-                    'random_name' => false,
-                    'accept' => [
-                        0 => 'image/*'
-                    ]
-                ]
-            ],
-            'email' => [
-                'enabled' => true,
-                'from' => 'lokeshhsharma@gmail.com',
-                'from_name' => 'Glug Nith',
-                'to' => 'lokeshhsharma@gmail.com',
-                'to_name' => NULL,
-                'mailer' => [
-                    'engine' => 'mail',
-                    'smtp' => [
-                        'server' => 'localhost',
-                        'port' => 25,
-                        'encryption' => 'none',
-                        'user' => '',
-                        'password' => ''
-                    ],
-                    'sendmail' => [
-                        'bin' => '/usr/sbin/sendmail'
-                    ]
-                ],
-                'content_type' => 'text/html',
-                'debug' => false
+                'channel' => 'Nithmr/glugWebsite'
             ],
             'admin' => [
                 'enabled' => true,
@@ -328,6 +219,89 @@ return [
                     ]
                 ]
             ],
+            'bootstrapper' => [
+                'enabled' => false,
+                'always_load' => true,
+                'use_cdn' => false,
+                'mode' => 'production',
+                'load_core_css' => true,
+                'load_theme_css' => true,
+                'load_core_js' => true
+            ],
+            'gravstrap' => [
+                'enabled' => true
+            ],
+            'email' => [
+                'enabled' => true,
+                'from' => 'lokeshhsharma@gmail.com',
+                'from_name' => 'Glug Nith',
+                'to' => 'lokeshhsharma@gmail.com',
+                'to_name' => NULL,
+                'mailer' => [
+                    'engine' => 'mail',
+                    'smtp' => [
+                        'server' => 'localhost',
+                        'port' => 25,
+                        'encryption' => 'none',
+                        'user' => '',
+                        'password' => ''
+                    ],
+                    'sendmail' => [
+                        'bin' => '/usr/sbin/sendmail'
+                    ]
+                ],
+                'content_type' => 'text/html',
+                'debug' => false
+            ],
+            'recaptchacontact' => [
+                'enabled' => true,
+                'default_lang' => 'en',
+                'disable_css' => false,
+                'inject_template' => true,
+                'grecaptcha_sitekey' => '6LckmCgTAAAAAMlnQvhE9_FWL-xqhUjnLmrBr04p',
+                'grecaptcha_secret' => '6LckmCgTAAAAAIk8ZL5L_eQKX-n8s5Y3ckTQin7-',
+                'grecaptcha_callback' => false
+            ],
+            'login' => [
+                'enabled' => true,
+                'built_in_css' => true,
+                'route' => NULL,
+                'route_register' => false,
+                'route_activate' => '/activate_user',
+                'route_forgot' => '/forgot_password',
+                'route_reset' => '/reset_password',
+                'redirect_after_login' => NULL,
+                'parent_acl' => false,
+                'protect_protected_page_media' => false,
+                'user_registration' => [
+                    'enabled' => true,
+                    'fields' => [
+                        0 => 'username',
+                        1 => 'password',
+                        2 => 'email',
+                        3 => 'fullname',
+                        4 => 'title'
+                    ],
+                    'access' => [
+                        'site' => [
+                            'login' => 'true'
+                        ]
+                    ],
+                    'options' => [
+                        'validate_password1_and_password2' => true,
+                        'set_user_disabled' => false,
+                        'login_after_registration' => true,
+                        'send_activation_email' => false,
+                        'send_notification_email' => false,
+                        'send_welcome_email' => false
+                    ]
+                ],
+                'rememberme' => [
+                    'enabled' => true,
+                    'timeout' => 604800,
+                    'name' => 'grav-rememberme'
+                ]
+            ],
             'shortcode-core' => [
                 'enabled' => true,
                 'active' => true,
@@ -338,14 +312,21 @@ return [
                     'url' => '//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'
                 ]
             ],
-            'markdown-notices' => [
+            'custom-css' => [
+                'enabled' => false,
+                'css_files' => [
+                    0 => [
+                        'path' => '/user/CSS/custom.css',
+                        'priority' => 0
+                    ]
+                ]
+            ],
+            'sitemap' => [
                 'enabled' => true,
-                'built_in_css' => true,
-                'level_classes' => [
-                    0 => 'yellow',
-                    1 => 'red',
-                    2 => 'blue',
-                    3 => 'green'
+                'route' => '/sitemap',
+                'ignores' => [
+                    0 => '/blog/blog-post-to-ignore',
+                    1 => '/ignore-this-route'
                 ]
             ],
             'smileys' => [
@@ -365,14 +346,58 @@ return [
                     ]
                 ]
             ],
-            'recaptchacontact' => [
+            'error' => [
                 'enabled' => true,
-                'default_lang' => 'en',
-                'disable_css' => false,
-                'inject_template' => true,
-                'grecaptcha_sitekey' => '6LckmCgTAAAAAMlnQvhE9_FWL-xqhUjnLmrBr04p',
-                'grecaptcha_secret' => '6LckmCgTAAAAAIk8ZL5L_eQKX-n8s5Y3ckTQin7-',
-                'grecaptcha_callback' => false
+                'routes' => [
+                    404 => '/error'
+                ]
+            ],
+            'ganalytics' => [
+                'enabled' => true,
+                'trackingId' => 'UA-83197456-1',
+                'position' => 'head',
+                'objectName' => 'ga',
+                'forceSsl' => false,
+                'async' => false,
+                'anonymizeIp' => false,
+                'blockedIps' => [
+                    
+                ],
+                'cookieConfig' => false,
+                'cookieName' => '_ga',
+                'cookieDomain' => '',
+                'cookieExpires' => 63072000,
+                'debugStatus' => false,
+                'debugTrace' => false
+            ],
+            'markdown-notices' => [
+                'enabled' => true,
+                'built_in_css' => true,
+                'level_classes' => [
+                    0 => 'yellow',
+                    1 => 'red',
+                    2 => 'blue',
+                    3 => 'green'
+                ]
+            ],
+            'form' => [
+                'enabled' => true,
+                'built_in_css' => true,
+                'files' => [
+                    'multiple' => false,
+                    'limit' => 10,
+                    'filesize' => 5,
+                    'destination' => 'self@',
+                    'avoid_overwriting' => false,
+                    'random_name' => false,
+                    'accept' => [
+                        0 => 'image/*'
+                    ]
+                ]
+            ],
+            'problems' => [
+                'enabled' => true,
+                'built_in_css' => true
             ],
             'github' => [
                 'enabled' => true,
@@ -380,31 +405,6 @@ return [
                     'method' => '',
                     'token' => '',
                     'password' => ''
-                ]
-            ],
-            'gitter' => [
-                'enabled' => true,
-                'enable_on_routes' => [
-                    0 => '/'
-                ],
-                'disable_on_routes' => [
-                    0 => '/blog/blog-post-to-ignore',
-                    1 => '/ignore-this-route'
-                ],
-                'channel' => 'Nithmr/glugWebsite'
-            ],
-            'error' => [
-                'enabled' => true,
-                'routes' => [
-                    404 => '/error'
-                ]
-            ],
-            'sitemap' => [
-                'enabled' => true,
-                'route' => '/sitemap',
-                'ignores' => [
-                    0 => '/blog/blog-post-to-ignore',
-                    1 => '/ignore-this-route'
                 ]
             ]
         ],
