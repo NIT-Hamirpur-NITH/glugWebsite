@@ -127,8 +127,8 @@ content:
         <br>
         <br>
         <div class="card-footer">
-          <a href='#'>
-            <small class="text-muted"><strike>View Source</strike></small>
+          <a href='https://github.com/mukeshkharita/NITH-Result-Website'>
+            <small class="text-muted">View Source</small>
           </a>
         </div>        
       </div>
