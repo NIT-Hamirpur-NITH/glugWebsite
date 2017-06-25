@@ -1,8 +1,8 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledConfig',
-    'timestamp' => 1493555614,
-    'checksum' => '1670ed348618857fc6b1e1362140e5b2',
+    'timestamp' => 1498401311,
+    'checksum' => '5648fe507c7cb1ea6fb1d596ee0ebbdf',
     'files' => [
         'user/config' => [
             'media' => [
@@ -85,62 +85,6 @@ return [
             ]
         ],
         'user/plugins' => [
-            'plugins/gitter' => [
-                'file' => 'user/plugins/gitter/gitter.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/admin' => [
-                'file' => 'user/plugins/admin/admin.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/bootstrapper' => [
-                'file' => 'user/plugins/bootstrapper/bootstrapper.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/gravstrap' => [
-                'file' => 'user/plugins/gravstrap/gravstrap.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/email' => [
-                'file' => 'user/plugins/email/email.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/recaptchacontact' => [
-                'file' => 'user/plugins/recaptchacontact/recaptchacontact.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/login' => [
-                'file' => 'user/plugins/login/login.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/shortcode-core' => [
-                'file' => 'user/plugins/shortcode-core/shortcode-core.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/custom-css' => [
-                'file' => 'user/plugins/custom-css/custom-css.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/sitemap' => [
-                'file' => 'user/plugins/sitemap/sitemap.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/smileys' => [
-                'file' => 'user/plugins/smileys/smileys.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/error' => [
-                'file' => 'user/plugins/error/error.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/ganalytics' => [
-                'file' => 'user/plugins/ganalytics/ganalytics.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/markdown-notices' => [
-                'file' => 'user/plugins/markdown-notices/markdown-notices.yaml',
-                'modified' => 1487963216
-            ],
             'plugins/form' => [
                 'file' => 'user/plugins/form/form.yaml',
                 'modified' => 1487963216
@@ -152,11 +96,111 @@ return [
             'plugins/github' => [
                 'file' => 'user/plugins/github/github.yaml',
                 'modified' => 1487963216
+            ],
+            'plugins/smileys' => [
+                'file' => 'user/plugins/smileys/smileys.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/gitter' => [
+                'file' => 'user/plugins/gitter/gitter.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/admin' => [
+                'file' => 'user/plugins/admin/admin.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/recaptchacontact' => [
+                'file' => 'user/plugins/recaptchacontact/recaptchacontact.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/markdown-notices' => [
+                'file' => 'user/plugins/markdown-notices/markdown-notices.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/ganalytics' => [
+                'file' => 'user/plugins/ganalytics/ganalytics.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/login' => [
+                'file' => 'user/plugins/login/login.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/bootstrapper' => [
+                'file' => 'user/plugins/bootstrapper/bootstrapper.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/shortcode-core' => [
+                'file' => 'user/plugins/shortcode-core/shortcode-core.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/sitemap' => [
+                'file' => 'user/plugins/sitemap/sitemap.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/custom-css' => [
+                'file' => 'user/plugins/custom-css/custom-css.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/gravstrap' => [
+                'file' => 'user/plugins/gravstrap/gravstrap.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/email' => [
+                'file' => 'user/plugins/email/email.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/error' => [
+                'file' => 'user/plugins/error/error.yaml',
+                'modified' => 1487963216
             ]
         ]
     ],
     'data' => [
         'plugins' => [
+            'form' => [
+                'enabled' => true,
+                'built_in_css' => true,
+                'files' => [
+                    'multiple' => false,
+                    'limit' => 10,
+                    'filesize' => 5,
+                    'destination' => 'self@',
+                    'avoid_overwriting' => false,
+                    'random_name' => false,
+                    'accept' => [
+                        0 => 'image/*'
+                    ]
+                ]
+            ],
+            'problems' => [
+                'enabled' => true,
+                'built_in_css' => true
+            ],
+            'github' => [
+                'enabled' => true,
+                'auth' => [
+                    'method' => '',
+                    'token' => '',
+                    'password' => ''
+                ]
+            ],
+            'smileys' => [
+                'enabled' => false,
+                'built_in_css' => true,
+                'weight' => 1,
+                'pack' => 'simple_smileys',
+                'process' => true,
+                'exclude' => [
+                    'tags' => [
+                        0 => 'code',
+                        1 => 'pre'
+                    ],
+                    'classes' => [
+                        0 => 'mathjax',
+                        1 => 'latex'
+                    ]
+                ]
+            ],
             'gitter' => [
                 'enabled' => true,
                 'enable_on_routes' => [
@@ -219,40 +263,6 @@ return [
                     ]
                 ]
             ],
-            'bootstrapper' => [
-                'enabled' => false,
-                'always_load' => true,
-                'use_cdn' => false,
-                'mode' => 'production',
-                'load_core_css' => true,
-                'load_theme_css' => true,
-                'load_core_js' => true
-            ],
-            'gravstrap' => [
-                'enabled' => true
-            ],
-            'email' => [
-                'enabled' => true,
-                'from' => 'lokeshhsharma@gmail.com',
-                'from_name' => 'Glug Nith',
-                'to' => 'lokeshhsharma@gmail.com',
-                'to_name' => NULL,
-                'mailer' => [
-                    'engine' => 'mail',
-                    'smtp' => [
-                        'server' => 'localhost',
-                        'port' => 25,
-                        'encryption' => 'none',
-                        'user' => '',
-                        'password' => ''
-                    ],
-                    'sendmail' => [
-                        'bin' => '/usr/sbin/sendmail'
-                    ]
-                ],
-                'content_type' => 'text/html',
-                'debug' => false
-            ],
             'recaptchacontact' => [
                 'enabled' => true,
                 'default_lang' => 'en',
@@ -261,6 +271,34 @@ return [
                 'grecaptcha_sitekey' => '6LckmCgTAAAAAMlnQvhE9_FWL-xqhUjnLmrBr04p',
                 'grecaptcha_secret' => '6LckmCgTAAAAAIk8ZL5L_eQKX-n8s5Y3ckTQin7-',
                 'grecaptcha_callback' => false
+            ],
+            'markdown-notices' => [
+                'enabled' => true,
+                'built_in_css' => true,
+                'level_classes' => [
+                    0 => 'yellow',
+                    1 => 'red',
+                    2 => 'blue',
+                    3 => 'green'
+                ]
+            ],
+            'ganalytics' => [
+                'enabled' => true,
+                'trackingId' => 'UA-83197456-1',
+                'position' => 'head',
+                'objectName' => 'ga',
+                'forceSsl' => false,
+                'async' => false,
+                'anonymizeIp' => false,
+                'blockedIps' => [
+                    
+                ],
+                'cookieConfig' => false,
+                'cookieName' => '_ga',
+                'cookieDomain' => '',
+                'cookieExpires' => 63072000,
+                'debugStatus' => false,
+                'debugTrace' => false
             ],
             'login' => [
                 'enabled' => true,
@@ -302,6 +340,15 @@ return [
                     'name' => 'grav-rememberme'
                 ]
             ],
+            'bootstrapper' => [
+                'enabled' => false,
+                'always_load' => true,
+                'use_cdn' => false,
+                'mode' => 'production',
+                'load_core_css' => true,
+                'load_theme_css' => true,
+                'load_core_js' => true
+            ],
             'shortcode-core' => [
                 'enabled' => true,
                 'active' => true,
@@ -310,6 +357,14 @@ return [
                 'fontawesome' => [
                     'load' => true,
                     'url' => '//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'
+                ]
+            ],
+            'sitemap' => [
+                'enabled' => true,
+                'route' => '/sitemap',
+                'ignores' => [
+                    0 => '/blog/blog-post-to-ignore',
+                    1 => '/ignore-this-route'
                 ]
             ],
             'custom-css' => [
@@ -321,90 +376,35 @@ return [
                     ]
                 ]
             ],
-            'sitemap' => [
-                'enabled' => true,
-                'route' => '/sitemap',
-                'ignores' => [
-                    0 => '/blog/blog-post-to-ignore',
-                    1 => '/ignore-this-route'
-                ]
+            'gravstrap' => [
+                'enabled' => true
             ],
-            'smileys' => [
-                'enabled' => false,
-                'built_in_css' => true,
-                'weight' => 1,
-                'pack' => 'simple_smileys',
-                'process' => true,
-                'exclude' => [
-                    'tags' => [
-                        0 => 'code',
-                        1 => 'pre'
+            'email' => [
+                'enabled' => true,
+                'from' => 'lokeshhsharma@gmail.com',
+                'from_name' => 'Glug Nith',
+                'to' => 'lokeshhsharma@gmail.com',
+                'to_name' => NULL,
+                'mailer' => [
+                    'engine' => 'mail',
+                    'smtp' => [
+                        'server' => 'localhost',
+                        'port' => 25,
+                        'encryption' => 'none',
+                        'user' => '',
+                        'password' => ''
                     ],
-                    'classes' => [
-                        0 => 'mathjax',
-                        1 => 'latex'
+                    'sendmail' => [
+                        'bin' => '/usr/sbin/sendmail'
                     ]
-                ]
+                ],
+                'content_type' => 'text/html',
+                'debug' => false
             ],
             'error' => [
                 'enabled' => true,
                 'routes' => [
                     404 => '/error'
-                ]
-            ],
-            'ganalytics' => [
-                'enabled' => true,
-                'trackingId' => 'UA-83197456-1',
-                'position' => 'head',
-                'objectName' => 'ga',
-                'forceSsl' => false,
-                'async' => false,
-                'anonymizeIp' => false,
-                'blockedIps' => [
-                    
-                ],
-                'cookieConfig' => false,
-                'cookieName' => '_ga',
-                'cookieDomain' => '',
-                'cookieExpires' => 63072000,
-                'debugStatus' => false,
-                'debugTrace' => false
-            ],
-            'markdown-notices' => [
-                'enabled' => true,
-                'built_in_css' => true,
-                'level_classes' => [
-                    0 => 'yellow',
-                    1 => 'red',
-                    2 => 'blue',
-                    3 => 'green'
-                ]
-            ],
-            'form' => [
-                'enabled' => true,
-                'built_in_css' => true,
-                'files' => [
-                    'multiple' => false,
-                    'limit' => 10,
-                    'filesize' => 5,
-                    'destination' => 'self@',
-                    'avoid_overwriting' => false,
-                    'random_name' => false,
-                    'accept' => [
-                        0 => 'image/*'
-                    ]
-                ]
-            ],
-            'problems' => [
-                'enabled' => true,
-                'built_in_css' => true
-            ],
-            'github' => [
-                'enabled' => true,
-                'auth' => [
-                    'method' => '',
-                    'token' => '',
-                    'password' => ''
                 ]
             ]
         ],

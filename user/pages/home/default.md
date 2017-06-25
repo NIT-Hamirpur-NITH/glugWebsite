@@ -45,6 +45,11 @@ Git greatly helps people sitting at different places, working on their systems, 
 
 [Read More about contributing here](/contribute).
 
+<h3>Need help with anything related to Linux?</h3>
+
+[Ask here at gluAsk](http://glug.nith.ac.in/gluapps/gluask)
+
+
 <center>
 <a class="twitter-timeline" data-width="600" data-height="400" data-theme="light" href="https://twitter.com/glugnith">Tweets by glugnith</a> 
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

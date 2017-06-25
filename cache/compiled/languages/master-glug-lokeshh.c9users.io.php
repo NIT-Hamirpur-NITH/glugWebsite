@@ -1,8 +1,8 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledLanguages',
-    'timestamp' => 1493555614,
-    'checksum' => '2e4ef823aff6f09af3fe0249b83521ca',
+    'timestamp' => 1498401311,
+    'checksum' => '2c222856eb3576ad229d157112e6a542',
     'files' => [
         'system/languages' => [
             'ar' => [
@@ -119,12 +119,12 @@ return [
             ]
         ],
         'user/plugins' => [
-            'plugins/bootstrapper' => [
-                'file' => 'user/plugins/bootstrapper/languages.yaml',
+            'plugins/form' => [
+                'file' => 'user/plugins/form/languages.yaml',
                 'modified' => 1487963216
             ],
-            'plugins/email' => [
-                'file' => 'user/plugins/email/languages.yaml',
+            'plugins/smileys' => [
+                'file' => 'user/plugins/smileys/languages.yaml',
                 'modified' => 1487963216
             ],
             'plugins/recaptchacontact' => [
@@ -135,16 +135,16 @@ return [
                 'file' => 'user/plugins/login/languages.yaml',
                 'modified' => 1487963216
             ],
-            'plugins/smileys' => [
-                'file' => 'user/plugins/smileys/languages.yaml',
+            'plugins/bootstrapper' => [
+                'file' => 'user/plugins/bootstrapper/languages.yaml',
+                'modified' => 1487963216
+            ],
+            'plugins/email' => [
+                'file' => 'user/plugins/email/languages.yaml',
                 'modified' => 1487963216
             ],
             'plugins/error' => [
                 'file' => 'user/plugins/error/languages.yaml',
-                'modified' => 1487963216
-            ],
-            'plugins/form' => [
-                'file' => 'user/plugins/form/languages.yaml',
                 'modified' => 1487963216
             ]
         ],
@@ -959,21 +959,38 @@ return [
                 'ERROR_SIMPLE' => 'Einfacher Fehler',
                 'ERROR_SYSTEM' => 'Systemfehler'
             ],
-            'PLUGIN_BOOTSTRAPPER' => [
-                'STATUS' => 'Plugin Status',
-                'ALWAYS_LOAD' => 'Immer laden',
-                'ALWAYS_LOAD_HELP' => 'Falls deaktivert, lass das Theme entscheiden ob das Bootstrap Plugin geladen wird',
-                'USE_CDN' => 'Bootstrap CDN verwenden',
-                'USE_CDN_HELP' => 'Bootstrap CSS und JavaScript vom CDN laden',
-                'MODE' => 'Modus',
-                'LOAD_CORE_CSS' => 'Core CSS laden',
-                'LOAD_THEME_CSS' => 'Theme CSS laden',
-                'LOAD_CORE_JS' => 'Core JS laden'
+            'PLUGIN_FORM' => [
+                'NOT_VALIDATED' => 'Formularwerte nicht gültig. Für ein oder mehrere erforderliche Felder fehlen Werte.',
+                'NONCE_NOT_VALIDATED' => 'Ups, es gibt da ein Problem. Eingabewerte bitte noch mal prüfen und das Formular erneut absenden.',
+                'FILES' => 'Dateien hochladen',
+                'ALLOW_MULTIPLE' => 'Erlaube mehr als eine Datei',
+                'ALLOW_MULTIPLE_HELP' => 'Erlaubt es, mehr als eine Datei zum Hochladen auszuwählen.',
+                'DESTINATION' => 'Ziel',
+                'DESTINATION_HELP' => 'Das Ziel, wohin die Dateien hochgeladen werden sollen.',
+                'ACCEPT' => 'Erlaube MIME-Typen',
+                'ACCEPT_HELP' => 'Eine Liste von MIME-Typen, die hochgeladen werden dürfen.',
+                'ERROR_VALIDATING_CAPTCHA' => 'Die Überprüfung des Captcha ist fehlgeschlagen.'
             ],
-            'PLUGIN_EMAIL' => [
-                'EMAIL_NOT_CONFIGURED' => 'E-Mail ist nicht konfiguriert',
-                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Bitte konfigurieren sie eine \'An\' (\'to\') Adresse in den Email-Plugin-Einstellungen oder im Formular.',
-                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Bitte konfigurieren sie eine \'Von\' (\'from\') Adresse in den Email-Plugin-Einstellungen oder im Formular.'
+            'PLUGINS' => [
+                'SMILEYS' => [
+                    'GLOBAL_CONFIG' => 'Globale Einstellungen',
+                    'DEFAULT_CONFIG' => 'Standardeinstellungen für Smileys',
+                    'SPECIFIC_CONFIG' => 'Globale und seitenspezifische Einstellungen',
+                    'PLUGIN_STATUS' => 'Plugin Status',
+                    'BUILTIN_CSS' => 'Verwende mitgeliefertes CSS',
+                    'WEIGHT' => 'Ausführungsreihenfolge',
+                    'WEIGHT_HELP' => 'Setze negative Werte um **Smileys** direkt nach *SmartyPants* ausführen zu lassen.',
+                    'PACK' => 'Smileys-Paket',
+                    'PACK_HELP' => 'Der Smileys-Paketname leitet sich direkt aus dem Ordnernamen aus `user/data/smileys/<package>` ab.',
+                    'PACK_DEFAULT' => '- Kein Smileys-Paket ausgewählt -',
+                    'EXCLUDE' => [
+                        'TAGS' => 'Ignoriere Inhalt mit Tags',
+                        'TAGS_HELP' => 'Komma getrennte Liste von Tags.',
+                        'CLASSES' => 'Ignoriere Inhalt mit Klassen',
+                        'CLASSES_HELP' => 'Komma getrennte Liste von Klassen.'
+                    ],
+                    'PROCESS' => 'Aktiviere <code>Smileys</code>-Filter auf Seite'
+                ]
             ],
             'RECAPTCHACONTACT' => [
                 'FORM_LEGEND' => 'Kontaktiere mich',
@@ -1065,42 +1082,25 @@ return [
                 'OPTIONS' => 'Optionen',
                 'EMAIL_VALIDATION_MESSAGE' => 'Muss eine gültige E-Mail Adresse sein'
             ],
-            'PLUGINS' => [
-                'SMILEYS' => [
-                    'GLOBAL_CONFIG' => 'Globale Einstellungen',
-                    'DEFAULT_CONFIG' => 'Standardeinstellungen für Smileys',
-                    'SPECIFIC_CONFIG' => 'Globale und seitenspezifische Einstellungen',
-                    'PLUGIN_STATUS' => 'Plugin Status',
-                    'BUILTIN_CSS' => 'Verwende mitgeliefertes CSS',
-                    'WEIGHT' => 'Ausführungsreihenfolge',
-                    'WEIGHT_HELP' => 'Setze negative Werte um **Smileys** direkt nach *SmartyPants* ausführen zu lassen.',
-                    'PACK' => 'Smileys-Paket',
-                    'PACK_HELP' => 'Der Smileys-Paketname leitet sich direkt aus dem Ordnernamen aus `user/data/smileys/<package>` ab.',
-                    'PACK_DEFAULT' => '- Kein Smileys-Paket ausgewählt -',
-                    'EXCLUDE' => [
-                        'TAGS' => 'Ignoriere Inhalt mit Tags',
-                        'TAGS_HELP' => 'Komma getrennte Liste von Tags.',
-                        'CLASSES' => 'Ignoriere Inhalt mit Klassen',
-                        'CLASSES_HELP' => 'Komma getrennte Liste von Klassen.'
-                    ],
-                    'PROCESS' => 'Aktiviere <code>Smileys</code>-Filter auf Seite'
-                ]
+            'PLUGIN_BOOTSTRAPPER' => [
+                'STATUS' => 'Plugin Status',
+                'ALWAYS_LOAD' => 'Immer laden',
+                'ALWAYS_LOAD_HELP' => 'Falls deaktivert, lass das Theme entscheiden ob das Bootstrap Plugin geladen wird',
+                'USE_CDN' => 'Bootstrap CDN verwenden',
+                'USE_CDN_HELP' => 'Bootstrap CSS und JavaScript vom CDN laden',
+                'MODE' => 'Modus',
+                'LOAD_CORE_CSS' => 'Core CSS laden',
+                'LOAD_THEME_CSS' => 'Theme CSS laden',
+                'LOAD_CORE_JS' => 'Core JS laden'
+            ],
+            'PLUGIN_EMAIL' => [
+                'EMAIL_NOT_CONFIGURED' => 'E-Mail ist nicht konfiguriert',
+                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Bitte konfigurieren sie eine \'An\' (\'to\') Adresse in den Email-Plugin-Einstellungen oder im Formular.',
+                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Bitte konfigurieren sie eine \'Von\' (\'from\') Adresse in den Email-Plugin-Einstellungen oder im Formular.'
             ],
             'PLUGIN_ERROR' => [
                 'ERROR' => 'Fehler',
                 'ERROR_MESSAGE' => 'Uuups. Sieht aus als ob diese Seite nicht existiert.'
-            ],
-            'PLUGIN_FORM' => [
-                'NOT_VALIDATED' => 'Formularwerte nicht gültig. Für ein oder mehrere erforderliche Felder fehlen Werte.',
-                'NONCE_NOT_VALIDATED' => 'Ups, es gibt da ein Problem. Eingabewerte bitte noch mal prüfen und das Formular erneut absenden.',
-                'FILES' => 'Dateien hochladen',
-                'ALLOW_MULTIPLE' => 'Erlaube mehr als eine Datei',
-                'ALLOW_MULTIPLE_HELP' => 'Erlaubt es, mehr als eine Datei zum Hochladen auszuwählen.',
-                'DESTINATION' => 'Ziel',
-                'DESTINATION_HELP' => 'Das Ziel, wohin die Dateien hochgeladen werden sollen.',
-                'ACCEPT' => 'Erlaube MIME-Typen',
-                'ACCEPT_HELP' => 'Eine Liste von MIME-Typen, die hochgeladen werden dürfen.',
-                'ERROR_VALIDATING_CAPTCHA' => 'Die Überprüfung des Captcha ist fehlgeschlagen.'
             ],
             'FRONTMATTER_ERROR_PAGE' => '---
 title: %1$s
@@ -1877,23 +1877,63 @@ Pfad: `%2$s`
                 'CLI_COMPATIBILITY' => 'CLI Compatibility',
                 'CLI_COMPATIBILITY_HELP' => 'Ensures that only non-volatile Cache drivers are used (file, redis, memcache, etc.)'
             ],
-            'PLUGIN_BOOTSTRAPPER' => [
-                'STATUS' => 'Plugin status',
-                'ALWAYS_LOAD' => 'Always load',
-                'ALWAYS_LOAD_HELP' => 'If disabled, let the theme decide to load the bootstrap plugin',
-                'USE_CDN' => 'Use Bootstrap CDN',
-                'USE_CDN_HELP' => 'Load Bootstrap\'s CSS and JavaScript from CDN',
-                'MODE' => 'Mode',
-                'LOAD_CORE_CSS' => 'Load Core CSS',
-                'LOAD_THEME_CSS' => 'Load Theme CSS',
-                'LOAD_CORE_JS' => 'Load Core JS'
+            'PLUGIN_FORM' => [
+                'NOT_VALIDATED' => 'Form not validated. One or more required fields are missing.',
+                'NONCE_NOT_VALIDATED' => 'Oops there was a problem, please check your input and submit the form again.',
+                'FILES' => 'Files Upload',
+                'ALLOW_MULTIPLE' => 'Allow More than one file',
+                'ALLOW_MULTIPLE_HELP' => 'Allows to select more than one file for upload.',
+                'DESTINATION' => 'Destination',
+                'DESTINATION_HELP' => 'The location where the files should be uploaded to',
+                'ACCEPT' => 'Allowed MIME Types',
+                'ACCEPT_HELP' => 'A list of MIME Types that are allowed for upload',
+                'ERROR_VALIDATING_CAPTCHA' => 'Error validating the Captcha',
+                'DATA_SUMMARY' => 'Here is the summary of what you wrote to us:',
+                'NO_FORM_DATA' => 'No form data available',
+                'RECAPTCHA' => 'ReCaptcha',
+                'RECAPTCHA_SITE_KEY' => 'Site key',
+                'RECAPTCHA_SITE_KEY_HELP' => 'For more info visit https://developers.google.com/recaptcha',
+                'RECAPTCHA_SECRET_KEY' => 'Secret key',
+                'RECAPTCHA_SECRET_KEY_HELP' => 'For more info visit https://developers.google.com/recaptcha',
+                'GENERAL' => 'General',
+                'USE_BUILT_IN_CSS' => 'Use built-in CSS',
+                'FILEUPLOAD_PREVENT_SELF' => 'Cannot use "%s" outside of pages.',
+                'FILEUPLOAD_UNABLE_TO_UPLOAD' => 'Unable to upload file %s: %s',
+                'FILEUPLOAD_UNABLE_TO_MOVE' => 'Unable to move file %s to "%s"',
+                'DROPZONE_CANCEL_UPLOAD' => 'Cancel upload',
+                'DROPZONE_CANCEL_UPLOAD_CONFIRMATION' => 'Are you sure you want to cancel this upload?',
+                'DROPZONE_DEFAULT_MESSAGE' => 'Drop your files here or <strong>click in this area</strong>',
+                'DROPZONE_FALLBACK_MESSAGE' => 'Your browser does not support drag and drop file uploads.',
+                'DROPZONE_FALLBACK_TEXT' => 'Please use the fallback form below to upload your files like in the olden days.',
+                'DROPZONE_FILE_TOO_BIG' => 'File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.',
+                'DROPZONE_INVALID_FILE_TYPE' => 'You can\'t upload files of this type.',
+                'DROPZONE_MAX_FILES_EXCEEDED' => 'You can not upload any more files.',
+                'DROPZONE_REMOVE_FILE' => 'Remove file',
+                'DROPZONE_REMOVE_FILE_CONFIRMATION' => 'Are you sure you want to delete this file?',
+                'DROPZONE_RESPONSE_ERROR' => 'Server responded with {{statusCode}} code.',
+                'YES' => 'Yes',
+                'NO' => 'No'
             ],
-            'PLUGIN_EMAIL' => [
-                'EMAIL_NOT_CONFIGURED' => 'Email not configured',
-                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Please configure a \'to\' address in the Email Plugin settings, or in the form',
-                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Please configure a \'from\' address in the Email Plugin settings, or in the form',
-                'TEST_EMAIL_BODY' => '<h1>Testing Email</h1><p>This test email has been sent based on the following configuration:</p>  <p><pre>%1$s</pre></p>',
-                'EMAIL_FOOTER' => 'GetGrav.org'
+            'PLUGINS' => [
+                'SMILEYS' => [
+                    'GLOBAL_CONFIG' => 'Global plugin configurations',
+                    'DEFAULT_CONFIG' => 'Default values for Smileys configuration',
+                    'SPECIFIC_CONFIG' => 'Global and page specific configurations',
+                    'PLUGIN_STATUS' => 'Plugin status',
+                    'BUILTIN_CSS' => 'Use built in CSS',
+                    'WEIGHT' => 'Order of execution',
+                    'WEIGHT_HELP' => 'To process the page contents right after *SmartyPants* use negative values.',
+                    'PACK' => 'Smileys package',
+                    'PACK_HELP' => 'The name of the smileys package equals the name of the folder in `user/data/smileys/<package>`.',
+                    'PACK_DEFAULT' => '- No Smileys package selected -',
+                    'EXCLUDE' => [
+                        'TAGS' => 'Ignore contents with this tags',
+                        'TAGS_HELP' => 'Comma separated list.',
+                        'CLASSES' => 'Ignore contents with this class',
+                        'CLASSES_HELP' => 'Comma separated list.'
+                    ],
+                    'PROCESS' => 'Activate <code>Smileys</code> filter on the page'
+                ]
             ],
             'RECAPTCHACONTACT' => [
                 'FORM_LEGEND' => 'Contact me',
@@ -2030,67 +2070,27 @@ Pfad: `%2$s`
                 'PROTECT_PROTECTED_PAGE_MEDIA_LABEL' => 'Protect a login-protected page media',
                 'PROTECT_PROTECTED_PAGE_MEDIA_HELP' => 'If enabled, media of a login protected page is login protected as well and cannot be seen unless logged in'
             ],
-            'PLUGINS' => [
-                'SMILEYS' => [
-                    'GLOBAL_CONFIG' => 'Global plugin configurations',
-                    'DEFAULT_CONFIG' => 'Default values for Smileys configuration',
-                    'SPECIFIC_CONFIG' => 'Global and page specific configurations',
-                    'PLUGIN_STATUS' => 'Plugin status',
-                    'BUILTIN_CSS' => 'Use built in CSS',
-                    'WEIGHT' => 'Order of execution',
-                    'WEIGHT_HELP' => 'To process the page contents right after *SmartyPants* use negative values.',
-                    'PACK' => 'Smileys package',
-                    'PACK_HELP' => 'The name of the smileys package equals the name of the folder in `user/data/smileys/<package>`.',
-                    'PACK_DEFAULT' => '- No Smileys package selected -',
-                    'EXCLUDE' => [
-                        'TAGS' => 'Ignore contents with this tags',
-                        'TAGS_HELP' => 'Comma separated list.',
-                        'CLASSES' => 'Ignore contents with this class',
-                        'CLASSES_HELP' => 'Comma separated list.'
-                    ],
-                    'PROCESS' => 'Activate <code>Smileys</code> filter on the page'
-                ]
+            'PLUGIN_BOOTSTRAPPER' => [
+                'STATUS' => 'Plugin status',
+                'ALWAYS_LOAD' => 'Always load',
+                'ALWAYS_LOAD_HELP' => 'If disabled, let the theme decide to load the bootstrap plugin',
+                'USE_CDN' => 'Use Bootstrap CDN',
+                'USE_CDN_HELP' => 'Load Bootstrap\'s CSS and JavaScript from CDN',
+                'MODE' => 'Mode',
+                'LOAD_CORE_CSS' => 'Load Core CSS',
+                'LOAD_THEME_CSS' => 'Load Theme CSS',
+                'LOAD_CORE_JS' => 'Load Core JS'
+            ],
+            'PLUGIN_EMAIL' => [
+                'EMAIL_NOT_CONFIGURED' => 'Email not configured',
+                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Please configure a \'to\' address in the Email Plugin settings, or in the form',
+                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Please configure a \'from\' address in the Email Plugin settings, or in the form',
+                'TEST_EMAIL_BODY' => '<h1>Testing Email</h1><p>This test email has been sent based on the following configuration:</p>  <p><pre>%1$s</pre></p>',
+                'EMAIL_FOOTER' => 'GetGrav.org'
             ],
             'PLUGIN_ERROR' => [
                 'ERROR' => 'Error',
                 'ERROR_MESSAGE' => 'Woops. Looks like this page doesn\'t exist.'
-            ],
-            'PLUGIN_FORM' => [
-                'NOT_VALIDATED' => 'Form not validated. One or more required fields are missing.',
-                'NONCE_NOT_VALIDATED' => 'Oops there was a problem, please check your input and submit the form again.',
-                'FILES' => 'Files Upload',
-                'ALLOW_MULTIPLE' => 'Allow More than one file',
-                'ALLOW_MULTIPLE_HELP' => 'Allows to select more than one file for upload.',
-                'DESTINATION' => 'Destination',
-                'DESTINATION_HELP' => 'The location where the files should be uploaded to',
-                'ACCEPT' => 'Allowed MIME Types',
-                'ACCEPT_HELP' => 'A list of MIME Types that are allowed for upload',
-                'ERROR_VALIDATING_CAPTCHA' => 'Error validating the Captcha',
-                'DATA_SUMMARY' => 'Here is the summary of what you wrote to us:',
-                'NO_FORM_DATA' => 'No form data available',
-                'RECAPTCHA' => 'ReCaptcha',
-                'RECAPTCHA_SITE_KEY' => 'Site key',
-                'RECAPTCHA_SITE_KEY_HELP' => 'For more info visit https://developers.google.com/recaptcha',
-                'RECAPTCHA_SECRET_KEY' => 'Secret key',
-                'RECAPTCHA_SECRET_KEY_HELP' => 'For more info visit https://developers.google.com/recaptcha',
-                'GENERAL' => 'General',
-                'USE_BUILT_IN_CSS' => 'Use built-in CSS',
-                'FILEUPLOAD_PREVENT_SELF' => 'Cannot use "%s" outside of pages.',
-                'FILEUPLOAD_UNABLE_TO_UPLOAD' => 'Unable to upload file %s: %s',
-                'FILEUPLOAD_UNABLE_TO_MOVE' => 'Unable to move file %s to "%s"',
-                'DROPZONE_CANCEL_UPLOAD' => 'Cancel upload',
-                'DROPZONE_CANCEL_UPLOAD_CONFIRMATION' => 'Are you sure you want to cancel this upload?',
-                'DROPZONE_DEFAULT_MESSAGE' => 'Drop your files here or <strong>click in this area</strong>',
-                'DROPZONE_FALLBACK_MESSAGE' => 'Your browser does not support drag and drop file uploads.',
-                'DROPZONE_FALLBACK_TEXT' => 'Please use the fallback form below to upload your files like in the olden days.',
-                'DROPZONE_FILE_TOO_BIG' => 'File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.',
-                'DROPZONE_INVALID_FILE_TYPE' => 'You can\'t upload files of this type.',
-                'DROPZONE_MAX_FILES_EXCEEDED' => 'You can not upload any more files.',
-                'DROPZONE_REMOVE_FILE' => 'Remove file',
-                'DROPZONE_REMOVE_FILE_CONFIRMATION' => 'Are you sure you want to delete this file?',
-                'DROPZONE_RESPONSE_ERROR' => 'Server responded with {{statusCode}} code.',
-                'YES' => 'Yes',
-                'NO' => 'No'
             ],
             'FRONTMATTER_ERROR_PAGE' => '---
 title: %1$s
@@ -6384,9 +6384,22 @@ Sti: `%2$s`
                 'ALLOW_WEBSERVER_GZIP_HELP' => 'Desactivado de forma predeterminada. Cuando esté activado, Webserver-configured compresión Gzip/Deflate funcionará, pero las conexiones http no serán cerradas antes del evento onShutDown() causando una carga más lenta de la página',
                 'OFFLINE_WARNING' => 'No se puede establecer la conexión con GPM'
             ],
-            'PLUGIN_EMAIL' => [
-                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Por favor configura una dirección de \'remitente\' en la configuración del Plugin de Email o en el formulario',
-                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Por favor configura una dirección de \'destinatario\' en la configuración del Plugin de Email o en el formulario'
+            'PLUGIN_FORM' => [
+                'NOT_VALIDATED' => 'Falló la validación del formulario. Uno o más campos obligatorios no fueron cubiertos.',
+                'NONCE_NOT_VALIDATED' => 'Oops, hay un problema, por favor revise la información e intente enviar el formulario otra vez.',
+                'FILES' => 'Subida de Ficheros',
+                'ALLOW_MULTIPLE' => 'Permitir más de un fichero',
+                'ALLOW_MULTIPLE_HELP' => 'Permitir seleccionar más de un fichero para subir.',
+                'DESTINATION' => 'Destino',
+                'DESTINATION_HELP' => 'El lugar de destino al que subir los ficheros',
+                'ACCEPT' => 'MIME Types permitidos',
+                'ACCEPT_HELP' => 'Una lista de  MIME Types que se permiten subir.',
+                'ERROR_VALIDATING_CAPTCHA' => 'Error al comrobar el Captcha',
+                'RECAPTCHA' => 'ReCaptcha',
+                'RECAPTCHA_SITE_KEY' => 'Site key',
+                'RECAPTCHA_SITE_KEY_HELP' => 'Para más información visita https://developers.google.com/recaptcha',
+                'RECAPTCHA_SECRET_KEY' => 'Secret key',
+                'RECAPTCHA_SECRET_KEY_HELP' => 'Para más información visita https://developers.google.com/recaptcha'
             ],
             'RECAPTCHACONTACT' => [
                 'FORM_LEGEND' => 'Contacta conmigo',
@@ -6419,22 +6432,9 @@ Sti: `%2$s`
                     'FAIL' => '¡Uy! Algo salió mal y no se pudo enviar el mensaje.'
                 ]
             ],
-            'PLUGIN_FORM' => [
-                'NOT_VALIDATED' => 'Falló la validación del formulario. Uno o más campos obligatorios no fueron cubiertos.',
-                'NONCE_NOT_VALIDATED' => 'Oops, hay un problema, por favor revise la información e intente enviar el formulario otra vez.',
-                'FILES' => 'Subida de Ficheros',
-                'ALLOW_MULTIPLE' => 'Permitir más de un fichero',
-                'ALLOW_MULTIPLE_HELP' => 'Permitir seleccionar más de un fichero para subir.',
-                'DESTINATION' => 'Destino',
-                'DESTINATION_HELP' => 'El lugar de destino al que subir los ficheros',
-                'ACCEPT' => 'MIME Types permitidos',
-                'ACCEPT_HELP' => 'Una lista de  MIME Types que se permiten subir.',
-                'ERROR_VALIDATING_CAPTCHA' => 'Error al comrobar el Captcha',
-                'RECAPTCHA' => 'ReCaptcha',
-                'RECAPTCHA_SITE_KEY' => 'Site key',
-                'RECAPTCHA_SITE_KEY_HELP' => 'Para más información visita https://developers.google.com/recaptcha',
-                'RECAPTCHA_SECRET_KEY' => 'Secret key',
-                'RECAPTCHA_SECRET_KEY_HELP' => 'Para más información visita https://developers.google.com/recaptcha'
+            'PLUGIN_EMAIL' => [
+                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Por favor configura una dirección de \'remitente\' en la configuración del Plugin de Email o en el formulario',
+                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Por favor configura una dirección de \'destinatario\' en la configuración del Plugin de Email o en el formulario'
             ],
             'FRONTMATTER_ERROR_PAGE' => '---
 title: %1$s
@@ -7762,23 +7762,40 @@ Ruta: `%2$s`
                 'NEVER_CACHE_TWIG' => 'Ne jamais mettre en cache Twig',
                 'ALLOW_WEBSERVER_GZIP' => 'Autorisé Gzip WebServer'
             ],
-            'PLUGIN_BOOTSTRAPPER' => [
-                'STATUS' => 'Statut du plugin',
-                'ALWAYS_LOAD' => 'Toujours charger',
-                'ALWAYS_LOAD_HELP' => 'Si désactivé, laisser le thème décider de charger le plugin bootstrap',
-                'USE_CDN' => 'Utiliser le CDN Bootstrap',
-                'USE_CDN_HELP' => 'Charger les CSS Bootstrap et les JavaScript depuis le CDN',
-                'MODE' => 'Mode',
-                'LOAD_CORE_CSS' => 'Charger les CSS du core',
-                'LOAD_THEME_CSS' => 'Charger les CSS du thème',
-                'LOAD_CORE_JS' => 'Charger les JS du core'
-            ],
-            'PLUGIN_EMAIL' => [
-                'EMAIL_NOT_CONFIGURED' => 'L’e-mail n’est pas configuré',
-                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Veuillez configurer une adresse de \'destinataire\' dans les paramètres du Plugin ou dans le formulaire.',
-                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Veuillez configurer une adresse \'d\'expéditeur\' dans les paramètres du Plugin ou dans le formulaire.',
-                'TEST_EMAIL_BODY' => '<h1>E-mail de test</h1><p>Cet e-mail de test est basé sur la configuration suivante :</p>  <p><pre>%1$s</pre></p>',
-                'EMAIL_FOOTER' => 'GetGrav.org'
+            'PLUGIN_FORM' => [
+                'NOT_VALIDATED' => 'Formulaire non validé. Un ou plusieurs champs obligatoires sont manquants.',
+                'NONCE_NOT_VALIDATED' => 'Oups, un problème est survenu. Veuillez vérifier votre saisie et soumettre à nouveau le formulaire.',
+                'FILES' => 'Fichiers chargés',
+                'ALLOW_MULTIPLE' => 'Autoriser plus d\'un fichier',
+                'ALLOW_MULTIPLE_HELP' => 'Permet la sélection de plusieurs fichiers pour chargement.',
+                'DESTINATION' => 'Destination',
+                'DESTINATION_HELP' => 'L\'emplacement où les fichiers doivent être chargés.',
+                'ACCEPT' => 'Autoriser les Types MIME',
+                'ACCEPT_HELP' => 'Liste des Types MIME autorisés au chargement',
+                'ERROR_VALIDATING_CAPTCHA' => 'Erreur lors de la validation du Captcha',
+                'DATA_SUMMARY' => 'Voici le résumé de ce que vous nous avez écrit :',
+                'NO_FORM_DATA' => 'Aucune donnée de formulaire disponible',
+                'RECAPTCHA' => 'ReCaptcha',
+                'RECAPTCHA_SITE_KEY' => 'Clé du site',
+                'RECAPTCHA_SITE_KEY_HELP' => 'Pour plus d\'informations veuillez vous rendre sur https://developers.google.com/recaptcha',
+                'RECAPTCHA_SECRET_KEY' => 'Clé secrète',
+                'RECAPTCHA_SECRET_KEY_HELP' => 'Pour plus d\'informations veuillez vous rendre sur https://developers.google.com/recaptcha',
+                'GENERAL' => 'Général',
+                'USE_BUILT_IN_CSS' => 'Utiliser les CSS natifs',
+                'FILEUPLOAD_PREVENT_SELF' => 'Impossible d\'utiliser \'%s\' en dehors des pages.',
+                'FILEUPLOAD_UNABLE_TO_UPLOAD' => 'Impossible de charger le fichier %s: %s',
+                'FILEUPLOAD_UNABLE_TO_MOVE' => 'Impossible de déplacer le fichier %s vers "%s"',
+                'DROPZONE_CANCEL_UPLOAD' => 'Annuler le chargement',
+                'DROPZONE_CANCEL_UPLOAD_CONFIRMATION' => 'Êtes-vous certain de vouloir annuler ce téléchargement ?',
+                'DROPZONE_DEFAULT_MESSAGE' => 'Glissez vos fichiers ici ou <strong>cliquez dans cette zone</strong>',
+                'DROPZONE_FALLBACK_MESSAGE' => 'Votre navigateur ne prend pas en charge les téléchargements par glissé-déposé.',
+                'DROPZONE_FALLBACK_TEXT' => 'Veuillez utiliser le formulaire de secours ci-dessous pour transférer vos fichiers.',
+                'DROPZONE_FILE_TOO_BIG' => 'Le fichier est trop volumineux ({{filesize}}MiB). Taille maximale de fichier : {{maxFilesize}}MiB.',
+                'DROPZONE_INVALID_FILE_TYPE' => 'Vous ne pouvez pas charger des fichiers de ce type.',
+                'DROPZONE_MAX_FILES_EXCEEDED' => 'Vous ne pouvez plus télécharger de fichiers.',
+                'DROPZONE_REMOVE_FILE' => 'Supprimer le fichier',
+                'DROPZONE_REMOVE_FILE_CONFIRMATION' => 'Êtes-vous sûr de vouloir supprimer ce fichier ?',
+                'DROPZONE_RESPONSE_ERROR' => 'Le serveur a répondu avec le code {{statusCode}}.'
             ],
             'RECAPTCHACONTACT' => [
                 'FORM_LEGEND' => 'Me contacter',
@@ -7901,44 +7918,27 @@ Ruta: `%2$s`
                 'PROTECT_PROTECTED_PAGE_MEDIA_LABEL' => 'Protéger le média d\'une page par une protection par connexion',
                 'PROTECT_PROTECTED_PAGE_MEDIA_HELP' => 'Si activé, les médias d\'une page protégée par connexion sera également protégé par un système de connexion et ne pourra pas être visible à moins d\'être connecté.'
             ],
+            'PLUGIN_BOOTSTRAPPER' => [
+                'STATUS' => 'Statut du plugin',
+                'ALWAYS_LOAD' => 'Toujours charger',
+                'ALWAYS_LOAD_HELP' => 'Si désactivé, laisser le thème décider de charger le plugin bootstrap',
+                'USE_CDN' => 'Utiliser le CDN Bootstrap',
+                'USE_CDN_HELP' => 'Charger les CSS Bootstrap et les JavaScript depuis le CDN',
+                'MODE' => 'Mode',
+                'LOAD_CORE_CSS' => 'Charger les CSS du core',
+                'LOAD_THEME_CSS' => 'Charger les CSS du thème',
+                'LOAD_CORE_JS' => 'Charger les JS du core'
+            ],
+            'PLUGIN_EMAIL' => [
+                'EMAIL_NOT_CONFIGURED' => 'L’e-mail n’est pas configuré',
+                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Veuillez configurer une adresse de \'destinataire\' dans les paramètres du Plugin ou dans le formulaire.',
+                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Veuillez configurer une adresse \'d\'expéditeur\' dans les paramètres du Plugin ou dans le formulaire.',
+                'TEST_EMAIL_BODY' => '<h1>E-mail de test</h1><p>Cet e-mail de test est basé sur la configuration suivante :</p>  <p><pre>%1$s</pre></p>',
+                'EMAIL_FOOTER' => 'GetGrav.org'
+            ],
             'PLUGIN_ERROR' => [
                 'ERROR' => 'Erreur',
                 'ERROR_MESSAGE' => 'Oups. Il semble que cette page n’existe pas.'
-            ],
-            'PLUGIN_FORM' => [
-                'NOT_VALIDATED' => 'Formulaire non validé. Un ou plusieurs champs obligatoires sont manquants.',
-                'NONCE_NOT_VALIDATED' => 'Oups, un problème est survenu. Veuillez vérifier votre saisie et soumettre à nouveau le formulaire.',
-                'FILES' => 'Fichiers chargés',
-                'ALLOW_MULTIPLE' => 'Autoriser plus d\'un fichier',
-                'ALLOW_MULTIPLE_HELP' => 'Permet la sélection de plusieurs fichiers pour chargement.',
-                'DESTINATION' => 'Destination',
-                'DESTINATION_HELP' => 'L\'emplacement où les fichiers doivent être chargés.',
-                'ACCEPT' => 'Autoriser les Types MIME',
-                'ACCEPT_HELP' => 'Liste des Types MIME autorisés au chargement',
-                'ERROR_VALIDATING_CAPTCHA' => 'Erreur lors de la validation du Captcha',
-                'DATA_SUMMARY' => 'Voici le résumé de ce que vous nous avez écrit :',
-                'NO_FORM_DATA' => 'Aucune donnée de formulaire disponible',
-                'RECAPTCHA' => 'ReCaptcha',
-                'RECAPTCHA_SITE_KEY' => 'Clé du site',
-                'RECAPTCHA_SITE_KEY_HELP' => 'Pour plus d\'informations veuillez vous rendre sur https://developers.google.com/recaptcha',
-                'RECAPTCHA_SECRET_KEY' => 'Clé secrète',
-                'RECAPTCHA_SECRET_KEY_HELP' => 'Pour plus d\'informations veuillez vous rendre sur https://developers.google.com/recaptcha',
-                'GENERAL' => 'Général',
-                'USE_BUILT_IN_CSS' => 'Utiliser les CSS natifs',
-                'FILEUPLOAD_PREVENT_SELF' => 'Impossible d\'utiliser \'%s\' en dehors des pages.',
-                'FILEUPLOAD_UNABLE_TO_UPLOAD' => 'Impossible de charger le fichier %s: %s',
-                'FILEUPLOAD_UNABLE_TO_MOVE' => 'Impossible de déplacer le fichier %s vers "%s"',
-                'DROPZONE_CANCEL_UPLOAD' => 'Annuler le chargement',
-                'DROPZONE_CANCEL_UPLOAD_CONFIRMATION' => 'Êtes-vous certain de vouloir annuler ce téléchargement ?',
-                'DROPZONE_DEFAULT_MESSAGE' => 'Glissez vos fichiers ici ou <strong>cliquez dans cette zone</strong>',
-                'DROPZONE_FALLBACK_MESSAGE' => 'Votre navigateur ne prend pas en charge les téléchargements par glissé-déposé.',
-                'DROPZONE_FALLBACK_TEXT' => 'Veuillez utiliser le formulaire de secours ci-dessous pour transférer vos fichiers.',
-                'DROPZONE_FILE_TOO_BIG' => 'Le fichier est trop volumineux ({{filesize}}MiB). Taille maximale de fichier : {{maxFilesize}}MiB.',
-                'DROPZONE_INVALID_FILE_TYPE' => 'Vous ne pouvez pas charger des fichiers de ce type.',
-                'DROPZONE_MAX_FILES_EXCEEDED' => 'Vous ne pouvez plus télécharger de fichiers.',
-                'DROPZONE_REMOVE_FILE' => 'Supprimer le fichier',
-                'DROPZONE_REMOVE_FILE_CONFIRMATION' => 'Êtes-vous sûr de vouloir supprimer ce fichier ?',
-                'DROPZONE_RESPONSE_ERROR' => 'Le serveur a répondu avec le code {{statusCode}}.'
             ],
             'FRONTMATTER_ERROR_PAGE' => '---
 title: %1$s
@@ -8629,10 +8629,16 @@ Path: `%2$s`
                 'ALL' => 'Sve',
                 'FROM' => 'od'
             ],
-            'PLUGIN_EMAIL' => [
-                'EMAIL_NOT_CONFIGURED' => 'Email nije konfiguriran',
-                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Konfigurirajte \'za\' (\'to\') adresu u postavkama Email dodatka ili u obrascu',
-                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Konfigurirajte \'od\' (\'from\') adresu u postavkama Email dodatka ili u obrascu'
+            'PLUGIN_FORM' => [
+                'NOT_VALIDATED' => 'Formular nije validiran. Jedan ili više traženih polja nedostaju.',
+                'NONCE_NOT_VALIDATED' => 'Ups, došlo je do problema, molimo provjerite svoj unos i pokušajte opet.',
+                'FILES' => 'Upload Fajlova',
+                'ALLOW_MULTIPLE' => 'Dopusti više od jednog fajla',
+                'DESTINATION' => 'Destinacija',
+                'DESTINATION_HELP' => 'Lokacija gdje bi fajlovi trebali biti uploadani',
+                'ACCEPT' => 'Dopušteni MIME Tipovi',
+                'ACCEPT_HELP' => 'Lista dopuštenih MIME Tipova koji su dozvoljeni za upload',
+                'ERROR_VALIDATING_CAPTCHA' => 'Greška pri validiranju Captcha'
             ],
             'PLUGIN_LOGIN' => [
                 'ACCESS_DENIED' => 'Pristup odbijen...',
@@ -8676,20 +8682,14 @@ Path: `%2$s`
                 'REGISTRATION_FIELD_KEY' => 'Ime polja',
                 'OPTIONS' => 'Opcije'
             ],
+            'PLUGIN_EMAIL' => [
+                'EMAIL_NOT_CONFIGURED' => 'Email nije konfiguriran',
+                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Konfigurirajte \'za\' (\'to\') adresu u postavkama Email dodatka ili u obrascu',
+                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Konfigurirajte \'od\' (\'from\') adresu u postavkama Email dodatka ili u obrascu'
+            ],
             'PLUGIN_ERROR' => [
                 'ERROR' => 'Greška',
                 'ERROR_MESSAGE' => 'Uups. Izgleda da ova stranica ne postoji.'
-            ],
-            'PLUGIN_FORM' => [
-                'NOT_VALIDATED' => 'Formular nije validiran. Jedan ili više traženih polja nedostaju.',
-                'NONCE_NOT_VALIDATED' => 'Ups, došlo je do problema, molimo provjerite svoj unos i pokušajte opet.',
-                'FILES' => 'Upload Fajlova',
-                'ALLOW_MULTIPLE' => 'Dopusti više od jednog fajla',
-                'DESTINATION' => 'Destinacija',
-                'DESTINATION_HELP' => 'Lokacija gdje bi fajlovi trebali biti uploadani',
-                'ACCEPT' => 'Dopušteni MIME Tipovi',
-                'ACCEPT_HELP' => 'Lista dopuštenih MIME Tipova koji su dozvoljeni za upload',
-                'ERROR_VALIDATING_CAPTCHA' => 'Greška pri validiranju Captcha'
             ],
             'INFLECTOR_UNCOUNTABLE' => [
                 0 => 'oprema',
@@ -9379,6 +9379,18 @@ Path: `%2$s`
                 'ERROR_SIMPLE' => 'Egyszerű hiba',
                 'ERROR_SYSTEM' => 'Rendszerhiba'
             ],
+            'PLUGIN_FORM' => [
+                'NOT_VALIDATED' => 'Érvénytelen az űrlap. Egy vagy több kötelező mező nincs kitöltve.',
+                'NONCE_NOT_VALIDATED' => 'Upsz, van egy kis probléma, kérlek nézd át az űrlapot, majd küldd el újra.',
+                'FILES' => 'Fájlok Feltöltése',
+                'ALLOW_MULTIPLE' => 'Több fájl feltöltése',
+                'ALLOW_MULTIPLE_HELP' => 'Engedélyezi egyszerre több állomány feltöltését.',
+                'DESTINATION' => 'Feltöltés Helye',
+                'DESTINATION_HELP' => 'Ide lesznek feltöltve az állományok',
+                'ACCEPT' => 'Engedélyezett MIME-típusok',
+                'ACCEPT_HELP' => 'A feltölthető állományok MIME-típusainak listája',
+                'ERROR_VALIDATING_CAPTCHA' => 'Hiba lépett fel a Captcha validálása során'
+            ],
             'PLUGIN_LOGIN' => [
                 'ACCESS_DENIED' => 'Hozzáférés megtagadva...',
                 'LOGIN_FAILED' => 'Sikertelen belépés...',
@@ -9400,18 +9412,6 @@ Path: `%2$s`
                 'USERNAME_NOT_AVAILABLE' => '%s nevű felhasználó már létezik, kérlek válassz más felhasználónevet',
                 'PASSWORD_NOT_VALID' => 'A jelszónak tartalmaznia kell legalább egy számot, egy kisbetűt és egy nagybetűt, valamint legalább 8 karakter hosszú kell, hogy legyen',
                 'PASSWORDS_DO_NOT_MATCH' => 'A két jelszó nem egyezik meg. Győzödj meg róla, hogy azonos legyen a kettő'
-            ],
-            'PLUGIN_FORM' => [
-                'NOT_VALIDATED' => 'Érvénytelen az űrlap. Egy vagy több kötelező mező nincs kitöltve.',
-                'NONCE_NOT_VALIDATED' => 'Upsz, van egy kis probléma, kérlek nézd át az űrlapot, majd küldd el újra.',
-                'FILES' => 'Fájlok Feltöltése',
-                'ALLOW_MULTIPLE' => 'Több fájl feltöltése',
-                'ALLOW_MULTIPLE_HELP' => 'Engedélyezi egyszerre több állomány feltöltését.',
-                'DESTINATION' => 'Feltöltés Helye',
-                'DESTINATION_HELP' => 'Ide lesznek feltöltve az állományok',
-                'ACCEPT' => 'Engedélyezett MIME-típusok',
-                'ACCEPT_HELP' => 'A feltölthető állományok MIME-típusainak listája',
-                'ERROR_VALIDATING_CAPTCHA' => 'Hiba lépett fel a Captcha validálása során'
             ],
             'FRONTMATTER_ERROR_PAGE' => '---
 cím: %1$s
@@ -10197,9 +10197,19 @@ Elérési út: `%2$s`
                 'ALLOW_WEBSERVER_GZIP_HELP' => 'Disattivata per impostazione predefinita. Quando attivata, la compressione configurata Gzip/Deflate WebServer, funzionerà ma la connessione http non verrà chiusa prima dell\'evento onShutDown() rallentando il caricamento della pagina',
                 'OFFLINE_WARNING' => 'Non è possibile stabilire la connessione con il GPM'
             ],
-            'PLUGIN_EMAIL' => [
-                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Per favore, configura l\'indirizzo di destinazione (\'to\') nella configurazione del Plugin Email, oppure direttamente nella form.',
-                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Per favore, configura l\'indirizzo di provenienza (\'from\') nella configurazione del Plugin Email, oppure direttamente nella form'
+            'PLUGIN_FORM' => [
+                'NOT_VALIDATED' => 'Il Form risulta invalido. Uno o più campi risultano omessi.',
+                'NONCE_NOT_VALIDATED' => 'Oops è stato riscontrato un errore, si prega di ricontrollare i dati inseriti e provare di nuovo.',
+                'FILES' => 'Invio dei Files',
+                'ALLOW_MULTIPLE' => 'Consenti più di un file',
+                'ALLOW_MULTIPLE_HELP' => 'Permette la selezione di più di un file per l\'upload',
+                'DESTINATION' => 'Destinazione',
+                'DESTINATION_HELP' => 'La destinazione dove i files vengono uploadati',
+                'ACCEPT' => 'Tipi di MIME Concessi',
+                'ACCEPT_HELP' => 'Una lista di tipi di MIME che sono permessi per l\'upload',
+                'ERROR_VALIDATING_CAPTCHA' => 'Errore durante la validazione del Captcha',
+                'YES' => 'Si',
+                'NO' => 'No'
             ],
             'RECAPTCHACONTACT' => [
                 'FORM_LEGEND' => 'Contattami',
@@ -10246,23 +10256,13 @@ Elérési út: `%2$s`
                     'FAIL' => 'Oh! Qualcosa non ha funzionato perciò il tuo messaggio non potrà essere inviato.'
                 ]
             ],
+            'PLUGIN_EMAIL' => [
+                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Per favore, configura l\'indirizzo di destinazione (\'to\') nella configurazione del Plugin Email, oppure direttamente nella form.',
+                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Per favore, configura l\'indirizzo di provenienza (\'from\') nella configurazione del Plugin Email, oppure direttamente nella form'
+            ],
             'PLUGIN_ERROR' => [
                 'ERROR' => 'Errore',
                 'ERROR_MESSAGE' => 'Ooops. A quanto pare, questa pagina non esiste.'
-            ],
-            'PLUGIN_FORM' => [
-                'NOT_VALIDATED' => 'Il Form risulta invalido. Uno o più campi risultano omessi.',
-                'NONCE_NOT_VALIDATED' => 'Oops è stato riscontrato un errore, si prega di ricontrollare i dati inseriti e provare di nuovo.',
-                'FILES' => 'Invio dei Files',
-                'ALLOW_MULTIPLE' => 'Consenti più di un file',
-                'ALLOW_MULTIPLE_HELP' => 'Permette la selezione di più di un file per l\'upload',
-                'DESTINATION' => 'Destinazione',
-                'DESTINATION_HELP' => 'La destinazione dove i files vengono uploadati',
-                'ACCEPT' => 'Tipi di MIME Concessi',
-                'ACCEPT_HELP' => 'Una lista di tipi di MIME che sono permessi per l\'upload',
-                'ERROR_VALIDATING_CAPTCHA' => 'Errore durante la validazione del Captcha',
-                'YES' => 'Si',
-                'NO' => 'No'
             ],
             'FRONTMATTER_ERROR_PAGE' => '---Titolo: %1$s---# Errore: Frontmatter non valido: \'%2$s\' * *%3$s * * \' \'%4$s \' \'',
             'NICETIME' => [
@@ -14105,21 +14105,24 @@ Caminho: `%2$s`
                 'ALLOW_WEBSERVER_GZIP_HELP' => 'Dezactivată în mod implicit. Dacă este activată, compresia Gzip/Defflate configurată pe WebServer va funcționa dar conexiunile Http nu vor fi închise cu evenimentul onShutDown() astfel paginile se vor încarca mai greu',
                 'OFFLINE_WARNING' => 'Conexiunea la GPM nu poate fi stabilită'
             ],
-            'PLUGIN_BOOTSTRAPPER' => [
-                'STATUS' => 'Statut modul',
-                'ALWAYS_LOAD' => 'Încarcă mereu',
-                'ALWAYS_LOAD_HELP' => 'Dacă este dezactivat, lăsați tema să decidă încărcarea modulului.',
-                'USE_CDN' => 'Folosiți Bootstrap CDN',
-                'USE_CDN_HELP' => 'Încarcă Bootstrap\'s CSS și JavaScript din locația CDN',
-                'MODE' => 'Mod',
-                'LOAD_CORE_CSS' => 'Încarcă CSS de bază',
-                'LOAD_THEME_CSS' => 'Încarcă CSS-ul temei',
-                'LOAD_CORE_JS' => 'Încarcă JS de bază'
-            ],
-            'PLUGIN_EMAIL' => [
-                'EMAIL_NOT_CONFIGURED' => 'Adresa de email nu este configurată',
-                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Vă rugam setați o adresă \'către\' în setările modulului Email sau în formular',
-                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Vă rugam setați o adresă \'de la\' în setările modulului Email sau în formular'
+            'PLUGIN_FORM' => [
+                'NOT_VALIDATED' => 'Formularul nu a fost validat. Unul sau mai multe câmpuri sunt goale.',
+                'NONCE_NOT_VALIDATED' => 'Oops a apărut o problemă, vă rugăm verificați datele introduse și trimiteți formularul din nou.',
+                'FILES' => 'Încărcare fișiere',
+                'ALLOW_MULTIPLE' => 'Permiteți mai multe fișiere',
+                'ALLOW_MULTIPLE_HELP' => 'Vă permite să selectați mai multe fișiere pentru încărcare.',
+                'DESTINATION' => 'Destinație',
+                'DESTINATION_HELP' => 'Locația unde vor fi încărcate fișierele.',
+                'ACCEPT' => 'Permite tipuri MIME ',
+                'ACCEPT_HELP' => 'O listă cu tipuri MIME care sunt permise la încărcare.',
+                'ERROR_VALIDATING_CAPTCHA' => 'Eroare la validarea Captcha.',
+                'DATA_SUMMARY' => 'Mai jos aveți un rezumat al mesajului pe care ni l-ați trimis:',
+                'NO_FORM_DATA' => 'Nu e disponibilă nici o dată pentru formular',
+                'RECAPTCHA' => 'ReCaptcha',
+                'RECAPTCHA_SITE_KEY' => 'Cheia pentru Site',
+                'RECAPTCHA_SITE_KEY_HELP' => 'Pentru mai multe detalii vă rugăm vizitați https://developers.google.com/recaptcha',
+                'RECAPTCHA_SECRET_KEY' => 'Cheia secretă pentru Site',
+                'RECAPTCHA_SECRET_KEY_HELP' => 'Pentru mai multe detalii vă rugăm vizitați  https://developers.google.com/recaptcha'
             ],
             'PLUGIN_LOGIN' => [
                 'USERNAME' => 'Nume utilizator',
@@ -14208,28 +14211,25 @@ Caminho: `%2$s`
                 'PROTECT_PROTECTED_PAGE_MEDIA_LABEL' => ' Protejează media ce aparține paginii de logare ',
                 'PROTECT_PROTECTED_PAGE_MEDIA_HELP' => 'Dacă este activată, media ce aparține unei pagini de logare este protejată și nu poate fi accesată decât după logare.'
             ],
+            'PLUGIN_BOOTSTRAPPER' => [
+                'STATUS' => 'Statut modul',
+                'ALWAYS_LOAD' => 'Încarcă mereu',
+                'ALWAYS_LOAD_HELP' => 'Dacă este dezactivat, lăsați tema să decidă încărcarea modulului.',
+                'USE_CDN' => 'Folosiți Bootstrap CDN',
+                'USE_CDN_HELP' => 'Încarcă Bootstrap\'s CSS și JavaScript din locația CDN',
+                'MODE' => 'Mod',
+                'LOAD_CORE_CSS' => 'Încarcă CSS de bază',
+                'LOAD_THEME_CSS' => 'Încarcă CSS-ul temei',
+                'LOAD_CORE_JS' => 'Încarcă JS de bază'
+            ],
+            'PLUGIN_EMAIL' => [
+                'EMAIL_NOT_CONFIGURED' => 'Adresa de email nu este configurată',
+                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Vă rugam setați o adresă \'către\' în setările modulului Email sau în formular',
+                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Vă rugam setați o adresă \'de la\' în setările modulului Email sau în formular'
+            ],
             'PLUGIN_ERROR' => [
                 'ERROR' => 'Eroare',
                 'ERROR_MESSAGE' => 'Ooops. Se pare că pagina nu există.'
-            ],
-            'PLUGIN_FORM' => [
-                'NOT_VALIDATED' => 'Formularul nu a fost validat. Unul sau mai multe câmpuri sunt goale.',
-                'NONCE_NOT_VALIDATED' => 'Oops a apărut o problemă, vă rugăm verificați datele introduse și trimiteți formularul din nou.',
-                'FILES' => 'Încărcare fișiere',
-                'ALLOW_MULTIPLE' => 'Permiteți mai multe fișiere',
-                'ALLOW_MULTIPLE_HELP' => 'Vă permite să selectați mai multe fișiere pentru încărcare.',
-                'DESTINATION' => 'Destinație',
-                'DESTINATION_HELP' => 'Locația unde vor fi încărcate fișierele.',
-                'ACCEPT' => 'Permite tipuri MIME ',
-                'ACCEPT_HELP' => 'O listă cu tipuri MIME care sunt permise la încărcare.',
-                'ERROR_VALIDATING_CAPTCHA' => 'Eroare la validarea Captcha.',
-                'DATA_SUMMARY' => 'Mai jos aveți un rezumat al mesajului pe care ni l-ați trimis:',
-                'NO_FORM_DATA' => 'Nu e disponibilă nici o dată pentru formular',
-                'RECAPTCHA' => 'ReCaptcha',
-                'RECAPTCHA_SITE_KEY' => 'Cheia pentru Site',
-                'RECAPTCHA_SITE_KEY_HELP' => 'Pentru mai multe detalii vă rugăm vizitați https://developers.google.com/recaptcha',
-                'RECAPTCHA_SECRET_KEY' => 'Cheia secretă pentru Site',
-                'RECAPTCHA_SECRET_KEY_HELP' => 'Pentru mai multe detalii vă rugăm vizitați  https://developers.google.com/recaptcha'
             ],
             'FRONTMATTER_ERROR_PAGE' => '---
 Titlu: %1$s
@@ -14953,21 +14953,6 @@ Calea: `%2$s`
                 'ERROR_SYSTEM' => 'Системная ошибка',
                 'OFFLINE_WARNING' => 'Невозможно установить подключение к GPM'
             ],
-            'PLUGIN_BOOTSTRAPPER' => [
-                'STATUS' => 'Состояние плагина',
-                'ALWAYS_LOAD' => 'Загружать всегда',
-                'ALWAYS_LOAD_HELP' => 'Если отключено, загрузка плагина определяется темой оформления',
-                'USE_CDN' => 'Использовать Bootstrap CDN',
-                'USE_CDN_HELP' => 'Загружать Bootstrap CSS и JavaScript из CDN',
-                'MODE' => 'Режим',
-                'LOAD_CORE_CSS' => 'Загружать основной CSS',
-                'LOAD_THEME_CSS' => 'Загружать CSS темы оформления',
-                'LOAD_CORE_JS' => 'Загружать основной JS'
-            ],
-            'PLUGIN_EMAIL' => [
-                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Пожалуйста настройте адрес получателя (\'to\') в настройках плагина Email Plugin, или на форме',
-                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Пожалуйста настройте адрес отправителя (\'from\') в настройках плагина Email Plugin, или на форме'
-            ],
             'RECAPTCHACONTACT' => [
                 'FORM_LEGEND' => 'Контакты',
                 'SUBJECT' => 'Новый контакт от Grav!',
@@ -15012,6 +14997,21 @@ Calea: `%2$s`
                     'ERROR' => 'Упс! Произошла ошибка при отправке вашего сообщения. Пожалуйста заполните форму и попробуйте снова.',
                     'FAIL' => 'Упс! Что-то пошло не так и мы не можем отправить ваше сообщение.'
                 ]
+            ],
+            'PLUGIN_BOOTSTRAPPER' => [
+                'STATUS' => 'Состояние плагина',
+                'ALWAYS_LOAD' => 'Загружать всегда',
+                'ALWAYS_LOAD_HELP' => 'Если отключено, загрузка плагина определяется темой оформления',
+                'USE_CDN' => 'Использовать Bootstrap CDN',
+                'USE_CDN_HELP' => 'Загружать Bootstrap CSS и JavaScript из CDN',
+                'MODE' => 'Режим',
+                'LOAD_CORE_CSS' => 'Загружать основной CSS',
+                'LOAD_THEME_CSS' => 'Загружать CSS темы оформления',
+                'LOAD_CORE_JS' => 'Загружать основной JS'
+            ],
+            'PLUGIN_EMAIL' => [
+                'PLEASE_CONFIGURE_A_TO_ADDRESS' => 'Пожалуйста настройте адрес получателя (\'to\') в настройках плагина Email Plugin, или на форме',
+                'PLEASE_CONFIGURE_A_FROM_ADDRESS' => 'Пожалуйста настройте адрес отправителя (\'from\') в настройках плагина Email Plugin, или на форме'
             ],
             'PLUGIN_ERROR' => [
                 'ERROR' => 'Ошибка',
@@ -18054,6 +18054,6 @@ Path: `%2$s`
                 6 => 'søndag'
             ]
         ],
-        'checksum' => '2e4ef823aff6f09af3fe0249b83521ca'
+        'checksum' => '2c222856eb3576ad229d157112e6a542'
     ]
 ];
