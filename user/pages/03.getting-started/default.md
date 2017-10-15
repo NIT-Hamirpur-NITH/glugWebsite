@@ -1,6 +1,8 @@
 ---
 title: 'Getting Started'
 visible: true
+recaptchacontact:
+    enabled: false
 ---
 
 <meta property="og:url"                content="http://glug.nith.ac.in/new/" />
@@ -67,6 +69,8 @@ Also this flowchart can help choose what's best for you.
 [<image src="http://www.linuxtrainingacademy.com/wp-content/uploads/2015/01/choosing-a-linux-distro.jpg" width="100%" />](http://www.linuxtrainingacademy.com/wp-content/uploads/2015/01/choosing-a-linux-distro.jpg)
 
 Install one of the distros and post the screenshot of your desktop :) on our Facebook group [here](https://www.facebook.com/groups/glugnith/).
+
+### For more Info visit -> [Awesome Linux](/misc/awesome-linux)
 
 
 

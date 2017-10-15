@@ -34,7 +34,7 @@ recaptchacontact:
 
 <h3> Getting Started</h3>
 
-To learn about basic things to get started with GNU Linux <a href="/getting-started">Click Here</a>.
+To learn about basic things to get started with GNU Linux <a href="/getting-started">Click Here</a> OR visit [Awesome Linux](/misc/awesome-linux).
 
 <h3>Contributing to website</h3>
 
