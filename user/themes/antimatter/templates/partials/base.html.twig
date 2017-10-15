@@ -71,15 +71,17 @@
             <div class="totop">
                 <span><a href="#" id="toTop"><i class="fa fa-arrow-up"></i></a></span>
             </div>
-            <p><i class="fa fa-linux "></i> The Linux philosophy is 'Laugh in the face of danger'. Oops. Wrong One. <a>'Do it yourself'</a>. Yes, that's it. - <b>Linus Torvalds</b></p>
+            <p><a href="http://getgrav.org">Grav</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="http://www.rockettheme.com">RocketTheme</a>.</p>
         </footer>
         {% endblock %}
     </div>
-    <div class="sb-slidebar sb-left sb-width-thin">
-        <div id="panel">
-        {% include 'partials/navigation.html.twig' %}
+    {% block sidebar_navigation %}
+        <div class="sb-slidebar sb-left sb-width-thin">
+            <div id="panel">
+            {% include 'partials/navigation.html.twig' %}
+            </div>
         </div>
-    </div>
+    {% endblock %}
     {% block bottom %}
         {{ assets.js('bottom') }}
         <script>

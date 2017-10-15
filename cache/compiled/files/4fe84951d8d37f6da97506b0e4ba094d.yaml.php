@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/themes/antimatter/languages.yaml',
-    'modified' => 1487787353,
+    'modified' => 1508073547,
     'data' => [
         'en' => [
             'TRANSLATION_TEST' => 'Antimatter!',
@@ -344,6 +344,82 @@ return [
                 'SUMMARY' => 'Ovo je sažetak onog što ste nam napisali:'
             ],
             'ERROR' => 'Greška'
+        ],
+        'pl' => [
+            'TRANSLATION_TEST' => 'Antimatter!',
+            'BLOG' => [
+                'ITEM' => [
+                    'CONTINUE_READING' => 'Czytaj dalej...',
+                    'NEXT_POST' => 'Następny wpis',
+                    'PREV_POST' => 'Poprzedni wpis'
+                ]
+            ],
+            'SIDEBAR' => [
+                'SIMPLE_SEARCH' => [
+                    'HEADLINE' => 'Szukaj'
+                ],
+                'RELATED_POSTS' => [
+                    'HEADLINE' => 'Powiązane wpisy'
+                ],
+                'RANDOM_ARTICLE' => [
+                    'HEADLINE' => 'Losowy wpis',
+                    'FEELING_LUCKY' => 'Szczęśliwy traf!'
+                ],
+                'SOME_TEXT_WIDGET' => [
+                    'HEADLINE' => 'Jakiś tekst - widget'
+                ],
+                'POPULAR_TAGS' => [
+                    'HEADLINE' => 'Popularne tagi'
+                ],
+                'ARCHIVES' => [
+                    'HEADLINE' => 'Archiwum'
+                ],
+                'SYNDICATE' => [
+                    'HEADLINE' => 'Feed'
+                ]
+            ],
+            'FORM_DATA' => [
+                'SUMMARY' => 'Podsumowanie tego co do nas napisałeś:'
+            ],
+            'ERROR' => 'Błąd'
+        ],
+        'pt-BR' => [
+            'TRANSLATION_TEST' => 'Antimatter!',
+            'BLOG' => [
+                'ITEM' => [
+                    'CONTINUE_READING' => 'Continue lendo...',
+                    'NEXT_POST' => 'Próximo Post',
+                    'PREV_POST' => 'Post anterior'
+                ]
+            ],
+            'SIDEBAR' => [
+                'SIMPLE_SEARCH' => [
+                    'HEADLINE' => 'Buscar'
+                ],
+                'RELATED_POSTS' => [
+                    'HEADLINE' => 'Posts relacionados'
+                ],
+                'RANDOM_ARTICLE' => [
+                    'HEADLINE' => 'Artigo aleatório',
+                    'FEELING_LUCKY' => 'Me sinto sortudo.'
+                ],
+                'SOME_TEXT_WIDGET' => [
+                    'HEADLINE' => 'Algum widget de texto'
+                ],
+                'POPULAR_TAGS' => [
+                    'HEADLINE' => 'Tags Populares'
+                ],
+                'ARCHIVES' => [
+                    'HEADLINE' => 'Arquivos'
+                ],
+                'SYNDICATE' => [
+                    'HEADLINE' => 'Feed'
+                ]
+            ],
+            'FORM_DATA' => [
+                'SUMMARY' => 'Aqui está o resumo do que você nos escreveu:'
+            ],
+            'ERROR' => 'Erro'
         ]
     ]
 ];
