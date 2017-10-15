@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/system/languages/en.yaml',
-    'modified' => 1487788037,
+    'modified' => 1508073316,
     'data' => [
         'FRONTMATTER_ERROR_PAGE' => '---
 title: %1$s
@@ -91,6 +91,7 @@ Path: `%2$s`
             'BAD_DATE' => 'Bad date',
             'AGO' => 'ago',
             'FROM_NOW' => 'from now',
+            'JUST_NOW' => 'just now',
             'SECOND' => 'second',
             'MINUTE' => 'minute',
             'HOUR' => 'hour',

@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/system/config/media.yaml',
-    'modified' => 1487788037,
+    'modified' => 1508073316,
     'data' => [
         'types' => [
             'defaults' => [
@@ -29,7 +29,7 @@ return [
             ],
             'jpeg' => [
                 'type' => 'image',
-                'thumb' => 'media/thumb-jpeg.png',
+                'thumb' => 'media/thumb-jpg.png',
                 'mime' => 'image/jpeg'
             ],
             'png' => [
@@ -44,7 +44,7 @@ return [
             ],
             'svg' => [
                 'type' => 'vector',
-                'thumb' => 'media/thumb.png',
+                'thumb' => 'media/thumb-svg.png',
                 'mime' => 'image/svg+xml'
             ],
             'mp4' => [
@@ -73,8 +73,8 @@ return [
                 'mime' => 'video/x-flv'
             ],
             'webm' => [
-                'type' => 'video',
-                'thumb' => 'media/thumb.png',
+                'type' => 'file',
+                'thumb' => 'media/thumb-webm.png',
                 'mime' => 'video/webm'
             ],
             'ogv' => [
@@ -109,10 +109,12 @@ return [
             ],
             'aiff' => [
                 'type' => 'audio',
+                'thumb' => 'media/thumb-aif.png',
                 'mime' => 'audio/aiff'
             ],
             'aif' => [
                 'type' => 'audio',
+                'thumb' => 'media/thumb-aif.png',
                 'mime' => 'audio/aif'
             ],
             'txt' => [
@@ -132,82 +134,72 @@ return [
             ],
             'docx' => [
                 'type' => 'file',
+                'thumb' => 'media/thumb-docx.png',
                 'mime' => 'application/msword'
             ],
             'xls' => [
                 'type' => 'file',
+                'thumb' => 'media/thumb-xls.png',
                 'mime' => 'application/vnd.ms-excel'
             ],
-            'xlt' => [
+            'xlsx' => [
                 'type' => 'file',
-                'mime' => 'application/vnd.ms-excel'
-            ],
-            'xlm' => [
-                'type' => 'file',
-                'mime' => 'application/vnd.ms-excel'
-            ],
-            'xlsm' => [
-                'type' => 'file',
-                'mime' => 'application/vnd.ms-excel'
-            ],
-            'xld' => [
-                'type' => 'file',
-                'mime' => 'application/vnd.ms-excel'
-            ],
-            'xla' => [
-                'type' => 'file',
-                'mime' => 'application/vnd.ms-excel'
-            ],
-            'xlc' => [
-                'type' => 'file',
-                'mime' => 'application/vnd.ms-excel'
-            ],
-            'xlw' => [
-                'type' => 'file',
-                'mime' => 'application/vnd.ms-excel'
-            ],
-            'xll' => [
-                'type' => 'file',
+                'thumb' => 'media/thumb-xlsx.png',
                 'mime' => 'application/vnd.ms-excel'
             ],
             'ppt' => [
                 'type' => 'file',
+                'thumb' => 'media/thumb-ppt.png',
+                'mime' => 'application/vnd.ms-powerpoint'
+            ],
+            'pptx' => [
+                'type' => 'file',
+                'thumb' => 'media/thumb-pptx.png',
                 'mime' => 'application/vnd.ms-powerpoint'
             ],
             'pps' => [
                 'type' => 'file',
+                'thumb' => 'media/thumb-pps.png',
                 'mime' => 'application/vnd.ms-powerpoint'
             ],
             'rtf' => [
                 'type' => 'file',
+                'thumb' => 'media/thumb-rtf.png',
                 'mime' => 'application/rtf'
             ],
             'bmp' => [
                 'type' => 'file',
+                'thumb' => 'media/thumb-bmp.png',
                 'mime' => 'image/bmp'
             ],
             'tiff' => [
                 'type' => 'file',
+                'thumb' => 'media/thumb-tiff.png',
                 'mime' => 'image/tiff'
             ],
             'mpeg' => [
                 'type' => 'file',
+                'thumb' => 'media/thumb-mpg.png',
                 'mime' => 'video/mpeg'
             ],
             'mpg' => [
                 'type' => 'file',
+                'thumb' => 'media/thumb-mpg.png',
                 'mime' => 'video/mpeg'
             ],
             'mpe' => [
                 'type' => 'file',
+                'thumb' => 'media/thumb-mpe.png',
                 'mime' => 'video/mpeg'
             ],
             'avi' => [
                 'type' => 'file',
+                'thumb' => 'media/thumb-avi.png',
                 'mime' => 'video/msvideo'
             ],
             'wmv' => [
                 'type' => 'file',
+                'thumb' => 'media/thumb-wmv.png',
                 'mime' => 'video/x-ms-wmv'
             ],
             'html' => [
@@ -220,10 +212,25 @@ return [
                 'thumb' => 'media/thumb-html.png',
                 'mime' => 'text/html'
             ],
+            'ics' => [
+                'type' => 'iCal',
+                'thumb' => 'media/thumb-ics.png',
+                'mime' => 'text/calendar'
+            ],
             'pdf' => [
                 'type' => 'file',
                 'thumb' => 'media/thumb-pdf.png',
                 'mime' => 'application/pdf'
+            ],
+            'ai' => [
+                'type' => 'file',
+                'thumb' => 'media/thumb-ai.png',
+                'mime' => 'image/ai'
+            ],
+            'psd' => [
+                'type' => 'file',
+                'thumb' => 'media/thumb-psd.png',
+                'mime' => 'image/psd'
             ],
             'zip' => [
                 'type' => 'file',
@@ -232,7 +239,7 @@ return [
             ],
             '7z' => [
                 'type' => 'file',
-                'thumb' => 'media/thumb-7zip.png',
+                'thumb' => 'media/thumb-7z.png',
                 'mime' => 'application/x-7z-compressed'
             ],
             'gz' => [
@@ -242,6 +249,7 @@ return [
             ],
             'tar' => [
                 'type' => 'file',
+                'thumb' => 'media/thumb-tar.png',
                 'mime' => 'application/x-tar'
             ],
             'css' => [

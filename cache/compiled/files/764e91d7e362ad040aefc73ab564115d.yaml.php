@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/system/config/system.yaml',
-    'modified' => 1487788037,
+    'modified' => 1508073316,
     'data' => [
         'absolute_urls' => false,
         'timezone' => '',
@@ -12,6 +12,8 @@ return [
         'reverse_proxy_setup' => false,
         'force_ssl' => false,
         'custom_base_url' => '',
+        'username_regex' => '^[a-z0-9_-]{3,16}$',
+        'pwd_regex' => '(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}',
         'languages' => [
             'supported' => [
                 
@@ -73,11 +75,12 @@ return [
             ],
             'append_url_extension' => '',
             'expires' => 604800,
+            'cache_control' => NULL,
             'last_modified' => false,
             'etag' => false,
             'vary_accept_encoding' => false,
             'redirect_default_route' => false,
-            'redirect_default_code' => 301,
+            'redirect_default_code' => 302,
             'redirect_trailing_slash' => true,
             'ignore_files' => [
                 0 => '.DS_Store'
@@ -103,6 +106,7 @@ return [
             ],
             'driver' => 'auto',
             'prefix' => 'g',
+            'clear_images_by_default' => true,
             'cli_compatibility' => false,
             'lifetime' => 604800,
             'gzip' => false,
@@ -155,13 +159,13 @@ return [
         ],
         'media' => [
             'enable_media_timestamp' => false,
-            'upload_limit' => 0,
             'unsupported_inline_types' => [
                 
             ],
             'allowed_fallback_types' => [
                 
-            ]
+            ],
+            'auto_metadata_exif' => false
         ],
         'session' => [
             'enabled' => true,
@@ -176,7 +180,8 @@ return [
             'releases' => 'stable',
             'proxy_url' => NULL,
             'method' => 'auto',
-            'verify_peer' => true
+            'verify_peer' => true,
+            'official_gpm_only' => true
         ]
     ]
 ];

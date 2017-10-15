@@ -2,7 +2,7 @@
 /**
  * @package    Grav.Common.Service
  *
- * @copyright  Copyright (C) 2014 - 2016 RocketTheme, LLC. All rights reserved.
+ * @copyright  Copyright (C) 2014 - 2017 RocketTheme, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -38,6 +38,11 @@ class PageServiceProvider implements ServiceProviderInterface
             if ($page) {
                 /** @var Language $language */
                 $language = $c['language'];
+
+                // some debugger override logic
+                if ($page->debugger() === false) {
+                    $c['debugger']->enabled(false);
+                }
 
                 if ($c['config']->get('system.force_ssl')) {
                     if (!isset($_SERVER['HTTPS']) || $_SERVER["HTTPS"] != "on") {
@@ -81,7 +86,7 @@ class PageServiceProvider implements ServiceProviderInterface
             if (!$page || !$page->routable()) {
 
                 // Try fallback URL stuff...
-                $c->fallbackUrl($path);
+                $page = $c->fallbackUrl($path);
 
                 if (!$page) {
                     $path = $c['locator']->findResource('system://pages/notfound.md');
@@ -89,7 +94,6 @@ class PageServiceProvider implements ServiceProviderInterface
                     $page->init(new \SplFileInfo($path));
                     $page->routable(false);
                 }
-
             }
 
             return $page;

@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/system/languages/hu.yaml',
-    'modified' => 1487788037,
+    'modified' => 1508073316,
     'data' => [
         'FRONTMATTER_ERROR_PAGE' => '---
 cím: %1$s

@@ -17,7 +17,7 @@ recaptchacontact:
 </center>
 
 
-<p>Our GLUG is mainly designed to cater to the GNU/Linux related needs of the students, faculty, staff, and anybody else belonging to NIT Hamirpur. We are a heterogeneous mixture of people ranging from the beta testers and kernel hackers to the fresh-faced newbies, held together together by a common love for GNU/Linux in particular and Free Software in general. </p>
+<p>Our GLUG is mainly designed to cater to the GNU/Linux related needs of the students, faculty, staff, and anybody else belonging to NIT Hamirpur. We are a heterogeneous mixture of people ranging from the beta testers and kernel hackers to the fresh-faced newbies, held together by a common love for GNU/Linux in particular and Free Software in general. </p>
 
 
 
@@ -44,6 +44,11 @@ Git greatly helps people sitting at different places, working on their systems, 
 </p>
 
 [Read More about contributing here](/contribute).
+
+<h3>Need help with anything related to Linux?</h3>
+
+[Ask here at gluAsk](http://glug.nith.ac.in/gluapps/gluask)
+
 
 <center>
 <a class="twitter-timeline" data-width="600" data-height="400" data-theme="light" href="https://twitter.com/glugnith">Tweets by glugnith</a> 
