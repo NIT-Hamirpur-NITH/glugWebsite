@@ -6,6 +6,8 @@ use Grav\Common\Filesystem\Folder;
 use Grav\Common\Grav;
 use Grav\Common\Page\Media;
 use Grav\Common\Utils;
+use Grav\Common\Plugin;
+use Grav\Common\Theme;
 use RocketTheme\Toolbox\Event\Event;
 use RocketTheme\Toolbox\File\File;
 
@@ -77,7 +79,7 @@ class AdminBaseController
         8 => "A PHP extension stopped the file upload"
     ];
 
-    /** @var array  */
+    /** @var array */
     public $blacklist_views = [];
 
     /**
@@ -105,7 +107,8 @@ class AdminBaseController
                 $this->admin->setMessage($e->getMessage(), 'error');
             }
         } else {
-            $success = $this->grav->fireEvent('onAdminTaskExecute', new Event(['controller' => $this, 'method' => $method]));
+            $success = $this->grav->fireEvent('onAdminTaskExecute',
+                new Event(['controller' => $this, 'method' => $method]));
         }
 
         // Grab redirect parameter.
@@ -182,6 +185,7 @@ class AdminBaseController
                 }
             }
         }
+
         return true;
     }
 
@@ -213,16 +217,13 @@ class AdminBaseController
         $config   = $this->grav['config'];
         $data     = $this->view == 'pages' ? $this->admin->page(true) : $this->prepareData([]);
         $settings = $data->blueprints()->schema()->getProperty($this->post['name']);
-        $settings = (object)array_merge(
-            ['avoid_overwriting' => false,
-             'random_name'       => false,
-             'accept'            => ['image/*'],
-             'limit'             => 10,
-             'filesize'          => $config->get('system.media.upload_limit', 5242880) // 5MB
-            ],
-            (array)$settings,
-            ['name' => $this->post['name']]
-        );
+        $settings = (object)array_merge([
+            'avoid_overwriting' => false,
+            'random_name'       => false,
+            'accept'            => ['image/*'],
+            'limit'             => 10,
+            'filesize'          => $config->get('system.media.upload_limit', 5242880) // 5MB
+        ], (array)$settings, ['name' => $this->post['name']]);
 
         $upload = $this->normalizeFiles($_FILES['data'], $settings->name);
 
@@ -239,7 +240,8 @@ class AdminBaseController
         if ($this->view != 'pages' && in_array($settings->destination, ['@self', 'self@'])) {
             $this->admin->json_response = [
                 'status'  => 'error',
-                'message' => sprintf($this->admin->translate('PLUGIN_ADMIN.FILEUPLOAD_PREVENT_SELF', null), $settings->destination)
+                'message' => sprintf($this->admin->translate('PLUGIN_ADMIN.FILEUPLOAD_PREVENT_SELF', null),
+                    $settings->destination)
             ];
 
             return false;
@@ -249,8 +251,8 @@ class AdminBaseController
         if ($upload->file->error != UPLOAD_ERR_OK) {
             $this->admin->json_response = [
                 'status'  => 'error',
-                'message' => sprintf($this->admin->translate('PLUGIN_ADMIN.FILEUPLOAD_UNABLE_TO_UPLOAD', null), $upload->file->name,
-                    $this->upload_errors[$upload->file->error])
+                'message' => sprintf($this->admin->translate('PLUGIN_ADMIN.FILEUPLOAD_UNABLE_TO_UPLOAD', null),
+                    $upload->file->name, $this->upload_errors[$upload->file->error])
             ];
 
             return false;
@@ -269,7 +271,8 @@ class AdminBaseController
             if (!move_uploaded_file($tmp_file, $tmp)) {
                 $this->admin->json_response = [
                     'status'  => 'error',
-                    'message' => sprintf($this->admin->translate('PLUGIN_ADMIN.FILEUPLOAD_UNABLE_TO_MOVE', null), '', $tmp)
+                    'message' => sprintf($this->admin->translate('PLUGIN_ADMIN.FILEUPLOAD_UNABLE_TO_MOVE', null), '',
+                        $tmp)
                 ];
 
                 return false;
@@ -338,8 +341,12 @@ class AdminBaseController
         }
 
         // Set destination
-        $destination = Folder::getRelativePath(rtrim($settings->destination, '/'));
-        $destination = $this->admin->getPagePathFromToken($destination);
+        if ($this->grav['locator']->isStream($settings->destination)) {
+            $destination = $this->grav['locator']->findResource($settings->destination, false, true);
+        } else {
+            $destination = Folder::getRelativePath(rtrim($settings->destination, '/'));
+            $destination = $this->admin->getPagePathFromToken($destination);
+        }
 
         // Create destination if needed
         if (!is_dir($destination)) {
@@ -389,7 +396,7 @@ class AdminBaseController
      *
      * @return bool True if authorized. False if not.
      */
-    protected function authorizeTask($task = '', $permissions = [])
+    public function authorizeTask($task = '', $permissions = [])
     {
         if (!$this->admin->authorize($permissions)) {
             if ($this->grav['uri']->extension() === 'json') {
@@ -523,12 +530,17 @@ class AdminBaseController
 
         // Walk backward to cleanup any empty field that's left
         // Field
-        if (!count($flash[$request->sessionField][$request->field])) {
+        if (isset($flash[$request->sessionField][$request->field][$request->path])) {
+            unset($flash[$request->sessionField][$request->field][$request->path]);
+        }
+
+        // Field
+        if (isset($flash[$request->sessionField][$request->field]) && empty($flash[$request->sessionField][$request->field])) {
             unset($flash[$request->sessionField][$request->field]);
         }
 
         // Session Field
-        if (!count($flash[$request->sessionField])) {
+        if (isset($flash[$request->sessionField]) && empty($flash[$request->sessionField])) {
             unset($flash[$request->sessionField]);
         }
 
@@ -539,6 +551,7 @@ class AdminBaseController
         }
 
         $this->admin->json_response = ['status' => 'success'];
+
         return true;
     }
 
@@ -565,8 +578,7 @@ class AdminBaseController
 
             // now the first 4 chars of base contain the lang code.
             // if redirect path already contains the lang code, and is != than the base lang code, then use redirect path as-is
-            if (Utils::pathPrefixedByLangCode($base) && Utils::pathPrefixedByLangCode($this->redirect)
-                && substr($base,
+            if (Utils::pathPrefixedByLangCode($base) && Utils::pathPrefixedByLangCode($this->redirect) && substr($base,
                     0, 4) != substr($this->redirect, 0, 4)
             ) {
                 $redirect = $this->redirect;
@@ -674,8 +686,8 @@ class AdminBaseController
             foreach ($queue as $key => $files) {
                 foreach ($files as $destination => $file) {
                     if (!rename($file['tmp_name'], $destination)) {
-                        throw new \RuntimeException(sprintf($this->admin->translate('PLUGIN_ADMIN.FILEUPLOAD_UNABLE_TO_MOVE', null),
-                            '"' . $file['tmp_name'] . '"', $destination));
+                        throw new \RuntimeException(sprintf($this->admin->translate('PLUGIN_ADMIN.FILEUPLOAD_UNABLE_TO_MOVE',
+                            null), '"' . $file['tmp_name'] . '"', $destination));
                     }
 
                     unset($files[$destination]['tmp_name']);
@@ -691,7 +703,8 @@ class AdminBaseController
                         $new_data = $files;
                     }
                     if (isset($data['header'][$init_key])) {
-                        $obj->modifyHeader($init_key, array_replace_recursive([], $data['header'][$init_key], $new_data));
+                        $obj->modifyHeader($init_key,
+                            array_replace_recursive([], $data['header'][$init_key], $new_data));
                     } else {
                         $obj->modifyHeader($init_key, $new_data);
                     }
@@ -730,6 +743,7 @@ class AdminBaseController
                 'status'  => 'error',
                 'message' => sprintf($this->admin->translate('PLUGIN_ADMIN.FILEUPLOAD_PREVENT_SELF', null), $folder)
             ];
+
             return false;
         }
 
@@ -739,9 +753,21 @@ class AdminBaseController
 
         $media           = new Media($folder);
         $available_files = [];
+        $metadata = [];
+        $thumbs = [];
+
 
         foreach ($media->all() as $name => $medium) {
-            $available_files[] = $name;
+
+           $available_files[] = $name;
+
+            if (isset($settings['include_metadata'])) {
+                $img_metadata = $medium->metadata();
+                if ($img_metadata) {
+                    $metadata[$name] = $img_metadata;
+                }
+            }
+
         }
 
         // Peak in the flashObject for optimistic filepicker updates
@@ -773,11 +799,20 @@ class AdminBaseController
             });
         }
 
+        // Generate thumbs if needed
+        if (isset($settings['preview_images']) && $settings['preview_images'] === true) {
+            foreach ($available_files as $filename) {
+                $thumbs[$filename] = $media[$filename]->zoomCrop(100,100)->url();
+            }
+        }
+
         $this->admin->json_response = [
             'status'  => 'success',
             'files'   => array_values($available_files),
             'pending' => array_values($pending_files),
-            'folder'  => $folder
+            'folder'  => $folder,
+            'metadata' => $metadata,
+            'thumbs' => $thumbs
         ];
 
         return true;
@@ -882,22 +917,23 @@ class AdminBaseController
 
         $file                  = File::instance($filename);
         $resultRemoveMedia     = false;
-        $resultRemoveMediaMeta = true;
 
         if ($file->exists()) {
             $resultRemoveMedia = $file->delete();
 
-            $metaFilePath = $filename . '.meta.yaml';
-            $metaFilePath = str_replace('@3x', '', $metaFilePath);
-            $metaFilePath = str_replace('@2x', '', $metaFilePath);
+            $fileParts = pathinfo($filename);
 
-            if (is_file($metaFilePath)) {
-                $metaFile              = File::instance($metaFilePath);
-                $resultRemoveMediaMeta = $metaFile->delete();
+            foreach (scandir($fileParts['dirname']) as $file) {
+                $regex_pattern = "/" . preg_quote($fileParts['filename']) . "@\d+x\." . $fileParts['extension'] . "(?:\.meta\.yaml)?$|" . preg_quote($fileParts['basename']) . "\.meta\.yaml$/";
+                if (preg_match($regex_pattern, $file)) {
+                    $path = $fileParts['dirname'] . '/' . $file;
+                    @unlink($path);
+                }
             }
+
         }
 
-        if ($resultRemoveMedia && $resultRemoveMediaMeta) {
+        if ($resultRemoveMedia) {
             if ($this->grav['uri']->extension() === 'json') {
                 $this->admin->json_response = [
                     'status'  => 'success',
@@ -931,7 +967,7 @@ class AdminBaseController
      */
     protected function clearMediaCache()
     {
-        $key = 'media-manager-files';
+        $key   = 'media-manager-files';
         $cache = $this->grav['cache'];
         $cache->delete(md5($key));
 

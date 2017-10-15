@@ -1,8 +1,162 @@
+# v2.9.3
+## 10/11/2017
+
+1. [](#improved)
+    * Removed `filesize` plugin configuration in favor of `system.media.upload_limit`
+    * Consolidated `field.classes` and `field.wrapper_classes` in radio/checkbox/checkboxes [#193](https://github.com/getgrav/grav-plugin-form/issues/)
+    * Remove trailing slash from form action [#195](https://github.com/getgrav/grav-plugin-form/issues/195)
+    * Improved `honeypot` validation check [#198](https://github.com/getgrav/grav-plugin-form/issues/198)
+
+# v2.9.2
+## 09/30/2017
+
+1. [](#improved)
+    * Improved Polish translation
+1. [](#bugfix)
+    * Added missing `@input: false` attributes to some non-display fields [#189](https://github.com/getgrav/grav-plugin-form/issues/189)
+    
+# v2.9.1
+## 09/14/2017
+
+1. [](#bugfix)
+    * Fixed backwards compatibility issue with conditional field [#188](https://github.com/getgrav/grav-plugin-form/pull/188)
+
+# v2.9.0
+## 09/07/2017
+
+1. [](#new)
+    * Added **Refresh Prevention** capabilities (Not enabled by default) [#184](https://github.com/getgrav/grav-plugin-form/issues/184)
+    * Added support for field `attributes` [#176](https://github.com/getgrav/grav-plugin-form/pull/176)
+    * Added global variables for setting form classes
+    * Added support for new `select_optgroup` form field [#165](https://github.com/getgrav/grav-plugin-form/issues/165)
+1. [](#improved)
+    * Moved messages output into partial to allow style overriding
+    * Logic cleanup
+    * Updated Italian and Russian translations
+1. [](#bugfix)
+    * Fixed an issue with conditional field not always displaying properly
+    * Only add Twig form variable if not already set
+    * Fixed issue with multiple forms on a page failing on Captcha client-side validation [#182](https://github.com/getgrav/grav-plugin-form/issues/182)
+    * Fixed issue with Ajax forms return full form HTML on error [#163](https://github.com/getgrav/grav-plugin-form/issues/163)
+    
+# v2.8.2
+## 08/18/2017
+
+1. [](#new)
+    * Added new `columns` and `column` fields for controlled form layout
+
+# v2.8.1
+## 08/15/2017
+
+1. [](#improved)
+    * Added extra class support to the default field for more flexible styling 
+
+# v2.8.0
+## 07/16/2017
+
+1. [](#bugfix)
+    * Fixed a typo in the spanish translation [#167](https://github.com/getgrav/grav-plugin-form/pull/167)
+
+# v2.8.0-rc.2
+## 06/22/2017
+
+1. [](#improved)
+    * Add default client-side validation for captcha, with error popup [#139](https://github.com/getgrav/grav-plugin-form/issues/139)
+    * Added key observe for select
+    * Added Czech translation
+1. [](#bugfix)
+    * Bug fix for radio type form field [#154](https://github.com/getgrav/grav-plugin-form/pull/154)
+    * Remove double escaping [#155](https://github.com/getgrav/grav-plugin-form/issues/154)
+
+# v2.8.0-rc.1
+## 05/22/2017
+
+1. [](#new)
+    * Bundled as RC release for Grav/Admin RC releases
+
+# v2.7.1
+## 05/22/2017
+
+1. [](#improved)
+    * Force modular sub-pages with forms to set `$never_cache_twig = true` to improve form processing reliability [#153](https://github.com/getgrav/grav-plugin-form/issues/153)
+    * Use new `Utils::getPagePathFromToken()` method
+
+# v2.7.0
+## 05/16/2017
+
+1. [](#bugfix)
+    * Fix issue with dynamically added forms (Registration, Profile, Comments, etc) not processed [#149](https://github.com/getgrav/grav-plugin-form/issues/149)
+    * Fixed issue with nested values not being repopulated on form error [#140](https://github.com/getgrav/grav-plugin-form/issues/140)
+
+# v2.6.0
+## 05/04/2017
+
+1. [](#new)
+    * Allow form item replacement in redirect location [#144](https://github.com/getgrav/grav-plugin-form/issues/144)
+1. [](#bugfix)
+    * Fix regression with file uploads introduced in 2.5.0
+
+# v2.5.0
+## 04/24/2017
+
+1. [](#new)
+    * Support proper form handling with nested fields [#141](https://github.com/getgrav/grav-plugin-form/issues/141)
+1. [](#bugfix)
+    * Added check for valid Grav forms before trying to create a form object
+
+# v2.4.0
+## 04/19/2017
+
+1. [](#new)
+    * Added the ability for front-end forms to use advanced blueprint features such as `data-*@` and `config-*@`
+    * Added support for dynamically added pages to process forms properly
+    * Added a new avatar field for displaying account avatar
+    * Added method to get all `data` from a form
+    * Support `task` in button types
+1. [](#improved)
+    * Added `step` to range field [#136](https://github.com/getgrav/grav-plugin-form/issues/136)
+    * Added a new default ajax handler twig template
+    * Moved twig events to always process even if forms are not defined
+    * Some code cleanup
+    * Handle `null` with session-based form
+    * Added support for append/prepend to number field
+1. [](#bugfix)
+    * Always process form events as long as a `$_POST` exists [login #101](https://github.com/getgrav/grav-plugin-login/issues/101)
+    * Various fixes for `file` field
+    * Allow manually added pages to process forms and upload files
+    * Fixed issue with nested fileds not showing up in `data.*.twig` templates
+
+# v2.3.1
+## 03/23/2017
+
+1. [](#bugfix)
+    * Only include `outerclasses` DIV if defined [#135](https://github.com/getgrav/grav-plugin-form/issues/135)
+
+# v2.3.0
+## 03/17/2017
+
+1. [](#new)
+    * Ability to process any form on any page via `action:`.  Super useful if you want to handle form processing on some other non-form page (or Ajax)
+    * Added the ability for the form to set the `template:` to use to render the form processing response.
+1. [](#bugfix)
+    * Fix `number` field so it works with min value `0` [#130](https://github.com/getgrav/grav-plugin-form/issues/130)
+
+# v2.2.0
+## 03/13/2017
+
+1. [](#new)
+    * Added new `fieldset` form field [#125](https://github.com/getgrav/grav-plugin-form/issues/125)
+    * Added new `conditional form field` to show fields only if some `condition` is set
+1. [](#improved)
+    * Added the option to have outer-classes on buttons [#124](https://github.com/getgrav/grav-plugin-form/issues/124)
+    * Added the option to disable fields label if not defined [#126](https://github.com/getgrav/grav-plugin-form/issues/126)
+
 # v2.1.1
 ## 02/17/2017
 
 1. [](#improved)
     * Better default output for select, checkbox and checkboxes fields in the form destination page and in the emails sent via form submit [#121](https://github.com/getgrav/grav-plugin-form/issues/121)
+
 
 # v2.1.0
 ## 02/10/2017

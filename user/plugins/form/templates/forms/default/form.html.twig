@@ -1,10 +1,9 @@
-{% if form.message %}
-    {% if form.inline_errors and form.messages %}
-        <div class="alert notices {{ form.message_color ?: 'green' }}"><p>{{ "FORM.VALIDATION_FAIL"|t|raw }}</p></div>
-    {% else %}
-        <div class="alert notices {{ form.message_color ?: 'green' }}"><p>{{ form.message|raw }}</p></div>
-    {% endif %}
-{% endif %}
+{% if form is null %}
+    {% set form = grav.session.getFlashObject('form') %}
+{% endif  %}
+
+{% include 'partials/form-messages.html.twig' %}
+
 {% set scope = scope ?: 'data.' %}
 {% set multipart = '' %}
 {% set method = form.method|upper|default('POST') %}
@@ -22,11 +21,11 @@
 {% endif %}
 
 <form name="{{ form.name }}"
-      action="{{ action }}"
+      action="{{ action | trim('/', 'right') }}"
       method="{{ method }}"{{ multipart }}
       {% if form.id %}id="{{ form.id }}"{% endif %}
       {% block form_classes %}
-      {% if form.classes %}class="{{ form.classes }}"{% endif %}
+      class="{{ form_outer_classes }} {{ form.classes }}"
       {% endblock %}
 >
 
@@ -45,31 +44,39 @@
   {% block inner_markup_fields_end %}{% endblock %}
 
   {% block inner_markup_buttons_start %}
-  <div class="buttons">
+  <div class="{{ form_button_outer_classes ?: 'buttons'}}">
   {% endblock %}
 
   {% for button in form.buttons %}
-      {% if button.url %}
-          <a href="{{ button.url starts with 'http' ? button.url : url(button.url) }}">
-      {% endif %}
-      <button
-            {% if button.id %}id="{{ button.id }}"{% endif %}
-            {% block button_classes %}
-            class="{{ button.classes|default('button') }}"
-            {% endblock %}
-            {% if button.disabled %}disabled="disabled"{% endif %}
-            type="{{ button.type|default('submit') }}"
-        >
-            {{ button.value|t|default('Submit') }}
-      </button>
-      {% if button.url %}
-          </a>
-      {% endif %}
+      {% if button.outerclasses is defined %}<div class=" {{ button.outerclasses }}">{% endif %}
+          {% if button.url %}
+              <a href="{{ button.url starts with 'http' ? button.url : url(button.url) }}">
+          {% endif %}
+          <button
+                {% if button.id %}id="{{ button.id }}"{% endif %}
+                {% block button_classes %}
+                class="{{ form_button_classes ?: 'button' }} {{ button.classes }}"
+                {% endblock %}
+                {% if button.disabled %}disabled="disabled"{% endif %}
+
+                type="{{ button.type|default('submit') }}"
+
+                {% if button.task %}
+                    name="task" value="{{ button.task }}"
+                {% endif %}
+            >
+                {{ button.value|t|default('Submit') }}
+          </button>
+          {% if button.url %}
+              </a>
+          {% endif %}
+      {% if button.outerclasses is defined %}</div>{% endif %}
   {% endfor %}
 
   {% block inner_markup_buttons_end %}
   </div>
   {% endblock %}
 
+  {% include 'forms/fields/uniqueid/uniqueid.html.twig' %}
   {{ nonce_field('form', 'form-nonce')|raw }}
 </form>

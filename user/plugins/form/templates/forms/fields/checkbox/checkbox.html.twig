@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block input %}
-    <div class="form-input-wrapper {{ field.size }}">
+    <div class="form-input-wrapper {{ field.size }} {{ field.wrapper_classes }}">
         <input
             {# required attribute structures #}
             name="{{ (scope ~ field.name)|fieldName }}"
@@ -24,6 +24,6 @@
             {% endblock %}
             />
 
-        <label class="inline"{% if field.id is defined %} for="{{ field.id|e }}"{% endif %}>{{ field.label|t|e }} {{ field.validate.required in ['on', 'true', 1] ? '<span class="required">*</span>' }}</label>
+        <label style="display:inline;" class="inline"{% if field.id is defined %} for="{{ field.id|e }}"{% endif %}>{{ field.label|t|e }} {{ field.validate.required in ['on', 'true', 1] ? '<span class="required">*</span>' }}</label>
     </div>
 {% endblock %}

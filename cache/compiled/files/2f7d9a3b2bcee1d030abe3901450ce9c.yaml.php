@@ -2,10 +2,10 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/recaptchacontact/blueprints.yaml',
-    'modified' => 1487788176,
+    'modified' => 1508073481,
     'data' => [
         'name' => 'reCAPTCHA Contact',
-        'version' => '2.1.0',
+        'version' => '2.1.2',
         'description' => 'This plugin adds contact form features for sending email with google reCAPTCHA 2.0 validation.',
         'icon' => 'paper-plane-o',
         'author' => [

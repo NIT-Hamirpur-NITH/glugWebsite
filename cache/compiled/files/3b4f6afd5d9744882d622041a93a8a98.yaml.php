@@ -2,10 +2,10 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/gravstrap/blueprints.yaml',
-    'modified' => 1476642974,
+    'modified' => 1508073478,
     'data' => [
         'name' => 'Gravstrap',
-        'version' => '1.2.2',
+        'version' => '1.2.3',
         'description' => 'Gravstrap is a Grav plugin that provides Bootstrap components as shortcodes. It has 30+ basic, modules and bootstrap shortcodes',
         'icon' => 'share-alt',
         'author' => [

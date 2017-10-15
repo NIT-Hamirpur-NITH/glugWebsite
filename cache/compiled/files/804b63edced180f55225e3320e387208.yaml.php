@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/admin/blueprints/config/media.yaml',
-    'modified' => 1487788116,
+    'modified' => 1508073454,
     'data' => [
         'title' => 'PLUGIN_ADMIN.MEDIA',
         'form' => [
@@ -31,7 +31,10 @@ return [
                         ],
                         '.mime' => [
                             'type' => 'text',
-                            'label' => 'PLUGIN_ADMIN.MIME_TYPE'
+                            'label' => 'PLUGIN_ADMIN.MIME_TYPE',
+                            'validate' => [
+                                'type' => 'lower'
+                            ]
                         ],
                         '.image' => [
                             'type' => 'textarea',

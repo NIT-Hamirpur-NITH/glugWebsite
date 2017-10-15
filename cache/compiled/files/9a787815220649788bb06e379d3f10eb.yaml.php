@@ -2,10 +2,10 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/problems/blueprints.yaml',
-    'modified' => 1487788132,
+    'modified' => 1508073468,
     'data' => [
         'name' => 'Problems',
-        'version' => '1.4.6',
+        'version' => '1.4.7',
         'description' => 'Detects and reports problems found in the site.',
         'icon' => 'exclamation-circle',
         'author' => [

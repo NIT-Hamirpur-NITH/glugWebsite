@@ -2,10 +2,10 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/email/blueprints.yaml',
-    'modified' => 1487788187,
+    'modified' => 1508073449,
     'data' => [
         'name' => 'Email',
-        'version' => '2.5.3',
+        'version' => '2.6.2',
         'description' => 'Enables the emailing system for Grav',
         'icon' => 'envelope',
         'author' => [
@@ -60,6 +60,12 @@ return [
                         'text/html' => 'HTML'
                     ]
                 ],
+                'charset' => [
+                    'type' => 'text',
+                    'size' => 'medium',
+                    'label' => 'Charset',
+                    'placeholder' => 'Defaults to UTF-8'
+                ],
                 'from' => [
                     'type' => 'email',
                     'size' => 'medium',
@@ -92,6 +98,54 @@ return [
                     'size' => 'medium',
                     'label' => 'Email to name',
                     'placeholder' => 'Default email to name'
+                ],
+                'cc' => [
+                    'type' => 'email',
+                    'size' => 'medium',
+                    'label' => 'Email CC',
+                    'placeholder' => 'Default email CC address',
+                    'multiple' => true,
+                    'validate' => [
+                        'type' => 'email'
+                    ]
+                ],
+                'cc_name' => [
+                    'type' => 'text',
+                    'size' => 'medium',
+                    'label' => 'Email CC name',
+                    'placeholder' => 'Default email CC name'
+                ],
+                'bcc' => [
+                    'type' => 'email',
+                    'size' => 'medium',
+                    'label' => 'Email BCC',
+                    'placeholder' => 'Default email BCC address',
+                    'multiple' => true,
+                    'validate' => [
+                        'type' => 'email'
+                    ]
+                ],
+                'reply_to' => [
+                    'type' => 'email',
+                    'size' => 'medium',
+                    'label' => 'Email reply-to',
+                    'placeholder' => 'Default email reply-to address',
+                    'multiple' => true,
+                    'validate' => [
+                        'type' => 'email'
+                    ]
+                ],
+                'reply_to_name' => [
+                    'type' => 'text',
+                    'size' => 'medium',
+                    'label' => 'Email reply-to name',
+                    'placeholder' => 'Default email reply-to name'
+                ],
+                'body' => [
+                    'type' => 'textarea',
+                    'size' => 'medium',
+                    'label' => 'Email body',
+                    'placeholder' => 'Defaults to a table of all form fields'
                 ],
                 'mailer.smtp.server' => [
                     'type' => 'text',

@@ -1,3 +1,69 @@
+# v2.4.3
+## 10/11/2017
+
+1. [](#bugfix)
+    * Fix an issue when a user only has `groups` and no `access` defined [#134](https://github.com/getgrav/grav-plugin-login/issues/134)
+    * Escape untrusted URLs in the template files
+
+# v2.4.2
+## 09/29/2017
+
+1. [](#bugfix)
+    * Fixed issue with protected page media without access [#132](https://github.com/getgrav/grav-plugin-login/issues/132)
+    * Improved validation of email to support RFC5322 [Grav#1648](https://github.com/getgrav/grav/issues/1648)
+
+# v2.4.1
+## 09/12/2017
+
+1. [](#bugfix)
+    * Fixed an issue with 3rd party login plugins [#130](https://github.com/getgrav/grav-plugin-login/issues/130)
+
+# v2.4.0
+## 09/07/2017
+
+1. [](#new)
+    * Added the ability to have a custom route for login page, but not redirect
+    * Added a new `unauthorized.md` page that can be customized as needed
+1. [](#improved)
+    * Differentiated between `authenticated` and `authorized`
+    * Moved rate-limiting logic to the Login class
+    * Much code cleanup and removing of cruft
+    * Updated vendor libraries
+    * Added Russian translation
+1. [](#bugfix)
+    * Fixed login JSON response in case of login failure
+    * Fixed issue with profile form displaying on login page
+    * Store referrer page when trying to access Profile page
+    * Fixed error when logging out with an expired session
+
+# v2.3.2
+## 06/22/2017
+
+1. [](#bugfix)
+    * Grav plugin cli error on password change [#120](https://github.com/getgrav/grav-plugin-login/issues/120)
+
+# v2.3.1
+## 05/16/2017
+
+1. [](#improved)
+    * Added routes to the Admin blueprints
+
+# v2.3.0
+## 04/19/2017
+
+1. [](#new)
+    * Added new built-in profile page support
+    * Added optional flood protection for password resets and login attempts [#91](https://github.com/getgrav/grav-plugin-login/issues/91)
+1. [](#improved)
+    * Use new system configuration entries for username and password format
+    * Use initialized form object in Twig templates rather than array from page.header
+    * Improved alert styling in login templates
+    * Added `appends` for number field
+    * Added missing `route` options in admin options (blueprints)
+1. [](#bugfix)
+    * Set cookie path to `/` if `base_url_relative` is empty [#102](https://github.com/getgrav/grav-plugin-login/issues/102)
+    * Fixed some redirect logic
+    
 # v2.2.1
 ## 01/24/2017
 

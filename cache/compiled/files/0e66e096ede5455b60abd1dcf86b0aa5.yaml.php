@@ -2,10 +2,10 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/shortcode-core/blueprints.yaml',
-    'modified' => 1487788191,
+    'modified' => 1508073472,
     'data' => [
         'name' => 'Shortcode Core',
-        'version' => '2.5.3',
+        'version' => '2.6.0',
         'description' => 'This plugin provides the core functionality for shortcode plugins',
         'icon' => 'code',
         'author' => [
@@ -78,6 +78,13 @@ return [
                         'regex' => 'RegexParser',
                         'regular' => 'RegularParser'
                     ]
+                ],
+                'custom_shortcodes' => [
+                    'type' => 'text',
+                    'label' => 'Custom Shortcodes',
+                    'help' => 'The path to a location where you store custom shortcodes.',
+                    'placeholder' => '/user/custom/shortcodes',
+                    'size' => 'large'
                 ],
                 'fontawesome.load' => [
                     'type' => 'toggle',

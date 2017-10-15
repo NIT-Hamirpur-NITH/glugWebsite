@@ -2,10 +2,10 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/ubuntu/workspace/user/plugins/sitemap/blueprints.yaml',
-    'modified' => 1487788124,
+    'modified' => 1508073475,
     'data' => [
         'name' => 'Sitemap',
-        'version' => '1.7.0',
+        'version' => '1.9.1',
         'description' => 'Provide automatically generated **XML sitemaps** with this very useful, but simple to configure, Grav plugin.',
         'icon' => 'map-marker',
         'author' => [
@@ -53,6 +53,23 @@ return [
                     'help' => 'URLs to ignore',
                     'value_only' => true,
                     'placeholder_value' => '/ignore-this-route'
+                ],
+                'additions' => [
+                    'type' => 'list',
+                    'label' => 'Additional URLs',
+                    'help' => 'Add external URLs to the sitemap',
+                    'fields' => [
+                        '.location' => [
+                            'type' => 'text',
+                            'label' => 'The URL location',
+                            'placeholder' => '/not-a-grav-url'
+                        ],
+                        '.lastmod' => [
+                            'type' => 'text',
+                            'label' => 'Last modification e.g. 2017-04-06',
+                            'placeholder' => '2017-04-06'
+                        ]
+                    ]
                 ]
             ]
         ]

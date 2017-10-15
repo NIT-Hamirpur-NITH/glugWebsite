@@ -1,17 +1,20 @@
 <?php
-
+/**
+ * @package    Grav.Plugin.Login
+ *
+ * @copyright  Copyright (C) 2014 - 2017 RocketTheme, LLC. All rights reserved.
+ * @license    MIT License; see LICENSE file for details.
+ */
 namespace Grav\Plugin\Login;
 
+use Birke\Rememberme\Cookie;
 use Grav\Common\Config\Config;
 use Grav\Common\Grav;
-use Grav\Plugin\Login\RememberMe;
 use Grav\Common\Language\Language;
 use Grav\Common\User\User;
 use Grav\Common\Utils;
 use Grav\Plugin\Email\Utils as EmailUtils;
-
-use Birke\Rememberme\Cookie;
-use RocketTheme\Toolbox\Session\Message;
+use Grav\Plugin\Login\RememberMe;
 
 /**
  * Class Controller
@@ -50,7 +53,7 @@ class Controller
     protected $prefix = 'task';
 
     /**
-     * @var \Birke\Rememberme\Authenticator
+     * @var RememberMe\RememberMe
      */
     protected $rememberMe;
 
@@ -69,7 +72,7 @@ class Controller
         $this->grav = $grav;
         $this->action = $action;
         $this->login = isset($this->grav['login']) ? $this->grav['login'] : '';
-        $this->post = $this->getPost($post);
+        $this->post = $post ? $this->getPost($post) : [];
 
         $this->rememberMe();
     }
@@ -95,7 +98,7 @@ class Controller
         try {
             $success = call_user_func([$this, $method]);
         } catch (\RuntimeException $e) {
-            $this->setMessage($e->getMessage(), 'error');
+            $this->login->setMessage($e->getMessage(), 'error');
         }
 
         if (!$this->redirect && isset($redirect)) {
@@ -114,8 +117,25 @@ class Controller
     {
         /** @var Language $t */
         $t = $this->grav['language'];
+
+        /** @var User $user */
+        $user = $this->grav['user'];
+
+        $count = $this->grav['config']->get('plugins.login.max_login_count', 5);
+        $interval =$this->grav['config']->get('plugins.login.max_login_interval', 10);
+
+        if ($this->login->isUserRateLimited($user, 'login_attempts', $count, $interval)) {
+            $this->login->setMessage($t->translate(['PLUGIN_LOGIN.TOO_MANY_LOGIN_ATTEMPTS', $interval]), 'error');
+            $this->setRedirect($this->grav['config']->get('plugins.login.route', '/'));
+
+            return true;
+        }
+
+
         if ($this->authenticate($this->post)) {
             $this->login->setMessage($t->translate('PLUGIN_LOGIN.LOGIN_SUCCESSFUL'));
+
+            $this->login->resetRateLimit($user, 'login_attempts');
 
             $redirect = $this->grav['config']->get('plugins.login.redirect_after_login');
             if (!$redirect) {
@@ -123,11 +143,11 @@ class Controller
             }
             $this->setRedirect($redirect);
         } else {
-            $user = $this->grav['user'];
             if ($user->username) {
-                $this->setMessage($t->translate('PLUGIN_LOGIN.ACCESS_DENIED'), 'error');
+                $this->login->setMessage($t->translate('PLUGIN_LOGIN.ACCESS_DENIED'), 'error');
+                $this->setRedirect($this->grav['config']->get('plugins.login.route_unauthorized', '/'));
             } else {
-                $this->setMessage($t->translate('PLUGIN_LOGIN.LOGIN_FAILED'), 'error');
+                $this->login->setMessage($t->translate('PLUGIN_LOGIN.LOGIN_FAILED'), 'error');
             }
         }
 
@@ -175,14 +195,14 @@ class Controller
 
         if (!isset($this->grav['Email'])) {
             $messages->add($language->translate('PLUGIN_LOGIN.FORGOT_EMAIL_NOT_CONFIGURED'), 'error');
-            $this->setRedirect('/');
+            $this->setRedirect($this->grav['config']->get('plugins.login.route_forgot', '/'));
 
             return true;
         }
 
         if (!$user || !$user->exists()) {
             $messages->add($language->translate('PLUGIN_LOGIN.FORGOT_INSTRUCTIONS_SENT_VIA_EMAIL'), 'info');
-            $this->setRedirect($this->grav['config']->get('plugins.login.route_forgot'));
+            $this->setRedirect($this->grav['config']->get('plugins.login.route_forgot', '/'));
 
             return true;
         }
@@ -190,7 +210,26 @@ class Controller
         if (empty($user->email)) {
             $messages->add($language->translate(['PLUGIN_LOGIN.FORGOT_CANNOT_RESET_EMAIL_NO_EMAIL', $email]),
                 'error');
-            $this->setRedirect($this->grav['config']->get('plugins.login.route_forgot'));
+            $this->setRedirect($this->grav['config']->get('plugins.login.route_forgot', '/'));
+
+            return true;
+        }
+
+        $from = $this->grav['config']->get('plugins.email.from');
+
+        if (empty($from)) {
+            $messages->add($language->translate('PLUGIN_LOGIN.FORGOT_EMAIL_NOT_CONFIGURED'), 'error');
+            $this->setRedirect($this->grav['config']->get('plugins.login.route_forgot', '/'));
+
+            return true;
+        }
+
+        $count = $this->grav['config']->get('plugins.login.max_pw_resets_count', 0);
+        $interval =$this->grav['config']->get('plugins.login.max_pw_resets_interval', 2);
+
+        if ($this->login->isUserRateLimited($user, 'pw_resets', $count, $interval)) {
+            $messages->add($language->translate(['PLUGIN_LOGIN.FORGOT_CANNOT_RESET_IT_IS_BLOCKED', $email, $interval]), 'error');
+            $this->setRedirect($this->grav['config']->get('plugins.login.route', '/'));
 
             return true;
         }
@@ -207,14 +246,6 @@ class Controller
         $reset_link = $this->grav['base_url_absolute'] . $this->grav['config']->get('plugins.login.route_reset') . '/task:login.reset/token' . $param_sep . $token . '/user' . $param_sep . $user->username . '/nonce' . $param_sep . Utils::getNonce('reset-form');
 
         $sitename = $this->grav['config']->get('site.title', 'Website');
-        $from = $this->grav['config']->get('plugins.email.from');
-
-        if (empty($from)) {
-            $messages->add($language->translate('PLUGIN_LOGIN.FORGOT_EMAIL_NOT_CONFIGURED'), 'error');
-            $this->setRedirect($this->grav['config']->get('plugins.login.route_forgot'));
-
-            return true;
-        }
 
         $to = $user->email;
 
@@ -229,7 +260,7 @@ class Controller
             $messages->add($language->translate('PLUGIN_LOGIN.FORGOT_INSTRUCTIONS_SENT_VIA_EMAIL'), 'info');
         }
 
-        $this->setRedirect('/');
+        $this->setRedirect($this->grav['config']->get('plugins.login.route', '/'));
 
         return true;
     }
@@ -251,13 +282,13 @@ class Controller
             $password = isset($data['password']) ? $data['password'] : null;
             $token = isset($data['token']) ? $data['token'] : null;
 
-            if (!empty($user) && $user->exists() && !empty($user->reset)) {
+            if ($user && !empty($user->reset) && $user->exists()) {
                 list($good_token, $expire) = explode('::', $user->reset);
 
                 if ($good_token === $token) {
                     if (time() > $expire) {
                         $messages->add($language->translate('PLUGIN_LOGIN.RESET_LINK_EXPIRED'), 'error');
-                        $this->grav->redirect($this->grav['config']->get('plugins.login.route_forgot'));
+                        $this->grav->redirect($this->grav['config']->get('plugins.login.route_forgot', '/'));
 
                         return true;
                     }
@@ -271,7 +302,7 @@ class Controller
                     $user->save();
 
                     $messages->add($language->translate('PLUGIN_LOGIN.RESET_PASSWORD_RESET'), 'info');
-                    $this->grav->redirect('/');
+                    $this->setRedirect($this->grav['config']->get('plugins.login.route', '/'));
 
                     return true;
                 }
@@ -282,16 +313,16 @@ class Controller
 
             return true;
 
-        } else {
-            $user = $this->grav['uri']->param('user');
-            $token = $this->grav['uri']->param('token');
+        }
 
-            if (empty($user) || empty($token)) {
-                $messages->add($language->translate('PLUGIN_LOGIN.RESET_INVALID_LINK'), 'error');
-                $this->grav->redirect($this->grav['config']->get('plugins.login.route_forgot'));
+        $user = $this->grav['uri']->param('user');
+        $token = $this->grav['uri']->param('token');
 
-                return true;
-            }
+        if (!$user || !$token) {
+            $messages->add($language->translate('PLUGIN_LOGIN.RESET_INVALID_LINK'), 'error');
+            $this->grav->redirect($this->grav['config']->get('plugins.login.route_forgot'));
+
+            return true;
         }
 
         return true;
@@ -314,37 +345,31 @@ class Controller
 
             // Normal login process
             $user = User::find($username);
-            if ($user->exists()) {
-                if (!empty($form['username']) && !empty($form['password'])) {
-                    // Authenticate user
-                    $user->authenticated = $user->authenticate($form['password']);
+            if ($user->exists() && !empty($form['username']) && !empty($form['password'])) {
+                // Authenticate user
+                $user->authenticated = $user->authenticate($form['password']);
 
-                    if ($user->authenticated) {
+                if ($user->authenticated) {
 
-                        // Authorize against user ACL
-                        $user_authorized = $user->authorize('site.login');
+                    // Authorize against user ACL
+                    $user_authorized = $user->authorize('site.login');
 
-                        if ($user_authorized) {
-                            $this->grav['session']->user = $user;
+                    if ($user_authorized) {
+                        $this->grav['session']->user = $user;
 
-                            unset($this->grav['user']);
-                            $this->grav['user'] = $user;
+                        unset($this->grav['user']);
+                        $this->grav['user'] = $user;
 
-                            // If the user wants to be remembered, create Rememberme cookie
-                            if (!empty($form['rememberme'])) {
-                                $this->rememberMe->createCookie($form['username']);
-                            } else {
-                                $this->rememberMe->clearCookie();
-                                $this->rememberMe->getStorage()->cleanAllTriplets($user->get('username'));
-                            }
+                        // If the user wants to be remembered, create Rememberme cookie
+                        if (!empty($form['rememberme'])) {
+                            $this->rememberMe->createCookie($form['username']);
+                        } else {
+                            $this->rememberMe->clearCookie();
+                            $this->rememberMe->getStorage()->cleanAllTriplets($user->get('username'));
                         }
-
                     }
                 }
             }
-        } else {
-            // Authorize against user ACL
-            $user_authorized = $user->authorize('site.login');
         }
 
         // Authorize against user ACL
@@ -374,19 +399,6 @@ class Controller
     {
         $this->redirect = $path;
         $this->redirectCode = $code;
-    }
-
-    /**
-     * Add message into the session queue.
-     *
-     * @param string $msg
-     * @param string $type
-     */
-    public function setMessage($msg, $type = 'info')
-    {
-        /** @var Message $messages */
-        $messages = $this->grav['messages'];
-        $messages->add($msg, $type);
     }
 
     /**
@@ -420,7 +432,7 @@ class Controller
 
             // Set cookie with correct base path of Grav install
             $cookie = new Cookie();
-            $cookie->setPath($this->grav['base_url_relative']);
+            $cookie->setPath($this->grav['base_url_relative'] ?: '/');
             $this->rememberMe->setCookie($cookie);
         }
 
@@ -434,7 +446,7 @@ class Controller
      *
      * @return array
      */
-    protected function &getPost($post)
+    protected function &getPost(array $post)
     {
         unset($post[$this->prefix]);
 
@@ -466,4 +478,5 @@ class Controller
 
         return $data;
     }
+
 }
