@@ -124,6 +124,41 @@ content:
   <div class="col-sm-6">
     <div class="card">
       <div class="card-block">
+        <h3 class="card-title">Quiz Generator</h3>
+        <p class="card-text">Android app which generates an app with the quiz questions.</p>
+        <a href="https://github.com/Teamexe/Quiz-Generator" class="btn btn-primary">View Project</a>
+        <br>
+        <br>
+        <div class="card-footer">
+          <a href='https://github.com/Teamexe/Quiz-Generator'>
+            <small class="text-muted">View Source</small>
+          </a>
+        </div>        
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title">Intranet video chat</h3>
+        <p class="card-text">Smooth video streaming and chatting platform</p>
+        <a href="https://github.com/Teamexe/Intranet-video-chat" class="btn btn-primary">View Project</a>
+        <br>
+        <br>
+        <div class="card-footer">
+          <a href='https://github.com/Teamexe/Intranet-video-chat'>
+            <small class="text-muted">View Source</small>
+          </a>
+        </div>        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
         <h3 class="card-title">NITHResultApp</h3>
         <p class="card-text">An improvement on the NIT Hamirpur Result Portal (needs update)</p>
         <a href="http://glug.nith.ac.in/result" class="btn btn-primary">View Project</a>
