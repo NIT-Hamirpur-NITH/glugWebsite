@@ -84,6 +84,42 @@ content:
   </div>
 </div>
 <br>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title">Elective Manager</h3>
+        <p class="card-text">This will be used for Elective allotments [UG electives (Open electives, Departmental elective) and PG electives]. </p>
+        <a href="http://139.59.13.224:4000/" class="btn btn-primary">View Project</a>
+        <br>
+        <br>
+        <div class="card-footer">
+          <a href='https://github.com/Teamexe/Elective-manager'>
+            <small class="text-muted">View Source</small>
+          </a>
+        </div>        
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title">NITH Hostel Allotment</h3>
+        <p class="card-text">A software for alloting hostels in NITH.</p>
+        <a href="https://github.com/Teamexe/Hostel-Allotment-System" class="btn btn-primary">View Project</a>
+        <br>
+        <br>
+        <div class="card-footer">
+          <a href='https://github.com/Teamexe/Hostel-Allotment-System'>
+            <small class="text-muted">View Source</small>
+          </a>
+        </div>        
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
