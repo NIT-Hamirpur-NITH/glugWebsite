@@ -1,3 +1,42 @@
+# v2.7.1
+## 12/05/2017
+
+1. [](#new)
+    * Added new `onEmailSend()` event hook before sending [#70](https://github.com/getgrav/grav-plugin-email/pull/70)
+1. [](#improved)
+    * Added examples of setting up Email plugin with various SMTP providers
+    * Updated RU language [#60](https://github.com/getgrav/grav-plugin-email/pull/60)
+    * Updated to SwiftMailer v5.4.8
+
+# v2.7.0
+## 10/26/2017
+
+1. [](#improved)
+    * Now uses a dedicated `logs/email.log` file when `debug: true`
+    * Improved the README.txt file with examples, and troubleshooting
+    * Changed default engine to `sendmail` as `mail` is deprecated and not functioning [swiftmailer#866](https://github.com/swiftmailer/swiftmailer/issues/866}
+
+# v2.6.2
+## 09/30/2017
+
+1. [](#improved)
+    * Removed extraneous files from vendor folder 
+
+# v2.6.1
+## 09/07/2017
+
+1. [](#improved)
+    * Improved the error message when missing `from` in the configuration
+    * Silently catch malformed email exceptions
+
+# v2.6.0
+## 05/22/2017
+
+1. [](#improved)
+    * Inherit options from plugin configuration [#39](https://github.com/getgrav/grav-plugin-email/pull/39)
+1. [](#bugfix)
+    * Also process translation on the email subject [https://github.com/getgrav/grav-plugin-comments/issues/38](https://github.com/getgrav/grav-plugin-comments/issues/38)
+
 # v2.5.3
 ## 01/03/2017
 

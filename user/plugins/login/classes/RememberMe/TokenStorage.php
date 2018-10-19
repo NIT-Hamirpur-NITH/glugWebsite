@@ -1,8 +1,15 @@
 <?php
-
+/**
+ * @package    Grav\Plugin\Login
+ *
+ * @copyright  Copyright (C) 2014 - 2017 RocketTheme, LLC. All rights reserved.
+ * @license    MIT License; see LICENSE file for details.
+ */
 namespace Grav\Plugin\Login\RememberMe;
 
-use Grav\Common\GravTrait;
+use Grav\Common\Cache;
+use Grav\Common\Grav;
+use Doctrine\Common\Cache\CacheProvider;
 use Doctrine\Common\Cache\FilesystemCache;
 use Birke\Rememberme\Storage\StorageInterface;
 
@@ -15,10 +22,8 @@ use Birke\Rememberme\Storage\StorageInterface;
  */
 class TokenStorage implements StorageInterface
 {
-    use GravTrait;
-
     /**
-     * @var DoctrineCache
+     * @var CacheProvider
      */
     protected $driver;
 
@@ -31,13 +36,14 @@ class TokenStorage implements StorageInterface
      * Constructor
      *
      * @param string    $path   Path to storage directory
+     * @throws \InvalidArgumentException
      */
     public function __construct($path = 'cache://rememberme')
     {
         /** @var Cache $cache */
-        $cache = self::getGrav()['cache'];
+        $cache = Grav::instance()['cache'];
 
-        $this->cache_dir = self::getGrav()['locator']->findResource($path, true, true);
+        $this->cache_dir = Grav::instance()['locator']->findResource($path, true, true);
 
         // Setup cache
         $this->driver = $cache->getCacheDriver();
@@ -73,7 +79,7 @@ class TokenStorage implements StorageInterface
         }
 
         list($expire, $tokens) = $this->driver->fetch($id);
-        if (isset($tokens[$persistentToken]) && $tokens[$persistentToken] == $token) {
+        if (isset($tokens[$persistentToken]) && $tokens[$persistentToken] === $token) {
             return self::TRIPLET_FOUND;
         }
 
@@ -107,6 +113,8 @@ class TokenStorage implements StorageInterface
 
         // Get cache lifetime for tokens
         if ($expire === null && $e === null) {
+            /** @var Cache $cache */
+            $cache = Grav::instance()['cache'];
             $expire = $cache->getLifetime();
         } elseif ($expire === null) {
             $expire = $e;
@@ -169,7 +177,7 @@ class TokenStorage implements StorageInterface
     /**
      * Helper method to clear RememberMe cache
      */
-    public static function clearCache()
+    public function clearCache()
     {
         $this->driver->flushAll();
     }
@@ -183,9 +191,8 @@ class TokenStorage implements StorageInterface
     protected function getId($key)
     {
         /** @var Cache $cache */
-        $cache = self::getGrav()['cache'];
+        $cache = Grav::instance()['cache'];
 
-        $id = 'login' . md5(trim($key) . $cache->getKey());
-        return $id;
+        return 'login' . md5(trim($key) . $cache->getKey());
     }
 }

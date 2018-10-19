@@ -70,8 +70,10 @@ class Twig_NodeTraverser
         $node = $visitor->enterNode($node, $this->env);
 
         foreach ($node as $k => $n) {
-            if (false !== $n = $this->traverseForVisitor($visitor, $n)) {
-                $node->setNode($k, $n);
+            if (false !== $m = $this->traverseForVisitor($visitor, $n)) {
+                if ($m !== $n) {
+                    $node->setNode($k, $m);
+                }
             } else {
                 $node->removeNode($k);
             }
@@ -80,3 +82,5 @@ class Twig_NodeTraverser
         return $visitor->leaveNode($node, $this->env);
     }
 }
+
+class_alias('Twig_NodeTraverser', 'Twig\NodeTraverser', false);

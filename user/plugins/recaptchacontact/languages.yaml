@@ -234,3 +234,89 @@ ru:
       SUCCESS: "Спасибо! Ваше сообщение было отправлено."
       ERROR: "Упс! Произошла ошибка при отправке вашего сообщения. Пожалуйста заполните форму и попробуйте снова."
       FAIL: "Упс! Что-то пошло не так и мы не можем отправить ваше сообщение."
+
+tr:
+  RECAPTCHACONTACT:
+    FORM_LEGEND: "İletişim"
+    SUBJECT: "Grav'dan yeni mesaj var!"
+    RECIPIENT: "merhaba@ornek.com"
+
+    ADMIN:
+      HEADING: "İletişim Formu"
+      TOGGLE:
+        HELP: "Aktifleştirildiğinde form bu sayfada görünür."
+      RECIPIENT:
+        LABEL: "Mesajları gönder"
+        HELP: "Önerilen ayar: form üzerinden gelen mesajlar bu adrese gönderilecek"
+      SUBJECT:
+        LABEL: "E-posta Başlığı"
+        HELP: "Opsiyonel ayar: boş geçilmezse, e-posta bu başlığı içerek."
+
+
+    FIELDS:
+      NAME:
+        LABEL: "İsim"
+        PLACEHOLDER: "İsminizi girin"
+
+      EMAIL:
+        LABEL: "E-posta"
+        PLACEHOLDER: "E-posta adresinizi girin"
+
+      MESSAGE:
+        LABEL: "Mesaj"
+        PLACEHOLDER: "Mesajınızı girin"
+
+      ANTISPAM:
+        LABEL: "Antispam"
+        PLACEHOLDER: "Antispam için lütfen bu alanı boş bırakın."
+
+      SUBMIT:
+        LABEL: "Gönder"
+
+    MESSAGES:
+      SUCCESS: "Teşekkürler! Mesajınız başarıyla gönderildi!"
+      ERROR: "Oops! Mesajınız gönderilirken bir hatayla karşılaşıldı. Lütfen forma girdiğiniz verileri kontrol ederek tekrar deneyin."
+      FAIL: "Oops! Bir şeyler yanlış gitti ve mesajınızı gönderemedik."
+
+pl:
+  RECAPTCHACONTACT:
+    FORM_LEGEND: "Kontakt"
+    SUBJECT: "Nowy kontakt ze strony Grav!"
+    RECIPIENT: "hello@example.com"
+
+    ADMIN:
+      HEADING: "Formularz kontaktowy"
+      TOGGLE:
+        HELP: "Jeśli zaznaczysz tę opcję, formularz pojawi się na tej stronie."
+      RECIPIENT:
+        LABEL: "Wyślij emaile na adres:"
+        HELP: "Pomoc: formularz będzie wysyłał wiadomości na ten adres email."
+      SUBJECT:
+        LABEL: "Temat wiadomości"
+        HELP: "Opcjonalne: jeśli zdefiniujesz to pole, email będzie zawierał ten temat."
+
+
+    FIELDS:
+      NAME:
+        LABEL: "Imię"
+        PLACEHOLDER: "Podaj swoje imię"
+
+      EMAIL:
+        LABEL: "Email"
+        PLACEHOLDER: "Podaj swój email"
+
+      MESSAGE:
+        LABEL: "Wiadomość"
+        PLACEHOLDER: "Treść wiadomości"
+
+      ANTISPAM:
+        LABEL: "Zabezpieczenie antyspamowe"
+        PLACEHOLDER: "Pozostaw to pole puste"
+
+      SUBMIT:
+        LABEL: "Wyślij."
+
+    MESSAGES:
+      SUCCESS: "Dziękuję! Twoja wiadomość została wysłana."
+      ERROR: "Ups! Nie wszystkie pola zostały wypełnione prawidłowo. Proszę, uzupełnij formularz zgodnie ze wskazówkami i wyślij go ponownie."
+      FAIL: "Ups! Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie poźniej."

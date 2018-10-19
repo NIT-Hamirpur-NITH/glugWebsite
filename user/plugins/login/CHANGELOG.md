@@ -1,3 +1,153 @@
+# v2.7.3
+## 06/20/2018
+
+1. [](#bugfix)
+    * Fixed regression with `redirect_after_login` setting [#164](https://github.com/getgrav/grav-plugin-login/issues/164)
+
+# v2.7.2
+## 06/11/2018
+
+1. [](#new)
+    * Norwegian translation added [#163](https://github.com/getgrav/grav-plugin-login/issues/163)
+1. [](#bugfix)
+    * Fixed issue with `redirect_after_login` being ignored [#164](https://github.com/getgrav/grav-plugin-login/issues/164)
+    * CLI commands `change-user-state` and `change-password` were ignoring desired username [#161](https://github.com/getgrav/grav-plugin-login/issues/161)
+
+# v2.7.1
+## 06/03/2018
+
+1. [](#bugfix)
+    * Removed extra unnecessary username check [#159](https://github.com/getgrav/grav-plugin-login/issues/159)
+    * CLI command `add-user` ignores desired username [#157](https://github.com/getgrav/grav-plugin-login/issues/157)
+
+# v2.7.0
+## 05/11/2018
+
+1. [](#new)
+    * Moved support for 2FA authentication into Login plugin (only supported in Admin currently)
+    * Updated plugin dependencies (Grav >= 1.4.5, Form >=2.13.4, Email >=2.7.0)
+1. [](#improved)
+    * Added cleaner way for 3rd party providers to add twig templates to login form
+    * Use `Login` class validation methods in CLI
+    * Added logging of login exceptions
+    * Show denied message only when authenticated but not authorized
+1. [](#bugfix)
+    * Don't allow Profile saving if a Grav user account doesn't exist (OAuth/LDAP users for example)
+    * Don't allow PW reset if no current password exists (OAuth/LDAP users for example) 
+
+# v2.6.3
+## 04/12/2018
+
+1. [](#bugfix)
+    * Fixed issue with saving profile and stating email has already exists
+
+# v2.6.2
+## 04/12/2018
+
+1. [](#new)
+    * Added custom logout redirect configuration option
+    * Added support for `Login::login()` and `Login::logout()` to return `UserLoginEvent` instance instead of `User`
+    * Added support for custom login messages and redirects set in `UserLoginEvent`
+1. [](#bugfix)
+    * Fixed typo in activation email body [#151](https://github.com/getgrav/grav-plugin-login/issues/151) 
+    
+# v2.6.1
+## 03/19/2018
+
+1. [](#improved)
+    * Fixed undefined index if login form didn't contain username/password
+
+# v2.6.0
+## 02/22/2018
+
+1. [](#improved)
+    * Disabled user registration by default. Enable it manually if you need it.
+    * Disabled user-login-on-registration by default. Enable it manually if you need it.
+    * Check for existing email addresses when updating User profile.
+
+# v2.5.0
+## 12/05/2017
+
+1. [](#new)
+    * Added `$grav['login']->login()` and `$grav['login']->logout()` functions with event hooks
+    * Added `$grav['login']->getRateLimiter($context)` function
+    * Added events `onUserLoginAuthenticate`, `onUserLoginAuthorize`, `onUserLoginFailure`, `onUserLogin`, `onUserLogout`
+    * Logout message is now maintained during session destruction
+1. [](#improved)
+    * Remember entered username if login fails
+    * Improved rate limiter to work without sessions and against distributed attacks
+    * Removed `partials/messages.html.twig` and rely on new core version
+    * Moved languages from unified file into dedicated language file structure
+    * Welcome / Notice / Activation emails now more flushed out and in HTML like Reset Password
+1. [](#bugfix)
+    * Do not send nonce with activation link, email app can open the link in another browser
+
+# v2.4.3
+## 10/11/2017
+
+1. [](#bugfix)
+    * Fix an issue when a user only has `groups` and no `access` defined [#134](https://github.com/getgrav/grav-plugin-login/issues/134)
+    * Escape untrusted URLs in the template files
+
+# v2.4.2
+## 09/29/2017
+
+1. [](#bugfix)
+    * Fixed issue with protected page media without access [#132](https://github.com/getgrav/grav-plugin-login/issues/132)
+    * Improved validation of email to support RFC5322 [Grav#1648](https://github.com/getgrav/grav/issues/1648)
+
+# v2.4.1
+## 09/12/2017
+
+1. [](#bugfix)
+    * Fixed an issue with 3rd party login plugins [#130](https://github.com/getgrav/grav-plugin-login/issues/130)
+
+# v2.4.0
+## 09/07/2017
+
+1. [](#new)
+    * Added the ability to have a custom route for login page, but not redirect
+    * Added a new `unauthorized.md` page that can be customized as needed
+1. [](#improved)
+    * Differentiated between `authenticated` and `authorized`
+    * Moved rate-limiting logic to the Login class
+    * Much code cleanup and removing of cruft
+    * Updated vendor libraries
+    * Added Russian translation
+1. [](#bugfix)
+    * Fixed login JSON response in case of login failure
+    * Fixed issue with profile form displaying on login page
+    * Store referrer page when trying to access Profile page
+    * Fixed error when logging out with an expired session
+
+# v2.3.2
+## 06/22/2017
+
+1. [](#bugfix)
+    * Grav plugin cli error on password change [#120](https://github.com/getgrav/grav-plugin-login/issues/120)
+
+# v2.3.1
+## 05/16/2017
+
+1. [](#improved)
+    * Added routes to the Admin blueprints
+
+# v2.3.0
+## 04/19/2017
+
+1. [](#new)
+    * Added new built-in profile page support
+    * Added optional flood protection for password resets and login attempts [#91](https://github.com/getgrav/grav-plugin-login/issues/91)
+1. [](#improved)
+    * Use new system configuration entries for username and password format
+    * Use initialized form object in Twig templates rather than array from page.header
+    * Improved alert styling in login templates
+    * Added `appends` for number field
+    * Added missing `route` options in admin options (blueprints)
+1. [](#bugfix)
+    * Set cookie path to `/` if `base_url_relative` is empty [#102](https://github.com/getgrav/grav-plugin-login/issues/102)
+    * Fixed some redirect logic
+    
 # v2.2.1
 ## 01/24/2017
 

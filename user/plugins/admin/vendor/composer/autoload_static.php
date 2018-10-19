@@ -4,9 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitef6e9937a63bd796f32542b02941ee0e
+class ComposerStaticInitda370287ab6d5b8a28188afe08f659c5
 {
     public static $prefixLengthsPsr4 = array (
+        'Z' => 
+        array (
+            'ZendXml\\' => 8,
+        ),
         'C' => 
         array (
             'Composer\\Semver\\' => 16,
@@ -14,6 +18,10 @@ class ComposerStaticInitef6e9937a63bd796f32542b02941ee0e
     );
 
     public static $prefixDirsPsr4 = array (
+        'ZendXml\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zendxml/src',
+        ),
         'Composer\\Semver\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/semver/src',
@@ -21,13 +29,6 @@ class ComposerStaticInitef6e9937a63bd796f32542b02941ee0e
     );
 
     public static $prefixesPsr0 = array (
-        'Z' => 
-        array (
-            'ZendXml\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/zendframework/zendxml/library',
-            ),
-        ),
         'P' => 
         array (
             'PicoFeed' => 
@@ -40,9 +41,9 @@ class ComposerStaticInitef6e9937a63bd796f32542b02941ee0e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitef6e9937a63bd796f32542b02941ee0e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitef6e9937a63bd796f32542b02941ee0e::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitef6e9937a63bd796f32542b02941ee0e::$prefixesPsr0;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitda370287ab6d5b8a28188afe08f659c5::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitda370287ab6d5b8a28188afe08f659c5::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitda370287ab6d5b8a28188afe08f659c5::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }

@@ -18,7 +18,7 @@
  * {% endsandbox %}
  * </pre>
  *
- * @see http://www.twig-project.org/doc/api.html#sandbox-extension for details
+ * @see https://twig.symfony.com/doc/api.html#sandbox-extension for details
  *
  * @final
  */
@@ -57,3 +57,5 @@ class Twig_TokenParser_Sandbox extends Twig_TokenParser
         return 'sandbox';
     }
 }
+
+class_alias('Twig_TokenParser_Sandbox', 'Twig\TokenParser\SandboxTokenParser', false);

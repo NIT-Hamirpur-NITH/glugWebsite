@@ -1,12 +1,33 @@
 // Grav Editor
+.grav-editor-content {
+    position: relative;
+}
+
 .grav-editor {
     [data-grav-editor] {
         height: 300px;
+
+        &.code-mirrored {
+            padding: 0;
+            border: 0;
+            position: absolute;
+            z-index: -1;
+            display: block !important;
+        }
+    }
+
+    .CodeMirror {
+        .CodeMirror-vscrollbar, .CodeMirror-hscrollbar {
+            z-index: 1;
+        }
     }
 
     .CodeMirror-scroll {
-        margin-right: -36px;
-        padding-bottom: 36px;
+        //margin-right: -36px;
+        position: static;
+
+        // hide native scrollbar at the bottom
+        padding-bottom: 15px;
     }
 
     .grav-editor-resizer {
@@ -18,27 +39,52 @@
         z-index: 1;
     }
     .CodeMirror-selected {
-        background: #ebf4ff;
+        background: #D6E8FF;
     }
 
+    .CodeMirror-gutters {
+        height: 100%!important;
+    }
 }
 
 .grav-editor-fullscreen {
     position: fixed;
-    top: 0;
+    top: 4.2rem;
     left: 0;
     bottom: 0;
     right: 0;
-    z-index: 99999;
+    z-index: 3;
     padding: 0 !important;
     margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+
+    .grav-editor-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 0;
+
+        overflow-y: auto;
+    }
 
     .grav-editor-content, .CodeMirror-wrap, .grav-editor-preview {
         height: 100% !important;
     }
 
+    .grav-editor-toolbar {
+        flex: 0 0 auto;
+    }
+
     .grav-editor-toolbar, .grav-editor-toolbar ul li:first-child a, .grav-editor-toolbar-flip ul li:last-child a {
-        border-radius: 0;
+        border-radius: 0 !important;
+    }
+
+    .grav-editor-resizer {
+        display: none;
+    }
+
+    .grav-editor-content.is-active {
+        display: flex;
     }
 }
 
@@ -52,6 +98,7 @@
     }
     .grav-editor-modes {
         flex-shrink: 0;
+        margin-right: 2px;
         ul {
             float: right;
         }
@@ -78,7 +125,7 @@
             cursor: pointer;
             background-color: transparent;
             border-radius: 0;
-            padding: 0.4rem 0.8rem;
+            padding: 0.4rem;
             margin-top: -1px;
             border: 1px solid transparent;
 
@@ -125,16 +172,17 @@
 .grav-editor-content, .grav-editor-preview {
     @include clearfix;
     cursor: text;
+    display: none;
+
+    &.is-active {
+        display: block;
+    }
 }
 
 .grav-editor-content {
     /* PADDING */
     .CodeMirror-lines {
         padding: 10px 0; /* Vertical padding around content */
-    }
-
-    .CodeMirror pre {
-        padding: 0 15px; /* Horizontal padding of content */
     }
 }
 
@@ -187,7 +235,7 @@
     &.CodeMirror {
         color: $paper-fg;
         line-height: 1.4;
-        z-index: 1;
+        font-size: 16px;
     }
 
     .cm-link {color: #0082ba;}

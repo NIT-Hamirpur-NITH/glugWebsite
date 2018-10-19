@@ -1,3 +1,26 @@
+# v1.9.1
+## 04/21/2017
+
+1. [](#bugfix)
+    * Add a namespace xhtml for a international sitemap [#40](https://github.com/getgrav/grav-plugin-sitemap/pull/40)
+
+# v1.9.0
+## 04/19/2017
+
+1. [](#new)
+    * Added wildcard ignores [#34](https://github.com/getgrav/grav-plugin-sitemap/pull/34)
+    * Added ability to add external URLs to sitemap [#35](https://github.com/getgrav/grav-plugin-sitemap/pull/35)
+    * Added page-level ignores [#37](https://github.com/getgrav/grav-plugin-sitemap/pull/37)
+    * Added multilanguage support [#36](https://github.com/getgrav/grav-plugin-sitemap/pull/36)
+
+# v1.8.0
+## 03/14/2017
+
+1. [](#new)
+    * Added `changefreq` and `priority` [#28](https://github.com/getgrav/grav-plugin-sitemap/pull/28)
+1. [](#improved)
+    * Use `$page->canonical()` rather than `$page->permalink()` [#28](https://github.com/getgrav/grav-plugin-sitemap/pull/28)
+
 # v1.7.0
 ## 10/19/2016
 
@@ -51,7 +74,7 @@
 
 1. [](#improved)
     * Added blueprints for Grav Admin plugin
-1. [](#bugfix)    
+1. [](#bugfix)
     * Don't show unpublished pages in sitemap
 
 # v1.3.0

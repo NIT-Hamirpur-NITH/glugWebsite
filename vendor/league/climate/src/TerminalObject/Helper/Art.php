@@ -87,6 +87,15 @@ trait Art
     {
         $files = $this->fileSearch($art, '.*');
 
+        if (count($files) === 0) {
+            $this->addDir(__DIR__ . '/../../ASCII');
+            $files = $this->fileSearch($this->default_art, '.*');
+        }
+
+        if (count($files) === 0) {
+            throw new \UnexpectedValueException("Unable to find an art file with the name '{$art}'");
+        }
+
         return reset($files);
     }
 
@@ -102,8 +111,23 @@ trait Art
     protected function fileSearch($art, $pattern)
     {
         foreach ($this->art_dirs as $dir) {
-            // Look for anything that has the $art filename
-            $paths = glob($dir . '/' . $art . $pattern);
+            $directory_iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($dir));
+
+            $paths = [];
+            $regex = '~' . preg_quote($art) . $pattern . '~';
+
+            foreach ($directory_iterator as $file) {
+                if ($file->isDir()) {
+                    continue;
+                }
+
+                // Look for anything that has the $art filename
+                if (preg_match($regex, $file)) {
+                    $paths[] = $file->getPathname();
+                }
+            }
+
+            asort($paths);
 
             // If we've got one, no need to look any further
             if (!empty($paths)) {

@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import Dropzone from 'dropzone';
+import EXIF from 'exif-js';
 import request from '../../utils/request';
 import { config, translations } from 'grav-config';
 
@@ -46,14 +47,14 @@ Dropzone.confirm = (question, accepted, rejected) => {
 };
 
 const DropzoneMediaConfig = {
-    createImageThumbnails: { },
-    thumbnailWidth: 150,
-    thumbnailHeight: 100,
+    timeout: 0,
+    thumbnailWidth: 200,
+    thumbnailHeight: 150,
     addRemoveLinks: false,
-    dictDefaultMessage: translations.PLUGIN_ADMIN.DROP_FILES_HERE_TO_UPLOAD,
+    dictDefaultMessage: translations.PLUGIN_ADMIN.DROP_FILES_HERE_TO_UPLOAD.replace(/&lt;/g, '<').replace(/&gt;/g, '>'),
     dictRemoveFileConfirmation: '[placeholder]',
     previewTemplate: `
-        <div class="dz-preview dz-file-preview">
+        <div class="dz-preview dz-file-preview dz-no-editor">
           <div class="dz-details">
             <div class="dz-filename"><span data-dz-name></span></div>
             <div class="dz-size" data-dz-size></div>
@@ -63,8 +64,40 @@ const DropzoneMediaConfig = {
           <div class="dz-success-mark"><span>✔</span></div>
           <div class="dz-error-mark"><span>✘</span></div>
           <div class="dz-error-message"><span data-dz-errormessage></span></div>
-          <a class="dz-remove file-thumbnail-remove" href="javascript:undefined;" data-dz-remove><i class="fa fa-fw fa-close"></i></a>
+          <a class="dz-unset" title="${translations.PLUGIN_ADMIN.UNSET}" href="#" data-dz-unset>${translations.PLUGIN_ADMIN.UNSET}</a>
+          <a class="dz-remove" title="${translations.PLUGIN_ADMIN.DELETE}" href="javascript:undefined;" data-dz-remove>${translations.PLUGIN_ADMIN.DELETE}</a>
+          <a class="dz-metadata" title="${translations.PLUGIN_ADMIN.METADATA}" href="#" target="_blank" data-dz-metadata>${translations.PLUGIN_ADMIN.METADATA}</a>
+          <a class="dz-view" title="${translations.PLUGIN_ADMIN.VIEW}" href="#" target="_blank" data-dz-view>${translations.PLUGIN_ADMIN.VIEW}</a>
         </div>`.trim()
+};
+
+global.EXIF = EXIF;
+
+const ACCEPT_FUNC = function(file, done, settings) {
+    const resolution = settings.resolution;
+    if (!resolution) return done();
+
+    setTimeout(() => {
+        let error = '';
+        if (resolution.min) {
+            Object.keys(resolution.min).forEach((attr) => {
+                if (resolution.min[attr] && file[attr] < resolution.min[attr]) {
+                    error += translations.PLUGIN_FORM.RESOLUTION_MIN.replace(/{{attr}}/g, attr).replace(/{{min}}/g, resolution.min[attr]);
+                }
+            });
+        }
+
+        if (!(settings.resizeWidth || settings.resizeHeight)) {
+            if (resolution.max) {
+                Object.keys(resolution.max).forEach((attr) => {
+                    if (resolution.max[attr] && file[attr] > resolution.max[attr]) {
+                        error += translations.PLUGIN_FORM.RESOLUTION_MAX.replace(/{{attr}}/g, attr).replace(/{{max}}/g, resolution.max[attr]);
+                    }
+                });
+            }
+        }
+        return error ? done(error) : done();
+    }, 50);
 };
 
 export default class FilesField {
@@ -80,12 +113,26 @@ export default class FilesField {
             init: this.initDropzone
         }, this.container.data('dropzone-options'), options);
 
+        this.options = Object.assign({}, this.options, {
+            accept: function(file, done) { ACCEPT_FUNC(file, done, this.options); }
+        });
+
         this.dropzone = new Dropzone(container, this.options);
         this.dropzone.on('complete', this.onDropzoneComplete.bind(this));
         this.dropzone.on('success', this.onDropzoneSuccess.bind(this));
         this.dropzone.on('removedfile', this.onDropzoneRemovedFile.bind(this));
         this.dropzone.on('sending', this.onDropzoneSending.bind(this));
         this.dropzone.on('error', this.onDropzoneError.bind(this));
+
+        this.container.on('mouseenter', '[data-dz-view]', (e) => {
+            const value = JSON.parse(this.container.find('[name][type="hidden"]').val() || '{}');
+            const target = $(e.currentTarget);
+            const file = target.parent('.dz-preview').find('.dz-filename');
+            const filename = encodeURI(file.text());
+
+            const URL = Object.keys(value).filter((key) => value[key].name === filename).shift();
+            target.attr('href', `${config.base_url_simple}/${URL}`);
+        });
     }
 
     initDropzone() {
@@ -117,13 +164,19 @@ export default class FilesField {
         });
     }
 
+    getURI() {
+        return this.container.data('mediaUri') || '';
+    }
+
     onDropzoneSending(file, xhr, formData) {
         formData.append('name', this.options.dotNotation);
         formData.append('admin-nonce', config.admin_nonce);
         formData.append('task', 'filesupload');
+        formData.append('uri', this.getURI());
     }
 
     onDropzoneSuccess(file, response, xhr) {
+        response = typeof response === 'string' ? JSON.parse(response) : response;
         if (this.options.reloadPage) {
             global.location.reload();
         }
@@ -178,7 +231,7 @@ export default class FilesField {
         if (!file.accepted || file.rejected) { return; }
         let url = file.removeUrl || this.urls.delete;
         let path = (url || '').match(/path:(.*)\//);
-        let body = { filename: file.name };
+        let body = { filename: file.name, uri: this.getURI() };
 
         if (file.sessionParams) {
             body.task = 'filessessionremove';
@@ -243,7 +296,7 @@ export function UriToMarkdown(uri) {
     uri = uri.replace(/\(/g, '%28');
     uri = uri.replace(/\)/g, '%29');
 
-    return uri.match(/\.(jpe?g|png|gif|svg)$/i) ? `![](${uri})` : `[${decodeURI(uri)}](${uri})`;
+    return uri.match(/\.(jpe?g|png|gif|svg|mp4|webm|ogv|mov)$/i) ? `![](${uri})` : `[${decodeURI(uri)}](${uri})`;
 }
 
 let instances = [];
@@ -275,7 +328,11 @@ const addNode = (container) => {
         dotNotation: settings.name || 'file',
         acceptedFiles: settings.accept ? settings.accept.join(',') : input.attr('accept') || container.data('media-types'),
         maxFilesize: typeof settings.filesize !== 'undefined' ? settings.filesize : 256,
-        maxFiles: settings.limit || null
+        maxFiles: settings.limit || null,
+        resizeWidth: settings.resizeWidth || null,
+        resizeHeight: settings.resizeHeight || null,
+        resizeQuality: settings.resizeQuality || null,
+        accept: function(file, done) { ACCEPT_FUNC(file, done, settings); }
     };
 
     cache = cache.add(container);

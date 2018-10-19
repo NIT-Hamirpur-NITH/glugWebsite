@@ -34,6 +34,9 @@
     {% if (plugin.form.fields.enabled.type != 'hidden' and plugin.form.fields.tabs.fields.login.fields.enabled.type != 'hidden') %}
         <div class="button-bar danger">
             <span class="danger-zone"></span>
+            {% if not plugin.symlink %}
+                <a class="button button-reinstall-package hidden" href="#" data-remodal-target="reinstall-package"><i class="fa fa-fw fa-repeat"></i> {{ "PLUGIN_ADMIN.REINSTALL_PLUGIN"|tu }}</a>
+            {% endif %}
             <a class="button" href="#" data-remodal-target="remove-package"><i class="fa fa-fw fa-warning"></i> {{ "PLUGIN_ADMIN.REMOVE_PLUGIN"|tu }}</a>
         </div>
     {% endif %}
@@ -45,7 +48,7 @@
                 {% set gumroad_loaded = true %}
                 <script src="//gumroad.com/js/gumroad.js"></script>
             {% endif %}
-            <a class="gumroad-button button" href="https://gum.co/{{ plugin.premium.product_permalink }}" target="_blank" data-gumroad-single-product="true"><i class="fa fa-shopping-cart"></i> {{ "Buy Now"|tu }}</a>
+            <a class="gumroad-button button" href="https://gum.co/{{ plugin.premium.permalink }}" target="_blank" data-gumroad-single-product="true"><i class="fa fa-shopping-cart"></i> {{ "Buy Now"|tu }}</a>
         {% else %}
             <a class="button" href="#" data-remodal-target="add-package" data-packages-slugs="{{ plugin.slug }}" data-plugin-action="start-package-installation"><i class="fa fa-plus"></i> {{ "PLUGIN_ADMIN.INSTALL_PLUGIN"|tu }}</a>
         {% endif %}
@@ -56,3 +59,4 @@
 {% include 'partials/modal-add-package.html.twig' with { type: 'plugin' } %}
 {% include 'partials/modal-update-packages.html.twig' with { type: 'plugin' } %}
 {% include 'partials/modal-remove-package.html.twig' with { type: 'plugin', package: plugin } %}
+{% include 'partials/modal-reinstall-package.html.twig' with { type: 'plugin', package: plugin } %}

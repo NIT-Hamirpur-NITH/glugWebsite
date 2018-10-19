@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import 'selectize';
+import '../../utils/selectize-required-fix';
 
 export default class SelectizeField {
     constructor(options = {}) {
@@ -19,7 +20,8 @@ export default class SelectizeField {
         let field = (isInput ? element : element.find('input, select'));
 
         if (!field.length || field.get(0).selectize) { return; }
-        field.selectize(data);
+        const plugins = $.merge(data.plugins ? data.plugins : [], ['required-fix']);
+        field.selectize($.extend({}, data, { plugins }));
 
         this.elements.push(field.data('selectize'));
     }

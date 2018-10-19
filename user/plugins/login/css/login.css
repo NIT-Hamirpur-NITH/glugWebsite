@@ -19,7 +19,11 @@
 }
 
 .alert.info {
-    color: #c00;
+    color: #27ae60;
+}
+
+.alert.error {
+    color: #e74c3c;
 }
 
 #grav-login p {
@@ -74,4 +78,9 @@
 #grav-login .rememberme label {
     font-weight: inherit;
     display: inline;
+}
+
+.login-status {
+    white-space: nowrap;
+    vertical-align: middle;
 }

@@ -9,6 +9,7 @@ use Grav\Common\GPM\Licenses;
 use Grav\Common\GPM\Response;
 use Grav\Common\Grav;
 use Grav\Common\Language\LanguageCodes;
+use Grav\Common\Page\Collection;
 use Grav\Common\Page\Page;
 use Grav\Common\Page\Pages;
 use Grav\Common\Plugins;
@@ -16,7 +17,9 @@ use Grav\Common\Themes;
 use Grav\Common\Uri;
 use Grav\Common\User\User;
 use Grav\Common\Utils;
-use Grav\Plugin\Admin\Utils as AdminUtils;
+use Grav\Plugin\Admin\Twig\AdminTwigExtension;
+use Grav\Plugin\Login\Login;
+use Grav\Plugin\Login\TwoFactorAuth\TwoFactorAuth;
 use RocketTheme\Toolbox\Event\Event;
 use RocketTheme\Toolbox\File\File;
 use RocketTheme\Toolbox\File\JsonFile;
@@ -24,7 +27,7 @@ use RocketTheme\Toolbox\ResourceLocator\UniformResourceIterator;
 use RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator;
 use RocketTheme\Toolbox\Session\Message;
 use RocketTheme\Toolbox\Session\Session;
-use Symfony\Component\Yaml\Yaml;
+use Grav\Common\Yaml;
 use Composer\Semver\Semver;
 use PicoFeed\Reader\Reader;
 
@@ -32,6 +35,9 @@ define('LOGIN_REDIRECT_COOKIE', 'grav-login-redirect');
 
 class Admin
 {
+    const MEDIA_PAGINATION_INTERVAL = 20;
+    const TMP_COOKIE_NAME = 'tmp-admin-message';
+
     /**
      * @var Grav
      */
@@ -96,6 +102,21 @@ class Admin
     protected $permissions;
 
     /**
+     * @var bool
+     */
+    protected $load_additional_files_in_background = false;
+
+    /**
+     * @var bool
+     */
+    protected $loading_additional_files_in_background = false;
+
+    /**
+     * @var array
+     */
+    protected $temp_messages = [];
+
+    /**
      * Constructor.
      *
      * @param Grav   $grav
@@ -149,15 +170,18 @@ class Admin
 
         /** @var \DirectoryIterator $directory */
         foreach (new \DirectoryIterator($path) as $file) {
-            if ($file->isDir() || $file->isDot() || Utils::startsWith($file->getBasename(), '.')) {
+            if ($file->isDir() || $file->isDot() || Utils::startsWith($file->getFilename(), '.')) {
                 continue;
             }
 
-            $lang = basename($file->getBasename(), '.yaml');
+            $lang = $file->getBasename('.yaml');
 
             $languages[$lang] = LanguageCodes::getNativeName($lang);
 
         }
+
+        // sort languages
+        asort($languages);
 
         return $languages;
     }
@@ -178,10 +202,23 @@ class Admin
             if ($file->isDir() || !preg_match('/^[^.].*.yaml$/', $file->getFilename())) {
                 continue;
             }
-            $configurations[] = basename($file->getBasename(), '.yaml');
+            $configurations[] = $file->getBasename('.yaml');
         }
 
         return $configurations;
+    }
+
+    /**
+     * Return the tools found
+     *
+     * @return array
+     */
+    public static function tools()
+    {
+        $tools = [];
+        Grav::instance()->fireEvent('onAdminTools', new Event(['tools' => &$tools]));
+
+        return $tools;
     }
 
     /**
@@ -192,7 +229,7 @@ class Admin
     public static function siteLanguages()
     {
         $languages = [];
-        $lang_data = Grav::instance()['config']->get('system.languages.supported', []);
+        $lang_data = (array) Grav::instance()['config']->get('system.languages.supported', []);
 
         foreach ($lang_data as $index => $lang) {
             $languages[$lang] = LanguageCodes::getNativeName($lang);
@@ -247,6 +284,7 @@ class Admin
         $page         = $pages->dispatch($route);
         $parent_route = null;
         if ($page) {
+            /** @var Page $parent */
             $parent       = $page->parent();
             $parent_route = $parent->rawRoute();
         }
@@ -261,7 +299,27 @@ class Admin
         } catch (\Exception $e) {
             $tmp_dir = Grav::instance()['locator']->findResource('cache://', true, true) . '/tmp';
         }
+
         return $tmp_dir;
+    }
+
+    public static function getPageMedia()
+    {
+        $files = [];
+        $grav = Grav::instance();
+
+        $pages = $grav['pages'];
+        $route = '/' . ltrim($grav['admin']->route, '/');
+
+        /** @var Page $page */
+        $page         = $pages->dispatch($route);
+        $parent_route = null;
+        if ($page) {
+            $media = $page->media()->all();
+            $files = array_keys($media);
+        }
+        return $files;
+
     }
 
     /**
@@ -292,55 +350,132 @@ class Admin
     /**
      * Authenticate user.
      *
-     * @param  array $data Form data.
-     * @param  array $post Additional form fields.
-     *
+     * @param  array $credentials User credentials.
+     */
+    public function authenticate($credentials, $post)
+    {
+        /** @var Login $login */
+        $login = $this->grav['login'];
+
+        // Remove login nonce from the form.
+        $credentials = array_diff_key($credentials, ['admin-nonce' => true]);
+        $twofa = $this->grav['config']->get('plugins.admin.twofa_enabled', false);
+
+        $rateLimiter = $login->getRateLimiter('login_attempts');
+        
+        $userKey = isset($credentials['username']) ? (string)$credentials['username'] : '';
+        $ipKey = Uri::ip();
+        $redirect = isset($post['redirect']) ? $post['redirect'] : $this->base . $this->route;
+
+        // Check if the current IP has been used in failed login attempts.
+        $attempts = count($rateLimiter->getAttempts($ipKey, 'ip'));
+
+        $rateLimiter->registerRateLimitedAction($ipKey, 'ip')->registerRateLimitedAction($userKey);
+
+        // Check rate limit for both IP and user, but allow each IP a single try even if user is already rate limited.
+        if ($rateLimiter->isRateLimited($ipKey, 'ip') || ($attempts && $rateLimiter->isRateLimited($userKey))) {
+            $this->setMessage($this->translate(['PLUGIN_LOGIN.TOO_MANY_LOGIN_ATTEMPTS', $rateLimiter->getInterval()]), 'error');
+
+            $this->grav->redirect('/');
+        }
+        
+        // Fire Login process.
+        $event = $login->login(
+            $credentials,
+            ['admin' => true, 'twofa' => $twofa],
+            ['authorize' => 'admin.login', 'return_event' => true]
+        );
+        $user = $event->getUser();
+
+        if ($user->authenticated) {
+            $rateLimiter->resetRateLimit($ipKey, 'ip')->resetRateLimit($userKey);
+            if ($user->authorized) {
+                $event->defMessage('PLUGIN_ADMIN.LOGIN_LOGGED_IN', 'info');
+
+                $event->defRedirect(isset($post['redirect']) ? $post['redirect'] : $redirect);
+            } else {
+                $this->session->redirect = $redirect;
+            }
+        } else {
+            if ($user->authorized) {
+                $event->defMessage('PLUGIN_LOGIN.ACCESS_DENIED', 'error');
+            } else {
+                $event->defMessage('PLUGIN_LOGIN.LOGIN_FAILED', 'error');
+            }
+        }
+
+        $event->defRedirect($redirect);
+
+        $message = $event->getMessage();
+        if ($message) {
+            $this->setMessage($this->translate($message), $event->getMessageType());
+        }
+
+        $redirect = $event->getRedirect();
+
+        $this->grav->redirect($redirect, $event->getRedirectCode());
+    }
+
+    /**
+     * Check Two-Factor Authentication.
+     */
+    public function twoFa($data, $post)
+    {
+        /** @var Login $login */
+        $login = $this->grav['login'];
+
+        /** @var TwoFactorAuth $twoFa */
+        $twoFa = $login->twoFactorAuth();
+        $user = $this->grav['user'];
+
+        $code = isset($data['2fa_code']) ? $data['2fa_code'] : null;
+
+        $secret = isset($user->twofa_secret) ? $user->twofa_secret : null;
+
+        if (!$code || !$secret || !$twoFa->verifyCode($secret, $code)) {
+            $login->logout(['admin' => true]);
+
+            $this->grav['session']->setFlashCookieObject(Admin::TMP_COOKIE_NAME, ['message' => $this->translate('PLUGIN_ADMIN.2FA_FAILED'), 'status' => 'error']);
+
+            $this->grav->redirect($this->uri->route(), 303);
+        }
+
+        $this->setMessage($this->translate('PLUGIN_ADMIN.LOGIN_LOGGED_IN'), 'info');
+
+        $user->authorized = true;
+
+        $this->grav->redirect($post['redirect']);
+    }
+
+    /**
+     * Logout from admin.
+     */
+    public function Logout($data, $post)
+    {
+        /** @var Login $login */
+        $login = $this->grav['login'];
+
+        $event = $login->logout(['admin' => true], ['return_event' => true]);
+
+        $event->defMessage('PLUGIN_ADMIN.LOGGED_OUT', 'info');
+        $message = $event->getMessage();
+        if ($message) {
+            $this->grav['session']->setFlashCookieObject(Admin::TMP_COOKIE_NAME, ['message' => $this->translate($message), 'status' => $event->getMessageType()]);
+        }
+
+        $this->grav->redirect($this->base);
+    }
+
+    /**
      * @return bool
      */
-    public function authenticate($data, $post)
+    public static function doAnyUsersExist()
     {
-        if (!$this->user->authenticated && isset($data['username']) && isset($data['password'])) {
-            // Perform RegEX check on submitted username to check for emails
-            if (filter_var($data['username'], FILTER_VALIDATE_EMAIL)) {
-                $user = AdminUtils::findUserByEmail($data['username']);
-            } else {
-                $user = User::load($data['username']);
-            }
+        // check for existence of a user account
+        $account_dir = $file_path = Grav::instance()['locator']->findResource('account://');
+        $user_check = glob($account_dir . '/*.yaml');
 
-            //default to english if language not set
-            if (empty($user->language)) {
-                $user->set('language', 'en');
-            }
-
-            if ($user->exists()) {
-                $user->authenticated = true;
-
-                // Authenticate user.
-                $result = $user->authenticate($data['password']);
-
-                if (!$result) {
-                    return false;
-                }
-            }
-        }
-
-        $action = [];
-
-        if ($user->authorize('admin.login')) {
-            $this->user = $this->session->user = $user;
-
-            /** @var Grav $grav */
-            $grav = $this->grav;
-
-            unset($this->grav['user']);
-            $this->grav['user'] = $user;
-
-            $this->setMessage($this->translate('PLUGIN_ADMIN.LOGIN_LOGGED_IN'), 'info');
-            $grav->redirect($post['redirect']);
-            return true; //never reached
-        }
-
-        return false;
+        return $user_check ? true : false;
     }
 
     /**
@@ -356,6 +491,16 @@ class Admin
         $messages->add($msg, $type);
     }
 
+    public function addTempMessage($msg, $type)
+    {
+        $this->temp_messages[] = ['message' => $msg, 'scope' => $type];
+    }
+
+    public function getTempMessages()
+    {
+        return $this->temp_messages;
+    }
+
     /**
      * Translate a string to the user-defined language
      *
@@ -365,8 +510,10 @@ class Admin
      *
      * @return string
      */
-    public function translate($args, $languages = null)
+    public static function translate($args, $languages = null)
     {
+        $grav = Grav::instance();
+
         if (is_array($args)) {
             $lookup = array_shift($args);
         } else {
@@ -375,41 +522,35 @@ class Admin
         }
 
         if (!$languages) {
-            $languages = [$this->grav['user']->authenticated ? $this->grav['user']->language : 'en'];
+            if ($grav['config']->get('system.languages.translations_fallback', true)) {
+                $languages = $grav['language']->getFallbackLanguages();
+            } else {
+                $languages = (array)$grav['language']->getDefault();
+            }
+            $languages = $grav['user']->authenticated ? [ $grav['user']->language ] : $languages;
         } else {
             $languages = (array)$languages;
         }
 
-
-        if ($lookup) {
-            if (empty($languages) || reset($languages) == null) {
-                if ($this->grav['config']->get('system.languages.translations_fallback', true)) {
-                    $languages = $this->grav['language']->getFallbackLanguages();
-                } else {
-                    $languages = (array)$this->grav['language']->getDefault();
-                }
-            }
-        }
-
         foreach ((array)$languages as $lang) {
-            $translation = $this->grav['language']->getTranslation($lang, $lookup);
+            $translation = $grav['language']->getTranslation($lang, $lookup);
 
             if (!$translation) {
-                $language    = $this->grav['language']->getDefault() ?: 'en';
-                $translation = $this->grav['language']->getTranslation($language, $lookup);
+                $language    = $grav['language']->getDefault() ?: 'en';
+                $translation = $grav['language']->getTranslation($language, $lookup);
             }
 
             if (!$translation) {
                 $language    = 'en';
-                $translation = $this->grav['language']->getTranslation($language, $lookup);
+                $translation = $grav['language']->getTranslation($language, $lookup);
             }
 
             if ($translation) {
                 if (count($args) >= 1) {
                     return vsprintf($translation, $args);
-                } else {
-                    return $translation;
                 }
+
+                return $translation;
             }
         }
 
@@ -419,7 +560,7 @@ class Admin
     /**
      * Checks user authorisation to the action.
      *
-     * @param  string $action
+     * @param  string|string[] $action
      *
      * @return bool
      */
@@ -454,7 +595,8 @@ class Admin
         }
 
         if (!$post) {
-            $post = isset($_POST['data']) ? $_POST['data'] : [];
+            $post = $this->grav['uri']->post();
+            $post = isset($post['data']) ? $post['data'] : [];
         }
 
         // Check to see if a data type is plugin-provided, before looking into core ones
@@ -517,11 +659,44 @@ class Admin
             $file     = CompiledYamlFile::instance($filename);
             $obj->file($file);
             $data[$type] = $obj;
+        } elseif (preg_match('|media-manager/|', $type)) {
+            $filename = base64_decode(preg_replace('|media-manager/|', '', $type));
+
+            $file = File::instance($filename);
+
+            $obj = new \StdClass();
+            $obj->title = $file->basename();
+            $obj->path = $file->filename();
+            $obj->file = $file;
+            $obj->page = $this->grav['pages']->get(dirname($obj->path));
+
+            $fileInfo = pathinfo($obj->title);
+            $filename = str_replace(['@3x', '@2x'], '', $fileInfo['filename']);
+            if (isset($fileInfo['extension'])) {
+                $filename .= '.' . $fileInfo['extension'];
+            }
+
+            if ($obj->page && isset($obj->page->media()[$filename])) {
+                $obj->metadata = new Data\Data($obj->page->media()[$filename]->metadata());
+            }
+
+            $data[$type] = $obj;
         } else {
             throw new \RuntimeException("Data type '{$type}' doesn't exist!");
         }
 
         return $data[$type];
+    }
+
+    protected function hasErrorMessage()
+    {
+        $msgs = $this->grav['messages']->all();
+        foreach ($msgs as $msg) {
+            if (isset($msg['scope']) && $msg['scope'] === 'error') {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -618,9 +793,9 @@ class Admin
     {
         if (method_exists($this->grav['pages'], 'accessLevels')) {
             return $this->grav['pages']->accessLevels();
-        } else {
-            return [];
         }
+
+        return [];
     }
 
     public function license($package_slug)
@@ -650,12 +825,15 @@ class Admin
         if ($package) {
             if ($package->dependencies) {
                 foreach ($package->dependencies as $dependency) {
-                    if (count($gpm->getPackagesThatDependOnPackage($dependency)) > 1) {
-                        continue;
+//                    if (count($gpm->getPackagesThatDependOnPackage($dependency)) > 1) {
+//                        continue;
+//                    }
+                    if (isset($dependency['name'])) {
+                        $dependency = $dependency['name'];
                     }
 
-                    if (!in_array($dependency, $dependencies)) {
-                        if (!in_array($dependency, ['admin', 'form', 'login', 'email'])) {
+                    if (!in_array($dependency, $dependencies, true)) {
+                        if (!in_array($dependency, ['admin', 'form', 'login', 'email', 'php'])) {
                             $dependencies[] = $dependency;
                         }
                     }
@@ -710,19 +888,16 @@ class Admin
 
         if ($local) {
             return $gpm->getInstalledPlugins();
-        } else {
-            $plugins = $gpm->getRepositoryPlugins();
-            if ($plugins) {
-                return $plugins->filter(function (
-                    $package,
-                    $slug
-                ) use ($gpm) {
-                    return !$gpm->isPluginInstalled($slug);
-                });
-            } else {
-                return [];
-            }
         }
+
+        $plugins = $gpm->getRepositoryPlugins();
+        if ($plugins) {
+            return $plugins->filter(function ($package, $slug) use ($gpm) {
+                return !$gpm->isPluginInstalled($slug);
+            });
+        }
+
+        return [];
     }
 
     /**
@@ -742,19 +917,16 @@ class Admin
 
         if ($local) {
             return $gpm->getInstalledThemes();
-        } else {
-            $themes = $gpm->getRepositoryThemes();
-            if ($themes) {
-                return $themes->filter(function (
-                    $package,
-                    $slug
-                ) use ($gpm) {
-                    return !$gpm->isThemeInstalled($slug);
-                });
-            } else {
-                return [];
-            }
         }
+
+        $themes = $gpm->getRepositoryThemes();
+        if ($themes) {
+            return $themes->filter(function ($package, $slug) use ($gpm) {
+                return !$gpm->isThemeInstalled($slug);
+            });
+        }
+
+        return [];
     }
 
     /**
@@ -809,9 +981,7 @@ class Admin
             return false;
         }
 
-        $dependencies = $this->gpm->getDependencies($packages);
-
-        return $dependencies;
+        return $this->gpm->getDependencies($packages);
     }
 
     /**
@@ -829,7 +999,7 @@ class Admin
 
         $latest = [];
 
-        if (is_null($pages->routes())) {
+        if (null === $pages->routes()) {
             return null;
         }
 
@@ -867,6 +1037,7 @@ class Admin
     {
         $file    = File::instance($this->grav['locator']->findResource("log://{$this->route}.html"));
         $content = $file->content();
+        $file->free();
 
         return $content;
     }
@@ -911,11 +1082,7 @@ class Admin
      */
     public function isTeamGrav($info)
     {
-        if (isset($info['author']['name']) && $info['author']['name'] == 'Team Grav') {
-            return true;
-        } else {
-            return false;
-        }
+        return isset($info['author']['name']) && ($info['author']['name'] === 'Team Grav' || Utils::contains($info['author']['name'], 'Trilby Media'));
     }
 
     /**
@@ -927,11 +1094,7 @@ class Admin
      */
     public function isPremiumProduct($info)
     {
-        if (isset($info['premium'])) {
-            return true;
-        } else {
-            return false;
-        }
+        return isset($info['premium']);
     }
 
     /**
@@ -950,9 +1113,9 @@ class Admin
             $pinfo = preg_replace('%^.*<body>(.*)</body>.*$%ms', '$1', $pinfo);
 
             return $pinfo;
-        } else {
-            return 'phpinfo() method is not available on this server.';
         }
+
+        return 'phpinfo() method is not available on this server.';
     }
 
     /**
@@ -988,7 +1151,8 @@ class Admin
                     if ($this->validateDate($date, "$date_format $time_format")) {
                         $guess[$date] = "$date_format $time_format";
                         break 2;
-                    } elseif ($this->validateDate($date, "$time_format $date_format")) {
+                    }
+                    if ($this->validateDate($date, "$time_format $date_format")) {
                         $guess[$date] = "$time_format $date_format";
                         break 2;
                     }
@@ -1063,9 +1227,10 @@ class Admin
             'r' => 'llll ZZ',
             'U' => 'X'
         ];
-        $js_format        = "";
+        $js_format        = '';
         $escaping         = false;
-        for ($i = 0; $i < strlen($php_format); $i++) {
+        $len = strlen($php_format);
+        for ($i = 0; $i < $len; $i++) {
             $char = $php_format[$i];
             if ($char === '\\') // PHP date format escaping character
             {
@@ -1132,17 +1297,18 @@ class Admin
         $notifications = array_reverse($notifications);
 
         // Make adminNicetimeFilter available
-        require_once(__DIR__ . '/../twig/AdminTwigExtension.php');
-        $adminTwigExtension = new AdminTwigExtension();
+        require_once __DIR__ . '/../classes/Twig/AdminTwigExtension.php';
+        $adminTwigExtension = new AdminTwigExtension;
 
-        $filename           = $this->grav['locator']->findResource('user://data/notifications/' . $this->grav['user']->username . YAML_EXT, true, true);
-        $read_notifications = CompiledYamlFile::instance($filename)->content();
+        $filename           = $this->grav['locator']->findResource('user://data/notifications/' . $this->grav['user']->username . YAML_EXT,
+            true, true);
+        $read_notifications = (array)CompiledYamlFile::instance($filename)->content();
 
         $notifications_processed = [];
         foreach ($notifications as $key => $notification) {
             $is_valid = true;
 
-            if (in_array($notification->id, $read_notifications)) {
+            if (in_array($notification->id, $read_notifications, true)) {
                 $notification->read = true;
             }
 
@@ -1152,7 +1318,7 @@ class Admin
 
             if ($is_valid && isset($notification->dependencies)) {
                 foreach ($notification->dependencies as $dependency => $constraints) {
-                    if ($dependency == 'grav') {
+                    if ($dependency === 'grav') {
                         if (!Semver::satisfies(GRAV_VERSION, $constraints)) {
                             $is_valid = false;
                         }
@@ -1182,6 +1348,7 @@ class Admin
         // Process notifications
         $notifications_processed = array_map(function ($notification) use ($adminTwigExtension) {
             $notification->date = $adminTwigExtension->adminNicetimeFilter($notification->date);
+
             return $notification;
         }, $notifications_processed);
 
@@ -1207,46 +1374,7 @@ class Admin
 
     public function getPagePathFromToken($path)
     {
-        $path_parts = pathinfo($path);
-        $page = null;
-
-        $basename = '';
-        if (isset($path_parts['extension'])) {
-            $basename = '/' . $path_parts['basename'];
-            $path     = $path_parts['dirname'];
-        }
-
-        $regex = '/(@self|self@)|((?:@page|page@):(?:.*))|((?:@theme|theme@):(?:.*))/';
-        preg_match($regex, $path, $matches);
-
-        if ($matches) {
-            if ($matches[1]) {
-                // self@
-                $page = $this->page(true);
-            } elseif ($matches[2]) {
-                // page@
-                $parts = explode(':', $path);
-                $route = $parts[1];
-                $page  = $this->grav['page']->find($route);
-            } elseif ($matches[3]) {
-                // theme@
-                $parts = explode(':', $path);
-                $route = $parts[1];
-                $theme = str_replace(ROOT_DIR, '', $this->grav['locator']->findResource("theme://"));
-
-                return $theme . $route . $basename;
-            }
-        } else {
-            return $path . $basename;
-        }
-
-        if (!$page) {
-            throw new \RuntimeException('Page route not found: ' . $path);
-        }
-
-        $path = str_replace($matches[0], rtrim($page->relativePagePath(), '/'), $path);
-
-        return $path . $basename;
+        return Utils::getPagePathFromToken($path, $this->page(true));
     }
 
     /**
@@ -1287,23 +1415,26 @@ class Admin
         /** @var Pages $pages */
         $pages = $this->grav['pages'];
 
-        if ($path && $path[0] != '/') {
+        if ($path && $path[0] !== '/') {
             $path = "/{$path}";
         }
+
+        // Fix for entities in path causing looping...
+        $path = urldecode($path);
 
         $page = $path ? $pages->dispatch($path, true) : $pages->root();
 
         if (!$page) {
             $slug = basename($path);
 
-            if ($slug == '') {
+            if ($slug === '') {
                 return null;
             }
 
             $ppath = str_replace('\\', '/', dirname($path));
 
             // Find or create parent(s).
-            $parent = $this->getPage($ppath != '/' ? $ppath : '');
+            $parent = $this->getPage($ppath !== '/' ? $ppath : '');
 
             // Create page.
             $page = new Page;
@@ -1314,7 +1445,7 @@ class Admin
             $pages->addPage($page, $path);
 
             // Set if Modular
-            $page->modularTwig($slug[0] == '_');
+            $page->modularTwig($slug[0] === '_');
 
             // Determine page type.
             if (isset($this->session->{$page->route()})) {
@@ -1325,13 +1456,14 @@ class Admin
                 $header = ['title' => $data['title']];
 
                 if (isset($data['visible'])) {
-                    if ($data['visible'] == '' || $data['visible']) {
+                    if ($data['visible'] === '' || $data['visible']) {
                         // if auto (ie '')
-                        $children = $page->parent()->children();
+                        $pageParent = $page->parent();
+                        $children = $pageParent ? $pageParent->children() : [];
                         foreach ($children as $child) {
                             if ($child->order()) {
                                 // set page order
-                                $page->order(1000);
+                                $page->order(AdminController::getNextOrderInFolder($pageParent->path()));
                                 break;
                             }
                         }
@@ -1342,7 +1474,7 @@ class Admin
 
                 }
 
-                if ($data['name'] == 'modular') {
+                if ($data['name'] === 'modular') {
                     $header['body_classes'] = 'modular';
                 }
 
@@ -1350,21 +1482,21 @@ class Admin
                 $page->name($name . '.md');
 
                 // Fire new event to allow plugins to manipulate page frontmatter
-                $this->grav->fireEvent('onAdminCreatePageFrontmatter', new Event(['header' => &$header]));
+                $this->grav->fireEvent('onAdminCreatePageFrontmatter', new Event(['header' => &$header,
+                        'data' => $data]));
 
                 $page->header($header);
-                $page->frontmatter(Yaml::dump((array)$page->header(), 10, 2, false));
+                $page->frontmatter(Yaml::dump((array)$page->header(), 20));
             } else {
                 // Find out the type by looking at the parent.
                 $type = $parent->childType()
                     ? $parent->childType()
                     : $parent->blueprints()->get('child_type',
-                        'default')
-                ;
+                        'default');
                 $page->name($type . CONTENT_EXT);
                 $page->header();
             }
-            $page->modularTwig($slug[0] == '_');
+            $page->modularTwig($slug[0] === '_');
         }
 
         return $page;
@@ -1384,18 +1516,8 @@ class Admin
         $reader = new Reader();
         $parser = $reader->getParser($feed_url, $body, 'utf-8');
 
-        $feed = $parser->execute();
+        return $parser->execute();
 
-        return $feed;
-
-    }
-
-    public function cleanContent($content)
-    {
-        $string = strip_tags($content);
-        $string = htmlspecialchars_decode($string, ENT_QUOTES);
-        $string = str_replace("\n", ' ', $string);
-        return trim($string);
     }
 
     public function getRouteDetails()
@@ -1403,4 +1525,270 @@ class Admin
         return [$this->base, $this->location, $this->route];
     }
 
+    /**
+     * Get the files list
+     *
+     * @todo allow pagination
+     * @return array
+     */
+    public function files($filtered = true, $page_index = 0)
+    {
+        $param_type = $this->grav['uri']->param('type');
+        $param_date = $this->grav['uri']->param('date');
+        $param_page = $this->grav['uri']->param('page');
+        $param_page = str_replace('\\', '/', $param_page);
+
+        $files_cache_key = 'media-manager-files';
+
+        if ($param_type) {
+            $files_cache_key .= "-{$param_type}";
+        }
+        if ($param_date) {
+            $files_cache_key .= "-{$param_date}";
+        }
+        if ($param_page) {
+            $files_cache_key .= "-{$param_page}";
+        }
+
+        $page_files = null;
+
+        $cache_enabled = $this->grav['config']->get('plugins.admin.cache_enabled');
+        if (!$cache_enabled) {
+            $this->grav['cache']->setEnabled(true);
+        }
+
+        $page_files = $this->grav['cache']->fetch(md5($files_cache_key));
+
+        if (!$cache_enabled) {
+            $this->grav['cache']->setEnabled(false);
+        }
+
+        if (!$page_files) {
+            $page_files = [];
+            $pages = $this->grav['pages'];
+
+            if ($param_page) {
+                $page = $pages->dispatch($param_page);
+
+                $page_files = $this->getFiles('images', $page, $page_files, $filtered);
+                $page_files = $this->getFiles('videos', $page, $page_files, $filtered);
+                $page_files = $this->getFiles('audios', $page, $page_files, $filtered);
+                $page_files = $this->getFiles('files', $page, $page_files, $filtered);
+            } else {
+                $allPages = $pages->all();
+
+                if ($allPages) foreach ($allPages as $page) {
+                    $page_files = $this->getFiles('images', $page, $page_files, $filtered);
+                    $page_files = $this->getFiles('videos', $page, $page_files, $filtered);
+                    $page_files = $this->getFiles('audios', $page, $page_files, $filtered);
+                    $page_files = $this->getFiles('files', $page, $page_files, $filtered);
+                }
+            }
+
+            if (count($page_files) >= self::MEDIA_PAGINATION_INTERVAL) {
+                $this->shouldLoadAdditionalFilesInBackground(true);
+            }
+
+            if (!$cache_enabled) {
+                $this->grav['cache']->setEnabled(true);
+            }
+            $this->grav['cache']->save(md5($files_cache_key), $page_files, 600); //cache for 10 minutes
+            if (!$cache_enabled) {
+                $this->grav['cache']->setEnabled(false);
+            }
+
+        }
+
+        if (count($page_files) >= self::MEDIA_PAGINATION_INTERVAL) {
+            $page_files = array_slice($page_files, $page_index * self::MEDIA_PAGINATION_INTERVAL, self::MEDIA_PAGINATION_INTERVAL);
+        }
+
+        return $page_files;
+    }
+
+    public function shouldLoadAdditionalFilesInBackground($status = null)
+    {
+        if ($status) {
+            $this->load_additional_files_in_background = true;
+        }
+
+        return $this->load_additional_files_in_background;
+    }
+
+    public function loadAdditionalFilesInBackground($status = null)
+    {
+        if (!$this->loading_additional_files_in_background) {
+            $this->loading_additional_files_in_background = true;
+            $this->files(false, false);
+            $this->shouldLoadAdditionalFilesInBackground(false);
+            $this->loading_additional_files_in_background = false;
+        }
+    }
+
+    private function getFiles($type, $page, $page_files, $filtered)
+    {
+        $page_files = $this->getMediaOfType($type, $page, $page_files);
+
+        if ($filtered) {
+            $page_files = $this->filterByType($page_files);
+            $page_files = $this->filterByDate($page_files);
+        }
+
+        return $page_files;
+    }
+
+    /**
+     * Get all the media of a type ('images' | 'audios' | 'videos' | 'files')
+     *
+     * @param string $type
+     * @param Page|null $page
+     * @param array $files
+     *
+     * @return array
+     */
+    private function getMediaOfType($type, Page $page = null, array $files)
+    {
+        if ($page) {
+            $media = $page->media();
+            $mediaOfType = $media->$type();
+
+            foreach($mediaOfType as $title => $file) {
+                $files[] = [
+                    'title' => $title,
+                    'type' => $type,
+                    'page_route' => $page->route(),
+                    'file' => $file->higherQualityAlternative()
+                ];
+            }
+
+            return $files;
+        }
+
+        return [];
+    }
+
+    /**
+     * Filter media by type
+     *
+     * @param array $filesFiltered
+     *
+     * @return array
+     */
+    private function filterByType($filesFiltered)
+    {
+        $filter_type = $this->grav['uri']->param('type');
+        if (!$filter_type) {
+            return $filesFiltered;
+        }
+
+        $filesFiltered = array_filter($filesFiltered, function ($file) use ($filter_type) {
+            return $file['type'] == $filter_type;
+        });
+
+        return $filesFiltered;
+    }
+
+    /**
+     * Filter media by date
+     *
+     * @param array $filesFiltered
+     *
+     * @return array
+     */
+    private function filterByDate($filesFiltered)
+    {
+        $filter_date = $this->grav['uri']->param('date');
+        if (!$filter_date) {
+            return $filesFiltered;
+        }
+
+        $year = substr($filter_date, 0, 4);
+        $month = substr($filter_date, 5, 2);
+
+        $filesFilteredByDate = [];
+
+        foreach($filesFiltered as $file) {
+            $filedate = $this->fileDate($file['file']);
+            $fileYear = $filedate->format('Y');
+            $fileMonth = $filedate->format('m');
+
+            if ($fileYear == $year && $fileMonth == $month) {
+                $filesFilteredByDate[] = $file;
+            }
+        }
+
+        return $filesFilteredByDate;
+    }
+
+    /**
+     * Return the DateTime object representation of a file modified date
+     *
+     * @param File $file
+     *
+     * @return DateTime
+     */
+    private function fileDate($file) {
+        $datetime = new \DateTime();
+        $datetime->setTimestamp($file->toArray()['modified']);
+        return $datetime;
+    }
+
+    /**
+     * Get the files dates list to be used in the Media Files filter
+     *
+     * @return array
+     */
+    public function filesDates()
+    {
+        $files = $this->files(false);
+        $dates = [];
+
+        foreach ($files as $file) {
+            $datetime = $this->fileDate($file['file']);
+            $year = $datetime->format('Y');
+            $month = $datetime->format('m');
+
+            if (!isset($dates[$year])) {
+                $dates[$year] = [];
+            }
+
+            if (!isset($dates[$year][$month])) {
+                $dates[$year][$month] = 1;
+            } else {
+                $dates[$year][$month]++;
+            }
+        }
+
+        return $dates;
+    }
+
+    /**
+     * Get the pages list to be used in the Media Files filter
+     *
+     * @return array
+     */
+    public function pages()
+    {
+        /** @var Collection $pages */
+        $pages = $this->grav['pages']->all();
+
+        $pagesWithFiles = [];
+        foreach ($pages as $page) {
+            if (count($page->media()->all())) {
+                $pagesWithFiles[] = $page;
+            }
+        }
+
+        return $pagesWithFiles;
+    }
+
+    /**
+     * Return HTTP_REFERRER if set
+     *
+     * @return null
+     */
+    public function getReferrer()
+    {
+        return isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null;
+    }
 }

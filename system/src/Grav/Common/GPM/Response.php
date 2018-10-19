@@ -2,7 +2,7 @@
 /**
  * @package    Grav.Common.GPM
  *
- * @copyright  Copyright (C) 2014 - 2016 RocketTheme, LLC. All rights reserved.
+ * @copyright  Copyright (C) 2015 - 2018 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -112,6 +112,16 @@ class Response
         $config = Grav::instance()['config'];
         $overrides = [];
 
+        // Override CA Bundle
+        $caPathOrFile = \Composer\CaBundle\CaBundle::getSystemCaRootBundlePath();
+        if (is_dir($caPathOrFile) || (is_link($caPathOrFile) && is_dir(readlink($caPathOrFile)))) {
+            $overrides['curl'][CURLOPT_CAPATH] = $caPathOrFile;
+            $overrides['fopen']['ssl']['capath'] = $caPathOrFile;
+        } else {
+            $overrides['curl'][CURLOPT_CAINFO] = $caPathOrFile;
+            $overrides['fopen']['ssl']['cafile'] = $caPathOrFile;
+        }
+
         // SSL Verify Peer and Proxy Setting
         $settings = [
             'method'      => $config->get('system.gpm.method', self::$method),
@@ -187,6 +197,17 @@ class Response
     public static function isFopenAvailable()
     {
         return preg_match('/1|yes|on|true/i', ini_get('allow_url_fopen'));
+    }
+
+    /**
+     * Is this a remote file or not
+     *
+     * @param $file
+     * @return bool
+     */
+    public static function isRemote($file)
+    {
+        return (bool) filter_var($file, FILTER_VALIDATE_URL);
     }
 
     /**

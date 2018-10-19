@@ -1,3 +1,28 @@
+# v2.7.1
+## 03/14/2018
+
+1. [](#improved)
+    * Support shortcodes in theme as well as plugins [#43](https://github.com/getgrav/grav-plugin-shortcode-core/issues/43)
+
+# v2.7.0
+## 01/16/2018
+
+1. [](#new)
+    * Added a new `div` shortcode that supports `class` and `id` attributes
+
+# v2.6.0
+## 04/25/2017
+
+1. [](#new)
+    * Added ability to define a custom shortcode path for you own shortcodes [#36](https://github.com/getgrav/grav-plugin-shortcode-core/issues/36)
+    * Added a twig filter to allow you to use shortcodes directly in Twig templates [#33](https://github.com/getgrav/grav-plugin-shortcode-core/pull/33)
+
+# v2.5.4
+## 02/26/2017
+
+1. [](#bugfix)
+    * Fixed issue with modular Shortcode meta was not getting processed properly (Assets, Sections, etc.)
+
 # v2.5.3
 ## 02/21/2017
 

@@ -1,4 +1,4 @@
-{% set value = (value is null ? field.default : value) %}
+{% set value = (value is null ? field.default|tu : value) %}
 {% if not codemirrorOptions %}
     {% set codemirrorOptions = {'mode': 'gfm', 'ignore': ['code', 'preview']}|merge(field.codemirror|default({})) %}
 {% endif %}
@@ -12,7 +12,7 @@
 {% block field %}
     <div class="form-field {{ field.classes|default('') }}">
         <div class="form-data grav-editor">
-            <div class="grav-editor-content">
+            <div class="grav-editor-content is-active">
                 <textarea
                     data-grav-editor="{{ {'codemirror': codemirrorOptions} | json_encode|e('html_attr') }}"
                     data-grav-editor-mode="editor"
@@ -30,6 +30,17 @@
                 >{{ value|join("\n")|e('html') }}</textarea>
             </div>
             {% if field.resizer is not defined or field.resizer not in ['off', 'false', 0] %}<div class="grav-editor-resizer"></div>{% endif %}
+            {% if field.description %}
+                <div class="form-extra-wrapper {{ field.size }} {{ field.wrapper_classes }}">
+                    <span class="form-description">
+                        {% if field.markdown %}
+                            {{ field.description|tu|markdown(false)|raw }}
+                        {% else %}
+                            {{ field.description|tu|raw }}
+                        {% endif %}
+                    </span>
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

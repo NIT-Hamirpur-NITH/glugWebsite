@@ -2,7 +2,7 @@
 /**
  * @package    Grav.Console
  *
- * @copyright  Copyright (C) 2014 - 2016 RocketTheme, LLC. All rights reserved.
+ * @copyright  Copyright (C) 2015 - 2018 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -80,7 +80,7 @@ class InstallCommand extends ConsoleCommand
             ->addArgument(
                 'package',
                 InputArgument::IS_ARRAY | InputArgument::REQUIRED,
-                'The package(s) that are desired to be installed. Use the "index" command for a list of packages'
+                'Package(s) to install. Use "bin/gpm index" to list packages. Use "bin/gpm direct-install" to install a specific version'
             )
             ->setDescription("Performs the installation of plugins and themes")
             ->setHelp('The <info>install</info> command allows to install plugins and themes');
@@ -182,12 +182,12 @@ class InstallCommand extends ConsoleCommand
         //We're done installing dependencies. Install the actual packages
         foreach ($this->data as $data) {
             foreach ($data as $package_name => $package) {
-                if (in_array($package_name, array_keys($dependencies))) {
+                if (array_key_exists($package_name, $dependencies)) {
                     $this->output->writeln("<green>Package " . $package_name . " already installed as dependency</green>");
                 } else {
                     $is_valid_destination = Installer::isValidDestination($this->destination . DS . $package->install_path);
                     if ($is_valid_destination || Installer::lastErrorCode() == Installer::NOT_FOUND) {
-                        $this->processPackage($package, true, false);
+                        $this->processPackage($package, false);
                     } else {
                         if (Installer::lastErrorCode() == Installer::EXISTS) {
 
@@ -205,7 +205,7 @@ class InstallCommand extends ConsoleCommand
 
                             if ($answer) {
                                 $is_update = true;
-                                $this->processPackage($package, true, $is_update);
+                                $this->processPackage($package, $is_update);
                             } else {
                                 $this->output->writeln("<yellow>Package " . $package_name . " not overwritten</yellow>");
                             }
@@ -311,7 +311,7 @@ class InstallCommand extends ConsoleCommand
             if ($answer) {
                 foreach ($packages as $dependencyName => $dependencyVersion) {
                     $package = $this->gpm->findPackage($dependencyName);
-                    $this->processPackage($package, true, ($type == 'update') ? true : false);
+                    $this->processPackage($package, ($type == 'update') ? true : false);
                 }
                 $this->output->writeln('');
             } else {
@@ -444,18 +444,21 @@ class InstallCommand extends ConsoleCommand
     {
         $matches = $this->getGitRegexMatches($package);
 
-        foreach ($this->local_config as $path) {
+        foreach ($this->local_config as $paths) {
             if (Utils::endsWith($matches[2], '.git')) {
                 $repo_dir = preg_replace('/\.git$/', '', $matches[2]);
             } else {
                 $repo_dir = $matches[2];
             }
-
-            $from = rtrim($path, '/') . '/' . $repo_dir;
-
-            if (file_exists($from)) {
-                return $from;
+            
+            $paths = (array) $paths;
+            foreach ($paths as $repo) {
+                $path = rtrim($repo, '/') . '/' . $repo_dir;
+                if (file_exists($path)) {
+                    return $path;
+                }
             }
+
         }
 
         return false;
@@ -563,6 +566,7 @@ class InstallCommand extends ConsoleCommand
         $tmp_dir = Grav::instance()['locator']->findResource('tmp://', true, true);
         $this->tmp = $tmp_dir . '/Grav-' . uniqid();
         $filename = $package->slug . basename($package->zipball_url);
+        $filename = preg_replace('/[\\\\\/:"*?&<>|]+/mi', '-', $filename);
         $query = '';
 
         if ($package->premium) {

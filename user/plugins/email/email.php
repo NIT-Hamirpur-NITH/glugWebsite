@@ -1,10 +1,12 @@
 <?php
 namespace Grav\Plugin;
 
+use Grav\Common\Grav;
 use Grav\Common\Plugin;
 use Grav\Common\Twig\Twig;
 use Grav\Plugin\Email\Email;
 use RocketTheme\Toolbox\Event\Event;
+use Swift_RfcComplianceException;
 
 class EmailPlugin extends Plugin
 {
@@ -70,6 +72,9 @@ class EmailPlugin extends Plugin
                     'form' => $form
                 );
 
+                $grav = Grav::instance();
+                $grav->fireEvent('onEmailSend', new Event(['params' => &$params, 'vars' => &$vars]));
+
                 // Build message
                 $message = $this->buildMessage($params, $vars);
 
@@ -110,14 +115,16 @@ class EmailPlugin extends Plugin
 
         // Extend parameters with defaults.
         $params += array(
-            'bcc' => array(),
-            'body' => '{% include "forms/data.html.twig" %}',
-            'cc' => array(),
-            'charset' => 'utf-8',
+            'bcc' => $this->config->get('plugins.email.bcc', array()),
+            'body' => $this->config->get('plugins.email.body', '{% include "forms/data.html.twig" %}'),
+            'cc' => $this->config->get('plugins.email.cc', array()),
+            'cc_name' => $this->config->get('plugins.email.cc_name'),
+            'charset' =>  $this->config->get('plugins.email.charset', 'utf-8'),
             'from' => $this->config->get('plugins.email.from'),
             'from_name' => $this->config->get('plugins.email.from_name'),
             'content_type' => $this->config->get('plugins.email.content_type', 'text/html'),
-            'reply_to' => array(),
+            'reply_to' => $this->config->get('plugins.email.reply_to', array()),
+            'reply_to_name' => $this->config->get('plugins.email.reply_to_name'),
             'subject' => !empty($vars['form']) && $vars['form'] instanceof Form ? $vars['form']->page()->title() : null,
             'to' => $this->config->get('plugins.email.to'),
             'to_name' => $this->config->get('plugins.email.to_name'),
@@ -139,7 +146,11 @@ class EmailPlugin extends Plugin
             switch ($key) {
                 case 'bcc':
                     foreach ($this->parseAddressValue($value, $vars) as $address) {
-                        $message->addBcc($address->mail, $address->name);
+                        try {
+                            $message->addBcc($address->mail, $address->name);
+                        } catch (Swift_RfcComplianceException $e) {
+                            continue;
+                        }
                     }
                     break;
 
@@ -159,6 +170,11 @@ class EmailPlugin extends Plugin
                     }
                     elseif (is_array($value)) {
                         foreach ($value as $body_part) {
+                            $body_part += array(
+                                'charset' => $params['charset'],
+                                'content_type' => $params['content_type'],
+                            );
+
                             $body = !empty($body_part['body']) ? $twig->processString($body_part['body'], $vars) : null;
 
                             if ($params['process_markdown']) {
@@ -180,8 +196,19 @@ class EmailPlugin extends Plugin
                     break;
 
                 case 'cc':
+                    if (is_string($value) && !empty($params['cc_name'])) {
+                        $value = array(
+                            'mail' => $twig->processString($value, $vars),
+                            'name' => $twig->processString($params['cc_name'], $vars),
+                        );
+                    }
+
                     foreach ($this->parseAddressValue($value, $vars) as $address) {
-                        $message->addCc($address->mail, $address->name);
+                        try {
+                            $message->addCc($address->mail, $address->name);
+                        } catch (Swift_RfcComplianceException $e) {
+                            continue;
+                        }
                     }
                     break;
 
@@ -194,18 +221,33 @@ class EmailPlugin extends Plugin
                     }
 
                     foreach ($this->parseAddressValue($value, $vars) as $address) {
-                        $message->addFrom($address->mail, $address->name);
+                        try {
+                            $message->addFrom($address->mail, $address->name);
+                        } catch (Swift_RfcComplianceException $e) {
+                            continue;
+                        }
                     }
                     break;
 
                 case 'reply_to':
+                    if (is_string($value) && !empty($params['reply_to_name'])) {
+                        $value = array(
+                            'mail' => $twig->processString($value, $vars),
+                            'name' => $twig->processString($params['reply_to_name'], $vars),
+                        );
+                    }
+
                     foreach ($this->parseAddressValue($value, $vars) as $address) {
-                        $message->addReplyTo($address->mail, $address->name);
+                        try {
+                            $message->addReplyTo($address->mail, $address->name);
+                        } catch (Swift_RfcComplianceException $e) {
+                            continue;
+                        }
                     }
                     break;
 
                 case 'subject':
-                    $message->setSubject($twig->processString($value, $vars));
+                    $message->setSubject($twig->processString($this->grav['language']->translate($value), $vars));
                     break;
 
                 case 'to':
@@ -217,7 +259,11 @@ class EmailPlugin extends Plugin
                     }
 
                     foreach ($this->parseAddressValue($value, $vars) as $address) {
-                        $message->addTo($address->mail, $address->name);
+                        try {
+                            $message->addTo($address->mail, $address->name);
+                        } catch (Swift_RfcComplianceException $e) {
+                            continue;
+                        }
                     }
                     break;
             }
